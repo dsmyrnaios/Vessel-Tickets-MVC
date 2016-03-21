@@ -186,31 +186,19 @@
             @Html.ValidationMessageFor(m => m.DateTo, "", new {@class = "text-danger"})
         </div>
 
+        @* Passengers *@
         <div class="col-md-2">
             <div class="popover-markup">
                 <label for="NumOfPassengers" class="control-label">Επιβάτες</label>
-                @Html.TextBoxFor(m => m.NumOfPassengers, new { @class = "form-control", @readonly = "readonly", id = "numpassengers", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό επιβατών", tabindex = 1, })
+                @Html.TextBoxFor(m => m.NumOfPassengers, new { @class = "form-control", @readonly = "readonly", value="1", id = "numpassengers", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό επιβατών", tabindex = 1, })
                 @Html.ValidationMessageFor(m => m.NumOfPassengers)
 
                 <div class="head hide">Some title</div>
                 <div class="content hide">
 
-                    <div class="row bottom-border-class" id="passengerold">
-                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
-                        <div class="col-md-7">
-                            <label for="NumOfOlders">Ηλικιωμένοι</label>
-                            <label for="NumOfOlders">Άνω των 65 ετών</label>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
-                        </div>
-                    </div>
-
-                    <div class="row bottom-border-class" id="passengeradult">
-                        <input class="col-md-3 form-control" type="number" value="1" name="NumOfAdults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                    @* ADULTS *@
+                    <div class="row bottom-border-class" id="passengeradult" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" value="1" name="NumOfAdults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfAdults">Ενήλικες</label>
                             <label for="NumOfAdults">Από 16 εώς 65 ετών</label>
@@ -223,9 +211,9 @@
                         </div>
                     </div>
 
-
-                    <div class="row bottom-border-class" id="passengerteen">
-                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfTeens" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                    @* TEENS *@
+                    <div class="row bottom-border-class" id="passengerteen" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" value="0" name="NumOfTeens" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfTeens">Έφηβοι</label>
                             <label for="NumOfTeens">Από 12 εώς 16 ετών</label>
@@ -238,8 +226,9 @@
                         </div>
                     </div>
 
-                    <div class="row bottom-border-class" id="passengerkid">
-                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfKids" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                    @* KIDS *@
+                    <div class="row bottom-border-class" id="passengerkid" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" value="0" name="NumOfKids" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfKids">Παιδιά</label>
                             <label for="NumOfKids">Από 2 εώς 12 ετών</label>
@@ -252,8 +241,9 @@
                         </div>
                     </div>
 
-                    <div class="row bottom-border-class" id="passengerinfant">
-                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfInfants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                    @* INFANTS *@
+                    <div class="row bottom-border-class" id="passengerinfant" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" value="0" name="NumOfInfants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfInfants">Βρέφη</label>
                             <label for="NumOfInfants">Kάτω των 2 ετών</label>
@@ -266,28 +256,100 @@
                         </div>
                     </div>
 
+                    @* OLDS *@
+                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfOlders">Ηλικιωμένοι</label>
+                            <label for="NumOfOlders">Άνω των 65 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @* Vehicles *@
+        <div class="col-md-2">
+            <div class="popover-markup">
+                <label for="NumOfVehicles" class="control-label">Οχήματα</label>
+                @Html.TextBoxFor(m => m.NumOfVehicles, new {@class = "form-control", @readonly = "readonly", value = "0", id = "numvehicles", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό οχημάτων", tabindex = -1,})
+                @Html.ValidationMessageFor(m => m.NumOfVehicles)
+
+
+                <div class="head hide">Some title</div>
+                <div class="content hide">
+
+                    <div class="row bottom-border-class" style="margin-bottom: 5px;" id="vehicleCars">
+                        <input class="col-md-3 form-control" value="0" name="NumOfCars" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfCars">Αυτοκίνητα</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    @*Motorcycles*@
+                    <div class="row bottom-border-class" id="vehicleMotos" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfMotos" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfMotos">Μηχανές</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    @* Traler *@
+                    <div class="row bottom-border-class" id="vehicletrailers" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfTrailers" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfTrailers">Τρεϊλερ / τροχόσπιτα</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    <div class="row bottom-border-class" id="vehicleMiniBuses" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfMiniBuses" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfMiniBuses">Οικογενειακά λεωφορεία</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
 
-        <div class="input-field col m2">
-            <select class="form-control input-field" id="NumOfVehicles" name="NumOfVehicles">
-                @for (int i = 0; i <= 3; i++)
-                {
-                    <option value="@i">@i</option>
-                }
-            </select>
-            <label for="NumOfVehicles" class="control-label">Οχήματα</label>
-        </div>
     </div>
 
-    
-    
-
+    //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <a id="btnSrch" style="margin-top: 10px; float: right" class="btn waves-effect waves-light green">Αναζήτηση<i class="material-icons right">send</i></a>
+            <a style="margin-top: 10px; float: right" class="btn waves-effect waves-light green " type="submit">Αναζήτηση<i class="material-icons right">send</i></a>
         </div>
     </div>
 }

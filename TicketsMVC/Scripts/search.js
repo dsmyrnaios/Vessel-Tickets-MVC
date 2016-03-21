@@ -1,6 +1,12 @@
 ﻿$(document).ready(function () {
     $('select:not([multiple])').material_select();
-    
+    var numofAdultsG = 1;
+    var numofTeensG = 0;
+    var numofKidsG = 0;
+    var numofInfantsG = 0;
+    var numofOldsG = 0;
+
+
     var departure = $('<div style=width:600px>');
     var departurewrapper = $('<div>').append(departure);
     var arrive = $('<div style=width:600px>');
@@ -140,7 +146,23 @@
         $('[id=' + specificobject + ']').popover('show');
     });
 
-    $('body').on('click', '[id=numpassengers],[id=numvehicles]', function () {
+    $('body').on('click', '[id=numpassengers]', function () {
+        if (popovershownobject != '' && popovershownobject != $(this).attr('id')) {
+            $('[id=' + popovershownobject + ']').popover('hide');
+        }
+        popovershownobject = $(this).attr('id');
+        $(this).popover({
+            html: true,
+            trigger: 'manual',
+            content: function () {
+                return $(this).parent().find('.content').html();
+            }
+        });
+        $(this).popover('show');
+        $('#passengeradult').find('input').val(numofAdultsG);
+    });
+
+    $('body').on('click', '[id=numvehicles]', function () {
         if (popovershownobject != '' && popovershownobject != $(this).attr('id')) {
             $('[id=' + popovershownobject + ']').popover('hide');
         }
@@ -154,6 +176,7 @@
         });
         $(this).popover('show');
     });
+
 
     $(document).click(function (e) {
         if (!$(e.target).is('[id*=departuredate],[id*=arrivedate],[id=numpassengers], .popup-marker, .popover-title, .popover-content, span') && !$(e.target).parents('.popover').length > 0) {
@@ -385,8 +408,8 @@
             areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
             portheader.append(portimage).append(areaofports);
             if (selector.attr('id').search('depallroute') != -1) {
-                $arrid = selector.attr('id').split('depallroute');
-                $arriveportvalue = $('[id=arrallroute' + $arrid[1] + ']').find('input').val();
+                var $arrid = selector.attr('id').split('depallroute');
+                var $arriveportvalue = $('[id=arrallroute' + $arrid[1] + ']').find('input').val();
                 if ($arriveportvalue != '') {
 
                 }
@@ -395,8 +418,8 @@
                 }
             }
             else {
-                $depid = selector.attr('id').split('arrallroute');
-                $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
+                var $depid = selector.attr('id').split('arrallroute');
+                var $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
                 if ($departureportvalue != '') {
 
                 }
@@ -407,6 +430,8 @@
         }
     });
 
+   
+
     $('body').on('keyup', '[id*=passenger]>input', function () {
         if ($(this).val() > 0) {
             $(this).parent().find('.decrement').removeClass('lighten-3');
@@ -416,17 +441,19 @@
             $(this).val(0);
         }
         $(this).val(parseInt($(this).val()));
+
+        numofPassengersAdultGlob += parseInt($(this).val());
         $('#numpassengers').val(0);
         $('.popover-content>[id*=passenger]>input').each(function () {
             $('#numpassengers').val(parseInt($('#numpassengers').val()) + parseInt($(this).val()));
-
         });
     });
 
     $('body').on('click', '.increment,.decrement', function () {
-        $numpassengers = $('#numpassengers').val();
-        $selector = $(this).parent().parent().find('input');
-        $selectorvalue = $selector.val();
+        var $numpassengers = $('#numpassengers').val();
+        var $selector = $(this).parent().parent().find('input');
+        var $selectorvalue = $selector.val();
+        
         if ($(this).attr('class').search('increment') != -1) {
             $numpassengers++;
             $selectorvalue++;
@@ -440,11 +467,17 @@
                 $numpassengers--;
                 $selectorvalue--;
                 $selector.val($selectorvalue);
-                if ($selectorvalue == 0) {
+                if ($selectorvalue === 0) {
                     $(this).addClass('lighten-3');
                 }
             }
         }
+
+        //EDW KANW TO IF-ELSE GIA TIS METAVLHTES POU TIS EXW DHLWSEI PANW PANW STHN ARXH
+        if ($selector.attr('name') === 'NumOfAdults') {
+            numofAdultsG = $selectorvalue;
+        }
+
         $('#numpassengers').val($numpassengers);
     });
 
@@ -456,7 +489,6 @@ function addFerryStep(counter) {
     if (typeof counter == 'undefined') {
         return -1;
     }
-
     counter++;
 
     $("#actionbtnid").before(createNewFerrystep(counter));

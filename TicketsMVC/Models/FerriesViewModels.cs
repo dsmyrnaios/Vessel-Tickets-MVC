@@ -39,11 +39,13 @@ namespace TicketsMVC.Models
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό επιβατών")]
         [Display(Name = "Επιβάτες")]
-        public int NumOfPassengers { get; set; }
+        public int NumOfPassengers { get { return numpassengers; } set{ } }
+        private int numpassengers = 1;
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό οχημάτων")]
         [Display(Name = "Οχήματα")]
         public int NumOfVehicles { get; set; }
+        
 
         public List<MultipleDeparture> MultDepList
         {
@@ -51,6 +53,34 @@ namespace TicketsMVC.Models
         }
 
         private List<MultipleDeparture> _multDepartures = new List<MultipleDeparture>();
+
+        [Display(Name = "Ενήλικες")]
+        public int NumOfAdults { get; set; }
+
+        [Display(Name = "Έφηβοι")]
+        public int NumOfTeens { get; set; }
+
+        [Display(Name = "Παιδιά")]
+        public int NumOfKids { get; set; }
+
+        [Display(Name = "Βρέφη")]
+        public int NumOfInfants { get; set; }
+
+        [Display(Name = "Ηλικιωμένοι")]
+        public int NumOfOlders { get; set; }
+
+        [Display(Name = "Αυτοκίνητα")]
+        public int NumOfCars { get; set; }
+
+        [Display(Name = "Μηχανές")]
+        public int NumOfMotos { get; set; }
+
+        [Display(Name = "Τρέιλερ")]
+        public int NumOfTrailers { get; set; }
+
+        [Display(Name = "Μινι λεωφορεία")]
+        public int NumOfMiniBuses { get; set; }
+
 
     }
 
