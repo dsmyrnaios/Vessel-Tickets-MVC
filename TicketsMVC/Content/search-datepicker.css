@@ -1,0 +1,122 @@
+.calBox {
+  background-color: #928d81;
+  padding: 2px;
+  -moz-border-radius: 4px;
+  text-align: center;
+  color: white;
+}
+
+.calElement {
+  margin: 1px;
+  display: inline-block;
+  overflow:hidden;
+}
+
+.calYear {
+  font-size: 20px;
+  border-bottom: 1px dashed #666;
+  padding-bottom: 5px;
+  margin-bottom: 5px
+}
+
+.calYear .calElement {
+  border: 1px solid #999999;
+}
+
+.calMonth {
+  border-bottom: 1px dashed #666;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.calMonth .calElement {
+  font-size: 14px;
+  border: 1px solid #999999;
+}
+
+.calDay {
+    width:100%;
+}
+
+.calDay .calElement {
+  font-size: 12px;
+  border: 1px solid #999999;
+}
+
+.calDay .calElement.prev {
+  background: transparent url(../Content/Searchimages/prev.png) no-repeat 0 18px;
+  width: 10px;
+  height: 47px;
+  margin-right:3px;
+}
+
+.calDay .calElement.next {
+  background: transparent url(../Content/Searchimages/next.png) no-repeat 0 18px;
+  width: 10px;
+  height: 47px;
+  margin-left:3px;
+}
+
+span.calElement.next:hover, span.calElement.prev:hover {
+  border: 1px solid #999999;
+  cursor: pointer;
+}
+
+.calDay .calElement .dayNumber {
+  font-size: 20px;
+}
+
+
+.calElement.selected {
+  background-color: #404040;
+  border: 1px solid #404040;
+  -moz-border-radius: 3px
+}
+
+span.calElement:hover {
+  background-color: #404040;
+  border: 1px solid #404040;
+  -moz-border-radius: 3px;
+  cursor: pointer;
+}
+
+span.disabled,span.disabled:hover, span.disabled.selected
+{
+  background-image:url('../Content/Searchimages/nonvaliddates.png');
+  cursor:no-drop;
+  background-color: #999999;
+  border: 1px solid #999999;
+  -moz-border-radius: 3px
+}
+
+ span.disabled.today
+ {
+  background-image:url('../Content/Searchimages/nonvaliddates.png');
+  cursor:no-drop;
+  background-color: #999999;
+  border: 1px solid #e0e000;
+  -moz-border-radius: 3px
+ }
+
+ .calElement.daystartdate {
+  border: 1px solid #00ffff;
+  -moz-border-radius: 3px
+}
+
+span.daystartdate,span.daystartdate:hover, span.daystartdate.selected
+{
+
+   border: 1px solid #00ffff;
+  -moz-border-radius: 3px
+}
+
+span.daystartdate.today
+{
+   border: 1px solid #00ffff;
+  -moz-border-radius: 3px
+}
+
+.calElement.today {
+  border: 1px solid #e0e000;
+  -moz-border-radius: 3px
+}

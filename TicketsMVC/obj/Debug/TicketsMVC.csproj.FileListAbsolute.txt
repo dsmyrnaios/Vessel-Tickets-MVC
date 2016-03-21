@@ -1,0 +1,164 @@
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\ApplicationInsights.config
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\csc.exe
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\vbc.exe
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\VBCSCompiler.exe
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\TicketsMVC.dll.config
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\TicketsMVC.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\TicketsMVC.pdb
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Antlr3.Runtime.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.SqlServer.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.Web.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Newtonsoft.Json.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Owin.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Helpers.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Mvc.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Optimization.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Razor.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\WebGrease.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.Web.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Helpers.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Mvc.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Optimization.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Razor.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Antlr3.Runtime.pdb
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Newtonsoft.Json.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.SqlServer.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\obj\Debug\TicketsMVC.dll
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\obj\Debug\TicketsMVC.pdb
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\ApplicationInsights.config
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\csc.exe
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\System.Collections.Immutable.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\System.Reflection.Metadata.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\vbc.exe
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\VBCSCompiler.exe
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\roslyn\VBCSCompiler.exe.config
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\TicketsMVC.dll.config
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\TicketsMVC.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\TicketsMVC.pdb
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Antlr3.Runtime.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.SqlServer.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.DependencyCollector.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.Web.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.WindowsServer.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.ApplicationInsights.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Google.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Web.Infrastructure.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Newtonsoft.Json.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Owin.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Helpers.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Mvc.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Optimization.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Razor.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Deployment.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Razor.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\WebGrease.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.DependencyCollector.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.Web.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AI.WindowsServer.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.ApplicationInsights.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Helpers.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Mvc.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Optimization.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.Razor.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Deployment.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\System.Web.WebPages.Razor.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Antlr3.Runtime.pdb
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Newtonsoft.Json.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\EntityFramework.SqlServer.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Google.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\obj\Debug\TicketsMVC.csprojResolveAssemblyReference.cache
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\obj\Debug\TicketsMVC.dll
+D:\Dropbox\vessel tickets\TicketsMVC\TicketsMVC\TicketsMVC\obj\Debug\TicketsMVC.pdb
+C:\Users\Petros\Desktop\TicketsMVC\TicketsMVC\TicketsMVC\obj\Debug\TicketsMVC.csprojResolveAssemblyReference.cache

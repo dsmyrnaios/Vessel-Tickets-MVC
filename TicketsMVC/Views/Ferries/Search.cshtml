@@ -1,0 +1,308 @@
+﻿@using TicketsMVC.Models
+@model SearchViewModel
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+    
+    body {
+        line-height: 1.0;
+    }
+
+     fieldset {
+         overflow: hidden;
+     }
+
+    .routeoptions {
+        float: left;
+        clear: none;
+    }
+
+    label {
+        float: left;
+        clear: none;
+        display: block;
+        padding: 2px 1em 0 0;
+    }
+
+    input[id*=departure],input[id*=arrive]
+    {
+        margin-bottom:5px;
+    }
+
+    input[type=radio],
+    input.radio {
+        float: left;
+        clear: none;
+        margin: 2px 0 0 2px;
+    }
+
+    .portname:hover
+    {
+        background-color:dodgerblue;
+        cursor:pointer;
+    }
+
+    form, .form-horizontal {
+        background-color: #f4f9fd;
+        border: 1px solid #c6dff9;
+        /*display: none;*/
+        float: left;
+        font-size: 11px;
+        min-height: 243px;
+        padding-bottom: 3px;
+        padding-left: 20px;
+        padding-top: 30px;
+        width: 700px;
+    }
+
+    .form-control {
+        /*background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;*/
+        font-size: 12px;
+        height: 25px;
+        line-height: 1.0;
+        padding: 2px 6px;
+        transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        /*vertical-align: middle;
+    width: 100%;*/
+    }
+
+    .popover-markup > .popover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1010;
+        display: none;
+        max-width: 600px;
+        width: 300px;
+        padding: 1px;
+        text-align: left;
+        white-space: normal;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding;
+        background-clip: padding-box;
+    }
+
+    .bottom-border-class  {
+        border-bottom-width: 1px;
+        border-style: solid;
+        border-bottom-color:#d6eafa;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+}
+    div[id*=passenger] > input
+    {
+        width: 10%;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .increment
+    {
+        margin-right:5px;
+    }
+
+</style>
+
+@using (Html.BeginForm("Results", "Ferries", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+    <div class="routeoptions row">
+        @foreach (Triptype triptype in Enum.GetValues(typeof(Triptype)))
+        {
+            //Simple = 0, WithReturn = 1, Multiple = 2
+
+            @Html.RadioButtonFor(m => m.Triptype, triptype, new {  @type="radio", @class="with-gap", name = triptype, value = triptype, tabindex = -1 })
+            @*<input name="triptype" type="radio" class="with-gap" id="Triptype"  />*@
+
+            if (triptype == Triptype.Simple)
+            {
+                <label for=@triptype>Απλή Μετάβαση</label>
+            }
+            else if (triptype == Triptype.WithReturn)
+            {
+                <label for=@triptype>Με επιστροφή</label>
+            }
+            else
+            {
+                <label for=@triptype>Πολλαπλή μετάβαση</label>
+            }
+        }
+    </div>
+
+    <div class="row" id="fromto0">
+        <div class="input-field col s6" id="depallroute">
+            <label for="FromPort" class="control-label">
+                <a style="cursor:pointer">
+                    Επιλέξτε λιμάνι Αναχωρησης
+                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </a>
+            </label>
+            @Html.TextBoxFor(m => m.FromPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 1})
+            @Html.ValidationMessageFor(m => m.FromPort, "", new { @class = "text-danger" })
+        </div>
+        
+        <div class="input-field col s6" id="arrallroute">
+            <label for="ToPort" class="control-label">
+                <a style="cursor:pointer">
+                    Επιλέξτε λιμάνι Προορισμού
+                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </a>
+            </label>
+            @Html.TextBoxFor(m => m.ToPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 2})
+            @Html.ValidationMessageFor(m => m.ToPort, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="row" id="dates">
+        <div class="col-md-4" id="depalldate">
+            <label for="departure" class="control-label">@Html.LabelFor(model => model.DateFrom)</label>
+            @Html.TextBoxFor(m => m.DateFrom, new {@class = "form-control", data_toggle = "popover", data_placement = "bottom", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3})
+            @Html.ValidationMessageFor(m => m.DateFrom, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="col-md-4" id="arralldate">
+            <label for="arrive" class="control-label">@Html.LabelFor(model => model.DateTo)</label>
+            @Html.TextBoxFor(m => m.DateTo, new {@class = "form-control", data_toggle = "popover", data_placement = "bottom", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4})
+            @Html.ValidationMessageFor(m => m.DateTo, "", new {@class = "text-danger"})
+        </div>
+
+        <div class="col-md-2">
+            <div class="popover-markup">
+                <label for="NumOfPassengers" class="control-label">Επιβάτες</label>
+                @Html.TextBoxFor(m => m.NumOfPassengers, new { @class = "form-control", @readonly = "readonly", id = "numpassengers", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό επιβατών", tabindex = 1, })
+                @Html.ValidationMessageFor(m => m.NumOfPassengers)
+
+                <div class="head hide">Some title</div>
+                <div class="content hide">
+
+                    <div class="row bottom-border-class" id="passengerold">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfOlders">Ηλικιωμένοι</label>
+                            <label for="NumOfOlders">Άνω των 65 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    <div class="row bottom-border-class" id="passengeradult">
+                        <input class="col-md-3 form-control" type="number" value="1" name="NumOfAdults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfAdults">Ενήλικες</label>
+                            <label for="NumOfAdults">Από 16 εώς 65 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+
+                    <div class="row bottom-border-class" id="passengerteen">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfTeens" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfTeens">Έφηβοι</label>
+                            <label for="NumOfTeens">Από 12 εώς 16 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    <div class="row bottom-border-class" id="passengerkid">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfKids" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfKids">Παιδιά</label>
+                            <label for="NumOfKids">Από 2 εώς 12 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    <div class="row bottom-border-class" id="passengerinfant">
+                        <input class="col-md-3 form-control" type="number" value="0" name="NumOfInfants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfInfants">Βρέφη</label>
+                            <label for="NumOfInfants">Kάτω των 2 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="input-field col m2">
+            <select class="form-control input-field" id="NumOfVehicles" name="NumOfVehicles">
+                @for (int i = 0; i <= 3; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <label for="NumOfVehicles" class="control-label">Οχήματα</label>
+        </div>
+    </div>
+
+    
+    
+
+    <div class="row">
+        <div class="col-md-10">
+            <a id="btnSrch" style="margin-top: 10px; float: right" class="btn waves-effect waves-light green">Αναζήτηση<i class="material-icons right">send</i></a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/fancybox")
+    @Styles.Render("~/Content/fancybox")
+    @Styles.Render("~/Content/materialize")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/Scripts/search-datepicker.js")
+    @Scripts.Render("~/Scripts/search.js")
+    @Styles.Render("~/Content/search-datepicker.css")
+}
+
+
+
+
