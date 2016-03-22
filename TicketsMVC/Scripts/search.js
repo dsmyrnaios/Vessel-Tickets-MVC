@@ -1,11 +1,7 @@
 ﻿$(document).ready(function () {
     $('select:not([multiple])').material_select();
-    var numofAdultsG = 1;
-    var numofTeensG = 0;
-    var numofKidsG = 0;
-    var numofInfantsG = 0;
-    var numofOldsG = 0;
-
+    var numpassengersarray = [0, 1, 0, 0, 0];
+    var numvehiclesarray = [0, 0, 0, 0];
 
     var departure = $('<div style=width:600px>');
     var departurewrapper = $('<div>').append(departure);
@@ -72,7 +68,6 @@
 
         }
         else if (this.value === 'Multiple') {
-            //$('#fromto').append($addroutebutton);
             for (var i = 0; i < $('input[id*=departuredate]').length; i++) {
                 $('input[id=departuredate' + i + ']').hide();
             }
@@ -146,7 +141,7 @@
         $('[id=' + specificobject + ']').popover('show');
     });
 
-    $('body').on('click', '[id=numpassengers]', function () {
+    $('body').on('click', '[id=numpassengers],[id=numvehicles]', function () {
         if (popovershownobject != '' && popovershownobject != $(this).attr('id')) {
             $('[id=' + popovershownobject + ']').popover('hide');
         }
@@ -159,27 +154,17 @@
             }
         });
         $(this).popover('show');
-        $('#passengeradult').find('input').val(numofAdultsG);
-    });
-
-    $('body').on('click', '[id=numvehicles]', function () {
-        if (popovershownobject != '' && popovershownobject != $(this).attr('id')) {
-            $('[id=' + popovershownobject + ']').popover('hide');
+        if (popovershownobject == "numpassengers") {
+            startpassengerpopover();
         }
-        popovershownobject = $(this).attr('id');
-        $(this).popover({
-            html: true,
-            trigger: 'manual',
-            content: function () {
-                return $(this).parent().find('.content').html();
-            }
-        });
-        $(this).popover('show');
+        else
+        {
+            startvehiclepopover();
+        }
     });
-
 
     $(document).click(function (e) {
-        if (!$(e.target).is('[id*=departuredate],[id*=arrivedate],[id=numpassengers], .popup-marker, .popover-title, .popover-content, span') && !$(e.target).parents('.popover').length > 0) {
+        if (!$(e.target).is('[id*=departuredate],[id*=arrivedate],[id=numpassengers],[id=numvehicles], .popup-marker, .popover-title, .popover-content, span') && !$(e.target).parents('.popover').length > 0) {
             if (popovershownobject != '') {
                 $('[id=' + popovershownobject + ']').popover('hide');
                 popovershownobject = '';
@@ -418,8 +403,8 @@
                 }
             }
             else {
-                var $depid = selector.attr('id').split('arrallroute');
-                var $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
+                $depid = selector.attr('id').split('arrallroute');
+                $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
                 if ($departureportvalue != '') {
 
                 }
@@ -432,55 +417,129 @@
 
    
 
-    $('body').on('keyup', '[id*=passenger]>input', function () {
-        if ($(this).val() > 0) {
-            $(this).parent().find('.decrement').removeClass('lighten-3');
-        }
-        else {
-            $(this).parent().find('.decrement').addClass('lighten-3');
-            $(this).val(0);
-        }
-        $(this).val(parseInt($(this).val()));
+    $('body').on('keyup', '[id*=passenger]', function () {
+        keepnumpassengers($(this));
+    });
 
-        numofPassengersAdultGlob += parseInt($(this).val());
-        $('#numpassengers').val(0);
-        $('.popover-content>[id*=passenger]>input').each(function () {
-            $('#numpassengers').val(parseInt($('#numpassengers').val()) + parseInt($(this).val()));
-        });
+    $('body').on('keyup', '[id*=vehicle]', function () {
+        keepnumvehicles($(this));
     });
 
     $('body').on('click', '.increment,.decrement', function () {
-        var $numpassengers = $('#numpassengers').val();
-        var $selector = $(this).parent().parent().find('input');
-        var $selectorvalue = $selector.val();
+        $parentselector = $(this).parent().parent();
+        $selector = $parentselector.find('input');
+        $selectorvalue = $selector.val();
         
         if ($(this).attr('class').search('increment') != -1) {
-            $numpassengers++;
             $selectorvalue++;
             $selector.val($selectorvalue);
-            if ($selectorvalue > 0) {
-                $(this).parent().parent().find('.decrement').removeClass('lighten-3');
-            }
         }
         else {
             if ($selectorvalue > 0) {
-                $numpassengers--;
                 $selectorvalue--;
                 $selector.val($selectorvalue);
-                if ($selectorvalue === 0) {
-                    $(this).addClass('lighten-3');
-                }
             }
         }
 
-        //EDW KANW TO IF-ELSE GIA TIS METAVLHTES POU TIS EXW DHLWSEI PANW PANW STHN ARXH
-        if ($selector.attr('name') === 'NumOfAdults') {
-            numofAdultsG = $selectorvalue;
+        if ($parentselector.attr('id').search('passenger') != -1) {
+            keepnumpassengers($parentselector);
         }
-
-        $('#numpassengers').val($numpassengers);
+        else {
+            keepnumvehicles($parentselector);
+        }
     });
 
+    function keepnumpassengers(selector) {
+        selectorinput = selector.find('input');
+        if (selectorinput.val() != '') {
+            if (selectorinput.val() >= 0) {
+                if (selectorinput.attr('name') === 'NumOfOlders') {
+                    numpassengersarray[0] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfAdults') {
+                    numpassengersarray[1] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfTeens') {
+                    numpassengersarray[2] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfKids') {
+                    numpassengersarray[3] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfInfants') {
+                    numpassengersarray[4] = selectorinput.val();
+                }
+            }
+            else
+            {
+                selectorinput.val(0);
+            }
+        }
+        stylepopovercontent(selector);
+        var sumnumpassengers = 0;
+        for(var i =0;i<numpassengersarray.length;i++)
+        {
+            sumnumpassengers += parseInt(numpassengersarray[i]);
+        }
+        $('#numpassengers').val(sumnumpassengers);
+    }
+
+    function keepnumvehicles(selector) {
+        selectorinput = selector.find('input');
+        if (selectorinput.val() != '') {
+            if (selectorinput.val() >= 0) {
+                if (selectorinput.attr('name') === 'NumOfCars') {
+                    numvehiclesarray[0] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfMotos') {
+                    numvehiclesarray[1] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfTrailers') {
+                    numvehiclesarray[2] = selectorinput.val();
+                }
+                else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
+                    numvehiclesarray[3] = selectorinput.val();
+                }
+            }
+            else {
+                selectorinput.val(0);
+            }
+        }
+        stylepopovercontent(selector);
+        var sumnumvehicles = 0;
+        for (var i = 0; i < numvehiclesarray.length; i++) {
+            sumnumvehicles += parseInt(numvehiclesarray[i]);
+        }
+        $('#numvehicles').val(sumnumvehicles);
+    }
+
+    function startpassengerpopover()
+    {
+        var count = 0;
+        $('[id ^= passenger]').each(function () {
+            $(this).find('input').val(numpassengersarray[count]);
+            stylepopovercontent($(this));
+            count++;
+        });
+    }
+
+    function startvehiclepopover() {
+        var count = 0;
+        $('[id ^= vehicle]').each(function () {
+            $(this).find('input').val(numvehiclesarray[count]);
+            stylepopovercontent($(this));
+            count++;
+        });
+    }
+
+    function stylepopovercontent(selector)
+    {
+        if (selector.find('input').val() > 0) {
+            selector.find('.decrement').removeClass('lighten-3');
+        }
+        else {
+            selector.find('.decrement').addClass('lighten-3');
+        }
+    }
 });
 
 
