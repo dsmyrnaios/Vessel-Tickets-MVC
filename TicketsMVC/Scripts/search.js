@@ -374,6 +374,13 @@
         areaofports.text($(this).text());
 
     });
+
+    var selectorfancybox;
+    $('body').on('click', '.portname', function () {
+        selectorfancybox.find('input').val($(this).text());
+        $.fancybox.close();
+    });
+
     $('label[for^=FromPort],label[for^=ToPort]').fancybox({
         autoSize: true,
         autoScale: false,
@@ -381,19 +388,14 @@
         transitionOut: 'none',
         content: showports,
         beforeLoad: function () {
-            var selector = $(this.element).parent();
-            $('body').on('click', '.portname', function () {
-
-                selector.find('input').val($(this).text());
-                parent.$.fancybox.close();
-            });
+            selectorfancybox = $(this.element).parent();
             showports.empty();
             var portheader = $('<ul class=list-inline style="border-bottom:5px solid #FA0">');
             var portimage = $('<li><img src="../Content/Searchimages/ship.png" alt="shipimage" style=margin-bottom:5px></li>');
             areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
             portheader.append(portimage).append(areaofports);
-            if (selector.attr('id').search('depallroute') != -1) {
-                var $arrid = selector.attr('id').split('depallroute');
+            if (selectorfancybox.attr('id').search('depallroute') != -1) {
+                var $arrid = selectorfancybox.attr('id').split('depallroute');
                 var $arriveportvalue = $('[id=arrallroute' + $arrid[1] + ']').find('input').val();
                 if ($arriveportvalue != '') {
 
@@ -403,7 +405,7 @@
                 }
             }
             else {
-                $depid = selector.attr('id').split('arrallroute');
+                $depid = selectorfancybox.attr('id').split('arrallroute');
                 $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
                 if ($departureportvalue != '') {
 
