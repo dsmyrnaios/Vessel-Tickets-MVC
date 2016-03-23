@@ -269,6 +269,11 @@
                     }
                     inpt[0].selectionStart = originallength;
                     inpt[0].selectionEnd = firstelementtext.length;
+                    for (var i = 0; i < $($(this).data("uiAutocomplete").menu.element[0].children).length; i++)
+                    {
+                        var elementtext = $($(this).data("uiAutocomplete").menu.element[0].children[i]).text()
+                        $($(this).data("uiAutocomplete").menu.element[0].children[i]).html('<span style=color:orange>' + elementtext.substring(0, originallength) + '</span>' + elementtext.substring(originallength, elementtext.length));
+                    }
                 }
             }
         });
@@ -295,8 +300,8 @@
             areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
             portheader.append(portimage).append(areaofports);
             if (selectorfancybox.attr('id').search('depallroute') != -1) {
-                var $arrid = selectorfancybox.attr('id').split('depallroute');
-                var $arriveportvalue = $('[id=arrallroute' + $arrid[1] + ']').find('input').val();
+                $arrid = selectorfancybox.attr('id').split('depallroute');
+                $arriveportvalue = $('[id=arrallroute' + $arrid[1] + ']').find('input').val();
                 if ($arriveportvalue != '') {
 
                 }
@@ -305,8 +310,8 @@
                 }
             }
             else {
-                var $depid = selectorfancybox.attr('id').split('arrallroute');
-                var $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
+                $depid = selectorfancybox.attr('id').split('arrallroute');
+                $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
                 if ($departureportvalue != '') {
 
                 }
