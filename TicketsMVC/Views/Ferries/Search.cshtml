@@ -14,8 +14,9 @@
      }
 
     .routeoptions {
-        float: left;
+        /*float: left;*/
         clear: none;
+         display: inline;
     }
 
     label {
@@ -125,27 +126,49 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
-    <div class="routeoptions row">
-        @foreach (Triptype triptype in Enum.GetValues(typeof(Triptype)))
-        {
-            //Simple = 0, WithReturn = 1, Multiple = 2
+    @*<div class="routeoptions row">
+    @foreach (Triptype triptype in Enum.GetValues(typeof (Triptype)))
+    {
+        //Simple = 0, WithReturn = 1, Multiple = 2
 
-            @Html.RadioButtonFor(m => m.Triptype, triptype, new {  @type="radio", @class="with-gap", name = triptype, value = triptype, tabindex = -1 })
-            @*<input name="triptype" type="radio" class="with-gap" id="Triptype"  />*@
+        @Html.RadioButtonFor(m => m.Triptype, triptype, new {@type = "radio", @class = "with-gap", name = triptype, value = triptype, tabindex = -1})
+        <input name="triptype" type="radio" class="with-gap" id="Triptype"  />
 
-            if (triptype == Triptype.Simple)
-            {
-                <label for=@triptype>Απλή Μετάβαση</label>
-            }
-            else if (triptype == Triptype.WithReturn)
-            {
-                <label for=@triptype>Με επιστροφή</label>
-            }
-            else
-            {
-                <label for=@triptype>Πολλαπλή μετάβαση</label>
-            }
+
+            <p>
+                @if (triptype == Triptype.Simple)
+                {
+                    <input class="with-gap" name="TripType" type="radio" id="TripTypeS" />
+                    <label for=@triptype>Απλή Μετάβαση</label>
+                }
+                else if (triptype == Triptype.WithReturn)
+                {
+                    <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" />
+                    <label for=@triptype>Με επιστροφή</label>
+                }
+                else
+                {
+                    <input class="with-gap" name="TripType" type="radio" id="TripTypeM" />
+                    <label for=@triptype>Πολλαπλή μετάβαση</label>
+                }
+            </p>
         }
+    </div>*@
+
+    <div class="routeoptions row" >
+        <p>
+            <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple"/>
+            <label for="TripTypeS">Απλή Μετάβαση</label>
+        </p>
+        <p>
+            <input  class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn"/>
+            <label for="TripTypeWR">Με επιστροφή</label>
+        </p>
+        <p>
+            <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
+            <label for="TripTypeM">Πολλαπλή μετάβαση</label>
+        </p>
+        
     </div>
 
     <div class="row" id="fromto0">
@@ -173,7 +196,7 @@
     </div>
 
 
-    <div class="row" id="dates">
+    <div class="row" id="dates" style="display: inline;">
         <div class="col-md-4" id="depalldate">
             <label for="departure" class="control-label">@Html.LabelFor(model => model.DateFrom)</label>
             @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", type = "date", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
@@ -350,7 +373,8 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <a style="margin-top: 10px; float: right" class="btn waves-effect waves-light green " type="submit">Αναζήτηση<i class="material-icons right">send</i></a>
+            @*<a style="margin-top: 10px; float: right" class="button waves-effect waves-light green" type="submit">Αναζήτηση<i class="material-icons right">send</i></a>*@
+            <button value="Send" class="btn btn-success" type="submit" id="submit" style="margin-top: 10px; float: right" ><i class="glyphicon glyphicon-inbox"></i> Αναζήτηση</button>
         </div>
     </div>
 }

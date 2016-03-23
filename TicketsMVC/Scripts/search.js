@@ -8,12 +8,12 @@
     var arrive = $('<div style=width:600px>');
     var arrivewrapper = $('<div>').append(arrive);
     var defaultmultipledirections = 3;
-    var counter = defaultmultipledirections - 1;
+    var counter = defaultmultipledirections;
 
-    $('input[type=radio][name=Triptype][value=WithReturn]').attr("checked", true);
+    $('input[type=radio][name=TripType][value=WithReturn]').attr("checked", true);
 
-    $('body').on('change', 'input[type=radio][name=Triptype]', function () {
-        alert("edw");
+    $('body').on('change', 'input[type=radio][name=TripType]', function () {
+        
         if (this.value === 'Simple') {
 
             //remove all ferry steps divs
@@ -91,13 +91,15 @@
                 $("#ferrysteps").append(createNewFerrystep(j));
             }
 
-            counter = j - 1;
+            counter = j-1;
 
             var btnappend = '<div class="row" id="actionbtnid">' +
                             '<div class="col-md-6">' +
+                            //'<a class="waves-effect waves-light btn-large" οnclick="delFerryStep();"><i class="material-icons left">remove</i>Αφαιρεση διαδρομης</a>' +
                             '<button type="button" class="btn btn-link btn-secondary btn-sm glyphicon glyphicon-remove" style="float: left" id="delFerryStepId"><a onclick="delFerryStep();">Αφαίρεση διαδρομής</a></button>' +
                             '</div>' +
                             '<div class="col-md-5">' +
+                            //'<a class="waves-effect waves-light btn-large" οnclick="addFerryStep();"><i class="material-icons left">add</i>Προσθηκη διαδρομης</a>' +
                             '<button type="button" class="btn btn-link btn-secondary btn-sm glyphicon glyphicon-plus" style="float: right" id="addFerryStepId"><a onclick="addFerryStep();">Προσθήκη διαδρομής</a></button>' +
                             '</div></div>';
 
@@ -278,7 +280,7 @@
         $.fancybox.close();
     });
 
-    $('label[for^=FromPort],label[for^=ToPort]').fancybox({
+    $('label[for^=FromPort],label[for^=ToPort],label[for*=MultDepList]').fancybox({
         autoSize: true,
         autoScale: false,
         transitionIn: 'none',
@@ -303,8 +305,8 @@
                 }
             }
             else {
-                $depid = selectorfancybox.attr('id').split('arrallroute');
-                $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
+                var $depid = selectorfancybox.attr('id').split('arrallroute');
+                var $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
                 if ($departureportvalue != '') {
 
                 }
@@ -451,13 +453,12 @@ function addFerryStep(counter) {
     counter++;
 
     $("#actionbtnid").before(createNewFerrystep(counter));
-
     if (counter >= 4) {
         $('#addFerryStepId').hide();
     } else {
         $('#addFerryStepId').show();
     }
-
+    
     $('#delFerryStepId').show();
 
     return counter;
@@ -467,11 +468,10 @@ function delFerryStep(counter) {
     if (typeof counter == 'undefined') {
         return -1;
     }
-
+    
     $('#multipletrip' + counter).remove();
     counter--;
-    
-    if (counter < 3) {
+    if (counter < 2) {
         $('#delFerryStepId').hide();
     } else {
         $('#delFerryStepId').show();
@@ -486,19 +486,19 @@ function createNewFerrystep(cnt) {
 
     var toAppend = '<div class="row" id="multipletrip' + cnt + '">' +
                               '<div class="col-md-4" id="depallroute' + cnt + '">' +
-                              '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="margin-top: 5px; ">Επιλέξτε λιμάνι<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
+                              '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
-                              '<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].FromPort" class="field-validation-valid text-danger"></span>' +
+                              //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].FromPort" class="field-validation-valid text-danger"></span>' +
                               '</div>' +
                               '<div class="col-md-4" id="arrllroute' + cnt + '">' +
-                              '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; ">Επιλέξτε λιμάνι<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></label>' +
+                              '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class = "form-control datepicker" type = "date" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
-                              '<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
+                              //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div>' +
                               '<div class="col-md-3" id="depalldate' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].DateFrom" class="control-label" align="left">Αναχώρηση</label>' +
                               '<input class = "form-control datepicker" type = "date" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
-                              '<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
+                              //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div></div>';
     return toAppend;
 
