@@ -15,8 +15,9 @@
 
     .routeoptions {
         /*float: left;*/
-        clear: none;
-         display: inline;
+        clear: both;
+        display: inline;
+        width: 100%;
     }
 
     label {
@@ -156,18 +157,15 @@
     </div>*@
 
     <div class="routeoptions row" >
-        <p>
+        
             <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple"/>
             <label for="TripTypeS">Απλή Μετάβαση</label>
-        </p>
-        <p>
+      
             <input  class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn"/>
             <label for="TripTypeWR">Με επιστροφή</label>
-        </p>
-        <p>
+       
             <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
             <label for="TripTypeM">Πολλαπλή μετάβαση</label>
-        </p>
         
     </div>
 
@@ -218,21 +216,6 @@
 
                 <div class="head hide">Some title</div>
                 <div class="content hide">
-
-                    @* OLDS *@
-                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom: 5px;">
-                        <input class="col-md-3 form-control" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
-                        <div class="col-md-7">
-                            <label for="NumOfOlders">Ηλικιωμένοι</label>
-                            <label for="NumOfOlders">Άνω των 65 ετών</label>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
-                        </div>
-                    </div>
 
                     @* ADULTS *@
                     <div class="row bottom-border-class" id="passengeradult" style="margin-bottom: 5px;">
@@ -285,6 +268,21 @@
                         <div class="col-md-7">
                             <label for="NumOfInfants">Βρέφη</label>
                             <label for="NumOfInfants">Kάτω των 2 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    @* OLDS *@
+                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom: 5px;">
+                        <input class="col-md-3 form-control" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfOlders">Ηλικιωμένοι</label>
+                            <label for="NumOfOlders">Άνω των 65 ετών</label>
                         </div>
                         <div class="col-md-1">
                             <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
