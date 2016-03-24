@@ -94,15 +94,14 @@
 
             var btnappend = '<div class="row" id="actionbtnid">' +
                             '<div class="col-md-6">' +
-                            //'<a class="waves-effect waves-light btn-large" οnclick="delFerryStep();"><i class="material-icons left">remove</i>Αφαιρεση διαδρομης</a>' +
-                            '<button type="button" class="btn btn-link btn-secondary btn-sm glyphicon glyphicon-remove" style="float: left" id="delFerryStepId"><a onclick="delFerryStep();">Αφαίρεση διαδρομής</a></button>' +
+                            '<button type="button" class="btn waves-effect waves-light #81d4fa light-blue glyphicon glyphicon-remove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
                             '</div>' +
                             '<div class="col-md-5">' +
-                            //'<a class="waves-effect waves-light btn-large" οnclick="addFerryStep();"><i class="material-icons left">add</i>Προσθηκη διαδρομης</a>' +
-                            '<button type="button" class="btn btn-link btn-secondary btn-sm glyphicon glyphicon-plus" style="float: right" id="addFerryStepId"><a onclick="addFerryStep();">Προσθήκη διαδρομής</a></button>' +
+                            '<button type="button" class="btn waves-effect waves-light #81d4fa light-blue glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' +
                             '</div></div>';
 
             $("#ferrysteps").append(btnappend);
+            $('#delFerryStepId').hide();
 
             $('#addFerryStepId').on('click', function () {
                 var cnt = addFerryStep(counter);
@@ -118,17 +117,20 @@
 
     $('body').on('click', '[id*=departuredate],[id*=arrivedate]', function () {
         var specificobject = $(this).attr('id');
-        var startdate;
         if (specificobject.search('departuredate') != -1)
         {
             var dspecificdeparturedateobject = specificobject.split('departuredate');
             $('[id=arrivedate' + dspecificdeparturedateobject[1] + ']').val('');
-            startdate = new Date();
+            var startdate = new Date();
         }
         else
         {
             var dspecificarrivedateobject = specificobject.split('arrivedate');
-            startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
+            var startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
+            if(startdate=='')
+            {
+                startdate = new Date();
+            }
         }
         $(this).pickadate({
             selectMonths: true,
@@ -469,12 +471,12 @@ function addFerryStep(counter) {
     counter++;
 
     $("#actionbtnid").before(createNewFerrystep(counter));
-    if (counter >= 4) {
+    if (counter > 3) {
         $('#addFerryStepId').hide();
     } else {
         $('#addFerryStepId').show();
     }
-    
+
     $('#delFerryStepId').show();
 
     return counter;
@@ -487,7 +489,7 @@ function delFerryStep(counter) {
     
     $('#multipletrip' + counter).remove();
     counter--;
-    if (counter < 2) {
+    if (counter < 3) {
         $('#delFerryStepId').hide();
     } else {
         $('#delFerryStepId').show();
