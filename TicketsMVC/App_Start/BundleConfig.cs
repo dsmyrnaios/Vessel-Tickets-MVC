@@ -35,7 +35,7 @@ namespace TicketsMVC
                       "~/Content/fancybox/fancybox-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
-                      "~/Scripts/materialize/materialize.min.js"));
+                      "~/Scripts/materialize/materialize.js"));
 
             bundles.Add(new StyleBundle("~/Content/materialize").Include(
                       "~/Content/materialize/materialize.min.css"));

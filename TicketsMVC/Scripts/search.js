@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    $('select:not([multiple])').material_select();
     var numpassengersarray = [0, 1, 0, 0, 0];
     var numvehiclesarray = [0, 0, 0, 0];
 
@@ -119,9 +118,21 @@
 
     $('body').on('click', '[id*=departuredate],[id*=arrivedate]', function () {
         var specificobject = $(this).attr('id');
-        $('[id=' + specificobject + ']').pickadate({
+        var startdate;
+        if (specificobject.search('departuredate') != -1)
+        {
+            var dspecificdeparturedateobject = specificobject.split('departuredate');
+            $('[id=arrivedate' + dspecificdeparturedateobject[1] + ']').val('');
+            startdate = new Date();
+        }
+        else
+        {
+            var dspecificarrivedateobject = specificobject.split('arrivedate');
+            startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
+        }
+        $(this).pickadate({
             selectMonths: true,
-            min: new Date(),
+            min: startdate,
             selectYears: 1
         });
     });

@@ -31,8 +31,6 @@ namespace TicketsMVC.Models
         [Display(Name = "Επιστροφή")]
         public DateTime? DateTo { get; set; }
 
-        private Triptype triptype;
-
         [Required]
         [Display(Name = "Είδος ταξιδιού")]
         public Triptype Triptype { get; set; }

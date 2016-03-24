@@ -9,16 +9,6 @@
         line-height: 1.0;
     }
 
-     fieldset {
-         overflow: hidden;
-     }
-
-    .routeoptions {
-        /*float: left;*/
-        clear: none;
-         display: inline;
-    }
-
     label {
         float: left;
         clear: none;
@@ -126,50 +116,22 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
-    @*<div class="routeoptions row">
-    @foreach (Triptype triptype in Enum.GetValues(typeof (Triptype)))
-    {
-        //Simple = 0, WithReturn = 1, Multiple = 2
-
-        @Html.RadioButtonFor(m => m.Triptype, triptype, new {@type = "radio", @class = "with-gap", name = triptype, value = triptype, tabindex = -1})
-        <input name="triptype" type="radio" class="with-gap" id="Triptype"  />
-
-
-            <p>
-                @if (triptype == Triptype.Simple)
-                {
-                    <input class="with-gap" name="TripType" type="radio" id="TripTypeS" />
-                    <label for=@triptype>Απλή Μετάβαση</label>
-                }
-                else if (triptype == Triptype.WithReturn)
-                {
-                    <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" />
-                    <label for=@triptype>Με επιστροφή</label>
-                }
-                else
-                {
-                    <input class="with-gap" name="TripType" type="radio" id="TripTypeM" />
-                    <label for=@triptype>Πολλαπλή μετάβαση</label>
-                }
-            </p>
-        }
-    </div>*@
-
-    <div class="routeoptions row" >
-        <p>
-            <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple"/>
-            <label for="TripTypeS">Απλή Μετάβαση</label>
-        </p>
-        <p>
-            <input  class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn"/>
-            <label for="TripTypeWR">Με επιστροφή</label>
-        </p>
-        <p>
-            <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
-            <label for="TripTypeM">Πολλαπλή μετάβαση</label>
-        </p>
-        
-    </div>
+    <div class="row" >
+        <ul class="list-inline">
+            <li>
+                <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple" />
+                <label for="TripTypeS">Απλή Μετάβαση</label>
+            </li>
+            <li>
+                <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn" />
+                <label for="TripTypeWR">Με επιστροφή</label>
+            </li>
+            <li>
+                <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
+                <label for="TripTypeM">Πολλαπλή μετάβαση</label>
+            </li>
+        </ul>
+</div>
 
     <div class="row" id="fromto0">
         <div class="input-field col s6" id="depallroute">
@@ -196,16 +158,16 @@
     </div>
 
 
-    <div class="row" id="dates" style="display: inline;">
+    <div class="row" id="dates" style="display:inline">
         <div class="col-md-4" id="depalldate">
-            <label for="departure" class="control-label">@Html.LabelFor(model => model.DateFrom)</label>
-            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", type = "date", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
+            <label for="departure" class="control-label">Αναχώρηση</label>
+            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", @readonly = "readonly", type = "date", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
             @Html.ValidationMessageFor(m => m.DateFrom, "", new {@class = "text-danger"})
         </div>
 
         <div class="col-md-4" id="arralldate">
-            <label for="arrive" class="control-label">@Html.LabelFor(model => model.DateTo)</label>
-            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", type = "date", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
+            <label for="arrive" class="control-label">Επιστροφή</label>
+            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", @readonly = "readonly", type = "date", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
             @Html.ValidationMessageFor(m => m.DateTo, "", new {@class = "text-danger"})
         </div>
 
@@ -216,11 +178,9 @@
                 @Html.TextBoxFor(m => m.NumOfPassengers, new { @class = "form-control", @readonly = "readonly", value="1", id = "numpassengers", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό επιβατών", tabindex = 1, })
                 @Html.ValidationMessageFor(m => m.NumOfPassengers)
 
-                <div class="head hide">Some title</div>
                 <div class="content hide">
-
                     @* OLDS *@
-                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfOlders">Ηλικιωμένοι</label>
@@ -235,7 +195,7 @@
                     </div>
 
                     @* ADULTS *@
-                    <div class="row bottom-border-class" id="passengeradult" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="passengeradult" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="1" name="NumOfAdults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfAdults">Ενήλικες</label>
@@ -250,7 +210,7 @@
                     </div>
 
                     @* TEENS *@
-                    <div class="row bottom-border-class" id="passengerteen" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="passengerteen" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfTeens" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfTeens">Έφηβοι</label>
@@ -265,7 +225,7 @@
                     </div>
 
                     @* KIDS *@
-                    <div class="row bottom-border-class" id="passengerkid" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="passengerkid" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfKids" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfKids">Παιδιά</label>
@@ -280,7 +240,7 @@
                     </div>
 
                     @* INFANTS *@
-                    <div class="row bottom-border-class" id="passengerinfant" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="passengerinfant" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfInfants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfInfants">Βρέφη</label>
@@ -306,11 +266,9 @@
                 @Html.TextBoxFor(m => m.NumOfVehicles, new { @class = "form-control", @readonly = "readonly", id = "numvehicles", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό οχημάτων", tabindex = -1 })
                 @Html.ValidationMessageFor(m => m.NumOfVehicles)
 
-
-                <div class="head hide">Some title</div>
                 <div class="content hide">
-
-                    <div class="row bottom-border-class" id="vehiclecars" style="margin-bottom: 5px;">
+                    @*Cars*@
+                    <div class="row bottom-border-class" id="vehiclecars" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfCars" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfCars">Αυτοκίνητα</label>
@@ -324,7 +282,7 @@
                     </div>
 
                     @*Motorcycles*@
-                    <div class="row bottom-border-class" id="vehiclemotos" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="vehiclemotos" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfMotos" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfMotos">Μηχανές</label>
@@ -338,7 +296,7 @@
                     </div>
 
                     @* Traler *@
-                    <div class="row bottom-border-class" id="vehicletrailers" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="vehicletrailers" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfTrailers" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfTrailers">Τρεϊλερ / τροχόσπιτα</label>
@@ -351,7 +309,7 @@
                         </div>
                     </div>
 
-                    <div class="row bottom-border-class" id="vehicleminibuses" style="margin-bottom: 5px;">
+                    <div class="row bottom-border-class" id="vehicleminibuses" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfMiniBuses" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfMiniBuses">Οικογενειακά λεωφορεία</label>
@@ -373,8 +331,7 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            @*<a style="margin-top: 10px; float: right" class="button waves-effect waves-light green" type="submit">Αναζήτηση<i class="material-icons right">send</i></a>*@
-            <button value="Send" class="btn btn-success" type="submit" id="submit" style="margin-top: 10px; float: right" ><i class="glyphicon glyphicon-inbox"></i> Αναζήτηση</button>
+            <button value="Send" class="btn waves-effect waves-light green" type="submit" style="float:right"><i class="material-icons right">send</i>Αναζήτηση</button>
         </div>
     </div>
 }

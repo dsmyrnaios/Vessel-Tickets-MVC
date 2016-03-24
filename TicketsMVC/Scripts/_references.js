@@ -1,5 +1,5 @@
-﻿/// <reference path="jquery-ui-1.11.4.js" />
-/// <autosync enabled="true" />
+﻿/// <autosync enabled="true" />
+/// <reference path="jquery-ui-1.11.4.js" />
 /// <reference path="ai.0.15.0-build58334.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="fancybox/fancybox.js" />
