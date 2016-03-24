@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+TicketsMVC/obj/Debug/TicketsMVC.csproj.FileListAbsolute.txt
+.vs/TicketsMVC/v14/.suo
+TicketsMVC/obj/Debug/TicketsMVC.dll
+.vs/config/applicationhost.config
