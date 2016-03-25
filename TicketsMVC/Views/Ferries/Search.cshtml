@@ -3,123 +3,6 @@
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<style>
-    
-    body {
-        line-height: 1.0;
-    }
-
-     fieldset {
-         overflow: hidden;
-     }
-
-    .routeoptions {
-        /*float: left;*/
-        clear: both;
-        display: inline;
-        width: 100%;
-    }
-
-    label {
-        float: left;
-        clear: none;
-        display: block;
-        padding: 2px 1em 0 0;
-    }
-
-    input[id*=departure],input[id*=arrive]
-    {
-        margin-bottom:5px;
-    }
-
-    input[type=radio],
-    input.radio {
-        float: left;
-        clear: none;
-        margin: 2px 0 0 2px;
-    }
-
-    .portname:hover
-    {
-        background-color:dodgerblue;
-        cursor:pointer;
-    }
-
-    form, .form-horizontal {
-        background-color: #f4f9fd;
-        border: 1px solid #c6dff9;
-        /*display: none;*/
-        float: left;
-        font-size: 11px;
-        min-height: 243px;
-        padding-bottom: 3px;
-        padding-left: 20px;
-        padding-top: 30px;
-        width: 700px;
-    }
-
-    .form-control {
-        /*background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
-    display: block;*/
-        font-size: 12px;
-        height: 25px;
-        line-height: 1.0;
-        padding: 2px 6px;
-        transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-        /*vertical-align: middle;
-    width: 100%;*/
-    }
-
-    .popover-markup > .popover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1010;
-        display: none;
-        max-width: 600px;
-        width: 300px;
-        padding: 1px;
-        text-align: left;
-        white-space: normal;
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -webkit-background-clip: padding-box;
-        -moz-background-clip: padding;
-        background-clip: padding-box;
-    }
-
-    .bottom-border-class {
-        border-bottom-width: 1px;
-        border-style: solid;
-        border-bottom-color: #d6eafa;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-left-color: transparent;
-    }
-        
-    div[id*=passenger] > input, div[id*=vehicle] > input {
-        width: 10%;
-        height: 32px;
-        font-size: 14px;
-    }
-
-    .increment
-    {
-        margin-right:5px;
-    }
-
-</style>
 
 @using (Html.BeginForm("Results", "Ferries", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
 {
@@ -127,46 +10,17 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
-    @*<div class="routeoptions row">
-    @foreach (Triptype triptype in Enum.GetValues(typeof (Triptype)))
-    {
-        //Simple = 0, WithReturn = 1, Multiple = 2
+    <div class="routeoptions row">
 
-        @Html.RadioButtonFor(m => m.Triptype, triptype, new {@type = "radio", @class = "with-gap", name = triptype, value = triptype, tabindex = -1})
-        <input name="triptype" type="radio" class="with-gap" id="Triptype"  />
+        <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple"/>
+        <label for="TripTypeS">Απλή Μετάβαση</label>
 
+        <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn"/>
+        <label for="TripTypeWR">Με επιστροφή</label>
 
-            <p>
-                @if (triptype == Triptype.Simple)
-                {
-                    <input class="with-gap" name="TripType" type="radio" id="TripTypeS" />
-                    <label for=@triptype>Απλή Μετάβαση</label>
-                }
-                else if (triptype == Triptype.WithReturn)
-                {
-                    <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" />
-                    <label for=@triptype>Με επιστροφή</label>
-                }
-                else
-                {
-                    <input class="with-gap" name="TripType" type="radio" id="TripTypeM" />
-                    <label for=@triptype>Πολλαπλή μετάβαση</label>
-                }
-            </p>
-        }
-    </div>*@
+        <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple"/>
+        <label for="TripTypeM">Πολλαπλή μετάβαση</label>
 
-    <div class="routeoptions row" >
-        
-            <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple"/>
-            <label for="TripTypeS">Απλή Μετάβαση</label>
-      
-            <input  class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn"/>
-            <label for="TripTypeWR">Με επιστροφή</label>
-       
-            <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
-            <label for="TripTypeM">Πολλαπλή μετάβαση</label>
-        
     </div>
 
     <div class="row" id="fromto0">
@@ -219,7 +73,8 @@
 
                     @* ADULTS *@
                     <div class="row bottom-border-class" id="passengeradult" style="margin-bottom: 5px;">
-                        <input class="col-md-3 form-control" value="1" name="NumOfAdults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <input class="col-md-3 form-control" value="1" name="NumOfAdults" id="NumOfAdultsId" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        @*@Html.TextBoxFor(x => x.NumOfAdults, new { @class = "col-md-3 form-control", tabindex = -1}))*@
                         <div class="col-md-7">
                             <label for="NumOfAdults">Ενήλικες</label>
                             <label for="NumOfAdults">Από 16 εώς 65 ετών</label>
@@ -386,6 +241,7 @@
     @Scripts.Render("~/Scripts/search-datepicker.js")
     @Scripts.Render("~/Scripts/search.js")
     @Styles.Render("~/Content/search-datepicker.css")
+@Styles.Render("~/Content/Search.css")
 }
 
 

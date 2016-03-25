@@ -36,11 +36,12 @@ namespace TicketsMVC.Models
         public Triptype Triptype { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό επιβατών")]
+        [Range(0, 25, ErrorMessage = "Ο μέγιστος συνολικός αριθμός επιβατών πρέπει να είναι κάτω από 25")]
         [Display(Name = "Επιβάτες")]
-        public int NumOfPassengers { get { return numpassengers; } set{ } }
-        private int numpassengers = 1;
+        public int NumOfPassengers { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό οχημάτων")]
+        [Range(0, 10, ErrorMessage = "Ο μέγιστος συνολικός αριθμός οχημάτων πρέπει να είναι κάτω από 10")]
         [Display(Name = "Οχήματα")]
         public int NumOfVehicles { get; set; }
         

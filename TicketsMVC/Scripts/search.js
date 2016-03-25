@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
-    var numpassengersarray = [0, 1, 0, 0, 0];
-    var numvehiclesarray = [0, 0, 0, 0];
+    numpassengersarray = [1, 0, 0, 0, 0];
+    numvehiclesarray = [0, 0, 0, 0];
 
     var departure = $('<div style=width:600px>');
     var departurewrapper = $('<div>').append(departure);
@@ -27,9 +27,10 @@
                 $('input[id=arrivedate' + i + ']').hide();
             }
 
+            $('#depalldate').attr('class', 'col-md-3');
             $('label[for=departure]').show();
             $('input[id=departuredate0]').show();
-            $('#depalldate').attr('class', 'col-md-3');
+            
 
             $('label[for=arrive]').hide();
             $('#arralldate').attr('class', 'col-md-0');
@@ -52,14 +53,15 @@
             $('#actionbtnid').remove();
             $('#ferrysteps').remove();
 
+
+            $('#depalldate').attr('class', 'col-md-3');
             $('label[for=departure]').show();
             $('input[id=departuredate0]').show();
-            $('#depalldate').attr('class', 'col-md-3');
 
+            $('#arralldate').attr('class', 'col-md-3');
             $('label[for=arrive]').show();
             $('input[id=arrivedate0]').show();
-            $('#arralldate').attr('class', 'col-md-3');
-
+            
             //fromto
             $('#fromto0').show();
 
@@ -75,10 +77,12 @@
                 $('input[id=arrivedate' + i + ']').hide();
             }
 
-            $('label[for=departure]').hide();
             $('#depalldate').attr('class', 'col-md-0');
-            $('label[for=arrive]').hide();
+            $('label[for=departure]').hide();
+            
             $('#arralldate').attr('class', 'col-md-0');
+            $('label[for=arrive]').hide();
+            
             if ($('#fromto').find('addroute')) {
                 $('#addroute').remove();
             }
@@ -115,6 +119,27 @@
         }
     });
 
+    $('body').on('click', '[id*=departuredatemulti]', function () {
+        var specificobject = $(this).attr('id');
+        if (specificobject.search('departuredate') != -1) {
+            var dspecificdeparturedateobject = specificobject.split('departuredate');
+            $('[id=arrivedate' + dspecificdeparturedateobject[1] + ']').val('');
+            var startdate = new Date();
+        }
+        else if (specificobject.search('arrivedate') != -1) {
+            var dspecificarrivedateobject = specificobject.split('arrivedate');
+            var startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
+            if (startdate == '') {
+                startdate = new Date();
+            }
+        }
+        $(this).pickadate({
+            selectMonths: true,
+            min: startdate,
+            selectYears: 1
+        });
+    });
+
     $('body').on('click', '[id*=departuredate],[id*=arrivedate]', function () {
         var specificobject = $(this).attr('id');
         if (specificobject.search('departuredate') != -1)
@@ -135,7 +160,8 @@
         $(this).pickadate({
             selectMonths: true,
             min: startdate,
-            selectYears: 1
+            selectYears: 1,
+            closeOnSelect: true
         });
     });
 
@@ -346,9 +372,9 @@
     });
 
     $('body').on('click', '.increment,.decrement', function () {
-        $parentselector = $(this).parent().parent();
-        $selector = $parentselector.find('input');
-        $selectorvalue = $selector.val();
+        var $parentselector = $(this).parent().parent();
+        var $selector = $parentselector.find('input');
+        var $selectorvalue = $selector.val();
         
         if ($(this).attr('class').search('increment') != -1) {
             $selectorvalue++;
@@ -368,99 +394,98 @@
             keepnumvehicles($parentselector);
         }
     });
+    
+});
 
-    function keepnumpassengers(selector) {
-        selectorinput = selector.find('input');
-        if (selectorinput.val() != '') {
-            if (selectorinput.val() >= 0) {
-                if (selectorinput.attr('name') === 'NumOfOlders') {
-                    numpassengersarray[0] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfAdults') {
-                    numpassengersarray[1] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfTeens') {
-                    numpassengersarray[2] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfKids') {
-                    numpassengersarray[3] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfInfants') {
-                    numpassengersarray[4] = selectorinput.val();
-                }
+function keepnumpassengers(selector) {
+    var selectorinput = selector.find('input');
+    if (selectorinput.val() != '') {
+        if (selectorinput.val() >= 0) {
+            if (selectorinput.attr('name') === 'NumOfOlders') {
+                numpassengersarray[4] = selectorinput.val();
             }
-            else
-            {
-                selectorinput.val(0);
+            else if (selectorinput.attr('name') === 'NumOfAdults') {
+                numpassengersarray[0] = selectorinput.val();
+                $('#NumOfAdultsId').value = selectorinput.val();
             }
-        }
-        stylepopovercontent(selector);
-        var sumnumpassengers = 0;
-        for(var i =0;i<numpassengersarray.length;i++)
-        {
-            sumnumpassengers += parseInt(numpassengersarray[i]);
-        }
-        $('#numpassengers').val(sumnumpassengers);
-    }
-
-    function keepnumvehicles(selector) {
-        selectorinput = selector.find('input');
-        if (selectorinput.val() != '') {
-            if (selectorinput.val() >= 0) {
-                if (selectorinput.attr('name') === 'NumOfCars') {
-                    numvehiclesarray[0] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfMotos') {
-                    numvehiclesarray[1] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfTrailers') {
-                    numvehiclesarray[2] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
-                    numvehiclesarray[3] = selectorinput.val();
-                }
+            else if (selectorinput.attr('name') === 'NumOfTeens') {
+                numpassengersarray[1] = selectorinput.val();
             }
-            else {
-                selectorinput.val(0);
+            else if (selectorinput.attr('name') === 'NumOfKids') {
+                numpassengersarray[2] = selectorinput.val();
             }
-        }
-        stylepopovercontent(selector);
-        var sumnumvehicles = 0;
-        for (var i = 0; i < numvehiclesarray.length; i++) {
-            sumnumvehicles += parseInt(numvehiclesarray[i]);
-        }
-        $('#numvehicles').val(sumnumvehicles);
-    }
-
-    function startpassengerpopover()
-    {
-        var count = 0;
-        $('[id ^= passenger]').each(function () {
-            $(this).find('input').val(numpassengersarray[count]);
-            stylepopovercontent($(this));
-            count++;
-        });
-    }
-
-    function startvehiclepopover() {
-        var count = 0;
-        $('[id ^= vehicle]').each(function () {
-            $(this).find('input').val(numvehiclesarray[count]);
-            stylepopovercontent($(this));
-            count++;
-        });
-    }
-
-    function stylepopovercontent(selector)
-    {
-        if (selector.find('input').val() > 0) {
-            selector.find('.decrement').removeClass('lighten-3');
+            else if (selectorinput.attr('name') === 'NumOfInfants') {
+                numpassengersarray[3] = selectorinput.val();
+            }
         }
         else {
-            selector.find('.decrement').addClass('lighten-3');
+            selectorinput.val(0);
         }
     }
-});
+    stylepopovercontent(selector);
+    var sumnumpassengers = 0;
+    for (var i = 0; i < numpassengersarray.length; i++) {
+        sumnumpassengers += parseInt(numpassengersarray[i]);
+    }
+    $('#numpassengers').val(sumnumpassengers);
+}
+
+function keepnumvehicles(selector) {
+    var selectorinput = selector.find('input');
+    if (selectorinput.val() != '') {
+        if (selectorinput.val() >= 0) {
+            if (selectorinput.attr('name') === 'NumOfCars') {
+                numvehiclesarray[0] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfMotos') {
+                numvehiclesarray[1] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfTrailers') {
+                numvehiclesarray[2] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
+                numvehiclesarray[3] = selectorinput.val();
+            }
+        }
+        else {
+            selectorinput.val(0);
+        }
+    }
+
+    stylepopovercontent(selector);
+    var sumnumvehicles = 0;
+    for (var i = 0; i < numvehiclesarray.length; i++) {
+        sumnumvehicles += parseInt(numvehiclesarray[i]);
+    }
+    $('#numvehicles').val(sumnumvehicles);
+}
+
+function startpassengerpopover() {
+    var count = 0;
+    $('[id ^= passenger]').each(function () {
+        $(this).find('input').val(numpassengersarray[count]);
+        stylepopovercontent($(this));
+        count++;
+    });
+}
+
+function startvehiclepopover() {
+    var count = 0;
+    $('[id ^= vehicle]').each(function () {
+        $(this).find('input').val(numvehiclesarray[count]);
+        stylepopovercontent($(this));
+        count++;
+    });
+}
+
+function stylepopovercontent(selector) {
+    if (selector.find('input').val() > 0) {
+        selector.find('.decrement').removeClass('lighten-3');
+    }
+    else {
+        selector.find('.decrement').addClass('lighten-3');
+    }
+}
 
 
 function addFerryStep(counter) {
@@ -510,7 +535,7 @@ function createNewFerrystep(cnt) {
                               '</div>' +
                               '<div class="col-md-4" id="arrllroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
-                              '<input class = "form-control datepicker" type = "date" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
+                              '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
                               //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div>' +
                               '<div class="col-md-3" id="depalldate' + cnt + '">' +
