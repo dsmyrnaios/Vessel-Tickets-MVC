@@ -6,7 +6,7 @@
     var departurewrapper = $('<div>').append(departure);
     var arrive = $('<div style=width:600px>');
     var arrivewrapper = $('<div>').append(arrive);
-    var defaultmultipledirections = 3;
+    var defaultmultipledirections = 2;
     var counter = defaultmultipledirections;
 
     $('input[type=radio][name=TripType][value=WithReturn]').attr("checked", true);
@@ -189,6 +189,8 @@
     var portturkeyvalues = ['[KUS] KUSADASI (Κουσάντασι), Τουρκία (Λιμάνι)', '[MAR] MARMARIS, Τουρκία (Λιμάνι)'];
     var arrayofports = [portattikhvalues, portkykladesvalues, portargosaronikosvalues, portkrhthvalues, portioniovalues, portsporadesvalues, portboreioaigaiovalues, porteuoiavalues, portpeloponnhsosvalues, portitalyvalues, portturkeyvalues];
     var allports = [];
+    var xmlstring = "<xml><combination><departureport>[AMN] AG.MARINA(EVOIA), Ελλάδα (Λιμάνι)</departureport><arriveport>[LAV] Λαύριο (Αθήνα), Ελλάδα (Λιμάνι)</arriveport><arriveport>[ANA] ANAFI, Ελλάδα (Λιμάνι)</arriveport><arriveport>[MET] METHANA, Ελλάδα (Λιμάνι)</arriveport></combination></xml>"
+    var xmltojson = $.xml2json(xmlstring, true);
 
     for (var i = 0; i < portallvalues.length; i++) {
         for (var p = 0; p < categorylettersenglish.length; p++) {
@@ -199,13 +201,13 @@
                 if (portallvalues[i].charAt(0) == categorylettersgreeksmall[p]) {
                     allports[i] = [categoryportareavalues[0], portallvalues[i], categorylettersgreeksmall[p]];
                 }
-                else if(portallvalues[i].charAt(0) == categorylettersgreekbig[p])
-                {
+                else if (portallvalues[i].charAt(0) == categorylettersgreekbig[p]) {
                     allports[i] = [categoryportareavalues[0], portallvalues[i], categorylettersgreekbig[p]];
                 }
             }
         }
     }
+    var allportsbackup = allports.slice();
 
     for (var i = 1; i < categoryportareavalues.length; i++) {
         for (var k = 0; k < allports.length; k++) {
@@ -217,25 +219,44 @@
         }
     }
 
-    var showports = $('<div>');
     var categoryportareabutton = $('<a class="btn waves-effect waves-light blue categoryportareabutton" style=width:100%>');
     var categorytableportsarealist = $('<table class="table table-condensed">');
-    for (var i = 0; i < 12; i++) {
-        if (i == 6 || i==0)
-        {
-            categorytableportsarealist.append($('<tr>'));
+    var showports = $('<div>');
+    var portdiv = $('<div>');
+    var portlist = $('<table class="table table-condensed">');
+    portdiv.append(portlist)
+    var areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
+    var portheader = $('<ul class=list-inline style="border-bottom:5px solid #FA0">');
+    var portimage = $('<li><img src="../Content/Searchimages/ship.png" alt="shipimage" style=margin-bottom:5px></li>');
+    var portmap = $('<button type="button" class="btn btn-link portmap">Show on map</button>');
+    portheader.append(portimage).append(areaofports).append(portmap);
+    showports.append(categorytableportsarealist).append(portheader).append(portdiv);
+
+    function categorizedarealistbuttons() {
+        categorytableportsarealist.empty();
+        categorytableportsarealist.append($('<tr>').append($('<td>').append(categoryportareabutton.clone(true).text('Όλα τα Λιμάνια'))))
+        var counttr = 0;
+        for (var i = 1; i < categoryportareavalues.length; i++) {
+            var count = 0;
+            for (var j = 0; j < allports.length; j++) {
+                if (allports[j][0] == categoryportareavalues[i] && count == 0) {
+                    count++;
+                    if (counttr == 5) {
+                        categorytableportsarealist.append($('<tr>'));
+                    }
+                    counttr++;
+                    categorytableportsarealist.find('tr:last').append($('<td style=border:0px>').append(categoryportareabutton.clone(true).text(categoryportareavalues[i])));
+                }
+            }
         }
-        categorytableportsarealist.find('tr:last').append($('<td style=border:0px>').append(categoryportareabutton.clone(true).text(categoryportareavalues[i])));
     }
 
-    var portlist = $('<table class="table table-condensed">');
-    var areaofports;
     $('body').on('click', '.categoryportareabutton', function () {
         areaofports.text($(this).text());
-        filteredports($(this).text());
+        categorizedports($(this).text());
     });
 
-    function filteredports(value) {
+    function categorizedports(value) {
         portlist.empty();
         for (var i = 0; i < categorylettersenglish.length; i++) {
             var k = 0;
@@ -250,7 +271,7 @@
                     portlist.append($('<tr>'));
                 }
                 if (categoryportareavalues[0] == value && (categorylettersenglish[i].toUpperCase() == allports[j][2] || (i < 24 && (categorylettersgreeksmall[i] == allports[j][2] || categorylettersgreekbig[i] == allports[j][2])))) {
-                    portlist.find('tr:last').append($('<td class=portname>').append(portallvalues[j]));
+                    portlist.find('tr:last').append($('<td class=portname>').append(allports[j][1]));
                     k++;
                 }
                 else if (allports[j][0] == value && categorylettersenglish[i].toUpperCase() == allports[j][2]) {
@@ -261,6 +282,56 @@
         }
     }
 
+    function filteredports(object) {
+        allports = allportsbackup.slice();
+        var currentports = [];
+        var count = 0;
+        if (object.parent().attr('id').search('depallroute') != -1) {
+            var specificobject = object.parent().attr('id').split('depallroute');
+            for (var j = 0; j < xmltojson.combination.length; j++) {
+                for (var k = 0; k < xmltojson.combination[j].arriveport.length; k++) {
+                    var arriveport = xmltojson.combination[j].arriveport[k].text;
+                    for (var i = 0; i < allports.length; i++) {
+                        if (allports[i][1] == $('[id=arrallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == arriveport) {
+                            var departureport = xmltojson.combination[j].departureport[0].text;
+                            for (var i = 0; i < allports.length; i++) {
+                                if (allports[i][1] == departureport) {
+                                    currentports[count] = allports[i];
+                                }
+                            }
+                            allports = currentports.slice();
+                        }
+                    }
+                }
+                count++;
+            }
+        }
+        else {
+            var specificobject = object.parent().attr('id').split('arrallroute');
+            for (var j = 0; j < xmltojson.combination.length; j++) {
+                var departureport = xmltojson.combination[j].departureport[0].text;
+                for (var i = 0; i < allports.length; i++) {
+                    if (allports[i][1] == $('[id=depallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == departureport) {
+                        for (var i = 0; i < allports.length; i++) {
+                            for (var k = 0; k < xmltojson.combination[j].arriveport.length; k++) {
+                                var arriveport = xmltojson.combination[j].arriveport[k].text;
+                                if (allports[i][1] == arriveport) {
+                                    currentports[count] = allports[i];
+                                    count++;
+                                }
+                            }
+                        }
+                        allports = currentports.slice();
+                    }
+                }
+            }
+        }
+    }
+
+    $('body').on('input', '[id*=depallroute]>input,[id*=arrallroute]>input', function () {
+        filteredports($(this));
+    });
+
     $('body').on('click', '[id*=depallroute]>input,[id*=arrallroute]>input', function () {
         $(this).autocomplete({
             autoFocus: true,
@@ -269,7 +340,11 @@
                 request.term = request.term.replace(/\[+/g, "[");
                 var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
                 response($.grep(portallvalues, function (item) {
-                    return matcher.test(item);
+                    for (var i = 0; i < allports.length; i++) {
+                        if (allports[i][1] == item) {
+                            return matcher.test(item);
+                        }
+                    }
                 }));
             },
             open: function (event, ui) {
@@ -294,7 +369,14 @@
 
     var selectorfancybox;
     $('body').on('click', '.portname', function () {
+        portdiv.empty();
+        portdiv.append(portlist);
         selectorfancybox.find('input').val($(this).text());
+        $.fancybox.close();
+    });
+
+    $('body').on('click', '.portmap', function () {
+        portdiv.empty();
         $.fancybox.close();
     });
 
@@ -305,37 +387,13 @@
         transitionOut: 'none',
         content: showports,
         beforeLoad: function () {
-            filteredports(categoryportareavalues[0]);
+            filteredports($(this.element));
             selectorfancybox = $(this.element).parent();
-            showports.empty();
-            var portheader = $('<ul class=list-inline style="border-bottom:5px solid #FA0">');
-            var portimage = $('<li><img src="../Content/Searchimages/ship.png" alt="shipimage" style=margin-bottom:5px></li>');
-            areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
-            portheader.append(portimage).append(areaofports);
-            if (selectorfancybox.attr('id').search('depallroute') != -1) {
-                $arrid = selectorfancybox.attr('id').split('depallroute');
-                $arriveportvalue = $('[id=arrallroute' + $arrid[1] + ']').find('input').val();
-                if ($arriveportvalue != '') {
-
-                }
-                else {
-                    showports.append(categorytableportsarealist).append(portheader).append(portlist);
-                }
-            }
-            else {
-                $depid = selectorfancybox.attr('id').split('arrallroute');
-                $departureportvalue = $('[id=depallroute' + $depid[1] + ']').find('input').val();
-                if ($departureportvalue != '') {
-
-                }
-                else {
-                    showports.append(categorytableportsarealist).append(portheader).append(portlist);
-                }
-            }
+            categorizedarealistbuttons();
+            categorizedports(categoryportareavalues[0]);
+            areaofports.text(categoryportareavalues[0]);
         }
     });
-
-   
 
     $('body').on('keyup', '[id*=passenger]', function () {
         keepnumpassengers($(this));
@@ -471,7 +529,7 @@ function addFerryStep(counter) {
     counter++;
 
     $("#actionbtnid").before(createNewFerrystep(counter));
-    if (counter > 3) {
+    if (counter > 2) {
         $('#addFerryStepId').hide();
     } else {
         $('#addFerryStepId').show();
@@ -489,7 +547,7 @@ function delFerryStep(counter) {
     
     $('#multipletrip' + counter).remove();
     counter--;
-    if (counter < 3) {
+    if (counter < 2) {
         $('#delFerryStepId').hide();
     } else {
         $('#delFerryStepId').show();
@@ -510,12 +568,12 @@ function createNewFerrystep(cnt) {
                               '</div>' +
                               '<div class="col-md-4" id="arrllroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
-                              '<input class = "form-control datepicker" type = "date" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
+                              '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
                               //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div>' +
                               '<div class="col-md-3" id="depalldate' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].DateFrom" class="control-label" align="left">Αναχώρηση</label>' +
-                              '<input class = "form-control datepicker" type = "date" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
+                              '<input class = "form-control datepicker" type = "date" readonly="readonly" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
                               //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div></div>';
     return toAppend;

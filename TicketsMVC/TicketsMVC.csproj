@@ -223,8 +223,6 @@
     <Content Include="Content\fancybox\fancyboximages\fancybox_sprite.png" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Content\materialize\materialize.min.css" />
-    <Content Include="Content\search-datepicker.css" />
-    <Content Include="Content\Searchimages\nonvaliddates.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -273,10 +271,9 @@
     <Content Include="Scripts\jquery-2.2.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\map\gmap3.min.js" />
     <Content Include="Scripts\materialize\materialize.js" />
     <Content Include="Scripts\materialize\materialize.min.js" />
-    <Content Include="Scripts\search-datepickerwheel.js" />
-    <Content Include="Scripts\search-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -296,9 +293,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\xml2json\xml2json.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Content\Searchimages\next.png" />
-    <Content Include="Content\Searchimages\prev.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -339,6 +335,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\materialize\font\roboto\" />
+    <Folder Include="Content\Searchimages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

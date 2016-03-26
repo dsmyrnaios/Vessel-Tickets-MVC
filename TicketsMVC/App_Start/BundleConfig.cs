@@ -34,6 +34,12 @@ namespace TicketsMVC
                       "~/Content/fancybox/fancybox.css",
                       "~/Content/fancybox/fancybox-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/xml2json").Include(
+                        "~/Scripts/xml2json/xml2json.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/map").Include(
+                      "~/Scripts/map/gmap3.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
                       "~/Scripts/materialize/materialize.js"));
 
