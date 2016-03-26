@@ -121,43 +121,49 @@
 
     $('body').on('click', '[id*=departuredatemulti]', function () {
         var specificobject = $(this).attr('id');
-        if (specificobject.search('departuredate') != -1) {
-            var dspecificdeparturedateobject = specificobject.split('departuredate');
-            $('[id=arrivedate' + dspecificdeparturedateobject[1] + ']').val('');
-            var startdate = new Date();
+        var startdate =new Date;
+
+        var idcount = parseInt(specificobject[specificobject.length - 1]);
+        if (idcount > 0) {
+            alert($('#departuredatemulti' + (idcount-1)).val());
+            startdate = new Date($('#departuredatemulti' + (idcount - 1)).val());
         }
-        else if (specificobject.search('arrivedate') != -1) {
-            var dspecificarrivedateobject = specificobject.split('arrivedate');
-            var startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
-            if (startdate == '') {
-                startdate = new Date();
-            }
-        }
+
         $(this).pickadate({
+            format: "dd/mm/yyyy",
             selectMonths: true,
             min: startdate,
+            closeOnSelect: true,
+            closeOnClear: true,
             selectYears: 1
         });
     });
 
     $('body').on('click', '[id*=departuredate],[id*=arrivedate]', function () {
         var specificobject = $(this).attr('id');
+        var startdate;
+
+        if (specificobject.search('departuredatemulti') != -1) {
+            return;
+        }
+
         if (specificobject.search('departuredate') != -1)
         {
             var dspecificdeparturedateobject = specificobject.split('departuredate');
             $('[id=arrivedate' + dspecificdeparturedateobject[1] + ']').val('');
-            var startdate = new Date();
+            startdate = new Date();
         }
         else
         {
             var dspecificarrivedateobject = specificobject.split('arrivedate');
-            var startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
+            startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
             if(startdate=='')
             {
                 startdate = new Date();
             }
         }
         $(this).pickadate({
+            format: "dd/mm/yyyy",
             selectMonths: true,
             min: startdate,
             selectYears: 1,

@@ -46,13 +46,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 TicketsMVC/obj/Debug/TicketsMVC.csproj.FileListAbsolute.txt
-.vs/TicketsMVC/v14/.suo
-TicketsMVC/obj/Debug/TicketsMVC.dll
-.vs/config/applicationhost.config
-.vs/config/applicationhost.config
 *.suo
-TicketsMVC/bin/TicketsMVC.dll
-*.pdb
 *.cache
-TicketsMVC/obj/Debug/TicketsMVC.dll
 *.pdb
+.vs/config/applicationhost.config
+TicketsMVC/bin/TicketsMVC.dll
