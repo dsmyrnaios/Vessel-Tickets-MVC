@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
-    var numpassengersarray = [0, 1, 0, 0, 0];
-    var numvehiclesarray = [0, 0, 0, 0];
+    numpassengersarray = [0, 1, 0, 0, 0];
+    numvehiclesarray = [0, 0, 0, 0];
 
     var departure = $('<div style=width:600px>');
-    var departurewrapper = $('<div>').append(departure);
     var arrive = $('<div style=width:600px>');
-    var arrivewrapper = $('<div>').append(arrive);
     var defaultmultipledirections = 2;
     var counter = defaultmultipledirections;
+
+    
 
     $('input[type=radio][name=TripType][value=WithReturn]').attr("checked", true);
 
@@ -92,11 +92,11 @@
 
             counter = j-1;
 
-            var btnappend = '<div class="row" id="actionbtnid">' +
+            var btnappend = '<div class="row" style="margin-bottom:0px" id="actionbtnid">' +
                             '<div class="col-md-6">' +
                             '<button type="button" class="btn waves-effect waves-light #81d4fa light-blue glyphicon glyphicon-remove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
                             '</div>' +
-                            '<div class="col-md-5">' +
+                            '<div class="col-md-6">' +
                             '<button type="button" class="btn waves-effect waves-light #81d4fa light-blue glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' +
                             '</div></div>';
 
@@ -115,37 +115,77 @@
         }
     });
 
-<<<<<<< HEAD
+    $('.datepicker').parseDate = function (format, value) {
+        return moment(value, format).toDate();
+    };
+    $('.datepicker').formatDate = function (format, value) {
+        return moment(value).format(format);
+    };
+
+  
     $('body').on('click', '[id*=departuredatemulti]', function () {
         var specificobject = $(this).attr('id');
-        var startdate =new Date;
-
+        var beginningdate =new Date();
+        
         var idcount = parseInt(specificobject[specificobject.length - 1]);
         if (idcount > 0) {
-            alert($('#departuredatemulti' + (idcount-1)).val());
-            startdate = new Date($('#departuredatemulti' + (idcount - 1)).val());
+            var dt = moment($('#departuredatemulti' + (idcount - 1)).val(), 'DD-MM-YYYY');
+            beginningdate = new Date(dt.year(), dt.month(), dt.date());
         }
 
+        var picker = $(this).pickadate('picker');
+        if (picker != null) {
+            if (picker.get('open') == false) {
+                if (dt != null) {
+                    picker.set('min', [dt.year(), dt.month(), dt.date()]);
+                    picker.set('max', [dt.year() + 1, dt.month(), dt.date()]);
+                }
+                picker.open();
+                return;
+            }
+        }
+        
+        
         $(this).pickadate({
-            format: "dd/mm/yyyy",
-            selectMonths: true,
-            min: startdate,
-            closeOnSelect: true,
-            closeOnClear: true,
-            selectYears: 1
+             format: "dd/mm/yyyy",
+             selectMonths: true,
+             monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
+             min:  beginningdate,
+             max: new Date(beginningdate.getFullYear() + 1, beginningdate.getMonth(), beginningdate.getDate()),
+             //closeOnSelect: true,
+             closeOnClear: true,
+             selectYears: 2,
+             onClose: function () {
+                 for (var j = idcount + 1; j <= counter; j++) {
+                     if ($('#departuredatemulti' + j).val('') != '' && $('#departuredatemulti' + j).val('') != 'undefined') {
+                         var dtj = moment($('#departuredatemulti' + (j)).val(), 'DD-MM-YYYY');
+                         if (dtj > dt) {
+                             $('#departuredatemulti' + j).val('');
+                         }
+                     }
+                 }
+             },
+             onSet: function (thingSet) {
+                 //console.log('Set stuff:', thingSet);
+                 //this.close();
+
+             }
         });
+
+
+       
     });
 
-=======
->>>>>>> 32f694aa455574f7a750cb3a6df565020bf6f26b
+    
     $('body').on('click', '[id*=departuredate],[id*=arrivedate]', function () {
         var specificobject = $(this).attr('id');
-        var startdate;
 
         if (specificobject.search('departuredatemulti') != -1) {
             return;
         }
 
+        var startdate;
+        
         if (specificobject.search('departuredate') != -1)
         {
             var dspecificdeparturedateobject = specificobject.split('departuredate');
@@ -155,17 +195,43 @@
         else
         {
             var dspecificarrivedateobject = specificobject.split('arrivedate');
-            startdate = $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val();
-            if(startdate=='')
-            {
+            if ($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val() == '') {
                 startdate = new Date();
+            } else {
+                var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'DD-MM-YYYY');
+                startdate = new Date(dt.year(), dt.month(), dt.date());
             }
         }
+
+        var picker = $(this).pickadate('picker');
+        if (picker != null) {
+            if (picker.get('open') == false) {
+                if (specificobject.search('arrivedate') != -1 && $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val() != '') {
+                    var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'DD-MM-YYYY');
+                    picker.set('min', [dt.year(), dt.month(), dt.date()]);
+                    picker.set('max', [dt.year()+1, dt.month(), dt.date()]);
+                }
+
+            }
+            picker.open();
+            return;
+        }
+
+
         $(this).pickadate({
             format: "dd/mm/yyyy",
             selectMonths: true,
+            monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
             min: startdate,
-            selectYears: 1
+            max: new Date(startdate.getFullYear() + 1, startdate.getMonth(), startdate.getDate()),
+            closeOnSelect: true,
+            closeOnClear: true,
+            selectYears: 2
+            //onSet: function (thingSet) {
+            //    //console.log('Set stuff:', thingSet);
+            //    this.close();
+
+            //}
         });
     });
 
@@ -434,9 +500,9 @@
     });
 
     $('body').on('click', '.increment,.decrement', function () {
-        $parentselector = $(this).parent().parent();
-        $selector = $parentselector.find('input');
-        $selectorvalue = $selector.val();
+        var $parentselector = $(this).parent().parent();
+        var $selector = $parentselector.find('input');
+        var $selectorvalue = $selector.val();
         
         if ($(this).attr('class').search('increment') != -1) {
             $selectorvalue++;
@@ -457,99 +523,96 @@
         }
     });
 
-    function keepnumpassengers(selector) {
-        selectorinput = selector.find('input');
-        if (selectorinput.val() != '') {
-            if (selectorinput.val() >= 0) {
-                if (selectorinput.attr('name') === 'NumOfOlders') {
-                    numpassengersarray[0] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfAdults') {
-                    numpassengersarray[1] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfTeens') {
-                    numpassengersarray[2] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfKids') {
-                    numpassengersarray[3] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfInfants') {
-                    numpassengersarray[4] = selectorinput.val();
-                }
-            }
-            else
-            {
-                selectorinput.val(0);
-            }
-        }
-        stylepopovercontent(selector);
-        var sumnumpassengers = 0;
-        for(var i =0;i<numpassengersarray.length;i++)
-        {
-            sumnumpassengers += parseInt(numpassengersarray[i]);
-        }
-        $('#numpassengers').val(sumnumpassengers);
-    }
-
-    function keepnumvehicles(selector) {
-        selectorinput = selector.find('input');
-        if (selectorinput.val() != '') {
-            if (selectorinput.val() >= 0) {
-                if (selectorinput.attr('name') === 'NumOfCars') {
-                    numvehiclesarray[0] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfMotos') {
-                    numvehiclesarray[1] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfTrailers') {
-                    numvehiclesarray[2] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
-                    numvehiclesarray[3] = selectorinput.val();
-                }
-            }
-            else {
-                selectorinput.val(0);
-            }
-        }
-        stylepopovercontent(selector);
-        var sumnumvehicles = 0;
-        for (var i = 0; i < numvehiclesarray.length; i++) {
-            sumnumvehicles += parseInt(numvehiclesarray[i]);
-        }
-        $('#numvehicles').val(sumnumvehicles);
-    }
-
-    function startpassengerpopover()
-    {
-        var count = 0;
-        $('[id ^= passenger]').each(function () {
-            $(this).find('input').val(numpassengersarray[count]);
-            stylepopovercontent($(this));
-            count++;
-        });
-    }
-
-    function startvehiclepopover() {
-        var count = 0;
-        $('[id ^= vehicle]').each(function () {
-            $(this).find('input').val(numvehiclesarray[count]);
-            stylepopovercontent($(this));
-            count++;
-        });
-    }
-
-    function stylepopovercontent(selector)
-    {
-        if (selector.find('input').val() > 0) {
-            selector.find('.decrement').removeClass('lighten-3');
-        }
-        else {
-            selector.find('.decrement').addClass('lighten-3');
-        }
-    }
 });
 
+
+function keepnumpassengers(selector) {
+    var selectorinput = selector.find('input');
+    if (selectorinput.val() != '') {
+        if (selectorinput.val() >= 0) {
+            if (selectorinput.attr('name') === 'NumOfOlders') {
+                numpassengersarray[0] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfAdults') {
+                numpassengersarray[1] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfTeens') {
+                numpassengersarray[2] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfKids') {
+                numpassengersarray[3] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfInfants') {
+                numpassengersarray[4] = selectorinput.val();
+            }
+        }
+        else {
+            selectorinput.val(0);
+        }
+    }
+    stylepopovercontent(selector);
+    var sumnumpassengers = 0;
+    for (var i = 0; i < numpassengersarray.length; i++) {
+        sumnumpassengers += parseInt(numpassengersarray[i]);
+    }
+    $('#numpassengers').val(sumnumpassengers);
+}
+
+function keepnumvehicles(selector) {
+    selectorinput = selector.find('input');
+    if (selectorinput.val() != '') {
+        if (selectorinput.val() >= 0) {
+            if (selectorinput.attr('name') === 'NumOfCars') {
+                numvehiclesarray[0] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfMotos') {
+                numvehiclesarray[1] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfTrailers') {
+                numvehiclesarray[2] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
+                numvehiclesarray[3] = selectorinput.val();
+            }
+        }
+        else {
+            selectorinput.val(0);
+        }
+    }
+    stylepopovercontent(selector);
+    var sumnumvehicles = 0;
+    for (var i = 0; i < numvehiclesarray.length; i++) {
+        sumnumvehicles += parseInt(numvehiclesarray[i]);
+    }
+    $('#numvehicles').val(sumnumvehicles);
+}
+
+function startpassengerpopover() {
+    var count = 0;
+    $('[id ^= passenger]').each(function () {
+        $(this).find('input').val(numpassengersarray[count]);
+        stylepopovercontent($(this));
+        count++;
+    });
+}
+
+function startvehiclepopover() {
+    var count = 0;
+    $('[id ^= vehicle]').each(function () {
+        $(this).find('input').val(numvehiclesarray[count]);
+        stylepopovercontent($(this));
+        count++;
+    });
+}
+
+function stylepopovercontent(selector) {
+    if (selector.find('input').val() > 0) {
+        selector.find('.decrement').removeClass('lighten-3');
+    }
+    else {
+        selector.find('.decrement').addClass('lighten-3');
+    }
+}
 
 function addFerryStep(counter) {
 
@@ -590,21 +653,18 @@ function delFerryStep(counter) {
 
 function createNewFerrystep(cnt) {
 
-    var toAppend = '<div class="row" id="multipletrip' + cnt + '">' +
-                              '<div class="col-md-4" id="depallroute' + cnt + '">' +
+    var toAppend = '<div class="row" style="display:inline; float:left;" id="multipletrip' + cnt + '">' +
+                              '<div class="col-md-5" id="depallroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
-                              //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].FromPort" class="field-validation-valid text-danger"></span>' +
                               '</div>' +
-                              '<div class="col-md-4" id="arrllroute' + cnt + '">' +
+                              '<div class="col-md-5" id="arrllroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
-                              //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div>' +
-                              '<div class="col-md-3" id="depalldate' + cnt + '">' +
+                              '<div class="col-md-2" id="depalldate' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].DateFrom" class="control-label" align="left">Αναχώρηση</label>' +
                               '<input class = "form-control datepicker" type = "date" readonly="readonly" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
-                              //'<span data-valmsg-replace="true" data-valmsg-for="MultDepList[' + cnt + '].ToPort" class="field-validation-valid text-danger"></span>' +
                               '</div></div>';
     return toAppend;
 

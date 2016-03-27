@@ -223,6 +223,9 @@
     <Content Include="Content\fancybox\fancyboximages\fancybox_sprite.png" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Content\materialize\materialize.min.css" />
+    <Content Include="Content\Search.css" />
+    <Content Include="Content\Searchimages\ship.jpg" />
+    <Content Include="Content\Searchimages\ship.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -274,15 +277,10 @@
     <Content Include="Scripts\map\gmap3.min.js" />
     <Content Include="Scripts\materialize\materialize.js" />
     <Content Include="Scripts\materialize\materialize.min.js" />
-<<<<<<< HEAD
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\search-datepickerwheel.js" />
-    <Content Include="Scripts\search-datepicker.js" />
-=======
->>>>>>> 32f694aa455574f7a750cb3a6df565020bf6f26b
+    <Content Include="Scripts\moment\moment-with-locales.js" />
+    <Content Include="Scripts\moment\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment\moment.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -344,7 +342,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\materialize\font\roboto\" />
-    <Folder Include="Content\Searchimages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
