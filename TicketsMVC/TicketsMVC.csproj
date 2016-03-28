@@ -223,6 +223,7 @@
     <Content Include="Content\fancybox\fancyboximages\fancybox_sprite.png" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Content\materialize\materialize.min.css" />
+    <Content Include="Content\Search.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -284,6 +285,26 @@
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.ttf" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.woff" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.woff2" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Bold.eot" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Bold.woff" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Light.eot" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Light.ttf" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Light.woff" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Light.woff2" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Medium.eot" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Medium.woff" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Regular.eot" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Regular.woff" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Thin.eot" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Thin.woff" />
+    <Content Include="Content\materialize\font\roboto\Roboto-Thin.woff2" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -334,7 +355,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\materialize\font\roboto\" />
     <Folder Include="Content\Searchimages\" />
   </ItemGroup>
   <ItemGroup>

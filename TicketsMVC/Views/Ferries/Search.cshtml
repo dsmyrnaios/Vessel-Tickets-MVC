@@ -2,10 +2,52 @@
 @model SearchViewModel
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src = "https://maps.googleapis.com/maps/api/js" async defer></script>
+<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-zxKGCB7flXHlaoCAkvr0JfjbhdH3ko" async defer></script>
 
 <style>
-    
+    .infobulle {
+        overflow: hidden;
+        cursor: default;
+        clear: both;
+        position: relative;
+        height: 34px;
+        padding: 0pt;
+        background-color: rgb(57, 57, 57);
+        border-radius: 4px 4px;
+        -moz-border-radius: 4px 4px;
+        -webkit-border-radius: 4px 4px;
+        border: 1px solid #2C2C2C;
+    }
+        .infobulle .bg {
+            font-size: 1px;
+            height: 16px;
+            border: 0px;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            background-color: #5E5E5E;
+        }
+        .infobulle .text {
+            color: #FFF;
+            font-family: Verdana;
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 25px;
+            padding: 4px 20px;
+            text-shadow: 0 -1px 0 #000;
+            white-space: nowrap;
+            margin-top: -17px;
+        }
+    .arrow {
+        position: absolute;
+        left: 45px;
+        height: 0pt;
+        width: 0pt;
+        margin-left: 0pt;
+        border-width: 10px 10px 0pt 0pt;
+        border-color: #2C2C2C transparent transparent;
+        border-style: solid;
+    }
     body {
         line-height: 1.0;
     }

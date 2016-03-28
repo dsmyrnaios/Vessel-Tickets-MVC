@@ -6,7 +6,7 @@
     var departurewrapper = $('<div>').append(departure);
     var arrive = $('<div style=width:600px>');
     var arrivewrapper = $('<div>').append(arrive);
-    var defaultmultipledirections = 2;
+    var defaultmultipledirections = 3;
     var counter = defaultmultipledirections;
 
     $('input[type=radio][name=TripType][value=WithReturn]').attr("checked", true);
@@ -228,7 +228,7 @@
     var areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
     var portheader = $('<ul class=list-inline style="border-bottom:5px solid #FA0">');
     var portimage = $('<li><img src="../Content/Searchimages/ship.png" alt="shipimage" style=margin-bottom:5px></li>');
-    var portmap = $('<button type="button" class="btn btn-link portmap">Show on map</button>');
+    var portmap = $('<button type="button" class="btn waves-effect waves-light portmap">Show on map</button>');
     portheader.append(portimage).append(areaofports).append(portmap);
     showports.append(categorytableportsarealist).append(portheader).append(portdiv);
 
@@ -377,7 +377,74 @@
 
     $('body').on('click', '.portmap', function () {
         portdiv.empty();
-        $.fancybox.close();
+        var portmarkers = [];
+        for (var i = 0; i < allports.length; i++) {
+            var port = allports[i][1].split(' ');
+            var addressport = port[1] + port[2];
+            port = port[1].split(',');
+            portmarkers[i] = { address: addressport, data: port[0] + ' Port' };
+        }
+        portdiv.width("888px").height("690px").gmap3({
+            map: {
+                address: "Athens, Greece",
+                options: {
+                    zoom:8,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                }
+            },
+            marker: {
+                values: portmarkers,
+                cluster: {
+                    radius: 100,
+                    // This style will be used for clusters with more than 0 markers
+                    0: {
+                        content: "<div class='cluster cluster-1'>CLUSTER_COUNT</div>",
+                        width: 53,
+                        height: 52
+                    },
+                    // This style will be used for clusters with more than 20 markers
+                    20: {
+                        content: "<div class='cluster cluster-2'>CLUSTER_COUNT</div>",
+                        width: 56,
+                        height: 55
+                    },
+                    // This style will be used for clusters with more than 50 markers
+                    50: {
+                        content: "<div class='cluster cluster-3'>CLUSTER_COUNT</div>",
+                        width: 66,
+                        height: 65
+                    }
+                },
+                options: {
+                    icon: new google.maps.MarkerImage("../Content/Searchimages/port-image.png")
+                },
+                events: {
+                    mouseover: function (marker, event, context) {
+                        $(this).gmap3(
+                          { clear: "overlay" },
+                          {
+                              overlay: {
+                                  latLng: marker.getPosition(),
+                                  options: {
+                                      content: "<div class=infobulle>" +
+                                                  "<div class=bg></div>" +
+                                                  "<div class=text>" + context.data+"</div>" +
+                                                "</div>" +
+                                                "<div class=arrow></div>",
+                                      offset: {
+                                          x: -46,
+                                          y: -73
+                                      }
+                                  }
+                              }
+                          });
+                    },
+                    mouseout: function () {
+                        $(this).gmap3({ clear: "overlay" });
+                    }
+                }
+            }
+        }, "autofit");
     });
 
     $('label[for^=FromPort],label[for^=ToPort],label[for*=MultDepList]').fancybox({
@@ -529,7 +596,7 @@ function addFerryStep(counter) {
     counter++;
 
     $("#actionbtnid").before(createNewFerrystep(counter));
-    if (counter > 2) {
+    if (counter > 3) {
         $('#addFerryStepId').hide();
     } else {
         $('#addFerryStepId').show();
