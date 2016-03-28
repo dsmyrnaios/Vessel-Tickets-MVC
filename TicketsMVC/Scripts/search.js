@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    numpassengersarray = [0, 1, 0, 0, 0];
+    numpassengersarray = [1, 0, 0, 0, 0];
     numvehiclesarray = [0, 0, 0, 0];
 
     var departure = $('<div style=width:600px>');
@@ -29,10 +29,10 @@
 
             $('label[for=departure]').show();
             $('input[id=departuredate0]').show();
-            $('#depalldate').attr('class', 'col-md-3');
+            $('#depalldate').show();//.attr('class', 'col-md-4');
 
             $('label[for=arrive]').hide();
-            $('#arralldate').attr('class', 'col-md-0');
+            $('#arralldate').hide(); //.attr('class', 'col-md-0');
             if ($('#fromto0').find('addroute')) {
                 $('#addroute').remove();
             }
@@ -54,11 +54,11 @@
 
             $('label[for=departure]').show();
             $('input[id=departuredate0]').show();
-            $('#depalldate').attr('class', 'col-md-3');
+            $('#depalldate').show();//.attr('class', 'col-md-4');
 
             $('label[for=arrive]').show();
             $('input[id=arrivedate0]').show();
-            $('#arralldate').attr('class', 'col-md-3');
+            $('#arralldate').show();//.attr('class', 'col-md-4');
 
             //fromto
             $('#fromto0').show();
@@ -76,9 +76,9 @@
             }
 
             $('label[for=departure]').hide();
-            $('#depalldate').attr('class', 'col-md-0');
+            $('#depalldate').hide();//.attr('class', 'col-md-0');
             $('label[for=arrive]').hide();
-            $('#arralldate').attr('class', 'col-md-0');
+            $('#arralldate').hide();//.attr('class', 'col-md-0');
             if ($('#fromto').find('addroute')) {
                 $('#addroute').remove();
             }
@@ -129,7 +129,7 @@
         
         var idcount = parseInt(specificobject[specificobject.length - 1]);
         if (idcount > 0) {
-            var dt = moment($('#departuredatemulti' + (idcount - 1)).val(), 'DD-MM-YYYY');
+            var dt = moment($('#departuredatemulti' + (idcount - 1)).val(), 'YYYY-MM-DD');
             beginningdate = new Date(dt.year(), dt.month(), dt.date());
         }
 
@@ -147,18 +147,19 @@
         
         
         $(this).pickadate({
-             format: "dd/mm/yyyy",
+             format: "yyyy/mm/dd",
              selectMonths: true,
              monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
              min:  beginningdate,
              max: new Date(beginningdate.getFullYear() + 1, beginningdate.getMonth(), beginningdate.getDate()),
              //closeOnSelect: true,
              closeOnClear: true,
-             selectYears: 2,
+             selectYears: 2,            
+             formatSubmit: "yyyy/mm/dd",
              onClose: function () {
                  for (var j = idcount + 1; j <= counter; j++) {
                      if ($('#departuredatemulti' + j).val('') != '' && $('#departuredatemulti' + j).val('') != 'undefined') {
-                         var dtj = moment($('#departuredatemulti' + (j)).val(), 'DD-MM-YYYY');
+                         var dtj = moment($('#departuredatemulti' + (j)).val(), 'YYYY-MM-DD');
                          if (dtj > dt) {
                              $('#departuredatemulti' + j).val('');
                          }
@@ -198,7 +199,7 @@
             if ($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val() == '') {
                 startdate = new Date();
             } else {
-                var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'DD-MM-YYYY');
+                var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'YYYY-MM-DD');
                 startdate = new Date(dt.year(), dt.month(), dt.date());
             }
         }
@@ -207,7 +208,7 @@
         if (picker != null) {
             if (picker.get('open') == false) {
                 if (specificobject.search('arrivedate') != -1 && $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val() != '') {
-                    var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'DD-MM-YYYY');
+                    var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'YYYY-MM-DD');
                     picker.set('min', [dt.year(), dt.month(), dt.date()]);
                     picker.set('max', [dt.year()+1, dt.month(), dt.date()]);
                 }
@@ -219,14 +220,15 @@
 
 
         $(this).pickadate({
-            format: "dd/mm/yyyy",
+            format: "yyyy/mm/dd",
             selectMonths: true,
             monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
             min: startdate,
             max: new Date(startdate.getFullYear() + 1, startdate.getMonth(), startdate.getDate()),
             closeOnSelect: true,
             closeOnClear: true,
-            selectYears: 2
+            selectYears: 2,
+            formatSubmit: "yyyy/mm/dd"
             //onSet: function (thingSet) {
             //    //console.log('Set stuff:', thingSet);
             //    this.close();
@@ -531,19 +533,19 @@ function keepnumpassengers(selector) {
     if (selectorinput.val() != '') {
         if (selectorinput.val() >= 0) {
             if (selectorinput.attr('name') === 'NumOfOlders') {
-                numpassengersarray[0] = selectorinput.val();
+                numpassengersarray[4] = selectorinput.val();
             }
             else if (selectorinput.attr('name') === 'NumOfAdults') {
-                numpassengersarray[1] = selectorinput.val();
+                numpassengersarray[0] = selectorinput.val();
             }
             else if (selectorinput.attr('name') === 'NumOfTeens') {
-                numpassengersarray[2] = selectorinput.val();
+                numpassengersarray[1] = selectorinput.val();
             }
             else if (selectorinput.attr('name') === 'NumOfKids') {
-                numpassengersarray[3] = selectorinput.val();
+                numpassengersarray[2] = selectorinput.val();
             }
             else if (selectorinput.attr('name') === 'NumOfInfants') {
-                numpassengersarray[4] = selectorinput.val();
+                numpassengersarray[3] = selectorinput.val();
             }
         }
         else {

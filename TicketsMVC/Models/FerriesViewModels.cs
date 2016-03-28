@@ -30,18 +30,20 @@ namespace TicketsMVC.Models
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Επιστροφής")]
         [Display(Name = "Επιστροφή")]
         public DateTime? DateTo { get; set; }
-
+        
         [Required]
         [Display(Name = "Είδος ταξιδιού")]
         public Triptype Triptype { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό επιβατών")]
         [Display(Name = "Επιβάτες")]
-        public int NumOfPassengers { get { return numpassengers; } set{ } }
-        private int numpassengers = 1;
+        [Range(1, 15, ErrorMessage = "Ο επιτρεπτός αριθμός επιβατών είναι από 1 εώς και 15")]
+        public int NumOfPassengers { get; set; }
+
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό οχημάτων")]
         [Display(Name = "Οχήματα")]
+        [Range(0, 8, ErrorMessage = "Ο μέγιστος αριθμός οχημάτων είναι 8")]
         public int NumOfVehicles { get; set; }
         
 

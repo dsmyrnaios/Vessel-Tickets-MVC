@@ -162,13 +162,13 @@
     <div class="row" id="dates" style="display:inline">
         <div class="col-md-4" id="depalldate">
             <label for="departure" class="control-label">Αναχώρηση</label>
-            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", @readonly = "readonly", type = "date", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
+            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", type = "text", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
             @Html.ValidationMessageFor(m => m.DateFrom, "", new {@class = "text-danger"})
         </div>
 
         <div class="col-md-4" id="arralldate">
             <label for="arrive" class="control-label">Επιστροφή</label>
-            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", @readonly = "readonly", type = "date", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
+            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", type = "text", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
             @Html.ValidationMessageFor(m => m.DateTo, "", new {@class = "text-danger"})
         </div>
 
@@ -180,21 +180,7 @@
                 @Html.ValidationMessageFor(m => m.NumOfPassengers)
 
                 <div class="content hide">
-                    @* OLDS *@
-                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom:5px">
-                        <input class="col-md-3 form-control" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
-                        <div class="col-md-7">
-                            <label for="NumOfOlders">Ηλικιωμένοι</label>
-                            <label for="NumOfOlders">Άνω των 65 ετών</label>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
-                        </div>
-                    </div>
-
+                   
                     @* ADULTS *@
                     <div class="row bottom-border-class" id="passengeradult" style="margin-bottom:5px">
                         <input class="col-md-3 form-control" value="1" name="NumOfAdults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
@@ -241,11 +227,26 @@
                     </div>
 
                     @* INFANTS *@
-                    <div class="row bottom-border-class" id="passengerinfant" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="passengerinfant" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" value="0" name="NumOfInfants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="NumOfInfants">Βρέφη</label>
                             <label for="NumOfInfants">Kάτω των 2 ετών</label>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                        </div>
+                    </div>
+
+                    @* OLDS *@
+                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom:5px">
+                        <input class="col-md-3 form-control" value="0" name="NumOfOlders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
+                        <div class="col-md-7">
+                            <label for="NumOfOlders">Ηλικιωμένοι</label>
+                            <label for="NumOfOlders">Άνω των 65 ετών</label>
                         </div>
                         <div class="col-md-1">
                             <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
