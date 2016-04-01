@@ -2,112 +2,175 @@
         line-height: 1.0;
     }
 
-     fieldset {
-         overflow: hidden;
-     }
+fieldset {
+    overflow: hidden;
+}
 
-    .routeoptions {
-        /*float: left;*/
-        clear: both;
-        display: inline;
+.infobulle {
+    overflow: hidden;
+    cursor: default;
+    clear: both;
+    position: relative;
+    height: 34px;
+    padding: 0pt;
+    background-color: rgb(57, 57, 57);
+    border-radius: 4px 4px;
+    -moz-border-radius: 4px 4px;
+    -webkit-border-radius: 4px 4px;
+    border: 1px solid #2C2C2C;
+}
+    .infobulle .bg {
+        font-size: 1px;
+        height: 16px;
+        border: 0px;
         width: 100%;
+        padding: 0px;
+        margin: 0px;
+        background-color: #5E5E5E;
     }
 
-    label {
-        float: left;
-        clear: none;
-        display: block;
-        padding: 2px 1em 0 0;
-    }
-
-    input[id*=departure],input[id*=arrive]
-    {
-        margin-bottom:5px;
-    }
-
-    input[type=radio],
-    input.radio {
-        float: left;
-        clear: none;
-        margin: 2px 0 0 2px;
-    }
-
-    .portname:hover
-    {
-        background-color:dodgerblue;
-        cursor:pointer;
-    }
-
-    form, .form-horizontal {
-        background-color: #f4f9fd;
-        border: 1px solid #c6dff9;
-        /*display: none;*/
-        float: left;
+    .infobulle .text {
+        color: #FFF;
+        font-family: Verdana;
         font-size: 11px;
-        min-height: 243px;
-        padding-bottom: 3px;
-        padding-left: 20px;
-        padding-top: 30px;
-        width: 700px;
+        font-weight: bold;
+        line-height: 25px;
+        padding: 4px 20px;
+        text-shadow: 0 -1px 0 #000;
+        white-space: nowrap;
+        margin-top: -17px;
     }
 
-    .form-control {
-        /*background-color: #fff;
+.arrow {
+    position: absolute;
+    left: 45px;
+    height: 0pt;
+    width: 0pt;
+    margin-left: 0pt;
+    border-width: 10px 10px 0pt 0pt;
+    border-color: #2C2C2C transparent transparent;
+    border-style: solid;
+}
+
+.routeoptions {
+    clear: both;
+    display: inline;
+    width: 100%;
+}
+
+label {
+    float: left;
+    clear: none;
+    display: block;
+    padding: 2px 1em 0 0;
+}
+
+input[id*=departure], input[id*=arrive] {
+    margin-bottom: 5px;
+}
+
+input[type=radio],
+input.radio {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+}
+
+.portname:hover {
+    background-color: dodgerblue;
+    cursor: pointer;
+}
+
+form, .form-horizontal {
+    float: left;
+    font-size: 11px;
+    min-height: 243px;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 700px;
+}
+
+.form-control {
+    font-size: 12px;
+    height: 25px;
+    line-height: 1.0;
+    padding: 2px 6px;
+    transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.popover-markup > .popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    display: none;
+    max-width: 600px;
+    width: 300px;
+    padding: 1px;
+    text-align: left;
+    white-space: normal;
+    background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
-    display: block;*/
-        font-size: 12px;
-        height: 25px;
-        line-height: 1.0;
-        padding: 2px 6px;
-        transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-        /*vertical-align: middle;
-    width: 100%;*/
-    }
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
 
-    .popover-markup > .popover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1010;
-        display: none;
-        max-width: 600px;
-        width: 300px;
-        padding: 1px;
-        text-align: left;
-        white-space: normal;
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -webkit-background-clip: padding-box;
-        -moz-background-clip: padding;
-        background-clip: padding-box;
-    }
+.bottom-border-class {
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-bottom-color: #d6eafa;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
 
-    .bottom-border-class {
-        border-bottom-width: 1px;
-        border-style: solid;
-        border-bottom-color: #d6eafa;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-left-color: transparent;
-    }
-        
-    div[id*=passenger] > input, div[id*=vehicle] > input {
-        width: 10%;
-        height: 32px;
-        font-size: 14px;
-    }
+div[id*=passenger] > input, div[id*=vehicle] > input {
+    width: 10%;
+    height: 32px;
+    font-size: 14px;
+}
 
-    .increment
-    {
-        margin-right:5px;
-    }
+.increment {
+    margin-right: 5px;
+}
+
+.cluster {
+    color: #FFF;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bolder;
+    text-shadow: 0 0 2px #000;
+    -moz-text-shadow: 0 0 2px #000;
+    -webkit-text-shadow: 0 0 2px #000;
+}
+
+.cluster-1 {
+    background: url(Searchimages/portcluster-1.png) no-repeat;
+    line-height: 50px;
+    width: 50px;
+    height: 40px;
+}
+
+.cluster-2 {
+    background: url(Searchimages/portcluster-2.png) no-repeat;
+    line-height: 53px;
+    width: 60px;
+    height: 48px;
+}
+
+.cluster-3 {
+    background: url(Searchimages/portcluster-3.png) no-repeat;
+    line-height: 66px;
+    width: 70px;
+    height: 56px;
+}
