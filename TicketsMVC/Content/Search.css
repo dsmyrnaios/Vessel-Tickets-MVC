@@ -111,3 +111,8 @@
     {
         margin-right:5px;
     }
+
+    /*.field-validation-error{ width:90%;font-size:8pt;display:block; position:relative; top:-40px;height:0px;}
+.field-validation-error span {border-radius:4px; padding:5px 5px 5px 5px;background-color:#FFE6BF;position:relative;border:1px solid red;}
+.field-validation-error span:after { content: ' ';height: 0;position: absolute; width: 0;border: 10px solid transparent;border-top-color: #FFE6BF;top:100%;left: 10px;}
+.field-validation-error span:before {content: ' ';height: 0;position: absolute; width: 0;border: 13px solid transparent;border-top-color: red;top: 100%;left: 7px;}*/

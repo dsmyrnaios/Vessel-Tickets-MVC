@@ -29,10 +29,10 @@
 
             $('label[for=departure]').show();
             $('input[id=departuredate0]').show();
-            $('#depalldate').show();//.attr('class', 'col-md-4');
+            $('#depalldate').show();
 
             $('label[for=arrive]').hide();
-            $('#arralldate').hide(); //.attr('class', 'col-md-0');
+            $('#arralldate').hide(); 
             if ($('#fromto0').find('addroute')) {
                 $('#addroute').remove();
             }
@@ -54,11 +54,11 @@
 
             $('label[for=departure]').show();
             $('input[id=departuredate0]').show();
-            $('#depalldate').show();//.attr('class', 'col-md-4');
+            $('#depalldate').show();
 
             $('label[for=arrive]').show();
             $('input[id=arrivedate0]').show();
-            $('#arralldate').show();//.attr('class', 'col-md-4');
+            $('#arralldate').show();
 
             //fromto
             $('#fromto0').show();
@@ -76,9 +76,9 @@
             }
 
             $('label[for=departure]').hide();
-            $('#depalldate').hide();//.attr('class', 'col-md-0');
+            $('#depalldate').hide();
             $('label[for=arrive]').hide();
-            $('#arralldate').hide();//.attr('class', 'col-md-0');
+            $('#arralldate').hide();
             if ($('#fromto').find('addroute')) {
                 $('#addroute').remove();
             }
@@ -169,7 +169,6 @@
              onSet: function (thingSet) {
                  //console.log('Set stuff:', thingSet);
                  //this.close();
-
              }
         });
 
@@ -429,6 +428,7 @@
     $('body').on('input', '[id*=depallroute]>input,[id*=arrallroute]>input', function () {
         filteredports($(this));
     });
+    
 
     $('body').on('click', '[id*=depallroute]>input,[id*=arrallroute]>input', function () {
         $(this).autocomplete({
@@ -660,7 +660,7 @@ function createNewFerrystep(cnt) {
                               '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
                               '</div>' +
-                              '<div class="col-md-5" id="arrllroute' + cnt + '">' +
+                              '<div class="col-md-5" id="arrallroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
                               '</div>' +
@@ -669,5 +669,4 @@ function createNewFerrystep(cnt) {
                               '<input class = "form-control datepicker" type = "date" readonly="readonly" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
                               '</div></div>';
     return toAppend;
-
 }
