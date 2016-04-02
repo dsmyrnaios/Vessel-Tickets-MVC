@@ -2,8 +2,7 @@
 @model SearchViewModel
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script src = "https://maps.googleapis.com/maps/api/js" async defer></script>
-
+<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-zxKGCB7flXHlaoCAkvr0JfjbhdH3ko" async defer></script>
 
 @using (Html.BeginForm("Results", "Ferries", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
 {
@@ -53,16 +52,16 @@
     </div>
 
 
-    <div class="row" id="dates" style="display:inline">
+    <div class="row" id="dates">
         <div class="col-md-4" id="depalldate">
             <label for="departure" class="control-label">Αναχώρηση</label>
-            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", type = "text", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
+            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", @readonly = "readonly", type = "text", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
             @Html.ValidationMessageFor(m => m.DateFrom, "", new {@class = "text-danger"})
         </div>
 
         <div class="col-md-4" id="arralldate">
             <label for="arrive" class="control-label">Επιστροφή</label>
-            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", type = "text", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
+            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", @readonly = "readonly", type = "text", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
             @Html.ValidationMessageFor(m => m.DateTo, "", new {@class = "text-danger"})
         </div>
 
@@ -83,10 +82,10 @@
                             <label for="NumOfAdults">Από 16 εώς 65 ετών</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -98,10 +97,10 @@
                             <label for="NumOfTeens">Από 12 εώς 16 ετών</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -113,10 +112,10 @@
                             <label for="NumOfKids">Από 2 εώς 12 ετών</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -128,10 +127,10 @@
                             <label for="NumOfInfants">Kάτω των 2 ετών</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -143,10 +142,10 @@
                             <label for="NumOfOlders">Άνω των 65 ετών</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -170,10 +169,10 @@
                             <label for="NumOfCars">Αυτοκίνητα</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -184,10 +183,10 @@
                             <label for="NumOfMotos">Μηχανές</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -198,10 +197,10 @@
                             <label for="NumOfTrailers">Τρεϊλερ / τροχόσπιτα</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -211,10 +210,10 @@
                             <label for="NumOfMiniBuses">Οικογενειακά λεωφορεία</label>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons">add</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons">remove</i></a>
+                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
                         </div>
                     </div>
 
@@ -227,7 +226,7 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light green" type="submit" style="float:right"><i class="material-icons right">send</i>Αναζήτηση</button>
+            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right"><i class="material-icons right">send</i>Αναζήτηση</button>
         </div>
     </div>
 }

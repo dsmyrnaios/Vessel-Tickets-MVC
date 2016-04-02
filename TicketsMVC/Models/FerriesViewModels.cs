@@ -16,11 +16,13 @@ namespace TicketsMVC.Models
     {
         [Required(ErrorMessage = @"Παρακαλώ επιλέξτε λιμάνι αναχώρησης")]
         [Display(Name = "Από")]
+        [CustomPortValidation]
         public String FromPort { get; set; }
 
         
         [Required(ErrorMessage = @"Παρακαλώ επιλέξτε λιμάνι προορισμού")]
         [Display(Name = "Πρός")]
+        [CustomPortValidation]
         public String ToPort { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Αναχώρησης")]
