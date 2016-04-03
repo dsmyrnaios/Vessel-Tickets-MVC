@@ -144,7 +144,7 @@ div[id*=passenger] > input, div[id*=vehicle] > input {
 }
 
 .cluster {
-    color: #FFF;
+    color: red;
     text-align: center;
     font-family: Verdana;
     font-size: 14px;
