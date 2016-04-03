@@ -18,6 +18,27 @@
     margin-right: 5px;
 }
 
+#icon-single {
+    width: 32px;
+    height: 32px;
+    background: url(../Content/Searchimages/16x16-free-application-icons.png) -178px -70px;
+    border: 0px;
+}
+
+#icon-return {
+    width: 32px;
+    height: 32px;
+    background: url(../Content/Searchimages/16x16-free-application-icons.png) -155px -70px;
+    border: 0px;
+}
+
+#icon-multiple {
+    width: 32px;
+    height: 32px;
+    background: url(../Content/Searchimages/16x16-free-application-icons.png) 60px -70px;
+    border: 0px;
+}
+
 .icon-redremove {
     background-image: url("../Content/Searchimages/remove.png");
     background-position: left;
