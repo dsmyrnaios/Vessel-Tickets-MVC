@@ -74,9 +74,9 @@
             }
 
             $('label[for=departure]').hide();
-            $('#depalldate').hide();//.attr('class', 'col-md-0');
+            $('#depalldate').hide();
             $('label[for=arrive]').hide();
-            $('#arralldate').hide();//.attr('class', 'col-md-0');
+            $('#arralldate').hide();
             if ($('#fromto').find('addroute')) {
                 $('#addroute').remove();
             }
@@ -92,10 +92,11 @@
 
             var btnappend = '<div class="row" style="margin-bottom:0px" id="actionbtnid">' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-remove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-redremove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
                             '</div>' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' +
+                            //'<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' + //"../Content/Searchimages/bluePlusIcon.jpg"
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-greenplus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>'
                             '</div></div>';
 
             $("#ferrysteps").append(btnappend);
@@ -149,24 +150,21 @@
              monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
              min:  beginningdate,
              max: new Date(beginningdate.getFullYear() + 1, beginningdate.getMonth(), beginningdate.getDate()),
-             //closeOnSelect: true,
              closeOnClear: true,
              selectYears: 2,            
              formatSubmit: "yyyy/mm/dd",
              onClose: function () {
                  for (var j = idcount + 1; j <= counter; j++) {
-                     if ($('#departuredatemulti' + j).val('') != '' && $('#departuredatemulti' + j).val('') != 'undefined') {
-                         var dtj = moment($('#departuredatemulti' + (j)).val(), 'YYYY-MM-DD');
-                         if (dtj > dt) {
+                     if ($('#departuredatemulti' + j).val() != '' && $('#departuredatemulti' + j).val() != 'undefined') {
+                         var dtj = moment($('#departuredatemulti' + j).val(), 'YYYY-MM-DD');
+                         
+                         if (dtj.isBefore(dt)) {
+                             $('#departuredatemulti' + j).val('');
+                         }else if (dtj.isBefore(dt)) {
                              $('#departuredatemulti' + j).val('');
                          }
                      }
                  }
-             },
-             onSet: function (thingSet) {
-                 //console.log('Set stuff:', thingSet);
-                 //this.close();
-
              }
         });
 
@@ -186,8 +184,6 @@
         
         if (specificobject.search('departuredate') != -1)
         {
-            var dspecificdeparturedateobject = specificobject.split('departuredate');
-            $('[id=arrivedate' + dspecificdeparturedateobject[1] + ']').val('');
             startdate = new Date();
         }
         else
@@ -225,12 +221,19 @@
             closeOnSelect: true,
             closeOnClear: true,
             selectYears: 2,
-            formatSubmit: "yyyy/mm/dd"
-            //onSet: function (thingSet) {
-            //    //console.log('Set stuff:', thingSet);
-            //    this.close();
+            formatSubmit: "yyyy/mm/dd",
+            onClose: function () {
+                if (specificobject === 'departuredate0') {
+                    if ($('#arrivedate0').val() != '' && $('#arrivedate0' + j).val() != 'undefined') {
+                        var dtj = moment($('#arrivedate0').val(), 'YYYY-MM-DD');
+                        var dt = moment($('[id=departuredate0').val(), 'YYYY-MM-DD');
 
-            //}
+                        if (dtj.isBefore(dt)) {
+                            $('#arrivedate0').val('');
+                        }
+                    }
+                }
+            }
         });
     });
 
@@ -456,6 +459,7 @@
         filteredports($(this));
     });
 
+
     $('body').on('click', '[id*=depallroute]>input,[id*=arrallroute]>input', function () {
         $(this).autocomplete({
             autoFocus: true,
@@ -580,7 +584,7 @@
                     },
                     click: function (marker, event, context) {
                         selectorfancybox.find('input').val(context.data);
-                        $.fancybox.close();
+        $.fancybox.close();
                     }
                 }
             }
@@ -642,93 +646,94 @@
 
 });
 
-    function keepnumpassengers(selector) {
+function keepnumpassengers(selector) {
     var selectorinput = selector.find('input');
-        if (selectorinput.val() != '') {
-            if (selectorinput.val() >= 0) {
-                if (selectorinput.attr('name') === 'NumOfOlders') {
-                numpassengersarray[4] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfAdults') {
-                numpassengersarray[0] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfTeens') {
-                numpassengersarray[1] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfKids') {
-                numpassengersarray[2] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfInfants') {
-                numpassengersarray[3] = selectorinput.val();
-                }
-            }
-        else {
-                selectorinput.val(0);
-            }
-        }
-        stylepopovercontent(selector);
-        var sumnumpassengers = 0;
-    for (var i = 0; i < numpassengersarray.length; i++) {
-            sumnumpassengers += parseInt(numpassengersarray[i]);
-        }
-        $('#numpassengers').val(sumnumpassengers);
-    }
 
-    function keepnumvehicles(selector) {
-        selectorinput = selector.find('input');
-        if (selectorinput.val() != '') {
-            if (selectorinput.val() >= 0) {
-                if (selectorinput.attr('name') === 'NumOfCars') {
-                    numvehiclesarray[0] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfMotos') {
-                    numvehiclesarray[1] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfTrailers') {
-                    numvehiclesarray[2] = selectorinput.val();
-                }
-                else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
-                    numvehiclesarray[3] = selectorinput.val();
-                }
+    if (selectorinput.val() != '') {
+        if (selectorinput.val() >= 0) {
+            if (selectorinput.attr('name') === 'NumOfOlders') {
+                numpassengersarray[4] = selectorinput.val();
             }
-            else {
-                selectorinput.val(0);
+            else if (selectorinput.attr('name') === 'NumOfAdults') {
+                numpassengersarray[0] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfTeens') {
+                numpassengersarray[1] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfKids') {
+                numpassengersarray[2] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfInfants') {
+                numpassengersarray[3] = selectorinput.val();
             }
         }
-        stylepopovercontent(selector);
-        var sumnumvehicles = 0;
-        for (var i = 0; i < numvehiclesarray.length; i++) {
-            sumnumvehicles += parseInt(numvehiclesarray[i]);
+        else {
+            selectorinput.val(0);
         }
-        $('#numvehicles').val(sumnumvehicles);
     }
+    stylepopovercontent(selector);
+    var sumnumpassengers = 0;
+    for (var i = 0; i < numpassengersarray.length; i++) {
+        sumnumpassengers += parseInt(numpassengersarray[i]);
+    }
+    $('#numpassengers').val(sumnumpassengers);
+}
+
+function keepnumvehicles(selector) {
+    selectorinput = selector.find('input');
+    if (selectorinput.val() != '') {
+        if (selectorinput.val() >= 0) {
+            if (selectorinput.attr('name') === 'NumOfCars') {
+                numvehiclesarray[0] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfMotos') {
+                numvehiclesarray[1] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfTrailers') {
+                numvehiclesarray[2] = selectorinput.val();
+            }
+            else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
+                numvehiclesarray[3] = selectorinput.val();
+            }
+        }
+        else {
+            selectorinput.val(0);
+        }
+    }
+    stylepopovercontent(selector);
+    var sumnumvehicles = 0;
+    for (var i = 0; i < numvehiclesarray.length; i++) {
+        sumnumvehicles += parseInt(numvehiclesarray[i]);
+    }
+    $('#numvehicles').val(sumnumvehicles);
+}
 
 function startpassengerpopover() {
-        var count = 0;
-        $('[id ^= passenger]').each(function () {
-            $(this).find('input').val(numpassengersarray[count]);
-            stylepopovercontent($(this));
-            count++;
-        });
-    }
+    var count = 0;
+    $('[id ^= passenger]').each(function () {
+        $(this).find('input').val(numpassengersarray[count]);
+        stylepopovercontent($(this));
+        count++;
+    });
+}
 
-    function startvehiclepopover() {
-        var count = 0;
-        $('[id ^= vehicle]').each(function () {
-            $(this).find('input').val(numvehiclesarray[count]);
-            stylepopovercontent($(this));
-            count++;
-        });
-    }
+function startvehiclepopover() {
+    var count = 0;
+    $('[id ^= vehicle]').each(function () {
+        $(this).find('input').val(numvehiclesarray[count]);
+        stylepopovercontent($(this));
+        count++;
+    });
+}
 
 function stylepopovercontent(selector) {
-        if (selector.find('input').val() > 0) {
-            selector.find('.decrement').removeClass('lighten-3');
-        }
-        else {
-            selector.find('.decrement').addClass('lighten-3');
-        }
+    if (selector.find('input').val() > 0) {
+        selector.find('.decrement').removeClass('lighten-3');
     }
+    else {
+        selector.find('.decrement').addClass('lighten-3');
+    }
+}
 
 function addFerryStep(counter) {
 
@@ -774,8 +779,8 @@ function createNewFerrystep(cnt) {
                               '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
                               '</div>' +
-                              '<div class="col-md-5" id="arrllroute' + cnt + '">' +
-                              '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></label>' +
+                              '<div class="col-md-5" id="arrallroute' + cnt + '">' +
+                              '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
                               '</div>' +
                               '<div class="col-md-2" id="depalldate' + cnt + '">' +
@@ -783,5 +788,4 @@ function createNewFerrystep(cnt) {
                               '<input class = "form-control datepicker" type = "date" readonly="readonly" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
                               '</div></div>';
     return toAppend;
-
 }
