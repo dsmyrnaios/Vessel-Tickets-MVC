@@ -225,6 +225,7 @@
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Content\materialize\materialize.min.css" />
     <Content Include="Content\Search.css" />
+    <Content Include="Content\Searchimages\bluePlusIcon.jpg" />
     <Content Include="Content\Searchimages\port-image.png" />
     <Content Include="Content\Searchimages\portcluster-1.png" />
     <Content Include="Content\Searchimages\portcluster-2.png" />

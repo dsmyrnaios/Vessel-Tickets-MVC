@@ -92,10 +92,11 @@
 
             var btnappend = '<div class="row" style="margin-bottom:0px" id="actionbtnid">' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-remove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-redremove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
                             '</div>' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' +
+                            //'<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' + //"../Content/Searchimages/bluePlusIcon.jpg"
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-greenplus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>'
                             '</div></div>';
 
             $("#ferrysteps").append(btnappend);
@@ -647,6 +648,7 @@
 
 function keepnumpassengers(selector) {
     var selectorinput = selector.find('input');
+
     if (selectorinput.val() != '') {
         if (selectorinput.val() >= 0) {
             if (selectorinput.attr('name') === 'NumOfOlders') {

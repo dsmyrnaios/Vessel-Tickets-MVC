@@ -14,14 +14,13 @@ namespace TicketsMVC.Models
 
     public class SearchViewModel
     {
+        //[Display(Name = "Από")]
         [Required(ErrorMessage = @"Παρακαλώ επιλέξτε λιμάνι αναχώρησης")]
-        [Display(Name = "Από")]
         [CustomPortValidation]
         public String FromPort { get; set; }
 
-        
+        //[Display(Name = "Πρός")]
         [Required(ErrorMessage = @"Παρακαλώ επιλέξτε λιμάνι προορισμού")]
-        [Display(Name = "Πρός")]
         [CustomPortValidation]
         public String ToPort { get; set; }
 
@@ -56,30 +55,39 @@ namespace TicketsMVC.Models
 
         private List<MultipleDeparture> _multDepartures = new List<MultipleDeparture>();
 
+        [Required]
         [Display(Name = "Ενήλικες")]
         public int NumOfAdults { get; set; }
 
+        [Required]
         [Display(Name = "Έφηβοι")]
         public int NumOfTeens { get; set; }
 
+        [Required]
         [Display(Name = "Παιδιά")]
         public int NumOfKids { get; set; }
 
+        [Required]
         [Display(Name = "Βρέφη")]
         public int NumOfInfants { get; set; }
 
+        [Required]
         [Display(Name = "Ηλικιωμένοι")]
         public int NumOfOlders { get; set; }
 
+        [Required]
         [Display(Name = "Αυτοκίνητα")]
         public int NumOfCars { get; set; }
 
+        [Required]
         [Display(Name = "Μηχανές")]
         public int NumOfMotos { get; set; }
 
+        [Required]
         [Display(Name = "Τρέιλερ")]
         public int NumOfTrailers { get; set; }
 
+        [Required]
         [Display(Name = "Μινι λεωφορεία")]
         public int NumOfMiniBuses { get; set; }
 
