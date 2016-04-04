@@ -14,18 +14,18 @@
         <ul class="list-inline">
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple" />
-                <label for="TripTypeS">Απλή Μετάβαση</label>
-                <img id="icon-single"><img/>
+                <label for="TripTypeS" style="padding-right:5px">Απλή Μετάβαση</label>
+                <img id="icon-single" src="../Content/Searchimages/oneway.png" style="position:relative;top:5px">
             </li>
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn" />
-                <label for="TripTypeWR">Με επιστροφή</label>
-                <img id="icon-return"><img />
+                <label for="TripTypeWR" style="padding-right:5px">Με επιστροφή</label>
+                <img id="icon-return" src="../Content/Searchimages/withreturn.png" style="position:relative;top:5px">
             </li>
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
-                <label for="TripTypeM">Πολλαπλή μετάβαση</label>
-                <img id="icon-multiple"><img />
+                <label for="TripTypeM" style="padding-right:5px">Πολλαπλή μετάβαση</label>
+                <img id="icon-multiple" src="../Content/Searchimages/multipledirections.png" style="position:relative;top:5px">
             </li>
         </ul>
 </div>
@@ -35,7 +35,7 @@
             <label for="FromPort" class="control-label">
                 <a style="cursor:pointer">
                     Επιλέξτε λιμάνι Αναχωρησης
-                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    <img src="../Content/Searchimages/portfrom.png">
                 </a>
             </label>
             @Html.TextBoxFor(m => m.FromPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 1})
@@ -46,7 +46,7 @@
             <label for="ToPort" class="control-label">
                 <a style="cursor:pointer">
                     Επιλέξτε λιμάνι Προορισμού
-                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                    <img src="../Content/Searchimages/portto.png">
                 </a>
             </label>
             @Html.TextBoxFor(m => m.ToPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 2})
@@ -84,12 +84,8 @@
                             <label for="NumOfAdults">Ενήλικες</label>
                             <label for="NumOfAdults">Από 16 εώς 65 ετών</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* TEENS *@
@@ -99,12 +95,8 @@
                             <label for="NumOfTeens">Έφηβοι</label>
                             <label for="NumOfTeens">Από 12 εώς 16 ετών</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* KIDS *@
@@ -114,12 +106,8 @@
                             <label for="NumOfKids">Παιδιά</label>
                             <label for="NumOfKids">Από 2 εώς 12 ετών</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* INFANTS *@
@@ -129,12 +117,8 @@
                             <label for="NumOfInfants">Βρέφη</label>
                             <label for="NumOfInfants">Kάτω των 2 ετών</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* OLDS *@
@@ -144,12 +128,8 @@
                             <label for="NumOfOlders">Ηλικιωμένοι</label>
                             <label for="NumOfOlders">Άνω των 65 ετών</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                 </div>
@@ -173,12 +153,8 @@
                         <div class="col-md-7">
                             <label for="NumOfCars">Αυτοκίνητα</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @*Motorcycles*@
@@ -187,12 +163,8 @@
                         <div class="col-md-7">
                             <label for="NumOfMotos">Μηχανές</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* Traler *@
@@ -201,12 +173,8 @@
                         <div class="col-md-7">
                             <label for="NumOfTrailers">Τρεϊλερ / τροχόσπιτα</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     <div class="row bottom-border-class" id="vehicleminibuses" style="margin-bottom:5px">
@@ -214,12 +182,8 @@
                         <div class="col-md-7">
                             <label for="NumOfMiniBuses">Οικογενειακά λεωφορεία</label>
                         </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue increment"><i class="material-icons iconcls">add</i></a>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn-floating secondary-content waves-effect waves-circle waves-light #81d4fa light-blue lighten-3 decrement"><i class="material-icons iconcls">remove</i></a>
-                        </div>
+                        <div class="col-md-1 waves-effect waves-light increment"></div>
+                        <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                 </div>
@@ -231,7 +195,7 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right"><i class="material-icons right">send</i>Αναζήτηση</button>
+            <button value="Send" class="btn waves-effect waves-light orange search" type="submit" style="float:right">Αναζήτηση&nbsp;</button>
         </div>
     </div>
 }

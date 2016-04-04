@@ -1,50 +1,26 @@
 ﻿body {
-        line-height: 1.0;
-    }
+    line-height: 1.0;
+}
 
-     fieldset {
-         overflow: hidden;
-     }
+fieldset {
+    overflow: hidden;
+}
 
-     .iconcls {
-         margin-top: -4.5px;
-     }
+.iconcls {
+    margin-top: -4.5px;
+}
 
 .icon-greenplus {
     background-image: url("../Content/Searchimages/greenPlusIcon.png");
-    background-position: right;
+    background-position: left;
     background-repeat: no-repeat;
-    /*position: fixed;*/
-    margin-right: 5px;
-}
-
-#icon-single {
-    width: 32px;
-    height: 32px;
-    background: url(../Content/Searchimages/16x16-free-application-icons.png) -178px -70px;
-    border: 0px;
-}
-
-#icon-return {
-    width: 32px;
-    height: 32px;
-    background: url(../Content/Searchimages/16x16-free-application-icons.png) -155px -70px;
-    border: 0px;
-}
-
-#icon-multiple {
-    width: 32px;
-    height: 32px;
-    background: url(../Content/Searchimages/16x16-free-application-icons.png) 60px -70px;
-    border: 0px;
 }
 
 .icon-redremove {
     background-image: url("../Content/Searchimages/remove.png");
     background-position: left;
     background-repeat: no-repeat;
-    /*position: fixed;*/
-    margin-right: -5px;
+    margin-bottom: 10px;
 }
 
 .infobulle {
@@ -93,95 +69,113 @@
     border-style: solid;
 }
 
-    .routeoptions {
-        clear: both;
-        display: inline;
-        width: 100%;
-    }
+.routeoptions {
+    clear: both;
+    display: inline;
+    width: 100%;
+}
 
-    label {
-        float: left;
-        clear: none;
-        display: block;
-        padding: 2px 1em 0 0;
-    }
+label {
+    float: left;
+    clear: none;
+    display: block;
+    padding: 2px 1em 0 0;
+}
 
 input[id*=departure], input[id*=arrive] {
     margin-bottom: 5px;
-    }
+}
 
-    input[type=radio],
-    input.radio {
-        float: left;
-        clear: none;
-        margin: 2px 0 0 2px;
-    }
+input[type=radio],
+input.radio {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+}
 
 .portname:hover {
     background-color: dodgerblue;
     cursor: pointer;
-    }
+}
 
-    form, .form-horizontal {
-        float: left;
-        font-size: 11px;
-        min-height: 243px;
-        padding-bottom: 3px;
-        padding-left: 20px;
-        padding-top: 30px;
-        width: 80%;
-    }
+form, .form-horizontal {
+    float: left;
+    font-size: 11px;
+    min-height: 243px;
+    padding-bottom: 3px;
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 80%;
+}
 
-    .form-control {
-        font-size: 12px;
-        height: 25px;
-        line-height: 1.0;
-        padding: 2px 6px;
-        transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    }
+.form-control {
+    font-size: 12px;
+    height: 25px;
+    line-height: 1.0;
+    padding: 2px 6px;
+    transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
 
-    .popover-markup > .popover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1010;
-        display: none;
-        max-width: 600px;
-        width: 300px;
-        padding: 1px;
-        text-align: left;
-        white-space: normal;
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
-        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -webkit-background-clip: padding-box;
-        -moz-background-clip: padding;
-        background-clip: padding-box;
-    }
+.popover-markup > .popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    display: none;
+    max-width: 600px;
+    width: 300px;
+    padding: 1px;
+    text-align: left;
+    white-space: normal;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
 
-    .bottom-border-class {
-        border-bottom-width: 1px;
-        border-style: solid;
-        border-bottom-color: #d6eafa;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-left-color: transparent;
-    }
-        
-    div[id*=passenger] > input, div[id*=vehicle] > input {
-        width: 10%;
-        height: 32px;
-        font-size: 14px;
+.bottom-border-class {
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-bottom-color: #d6eafa;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+
+div[id*=passenger] > input, div[id*=vehicle] > input {
+    width: 10%;
+    height: 32px;
+    font-size: 14px;
 }
 
 .increment {
-    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin-right:5px;
+    background-image: url('Searchimages/increment.png');
+}
+
+.decrement {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-image: url('Searchimages/decrement.png');
+}
+
+.search {
+    cursor: pointer;
+    background-image: url('Searchimages/search.png');
+    background-repeat:no-repeat;
+    background-position:right;
 }
 
 .cluster {
@@ -207,11 +201,11 @@ input[id*=departure], input[id*=arrive] {
     line-height: 53px;
     width: 60px;
     height: 48px;
-    }
+}
 
 .cluster-3 {
     background: url(Searchimages/portcluster-3.png) no-repeat;
     line-height: 66px;
     width: 70px;
     height: 56px;
-    }
+}

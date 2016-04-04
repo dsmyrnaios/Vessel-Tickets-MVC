@@ -95,7 +95,6 @@
                             '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-redremove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
                             '</div>' +
                             '<div class="col-md-6">' +
-                            //'<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' + //"../Content/Searchimages/bluePlusIcon.jpg"
                             '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-greenplus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>'
                             '</div></div>';
 
@@ -621,7 +620,7 @@
     });
 
     $('body').on('click', '.increment,.decrement', function () {
-        $parentselector = $(this).parent().parent();
+        $parentselector = $(this).parent();
         $selector = $parentselector.find('input');
         $selectorvalue = $selector.val();
         
@@ -728,10 +727,10 @@ function startvehiclepopover() {
 
 function stylepopovercontent(selector) {
     if (selector.find('input').val() > 0) {
-        selector.find('.decrement').removeClass('lighten-3');
+        selector.find('.decrement').show();
     }
     else {
-        selector.find('.decrement').addClass('lighten-3');
+        selector.find('.decrement').hide();
     }
 }
 
@@ -776,11 +775,11 @@ function createNewFerrystep(cnt) {
 
     var toAppend = '<div class="row" style="display:inline; float:left;" id="multipletrip' + cnt + '">' +
                               '<div class="col-md-5" id="depallroute' + cnt + '">' +
-                              '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
+                              '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
                               '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
                               '</div>' +
                               '<div class="col-md-5" id="arrallroute' + cnt + '">' +
-                              '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
+                              '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού <img src="../Content/Searchimages/portto.png"></a></label>' +
                               '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
                               '</div>' +
                               '<div class="col-md-2" id="depalldate' + cnt + '">' +
