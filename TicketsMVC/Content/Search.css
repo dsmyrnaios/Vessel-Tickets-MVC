@@ -129,7 +129,7 @@ input[id*=departure], input[id*=arrive] {
         padding-bottom: 3px;
         padding-left: 20px;
         padding-top: 30px;
-        width: 80%;
+        width: 85%;
     }
 
     .form-control {

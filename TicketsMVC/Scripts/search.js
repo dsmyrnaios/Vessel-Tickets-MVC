@@ -92,11 +92,11 @@
 
             var btnappend = '<div class="row" style="margin-bottom:0px" id="actionbtnid">' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-redremove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-redremove" style="float:center" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
                             '</div>' +
                             '<div class="col-md-6">' +
                             //'<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 glyphicon glyphicon-plus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>' + //"../Content/Searchimages/bluePlusIcon.jpg"
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-greenplus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>'
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-greenplus" style="float:center" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>'
                             '</div></div>';
 
             $("#ferrysteps").append(btnappend);
@@ -651,20 +651,25 @@ function keepnumpassengers(selector) {
 
     if (selectorinput.val() != '') {
         if (selectorinput.val() >= 0) {
-            if (selectorinput.attr('name') === 'NumOfOlders') {
+            if (selectorinput.attr('name') === 'olders') {
                 numpassengersarray[4] = selectorinput.val();
+                $('#NumOfOlders').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfAdults') {
+            else if (selectorinput.attr('name') === 'adults') {
                 numpassengersarray[0] = selectorinput.val();
+                $('#NumOfAdults').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfTeens') {
+            else if (selectorinput.attr('name') === 'teens') {
                 numpassengersarray[1] = selectorinput.val();
+                $('#NumOfTeens').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfKids') {
+            else if (selectorinput.attr('name') === 'kids') {
                 numpassengersarray[2] = selectorinput.val();
+                $('#NumOfKids').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfInfants') {
+            else if (selectorinput.attr('name') === 'infants') {
                 numpassengersarray[3] = selectorinput.val();
+                $('#NumOfInfants').val(selectorinput.val());
             }
         }
         else {
@@ -683,17 +688,21 @@ function keepnumvehicles(selector) {
     selectorinput = selector.find('input');
     if (selectorinput.val() != '') {
         if (selectorinput.val() >= 0) {
-            if (selectorinput.attr('name') === 'NumOfCars') {
+            if (selectorinput.attr('name') === 'cars') {
                 numvehiclesarray[0] = selectorinput.val();
+                $('#NumOfCars').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfMotos') {
+            else if (selectorinput.attr('name') === 'motos') {
                 numvehiclesarray[1] = selectorinput.val();
+                $('#NumOfMotos').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfTrailers') {
+            else if (selectorinput.attr('name') === 'trailers') {
                 numvehiclesarray[2] = selectorinput.val();
+                $('#NumOfTrailers').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
+            else if (selectorinput.attr('name') === 'minibuses') {
                 numvehiclesarray[3] = selectorinput.val();
+                $('#NumOfMiniBuses').val(selectorinput.val());
             }
         }
         else {
@@ -775,11 +784,11 @@ function delFerryStep(counter) {
 function createNewFerrystep(cnt) {
 
     var toAppend = '<div class="row" style="display:inline; float:left;" id="multipletrip' + cnt + '">' +
-                              '<div class="col-md-5" id="depallroute' + cnt + '">' +
+                              '<div class="col-md-4" id="depallroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
                               '</div>' +
-                              '<div class="col-md-5" id="arrallroute' + cnt + '">' +
+                              '<div class="col-md-4" id="arrallroute' + cnt + '">' +
                               '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></label>' +
                               '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
                               '</div>' +
