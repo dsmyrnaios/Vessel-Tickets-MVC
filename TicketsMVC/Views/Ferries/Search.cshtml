@@ -14,18 +14,18 @@
         <ul class="list-inline">
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple" />
-                <label for="TripTypeS">Απλή Μετάβαση</label>
-                <img id="icon-single"><img/>
+                <label for="TripTypeS" style="padding-right:5px">Απλή Μετάβαση</label>
+                <img id="icon-single" src="../Content/Searchimages/oneway.png" style="position:relative;top:5px">
             </li>
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeWR" value="WithReturn" />
-                <label for="TripTypeWR">Με επιστροφή</label>
-                <img id="icon-return"><img />
+                <label for="TripTypeWR" style="padding-right:5px">Με επιστροφή</label>
+                <img id="icon-return" src="../Content/Searchimages/withreturn.png" style="position:relative;top:5px">
             </li>
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeM" value="Multiple" />
-                <label for="TripTypeM">Πολλαπλή μετάβαση</label>
-                <img id="icon-multiple"><img />
+                <label for="TripTypeM" style="padding-right:5px">Πολλαπλή μετάβαση</label>
+                <img id="icon-multiple" src="../Content/Searchimages/multipledirections.png" style="position:relative;top:5px">
             </li>
         </ul>
 </div>
@@ -35,7 +35,7 @@
             <label for="FromPort" class="control-label">
                 <a style="cursor:pointer">
                     Επιλέξτε λιμάνι Αναχωρησης
-                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    <img src="../Content/Searchimages/portfrom.png">
                 </a>
             </label>
             @Html.TextBoxFor(m => m.FromPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 1})
@@ -46,7 +46,7 @@
             <label for="ToPort" class="control-label">
                 <a style="cursor:pointer">
                     Επιλέξτε λιμάνι Προορισμού
-                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                    <img src="../Content/Searchimages/portto.png">
                 </a>
             </label>
             @Html.TextBoxFor(m => m.ToPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 2})
@@ -239,7 +239,7 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right"><i class="material-icons right">send</i>Αναζήτηση</button>
+            <button value="Send" class="btn waves-effect waves-light orange search" type="submit" style="float:right">Αναζήτηση&nbsp;</button>
         </div>
     </div>
 }
