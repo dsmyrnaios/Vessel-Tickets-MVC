@@ -650,20 +650,25 @@ function keepnumpassengers(selector) {
 
     if (selectorinput.val() != '') {
         if (selectorinput.val() >= 0) {
-            if (selectorinput.attr('name') === 'NumOfOlders') {
+            if (selectorinput.attr('name') === 'olders') {
                 numpassengersarray[4] = selectorinput.val();
+                $('#NumOfOlders').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfAdults') {
+            else if (selectorinput.attr('name') === 'adults') {
                 numpassengersarray[0] = selectorinput.val();
+                $('#NumOfAdults').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfTeens') {
+            else if (selectorinput.attr('name') === 'teens') {
                 numpassengersarray[1] = selectorinput.val();
+                $('#NumOfTeens').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfKids') {
+            else if (selectorinput.attr('name') === 'kids') {
                 numpassengersarray[2] = selectorinput.val();
+                $('#NumOfKids').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfInfants') {
+            else if (selectorinput.attr('name') === 'infants') {
                 numpassengersarray[3] = selectorinput.val();
+                $('#NumOfInfants').val(selectorinput.val());
             }
         }
         else {
@@ -682,17 +687,21 @@ function keepnumvehicles(selector) {
     selectorinput = selector.find('input');
     if (selectorinput.val() != '') {
         if (selectorinput.val() >= 0) {
-            if (selectorinput.attr('name') === 'NumOfCars') {
+            if (selectorinput.attr('name') === 'cars') {
                 numvehiclesarray[0] = selectorinput.val();
+                $('#NumOfCars').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfMotos') {
+            else if (selectorinput.attr('name') === 'motos') {
                 numvehiclesarray[1] = selectorinput.val();
+                $('#NumOfMotos').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfTrailers') {
+            else if (selectorinput.attr('name') === 'trailers') {
                 numvehiclesarray[2] = selectorinput.val();
+                $('#NumOfTrailers').val(selectorinput.val());
             }
-            else if (selectorinput.attr('name') === 'NumOfMiniBuses') {
+            else if (selectorinput.attr('name') === 'minibuses') {
                 numvehiclesarray[3] = selectorinput.val();
+                $('#NumOfMiniBuses').val(selectorinput.val());
             }
         }
         else {
