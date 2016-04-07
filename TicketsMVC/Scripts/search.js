@@ -92,10 +92,10 @@
 
             var btnappend = '<div class="row" style="margin-bottom:0px" id="actionbtnid">' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-redremove" style="float:left" id="delFerryStepId" onclick="delFerryStep()">Αφαίρεση διαδρομής</button>' +
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1" style="float:left;margin-bottom:5px" id="delFerryStepId" onclick="delFerryStep()"><img src="../Content/Searchimages/removeroute.png"/> Αφαίρεση διαδρομής</button>' +
                             '</div>' +
                             '<div class="col-md-6">' +
-                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1 icon-greenplus" style="float:right" id="addFerryStepId" onclick="addFerryStep()">Προσθήκη διαδρομής</button>'
+                            '<button type="button" class="btn waves-effect waves-light #bdbdbd grey lighten-1" style="float:right" id="addFerryStepId" onclick="addFerryStep()"><img src="../Content/Searchimages/addroute.png"/> Προσθήκη διαδρομής</button>'
                             '</div></div>';
 
             $("#ferrysteps").append(btnappend);

@@ -9,10 +9,15 @@
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
 </head>
 <body>
 <div class="container">
+    <div class="cssload-loader">
+        <img src="~/Content/Searchimages/boatspinner.jpg" />
+        <div class="cssload-inner cssload-one"></div>
+        <div class="cssload-inner cssload-two"></div>
+        <div class="cssload-inner cssload-three"></div>
+    </div>
     <div class="row">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Results", "Results", "Ferries")</li>

@@ -41,12 +41,37 @@ namespace TicketsMVC.Models
         [Range(1, 15, ErrorMessage = "Ο επιτρεπτός αριθμός επιβατών είναι από 1 εώς και 15")]
         public int NumOfPassengers { get; set; }
 
+        [Display(Name = "Ενήλικες")]
+        public int NumOfAdults { get; set; }
+
+        [Display(Name = "Έφηβοι")]
+        public int NumOfTeens { get; set; }
+
+        [Display(Name = "Παιδιά")]
+        public int NumOfKids { get; set; }
+
+        [Display(Name = "Βρέφη")]
+        public int NumOfInfants { get; set; }
+
+        [Display(Name = "Ηλικιωμένοι")]
+        public int NumOfOlders { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε αριθμό οχημάτων")]
         [Display(Name = "Οχήματα")]
         [Range(0, 8, ErrorMessage = "Ο μέγιστος αριθμός οχημάτων είναι 8")]
         public int NumOfVehicles { get; set; }
-        
+
+        [Display(Name = "Αυτοκίνητα")]
+        public int NumOfCars { get; set; }
+
+        [Display(Name = "Μηχανές")]
+        public int NumOfMotos { get; set; }
+
+        [Display(Name = "Τρέιλερ")]
+        public int NumOfTrailers { get; set; }
+
+        [Display(Name = "Μινι λεωφορεία")]
+        public int NumOfMiniBuses { get; set; }
 
         public List<MultipleDeparture> MultDepList
         {
@@ -54,43 +79,6 @@ namespace TicketsMVC.Models
         }
 
         private List<MultipleDeparture> _multDepartures = new List<MultipleDeparture>();
-
-        [Required]
-        [Display(Name = "Ενήλικες")]
-        public int NumOfAdults { get; set; }
-
-        [Required]
-        [Display(Name = "Έφηβοι")]
-        public int NumOfTeens { get; set; }
-
-        [Required]
-        [Display(Name = "Παιδιά")]
-        public int NumOfKids { get; set; }
-
-        [Required]
-        [Display(Name = "Βρέφη")]
-        public int NumOfInfants { get; set; }
-
-        [Required]
-        [Display(Name = "Ηλικιωμένοι")]
-        public int NumOfOlders { get; set; }
-
-        [Required]
-        [Display(Name = "Αυτοκίνητα")]
-        public int NumOfCars { get; set; }
-
-        [Required]
-        [Display(Name = "Μηχανές")]
-        public int NumOfMotos { get; set; }
-
-        [Required]
-        [Display(Name = "Τρέιλερ")]
-        public int NumOfTrailers { get; set; }
-
-        [Required]
-        [Display(Name = "Μινι λεωφορεία")]
-        public int NumOfMiniBuses { get; set; }
-
 
     }
 

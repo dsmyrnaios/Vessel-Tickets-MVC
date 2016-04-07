@@ -225,8 +225,12 @@
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Content\materialize\materialize.min.css" />
     <Content Include="Content\Search.css" />
+    <Content Include="Content\Searchimages\addroute.png" />
+    <Content Include="Content\Searchimages\boatsearch.png" />
+    <Content Include="Content\Searchimages\boatspinner.jpg" />
+    <Content Include="Content\Searchimages\boatspritesgo.png" />
+    <Content Include="Content\Searchimages\boatspritesreturn.png" />
     <Content Include="Content\Searchimages\decrement.png" />
-    <Content Include="Content\Searchimages\greenPlusIcon.png" />
     <Content Include="Content\Searchimages\increment.png" />
     <Content Include="Content\Searchimages\multipledirections.png" />
     <Content Include="Content\Searchimages\oneway.png" />
@@ -236,10 +240,9 @@
     <Content Include="Content\Searchimages\portcluster-3.png" />
     <Content Include="Content\Searchimages\portfrom.png" />
     <Content Include="Content\Searchimages\portto.png" />
-    <Content Include="Content\Searchimages\remove.png" />
+    <Content Include="Content\Searchimages\removeroute.png" />
     <Content Include="Content\Searchimages\search.png" />
     <Content Include="Content\Searchimages\ship.png" />
-    <Content Include="Content\Searchimages\withreturn1.png" />
     <Content Include="Content\Searchimages\withreturn.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />

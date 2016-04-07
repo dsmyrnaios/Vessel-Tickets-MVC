@@ -6,23 +6,6 @@ fieldset {
     overflow: hidden;
 }
 
-.iconcls {
-    margin-top: -4.5px;
-}
-
-.icon-greenplus {
-    background-image: url("../Content/Searchimages/greenPlusIcon.png");
-    background-position: left;
-    background-repeat: no-repeat;
-}
-
-.icon-redremove {
-    background-image: url("../Content/Searchimages/remove.png");
-    background-position: left;
-    background-repeat: no-repeat;
-    margin-bottom: 10px;
-}
-
 .infobulle {
     overflow: hidden;
     cursor: default;
@@ -142,9 +125,7 @@ form, .form-horizontal {
 }
 
 .bottom-border-class {
-    border-bottom-width: 1px;
-    border-style: solid;
-    border-bottom-color: #d6eafa;
+    border-bottom: 1px solid #d6eafa;
     border-top-color: transparent;
     border-right-color: transparent;
     border-left-color: transparent;
@@ -161,21 +142,14 @@ div[id*=passenger] > input, div[id*=vehicle] > input {
     width: 30px;
     cursor: pointer;
     margin-right:5px;
-    background-image: url('Searchimages/increment.png');
+    background: url('Searchimages/increment.png') no-repeat;
 }
 
 .decrement {
     height: 30px;
     width: 30px;
     cursor: pointer;
-    background-image: url('Searchimages/decrement.png');
-}
-
-.search {
-    cursor: pointer;
-    background-image: url('Searchimages/search.png');
-    background-repeat:no-repeat;
-    background-position:right;
+    background: url('Searchimages/decrement.png') no-repeat;
 }
 
 .cluster {
