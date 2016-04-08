@@ -70,8 +70,11 @@ namespace TicketsMVC.Models
         [Display(Name = "Τρέιλερ")]
         public int NumOfTrailers { get; set; }
 
-        [Display(Name = "Μινι λεωφορεία")]
+        [Display(Name = "Μίνι λεωφορεία")]
         public int NumOfMiniBuses { get; set; }
+
+        [Display(Name = "Φορτηγά")]
+        public int NumOfTrucks { get; set; }
 
         public List<MultipleDeparture> MultDepList
         {

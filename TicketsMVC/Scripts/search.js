@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     numpassengersarray = [1, 0, 0, 0, 0];
-    numvehiclesarray = [0, 0, 0, 0];
+    numvehiclesarray = [0, 0, 0, 0, 0];
 
     var defaultmultipledirections = 3;
     var counter = defaultmultipledirections;
@@ -702,6 +702,10 @@ function keepnumvehicles(selector) {
             else if (selectorinput.attr('name') === 'minibuses') {
                 numvehiclesarray[3] = selectorinput.val();
                 $('#NumOfMiniBuses').val(selectorinput.val());
+            }
+            else if (selectorinput.attr('name') === 'trucks') {
+                numvehiclesarray[4] = selectorinput.val();
+                $('#NumOfTrucks').val(selectorinput.val());
             }
         }
         else {

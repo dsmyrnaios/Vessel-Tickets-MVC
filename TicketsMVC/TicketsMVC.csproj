@@ -243,6 +243,16 @@
     <Content Include="Content\Searchimages\removeroute.png" />
     <Content Include="Content\Searchimages\search.png" />
     <Content Include="Content\Searchimages\ship.png" />
+    <Content Include="Content\Searchimages\typeadult.png" />
+    <Content Include="Content\Searchimages\typecamper-trailer.png" />
+    <Content Include="Content\Searchimages\typecar.png" />
+    <Content Include="Content\Searchimages\typeinfant.png" />
+    <Content Include="Content\Searchimages\typekid.png" />
+    <Content Include="Content\Searchimages\typeminibus.png" />
+    <Content Include="Content\Searchimages\typeolder.png" />
+    <Content Include="Content\Searchimages\typeteen.png" />
+    <Content Include="Content\Searchimages\typetruck.png" />
+    <Content Include="Content\Searchimages\typemoto.png" />
     <Content Include="Content\Searchimages\withreturn.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
