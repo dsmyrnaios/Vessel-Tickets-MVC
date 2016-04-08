@@ -18,5 +18,6 @@
 /// <reference path="moment/moment.min.js" />
 /// <reference path="moment/moment-with-locales.min.js" />
 /// <reference path="respond.js" />
+/// <reference path="results.js" />
 /// <reference path="search.js" />
 /// <reference path="xml2json/xml2json.js" />

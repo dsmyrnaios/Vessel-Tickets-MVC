@@ -329,7 +329,7 @@
     portdiv.append(portlist);
     var areaofports = $('<li style=color:#1668b1;font-size:large;font-weight:bolder>' + categoryportareavalues[0] + '</li>');
     var portheader = $('<ul class=list-inline style="border-bottom:5px solid #FA0">');
-    var portimage = $('<li><img class="responsive-img" src="../Content/Searchimages/ship.png" alt="shipimage" style=margin-bottom:5px></li>');
+    var portimage = $('<li><img src="../Content/Searchimages/ship.png" alt="shipimage" style=margin-bottom:5px></li>');
     var portlistbutton = $('<button type="button" class="btn-floating waves-effect waves-light green portlistbutton" title="Show on list"><i class="material-icons">list</i></button>');
     var portmapbutton = $('<button type="button" class="btn-floating waves-effect waves-light green portmapbutton" title="Show on map"><i class="material-icons">language</i></button>');
     portheader.append(portimage).append(areaofports).append(portlistbutton).append(portmapbutton);

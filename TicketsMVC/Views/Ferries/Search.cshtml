@@ -6,7 +6,6 @@
         $(".cssload-loader").fadeOut("slow");
     });
 </script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-zxKGCB7flXHlaoCAkvr0JfjbhdH3ko" async defer></script>
 
 @using (Html.BeginForm("Results", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
@@ -14,7 +13,7 @@
 
     @Html.ValidationSummary(true, "", new {@class = "text-danger"})
     <div class="row" >
-        <ul class="list-inline">
+        <ul class="list-inline col-md-12">
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple" />
                 <label for="TripTypeS" style="padding-right:5px">Απλή Μετάβαση</label>
@@ -218,18 +217,14 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/Content/Searchimages/boatsearch.png" /></button>
+            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
         </div>
     </div>
 }
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/fancybox")
     @Styles.Render("~/Content/fancybox")
-    @Styles.Render("~/Content/materialize")
-    @Scripts.Render("~/bundles/materialize")
-    @Scripts.Render("~/bundles/xml2json")
     @Scripts.Render("~/bundles/map")
     @Scripts.Render("~/Scripts/search.js")
     @Scripts.Render("~/Scripts/moment/moment.js")

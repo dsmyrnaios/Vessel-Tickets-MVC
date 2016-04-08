@@ -1,5 +1,62 @@
 ﻿@using TicketsMVC.Models
 @model SearchViewModel
 
-<h2>@Model.NumOfAdults</h2>
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $(".cssload-loader").fadeOut("slow");
+    });
+</script>
+
+@using (Html.BeginForm("Passengers", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
+{
+
+    <div class="row">
+        <label class="col-md-12" style="font-weight:bolder;font-size:larger;color:#1E7FB1">
+            Δρομολόγια από <span style="color:orange">@Model.FromPort</span> προς <span style="color:orange">@Model.ToPort</span>  <span style="font-size:larger">-</span>  (@Model.Triptype)
+        </label>
+        <label class="col-md-12">
+            Αναχώρηση: <span style="color:orange">@Model.DateFrom</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.DateTo</span>
+        </label>
+    </div>
+    <div class="row">
+        <ul class="list-inline col-md-12">
+            <li>
+                <img src="../Content/resultsimages/typeavailable.png" style="float:left">
+                <label style="padding-left:5px;position:relative;top:6px">Διαθέσιμες θέσεις</label>
+            </li>
+            <li>
+                <img src="../Content/resultsimages/typelimited.png" style="float:left">
+                <label style="padding-left:5px;position:relative;top:6px">Περιορισμένες θέσεις</label>
+            </li>
+            <li>
+                <img src="../Content/resultsimages/typeno.png" style="float:left">
+                <label style="padding-left:5px;position:relative;top:6px">Δεν υπάρχουν θέσεις</label>
+            </li>
+            <li>
+                <img src="../Content/Resultsimages/typenore.png" style="float:left">
+                <label style="padding-left:5px;position:relative;top:6px">Δεν υπάρχει δυνατότητα κράτησης</label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row" style="border-bottom:5px solid #1E7FB1">
+        <img class="col-md-1" src="~/Content/Searchimages/ship.png" style="float:left"/>
+        <label class="col-md-11" style="font-weight:bolder;font-size:20px;color:#1E7FB1;padding-left:0px">
+            Διαθέσιμα Δρομολόγια @Model.FromPort <span style="font-size:larger">-</span> @Model.ToPort
+        </label>
+    </div>
+
+    //SUBMIT BUTTON
+    <div class="row">
+        <div class="col-md-12">
+            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/results.js")
+    @Styles.Render("~/Content/Search.css")
+}
 

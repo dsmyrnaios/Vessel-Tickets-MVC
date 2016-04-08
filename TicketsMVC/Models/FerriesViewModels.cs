@@ -26,11 +26,11 @@ namespace TicketsMVC.Models
 
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Αναχώρησης")]
         [Display(Name = "Αναχώρηση")]
-        public DateTime? DateFrom { get; set; }
+        public string DateFrom { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Επιστροφής")]
         [Display(Name = "Επιστροφή")]
-        public DateTime? DateTo { get; set; }
+        public string DateTo { get; set; }
         
         [Required]
         [Display(Name = "Είδος ταξιδιού")]
@@ -98,7 +98,7 @@ namespace TicketsMVC.Models
 
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Αναχώρησης")]
         [Display(Name = "Αναχώρηση")]
-        public DateTime DateFrom { get; set; }
+        public string DateFrom { get; set; }
     }
 
 
