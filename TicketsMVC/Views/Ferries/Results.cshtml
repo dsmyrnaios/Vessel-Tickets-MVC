@@ -12,11 +12,11 @@
 {
 
     <div class="row">
-        <label class="col-md-12" style="font-weight:bolder;font-size:larger;color:#1E7FB1">
-            Δρομολόγια από <span style="color:orange">@Model.FromPort</span> προς <span style="color:orange">@Model.ToPort</span>  <span style="font-size:larger">-</span>  (@Model.Triptype)
+        <label class="col-md-12" style="font-weight:bolder;font-size:18px;color:#1E7FB1">
+            Δρομολόγια από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort</span>  <span style="font-size:larger">-</span>  (@Model.Triptype)
         </label>
         <label class="col-md-12">
-            Αναχώρηση: <span style="color:orange">@Model.DateFrom</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.DateTo</span>
+            Αναχώρηση: <span style="color:orange">@Model.MultDepList[0].DateFrom</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.MultDepList[0].DateTo</span>
         </label>
     </div>
     <div class="row">
@@ -41,9 +41,9 @@
     </div>
 
     <div class="row" style="border-bottom:5px solid #1E7FB1">
-        <img class="col-md-1" src="~/Content/Searchimages/ship.png" style="float:left"/>
-        <label class="col-md-11" style="font-weight:bolder;font-size:20px;color:#1E7FB1;padding-left:0px">
-            Διαθέσιμα Δρομολόγια @Model.FromPort <span style="font-size:larger">-</span> @Model.ToPort
+        <img class="col-md-1" src="~/Content/Searchimages/ship.png" style="float:left;margin-bottom:5px"/>
+        <label class="col-md-11" style="font-weight:bolder;font-size:15px;color:#1E7FB1;padding-left:0px;margin-top:10px;">
+            Διαθέσιμα Δρομολόγια <span style="color:orange">@Model.MultDepList[0].FromPort</span> <span style="font-size:larger">-</span> <span style="color:orange">@Model.MultDepList[0].ToPort</span>
         </label>
     </div>
 

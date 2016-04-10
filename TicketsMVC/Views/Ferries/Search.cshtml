@@ -32,50 +32,45 @@
         </ul>
 </div>
 
-    <div class="row" id="fromto0">
+    <div class="row" id="fromto">
         <div class="input-field col s6" id="depallroute0">
-            <label for="FromPort" class="control-label">
+            <label for="MultDepList[0].FromPort" class="control-label">
                 <a style="cursor:pointer">
                     Επιλέξτε λιμάνι Αναχωρησης
                     <img src="../Content/Searchimages/portfrom.png">
                 </a>
             </label>
-            @Html.TextBoxFor(m => m.FromPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 1})
-            @Html.ValidationMessageFor(m => m.FromPort, "", new { @class = "text-danger" })
+            <input class="form-control" type="text" name="MultDepList[0].FromPort" data-val-required="Εισάγετε όνομα λιμανιού πόλης" placeholder="Εισάγετε όνομα λιμανιού πόλης" data-val="true" tabindex=1 required>
         </div>
         
         <div class="input-field col s6" id="arrallroute0">
-            <label for="ToPort" class="control-label">
+            <label for="MultDepList[0].ToPort" class="control-label">
                 <a style="cursor:pointer">
                     Επιλέξτε λιμάνι Προορισμού
                     <img src="../Content/Searchimages/portto.png">
                 </a>
             </label>
-            @Html.TextBoxFor(m => m.ToPort, new {@class = "form-control", placeholder = "Εισάγετε όνομα λιμανιού πόλης", tabindex = 2})
-            @Html.ValidationMessageFor(m => m.ToPort, "", new { @class = "text-danger" })
+            <input class="form-control" type="text" name="MultDepList[0].ToPort" data-val-required="Εισάγετε όνομα λιμανιού πόλης" placeholder="Εισάγετε όνομα λιμανιού πόλης" data-val="true" tabindex=2 required>
         </div>
     </div>
 
 
     <div class="row" id="dates">
         <div class="col-md-3" id="depalldate">
-            <label for="departure" class="control-label">Αναχώρηση</label>
-            @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control datepicker", @readonly = "readonly", type = "text", id = "departuredate0", placeholder = "Εισάγετε ημ/νια αναχώρησης", tabindex = 3 })
-            @Html.ValidationMessageFor(m => m.DateFrom, "", new { @class = "text-danger" })
+            <label for="MultDepList[0].DateFrom" class="control-label">Αναχώρηση</label>
+            <input class="form-control datepicker" type="text" id = "departuredate0" name="MultDepList[0].DateFrom" readonly = "readonly" data-val-required="Εισάγετε ημ/νια αναχώρησης" placeholder="Εισάγετε ημ/νια αναχώρησης" data-val="true" tabindex=3 required>
         </div>
 
         <div class="col-md-3" id="arralldate">
-            <label for="arrive" class="control-label">Επιστροφή</label>
-            @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control datepicker", @readonly = "readonly", type = "text", id = "arrivedate0", placeholder = "Εισάγετε ημ/νια επιστροφής", tabindex = 4 })
-            @Html.ValidationMessageFor(m => m.DateTo, "", new { @class = "text-danger" })
+            <label for="MultDepList[0].DateTo" class="control-label">Επιστροφή</label>
+            <input class="form-control datepicker" type="text" id="arrivedate0" name="MultDepList[0].DateTo" readonly="readonly" data-val-required="Εισάγετε ημ/νια επιστροφής" placeholder="Εισάγετε ημ/νια επιστροφής" data-val="true" tabindex=4 required>
         </div>
 
         @* Passengers *@
         <div class="col-md-2">
             <div class="popover-markup">
-                <label for="NumOfPassengers" class="control-label">Επιβάτες</label>
-                @Html.TextBoxFor(m => m.NumOfPassengers, new { @class = "form-control", @readonly = "readonly", id = "numpassengers", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό επιβατών", tabindex = 1, })
-                @Html.ValidationMessageFor(m => m.NumOfPassengers, "", new { @class = "text-danger" })
+                <label for="Passengers[0].NumOfPassengers" class="control-label">Επιβάτες</label>
+                <input type="text" class="form-control" id = "numpassengers" name="Passengers[0].NumOfPassengers" readonly = "readonly" value="@Model.Passengers[0].NumOfPassengers" style = "width: 60%" data_toggle = "popover" placeholder = "Εισάγετε αριθμό επιβατών" tabindex = 1 />
 
                 <div class="content hide">
                     @* ADULTS *@
@@ -136,18 +131,12 @@
                 </div>
             </div>
         </div>
-        @Html.HiddenFor(x => x.NumOfAdults, new { @id = "NumOfAdults", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfTeens, new { @id = "NumOfTeens", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfKids, new { @id = "NumOfKids", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfInfants, new { @id = "NumOfInfants", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfOlders, new { @id = "NumOfOlders", @style = "display: none;", tabindex = -1 })
 
         @* Vehicles *@
         <div class="col-md-2">
             <div class="popover-markup">
-                <label for="NumOfVehicles" class="control-label">Οχήματα</label>
-                @Html.TextBoxFor(m => m.NumOfVehicles, new { @class = "form-control", @readonly = "readonly", id = "numvehicles", style = "width: 60%", data_toggle = "popover", data_placement = "bottom", placeholder = "Εισάγετε αριθμό οχημάτων", tabindex = -1 })
-                @Html.ValidationMessageFor(m => m.NumOfVehicles, "", new { @class = "text-danger" })
+                <label for="Vehicles[0].NumOfVehicles" class="control-label">Οχήματα</label>
+                <input type="text" class="form-control" name="Vehicles[0].NumOfVehicles" id = "numvehicles" readonly = "readonly" value="@Model.Vehicles[0].NumOfVehicles" style = "width: 60%" data_toggle = "popover" placeholder = "Εισάγετε αριθμό οχημάτων" tabindex = -1 />
 
                 <div class="content hide">
                     @*Cars*@
@@ -206,11 +195,6 @@
                 </div>
             </div>
         </div>
-        @Html.HiddenFor(x => x.NumOfCars, new { @id = "NumOfCars", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfMotos, new { @id = "NumOfMotos", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfTrailers, new { @id = "NumOfTrailers", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfMiniBuses, new { @id = "NumOfMiniBuses", @style = "display: none;", tabindex = -1 })
-        @Html.HiddenFor(x => x.NumOfTrucks, new { @id = "NumOfTrucks", @style = "display: none;", tabindex = -1 })
 
     </div>
 
@@ -220,7 +204,20 @@
             <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
         </div>
     </div>
+
 }
+
+@Html.HiddenFor(x => x.Passengers[0].NumOfAdults, new { @id = "NumOfAdults", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Passengers[0].NumOfTeens, new { @id = "NumOfTeens", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Passengers[0].NumOfKids, new { @id = "NumOfKids", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Passengers[0].NumOfInfants, new { @id = "NumOfInfants", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Passengers[0].NumOfOlders, new { @id = "NumOfOlders", @style = "display: none;", tabindex = -1 })
+
+@Html.HiddenFor(x => x.Vehicles[0].NumOfCars, new { @id = "NumOfCars", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Vehicles[0].NumOfMotos, new { @id = "NumOfMotos", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Vehicles[0].NumOfTrailers, new { @id = "NumOfTrailers", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Vehicles[0].NumOfMiniBuses, new { @id = "NumOfMiniBuses", @style = "display: none;", tabindex = -1 })
+@Html.HiddenFor(x => x.Vehicles[0].NumOfTrucks, new { @id = "NumOfTrucks", @style = "display: none;", tabindex = -1 })
 
 @section Scripts {
     @Scripts.Render("~/bundles/fancybox")

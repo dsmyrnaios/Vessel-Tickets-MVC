@@ -15,8 +15,12 @@ namespace TicketsMVC.Controllers
         public ActionResult Search()
         {
             var mod = new SearchViewModel();
-            mod.NumOfPassengers = 1;
-            mod.NumOfAdults = 1;
+            var passenger = new Passengers();
+            passenger.NumOfPassengers = 1;
+            passenger.NumOfAdults = 1;
+            mod.Passengers.Add(passenger);
+            var vehicles = new Vehicles();
+            mod.Vehicles.Add(vehicles);
 
             return View(mod);
         }
