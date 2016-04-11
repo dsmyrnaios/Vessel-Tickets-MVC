@@ -15,12 +15,14 @@ namespace TicketsMVC.Controllers
         public ActionResult Search()
         {
             var mod = new SearchViewModel();
-            var passenger = new Passengers();
+
+            Passengers passenger = new Passengers();
             passenger.NumOfPassengers = 1;
             passenger.NumOfAdults = 1;
-            mod.Passengers.Add(passenger);
-            var vehicles = new Vehicles();
-            mod.Vehicles.Add(vehicles);
+            mod.TotPassengers = passenger;
+
+            Vehicles vehicles = new Vehicles();
+            mod.TotVehicles = vehicles;
 
             return View(mod);
         }
@@ -35,7 +37,19 @@ namespace TicketsMVC.Controllers
                 ViewBag.Message = "correct";
             }
 
-            return View(model);
+            ResultsModel resmodel = new ResultsModel();
+
+            resmodel.MultDepList = new List<MultipleDeparture>();
+            foreach (MultipleDeparture multdep in model.MultDepList)
+            {
+                resmodel.MultDepList.Add(multdep);
+            }
+
+            resmodel.TotPassengers = model.TotPassengers;
+            resmodel.TotVehicles = model.TotVehicles;
+            resmodel.Triptype = model.Triptype;
+
+            return View(resmodel);
         }
 
         public ActionResult Passengers()

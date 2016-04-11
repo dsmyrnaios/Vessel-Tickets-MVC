@@ -41,6 +41,7 @@
                 </a>
             </label>
             <input class="form-control" type="text" name="MultDepList[0].FromPort" data-val-required="Εισάγετε όνομα λιμανιού πόλης" placeholder="Εισάγετε όνομα λιμανιού πόλης" data-val="true" tabindex=1 required>
+            @Html.ValidationMessageFor(x => x.MultDepList[0].FromPort, "", new { @class ="text-danger"})
         </div>
         
         <div class="input-field col s6" id="arrallroute0">
@@ -51,6 +52,7 @@
                 </a>
             </label>
             <input class="form-control" type="text" name="MultDepList[0].ToPort" data-val-required="Εισάγετε όνομα λιμανιού πόλης" placeholder="Εισάγετε όνομα λιμανιού πόλης" data-val="true" tabindex=2 required>
+            @Html.ValidationMessageFor(x => x.MultDepList[0].ToPort, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -58,49 +60,52 @@
     <div class="row" id="dates">
         <div class="col-md-3" id="depalldate">
             <label for="MultDepList[0].DateFrom" class="control-label">Αναχώρηση</label>
-            <input class="form-control datepicker" type="text" id = "departuredate0" name="MultDepList[0].DateFrom" readonly = "readonly" data-val-required="Εισάγετε ημ/νια αναχώρησης" placeholder="Εισάγετε ημ/νια αναχώρησης" data-val="true" tabindex=3 required>
+            <input class="form-control datepicker" type="text" id="departuredate0" name="MultDepList[0].DateFrom" readonly="readonly" data-val-required="Εισάγετε ημ/νια αναχώρησης" placeholder="Εισάγετε ημ/νια αναχώρησης" data-val="true" tabindex=3 required>
+            @Html.ValidationMessageFor(x => x.MultDepList[0].DateFrom, "", new {@class = "text-danger"})
         </div>
 
         <div class="col-md-3" id="arralldate">
             <label for="MultDepList[0].DateTo" class="control-label">Επιστροφή</label>
             <input class="form-control datepicker" type="text" id="arrivedate0" name="MultDepList[0].DateTo" readonly="readonly" data-val-required="Εισάγετε ημ/νια επιστροφής" placeholder="Εισάγετε ημ/νια επιστροφής" data-val="true" tabindex=4 required>
+            @Html.ValidationMessageFor(x => x.MultDepList[0].DateTo, "", new {@class = "text-danger"})
         </div>
 
         @* Passengers *@
         <div class="col-md-2">
             <div class="popover-markup">
-                <label for="Passengers[0].NumOfPassengers" class="control-label">Επιβάτες</label>
-                <input type="text" class="form-control" id = "numpassengers" name="Passengers[0].NumOfPassengers" readonly = "readonly" value="@Model.Passengers[0].NumOfPassengers" style = "width: 60%" data_toggle = "popover" placeholder = "Εισάγετε αριθμό επιβατών" tabindex = 1 />
+                <label for="Passengers.NumOfPassengers" class="control-label">Επιβάτες</label>
+                <input type="text" class="form-control" id="numpassengers" name="TotPassengers.NumOfPassengers" readonly="readonly" value="@Model.TotPassengers.NumOfPassengers" style="width: 60%" data_toggle="popover" placeholder="Εισάγετε αριθμό επιβατών" tabindex=1/>
+                @Html.ValidationMessageFor(x => x.TotPassengers.NumOfPassengers, "", new {@class = "text-danger"})
 
                 <div class="content hide">
                     @* ADULTS *@
-                    <div class="row bottom-border-class" id="passengeradult" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="passengeradult" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="adults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="adults"><span style="font-weight:bolder">Ενήλικες</span><br/>Από 16 εώς 65 ετών</label>
-                            <img src="../Content/Searchimages/typeadult.png" />
+                            <label for="adults"><span style="font-weight: bolder">Ενήλικες</span><br/>Από 16 εώς 65 ετών</label>
+                            <img src="~/Content/Searchimages/typeadult.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* TEENS *@
-                    <div class="row bottom-border-class" id="passengerteen" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="passengerteen" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="teens" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="teens"><span style="font-weight:bolder">Έφηβοι</span><br/>Από 12 εώς 16 ετών</label>
-                            <img src="../Content/Searchimages/typeteen.png" />
+                            <label for="teens"><span style="font-weight: bolder">Έφηβοι</span><br/>Από 12 εώς 16 ετών</label>
+                            <img src="~/Content/Searchimages/typeteen.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* KIDS *@
-                    <div class="row bottom-border-class" id="passengerkid" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="passengerkid" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="kids" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="kids"><span style="font-weight:bolder">Παιδιά</span><br/>Από 2 εώς 12 ετών</label>
-                            <img src="../Content/Searchimages/typekid.png" />
+                            <label for="kids"><span style="font-weight: bolder">Παιδιά</span><br/>Από 2 εώς 12 ετών</label>
+                            <img src="~/Content/Searchimages/typekid.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -110,19 +115,19 @@
                     <div class="row bottom-border-class" id="passengerinfant" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="infants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="infants"><span style="font-weight:bolder">Βρέφη</span><br/>Kάτω των 2 ετών</label>
-                            <img src="../Content/Searchimages/typeinfant.png" />
+                            <label for="infants"><span style="font-weight: bolder">Βρέφη</span><br/>Kάτω των 2 ετών</label>
+                            <img src="~/Content/Searchimages/typeinfant.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
                     @* OLDS *@
-                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="passengerold" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="olders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="olders"><span style="font-weight:bolder">Ηλικιωμένοι</span><br/>Άνω των 65 ετών</label>
-                            <img src="../Content/Searchimages/typeolder.png" />
+                            <label for="olders"><span style="font-weight: bolder">Ηλικιωμένοι</span><br/>Άνω των 65 ετών</label>
+                            <img src="~/Content/Searchimages/typeolder.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -135,16 +140,16 @@
         @* Vehicles *@
         <div class="col-md-2">
             <div class="popover-markup">
-                <label for="Vehicles[0].NumOfVehicles" class="control-label">Οχήματα</label>
-                <input type="text" class="form-control" name="Vehicles[0].NumOfVehicles" id = "numvehicles" readonly = "readonly" value="@Model.Vehicles[0].NumOfVehicles" style = "width: 60%" data_toggle = "popover" placeholder = "Εισάγετε αριθμό οχημάτων" tabindex = -1 />
+                <label for="Vehicles.NumOfVehicles" class="control-label">Οχήματα</label>
+                <input type="text" class="form-control" name="TotVehicles.NumOfVehicles" id="numvehicles" readonly="readonly" value="@Model.TotVehicles.NumOfVehicles" style="width: 60%" data_toggle="popover" placeholder="Εισάγετε αριθμό οχημάτων" tabindex=-1/>
 
                 <div class="content hide">
                     @*Cars*@
                     <div class="row bottom-border-class" id="vehiclecars" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="cars" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="cars" style="margin-top:10px">Αυτοκίνητα</label>
-                            <img src="../Content/Searchimages/typecar.png" />
+                            <label for="cars" style="margin-top: 10px">Αυτοκίνητα</label>
+                            <img src="~/Content/Searchimages/typecar.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -154,8 +159,8 @@
                     <div class="row bottom-border-class" id="vehiclemotos" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="motos" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="motos" style="margin-top:10px">Μηχανές</label>
-                            <img src="~/Content/Searchimages/typemoto.png" />
+                            <label for="motos" style="margin-top: 10px">Μηχανές</label>
+                            <img src="~/Content/Searchimages/typemoto.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -166,27 +171,27 @@
                         <input class="col-md-3 form-control" name="trailers" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="trailers">Τρεϊλερ<br/>τροχόσπιτα</label>
-                            <img src="../Content/Searchimages/typecamper-trailer.png" />
+                            <img src="~/Content/Searchimages/typecamper-trailer.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
-                    <div class="row bottom-border-class" id="vehicleminibuses" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="vehicleminibuses" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="minibuses" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="minibuses">Οικογενειακά<br/>λεωφορεία</label>
-                            <img src="../Content/Searchimages/typeminibus.png" />
+                            <img src="~/Content/Searchimages/typeminibus.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
                     </div>
 
-                    <div class="row bottom-border-class" id="vehicletrucks" style="margin-bottom:5px">
+                    <div class="row bottom-border-class" id="vehicletrucks" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" name="trucks" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="minibuses" style="margin-top:10px">Φορτηγά</label>
-                            <img src="../Content/Searchimages/typetruck.png" />
+                            <label for="minibuses" style="margin-top: 10px">Φορτηγά</label>
+                            <img src="~/Content/Searchimages/typetruck.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -198,34 +203,38 @@
 
     </div>
 
+    @Html.HiddenFor(x => x.TotPassengers.NumOfAdults, new { @id = "NumOfAdults", @value = Model.TotPassengers.NumOfAdults, @class = "form-control", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotPassengers.NumOfTeens, new { @id = "NumOfTeens", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotPassengers.NumOfKids, new { @id = "NumOfKids", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotPassengers.NumOfInfants, new { @id = "NumOfInfants", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotPassengers.NumOfOlders, new { @id = "NumOfOlders", @style = "display: none;", tabindex = -1 })
+
+    @Html.HiddenFor(x => x.TotVehicles.NumOfCars, new { @id = "NumOfCars", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotVehicles.NumOfMotos, new { @id = "NumOfMotos", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotVehicles.NumOfTrailers, new { @id = "NumOfTrailers", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotVehicles.NumOfMiniBuses, new { @id = "NumOfMiniBuses", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotVehicles.NumOfTrucks, new { @id = "NumOfTrucks", @style = "display: none;", tabindex = -1 })
+
+
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
+            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/Content/Searchimages/boatsearch.png" /></button>
         </div>
     </div>
 
 }
 
-@Html.HiddenFor(x => x.Passengers[0].NumOfAdults, new { @id = "NumOfAdults", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Passengers[0].NumOfTeens, new { @id = "NumOfTeens", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Passengers[0].NumOfKids, new { @id = "NumOfKids", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Passengers[0].NumOfInfants, new { @id = "NumOfInfants", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Passengers[0].NumOfOlders, new { @id = "NumOfOlders", @style = "display: none;", tabindex = -1 })
-
-@Html.HiddenFor(x => x.Vehicles[0].NumOfCars, new { @id = "NumOfCars", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Vehicles[0].NumOfMotos, new { @id = "NumOfMotos", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Vehicles[0].NumOfTrailers, new { @id = "NumOfTrailers", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Vehicles[0].NumOfMiniBuses, new { @id = "NumOfMiniBuses", @style = "display: none;", tabindex = -1 })
-@Html.HiddenFor(x => x.Vehicles[0].NumOfTrucks, new { @id = "NumOfTrucks", @style = "display: none;", tabindex = -1 })
-
-@section Scripts {
-    @Scripts.Render("~/bundles/fancybox")
-    @Styles.Render("~/Content/fancybox")
-    @Scripts.Render("~/bundles/map")
-    @Scripts.Render("~/Scripts/search.js")
-    @Scripts.Render("~/Scripts/moment/moment.js")
-    @Styles.Render("~/Content/Search.css")
-}
+    @*<div id="NumOfAdults" name="TotPassengers.NumOfAdults" style="display: none;"  tabindex = -1></div>*@
+    @*<input type="text" class="form-control" id="numpassengers" name="TotPassengers.NumOfPassengers" readonly="readonly" value="@Model.TotPassengers.NumOfPassengers" style="width: 60%" data_toggle="popover" placeholder="Εισάγετε αριθμό επιβατών" tabindex=1 />*@
+   
+    @section Scripts {
+        @Scripts.Render("~/bundles/fancybox")
+        @Styles.Render("~/Content/fancybox")
+        @Scripts.Render("~/bundles/map")
+        @Scripts.Render("~/Scripts/search.js")
+        @Scripts.Render("~/Scripts/moment/moment.js")
+        @Styles.Render("~/Content/Search.css")
+    }
 
 

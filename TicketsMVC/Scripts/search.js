@@ -725,33 +725,38 @@ function delFerryStep(counter) {
 }
 
 function createNewFerrystep(cnt, option) {
-    if (option == 3) {
-        var toAppend = '<div class="col-md-5" id="depallroute' + cnt + '">' +
-                                  '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
-                                  '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
-                                  '</div>' +
-                                  '<div class="col-md-5" id="arrallroute' + cnt + '">' +
-                                  '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού <img src="../Content/Searchimages/portto.png"></a></label>' +
-                                  '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
-                                  '</div>' +
-                                  '<div class="col-md-2" id="depalldate' + cnt + '">' +
-                                  '<label for="MultDepList[' + cnt + '].DateFrom" class="control-label" align="left">Αναχώρηση</label>' +
-                                  '<input class = "form-control datepicker" type = "date" readonly="readonly" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
-                                  '</div>';
-    }
-    else if (option == 2) {
-        var toAppend = '<div class="col-md-6" id="depallroute' + cnt + '">' +
-                                  '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
-                                  '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
-                                  '</div>' +
-                                  '<div class="col-md-6" id="arrallroute' + cnt + '">' +
-                                  '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού <img src="../Content/Searchimages/portto.png"></a></label>' +
-                                  '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>';
-    }
-    else {
-        var toAppend = '<div class="col-md-6" id="depallroute' + cnt + '">' +
-                                  '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
-                                  '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>';
+    var toAppend;
+    if (option === 3) {
+        toAppend = '<div class="col-md-5" id="depallroute' + cnt + '">' +
+            '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
+            '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
+            '<span class="text-danger field-validation-valid" data-valmsg-for="MultDepList[' + cnt + '].FromPort" data-valmsg-replace="true"></span>' +
+            '</div>' +
+            '<div class="col-md-5" id="arrallroute' + cnt + '">' +
+            '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού <img src="../Content/Searchimages/portto.png"></a></label>' +
+            '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
+            '<span class="text-danger field-validation-valid" data-valmsg-for="MultDepList[' + cnt + '].ToPort" data-valmsg-replace="true"></span>' +
+            '</div>' +
+            '<div class="col-md-2" id="depalldate' + cnt + '">' +
+            '<label for="MultDepList[' + cnt + '].DateFrom" class="control-label" align="left">Αναχώρηση</label>' +
+            '<input class = "form-control datepicker" type = "date" readonly="readonly" name="MultDepList[' + cnt + '].DateFrom"  placeholder = "Εισάγετε ημ/νια αναχώρησης" id = "departuredatemulti' + cnt + '" data-val="true" required>' +
+            '<span class="text-danger field-validation-valid" data-valmsg-for="MultDepList[' + cnt + '].DateFrom" data-valmsg-replace="true"></span>' +
+            '</div>';
+    } else if (option === 2) {
+        toAppend = '<div class="col-md-6" id="depallroute' + cnt + '">' +
+            '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
+            '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
+            '<span class="text-danger field-validation-valid" data-valmsg-for="MultDepList[' + cnt + '].FromPort" data-valmsg-replace="true"></span>' +
+            '</div>' +
+            '<div class="col-md-6" id="arrallroute' + cnt + '">' +
+            '<label for="MultDepList[' + cnt + '].ToPort" class="control-label" align="left">Πρός <a style="margin-top: 5px; "> <a style="cursor:pointer">Επιλέξτε λιμάνι προορισμού <img src="../Content/Searchimages/portto.png"></a></label>' +
+            '<input class = "form-control" type = "text" name="MultDepList[' + cnt + '].ToPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true"  required>' +
+            '<span class="text-danger field-validation-valid" data-valmsg-for="MultDepList[' + cnt + '].ToPort" data-valmsg-replace="true"></span>';
+    } else {
+        toAppend = '<div class="col-md-6" id="depallroute' + cnt + '">' +
+            '<label for="MultDepList[' + cnt + '].FromPort" class="control-label" align="left">Από <a style="cursor:pointer">Επιλέξτε λιμάνι Αναχωρησης <img src="../Content/Searchimages/portfrom.png"></a></label>' +
+            '<input class="form-control" type="text" name="MultDepList[' + cnt + '].FromPort"  placeholder = "Εισάγετε όνομα λιμανιού πόλης" data-val="true" required>' +
+            '<span class="text-danger field-validation-valid" data-valmsg-for="MultDepList[' + cnt + '].ToPort" data-valmsg-replace="true"></span>';
     }
     return toAppend;
 }

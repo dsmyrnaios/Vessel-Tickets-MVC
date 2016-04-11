@@ -1,6 +1,8 @@
 ﻿@using TicketsMVC.Models
-@model SearchViewModel
+@model ResultsModel
 
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE-zxKGCB7flXHlaoCAkvr0JfjbhdH3ko" async defer></script>
 
 <script type="text/javascript">
     $(window).load(function () {
@@ -31,26 +33,28 @@
             }
         }
     </div>
+
     <div class="row">
         <ul class="list-inline col-md-12">
             <li>
-                <img src="../Content/resultsimages/typeavailable.png" style="float:left">
-                <label style="padding-left:5px;position:relative;top:6px">Διαθέσιμες θέσεις</label>
+                <img src="~/Content/resultsimages/typeavailable.png" style="float: left">
+                <label style="padding-left: 5px; position: relative; top: 6px">Διαθέσιμες θέσεις</label>
             </li>
             <li>
-                <img src="../Content/resultsimages/typelimited.png" style="float:left">
-                <label style="padding-left:5px;position:relative;top:6px">Περιορισμένες θέσεις</label>
+                <img src="~/Content/resultsimages/typelimited.png" style="float: left">
+                <label style="padding-left: 5px; position: relative; top: 6px">Περιορισμένες θέσεις</label>
             </li>
             <li>
-                <img src="../Content/resultsimages/typeno.png" style="float:left">
-                <label style="padding-left:5px;position:relative;top:6px">Δεν υπάρχουν θέσεις</label>
+                <img src="~/Content/resultsimages/typeno.png" style="float: left">
+                <label style="padding-left: 5px; position: relative; top: 6px">Δεν υπάρχουν θέσεις</label>
             </li>
             <li>
-                <img src="../Content/Resultsimages/typenore.png" style="float:left">
-                <label style="padding-left:5px;position:relative;top:6px">Δεν υπάρχει δυνατότητα κράτησης</label>
+                <img src="~/Content/Resultsimages/typenore.png" style="float: left">
+                <label style="padding-left: 5px; position: relative; top: 6px">Δεν υπάρχει δυνατότητα κράτησης</label>
             </li>
         </ul>
     </div>
+
 
     <div class="row" style="border-bottom:5px solid #1E7FB1">
         <img class="col-md-1" src="~/Content/Searchimages/ship.png" style="float:left;margin-bottom:5px"/>
@@ -70,16 +74,36 @@
         </label>
     </div>
 
-    //SUBMIT BUTTON
-    <div class="row">
-        <div class="col-md-12">
-            <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
-        </div>
+    <div class="row col-md-12" style="border: 1px; display: inline">
+        @*<div class="btn-group">*@
+            
+            @for (int j = -3; j < 4; j++)
+            {
+                if (j == 0)
+                {
+                    <a class="waves-effect waves-light btn orange " style="width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM")</a>
+                }
+                else
+                {
+                    <a class="waves-effect waves-light btn grey lighten-2" style="color: #858585; width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM")</a>
+                }
+            }
+            
+          
+        @*  </div>*@
+        
     </div>
-}
 
-@section Scripts {
-    @Scripts.Render("~/Scripts/results.js")
-    @Styles.Render("~/Content/Search.css")
-}
+        //SUBMIT BUTTON
+        <div class="row">
+            <div class="col-md-12">
+                <button value="Send" class="btn waves-effect waves-light orange" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/Content/Searchimages/boatsearch.png" /></button>
+            </div>
+        </div>
+        }
+
+        @section Scripts {
+            @Scripts.Render("~/Scripts/results.js")
+            @Styles.Render("~/Content/Search.css")
+        }
 
