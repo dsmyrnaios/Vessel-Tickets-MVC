@@ -234,8 +234,6 @@
     <Content Include="Content\Searchimages\addroute.png" />
     <Content Include="Content\Searchimages\boatsearch.png" />
     <Content Include="Content\Searchimages\boatspinner.jpg" />
-    <Content Include="Content\Searchimages\boatspritesgo.png" />
-    <Content Include="Content\Searchimages\boatspritesreturn.png" />
     <Content Include="Content\Searchimages\decrement.png" />
     <Content Include="Content\Searchimages\increment.png" />
     <Content Include="Content\Searchimages\multipledirections.png" />

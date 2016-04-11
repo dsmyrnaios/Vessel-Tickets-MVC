@@ -347,14 +347,15 @@
         var count = 0;
         if (object.parent().attr('id').search('depallroute') != -1) {
             var specificobject = object.parent().attr('id').split('depallroute');
+            var beforespecificobject = specificobject[1] - 1;
             for (var j = 0; j < xmltojson.combination.length; j++) {
                 for (var k = 0; k < xmltojson.combination[j].arriveport.length; k++) {
                     var arriveport = xmltojson.combination[j].arriveport[k].text;
                     for (var i = 0; i < allports.length; i++) {
-                        if (allports[i][1] == $('[id=arrallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == arriveport) {
+                        if (allports[i][1] == $('[id=arrallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == arriveport || (specificobject[1] > 0 && $('[id=depallroute' + beforespecificobject + ']').find('input').val() != '')) {
                             var departureport = xmltojson.combination[j].departureport[0].text;
                             for (var i = 0; i < allports.length; i++) {
-                                if (allports[i][1] == departureport) {
+                                if (allports[i][1] == departureport && allports[i][1] != $('[id=depallroute' + beforespecificobject + ']').find('input').val()) {
                                     currentports[count] = allports[i];
                                     currentportslatlng[count] = portallvalueslatlng[i];
                                 }
@@ -370,14 +371,15 @@
         }
         else {
             var specificobject = object.parent().attr('id').split('arrallroute');
+            var beforespecificobject = specificobject[1] - 1;
             for (var j = 0; j < xmltojson.combination.length; j++) {
                 var departureport = xmltojson.combination[j].departureport[0].text;
                 for (var i = 0; i < allports.length; i++) {
-                    if (allports[i][1] == $('[id=depallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == departureport) {
+                    if (allports[i][1] == $('[id=depallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == departureport || (specificobject[1] > 0 && $('[id=arrallroute' + beforespecificobject + ']').find('input').val() != '')) {
                         for (var i = 0; i < allports.length; i++) {
                             for (var k = 0; k < xmltojson.combination[j].arriveport.length; k++) {
                                 var arriveport = xmltojson.combination[j].arriveport[k].text;
-                                if (allports[i][1] == arriveport) {
+                                if (allports[i][1] == arriveport && allports[i][1] != $('[id=arrallroute' + beforespecificobject + ']').find('input').val()) {
                                     currentports[count] = allports[i];
                                     currentportslatlng[count] = portallvalueslatlng[i];
                                     count++;

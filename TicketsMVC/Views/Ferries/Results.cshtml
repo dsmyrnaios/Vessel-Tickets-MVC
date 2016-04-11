@@ -14,21 +14,24 @@
 {
 
     <div class="row">
-        <label class="col-md-12" style="font-weight: bolder; font-size: 18px; color: #1E7FB1; display: inline">
-            Δρομολόγια από <span style="color: orange; font-size: 15px">@Model.MultDepList[0].FromPort</span> προς <span style="color: orange; font-size: 15px">@Model.MultDepList[0].ToPort</span>  <span style="font-size: larger">-</span>  
-            
-            @if (Model.Triptype == Triptype.Simple)
+        @for (var i = 0; i < @Model.MultDepList.Count; i++)
+        {
+            <label class="col-md-12" style="font-weight:bolder;font-size:18px;color:#1E7FB1">
+                Δρομολόγια από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort</span>  <span style="font-size:larger">-</span>  (@Model.Triptype)
+            </label>
+            if (@Model.Triptype.ToString() != "Multiple")
             {
-                <span  style="font-size: 12px">Απλή διαδρομή</span>
+                <label class="col-md-12">
+                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.MultDepList[i].DateTo</span>
+                </label>
             }
-            else if (Model.Triptype == Triptype.WithReturn)
+            else
             {
-                <span style="font-size: 12px">Με επιστροφή</span>
+                <label class="col-md-12">
+                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom</span>
+                </label>
             }
-        </label>
-        <label class="col-md-12">
-            Αναχώρηση: <span style="color: orange">@Model.MultDepList[0].DateFrom.ToLongDateString()</span> <span style="font-size: larger">-</span> Επιστροφή: <span style="color: orange">@Model.MultDepList[0].DateTo.ToLongDateString()</span>
-        </label>
+        }
     </div>
 
     <div class="row">
@@ -56,15 +59,18 @@
     <div class="row" style="border-bottom:5px solid #1E7FB1">
         <img class="col-md-1" src="~/Content/Searchimages/ship.png" style="float:left;margin-bottom:5px"/>
         <label class="col-md-11" style="font-weight:bolder;font-size:15px;color:#1E7FB1;padding-left:0px;margin-top:10px;">
-            Διαθέσιμα Δρομολόγια <span style="color:orange">@Model.MultDepList[0].FromPort.Split(',')[0]</span> <span style="font-size:larger">-</span> <span style="color:orange">@Model.MultDepList[0].ToPort.Split(',')[0]</span>
-        </label>
-    </div>
-
-
-    <div class="row col-md-12" style="border: 1px; display: inline">
-        <label class="" style="font-weight: bolder; font-size: 13px; color: #1E7FB1; display: inline">
-            <img class="col-md-1" src="~/Content/Searchimages/portfrom.png" style="float: left;" width="22" height="22"/>
-            Αναχώρηση <span style="font-size: 12px">@Model.MultDepList[0].DateFrom.ToLongDateString() | Από @Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1] πρός @Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> 
+            Διαθέσιμα Δρομολόγια
+            @for (var i = 0; i < @Model.MultDepList.Count; i++)
+            {
+                if (i > 0 && @Model.MultDepList[i].FromPort.ToString() != @Model.MultDepList[i - 1].ToPort.ToString())
+                {
+                    <span style="font-size:larger"> -</span> <span style="color:orange">@Model.MultDepList[i].ToPort</span>
+                }
+                else
+                {
+                    <span style="color:orange">@Model.MultDepList[i].FromPort</span> <span style="font-size:larger">-</span> <span style="color:orange">@Model.MultDepList[i].ToPort</span>
+                }
+            }
         </label>
     </div>
 
