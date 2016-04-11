@@ -19,20 +19,14 @@ namespace TicketsMVC.Models
         public List<MultipleDeparture> MultDepList
         {
             get { return _multDepartures; }
+            set { _multDepartures = value; }
         }
+
         private List<MultipleDeparture> _multDepartures = new List<MultipleDeparture>();
-
-        public List<Passengers> Passengers
-        {
-            get { return _passengers; }
-        }
-        private List<Passengers> _passengers = new List<Passengers>();
-
-        public List<Vehicles> Vehicles
-        {
-            get { return _vehicles; }
-        }
-        private List<Vehicles> _vehicles = new List<Vehicles>();
+        
+        public Passengers TotPassengers { get; set; }
+        public Vehicles TotVehicles { get; set; }
+        
 
     }
 
@@ -50,11 +44,11 @@ namespace TicketsMVC.Models
 
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Αναχώρησης")]
         [Display(Name = "Αναχώρηση")]
-        public string DateFrom { get; set; }
+        public DateTime DateFrom { get; set; }
 
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Επιστροφής")]
         [Display(Name = "Επιστροφή")]
-        public string DateTo { get; set; }
+        public DateTime DateTo { get; set; }
     }
 
     public class Passengers
