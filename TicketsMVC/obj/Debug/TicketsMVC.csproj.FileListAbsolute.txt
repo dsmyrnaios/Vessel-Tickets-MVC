@@ -323,6 +323,6 @@ D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsof
 D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owin.Security.Google.xml
 D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.csprojResolveAssemblyReference.cache
 D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.dll
 D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.pdb
+D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.csprojResolveAssemblyReference.cache
