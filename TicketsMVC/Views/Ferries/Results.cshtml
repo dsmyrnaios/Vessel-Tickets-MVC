@@ -1,4 +1,5 @@
-﻿@using TicketsMVC.Models
+﻿@using System.Globalization
+@using TicketsMVC.Models
 @model ResultsModel
 
 <script type="text/javascript">
@@ -20,13 +21,13 @@
             if (@Model.Triptype.ToString() != "Multiple")
             {
                 <label class="col-md-12">
-                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom.ToLongDateString()</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.MultDepList[i].DateTo.ToLongDateString()</span>
+                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR"))</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR"))</span>
                 </label>
             }
             else
             {
                 <label class="col-md-12">
-                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom.ToLongDateString()</span>
+                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR"))</span>
                 </label>
             }
         }
@@ -76,8 +77,8 @@
         @if (@Model.Triptype.ToString() != "Multiple" || @Model.MultDepList.Count == 1)
         {
             <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
-                <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
-                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Αναχώρηση</span><br />@Model.MultDepList[0].DateFrom.ToLongDateString() <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                <img src="~/Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
+                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Αναχώρηση</span><br />@Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
             </div>
             <table class="table table-condensed displayroutesinfo">
                 <tr>
@@ -90,8 +91,8 @@
                 </tr>
             </table>
             <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
-                <img src="../Content/Searchimages/portto.png" style="float:left;margin-top:5px;margin-right:5px" />
-                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Επιστροφή</span><br />@Model.MultDepList[0].DateTo.ToLongDateString() <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                <img src="~/Content/Searchimages/portto.png" style="float:left;margin-top:5px;margin-right:5px" />
+                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Επιστροφή</span><br />@Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
             </div>
             <table class="table table-condensed displayroutesinfo">
                 <tr>
@@ -113,8 +114,8 @@
                     <thead>
                         <tr>
                             <td colspan="5">
-                                <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
-                                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">@(counter)ο σκέλος</span><br />@Model.MultDepList[i].DateFrom.ToLongDateString() <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                                <img src="~/Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
+                                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">@(counter)ο σκέλος</span><br />@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
                             </td>
                         </tr>
                     </thead>
@@ -136,14 +137,64 @@
         {
             if (j == 0)
             {
-                <a class="waves-effect waves-light btn orange " style="width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM")</a>
+                <a class="waves-effect waves-light btn orange " style="width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM", new CultureInfo("el-GR"))</a>
             }
             else
             {
-                <a class="waves-effect waves-light btn grey lighten-2" style="color: #858585; width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM")</a>
+                <a class="waves-effect waves-light btn grey lighten-2" style="color: #858585; width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM", new CultureInfo("el-GR"))</a>
             }
         }
     </div>
+
+
+
+    <div class="yourSlider col-md-12" id="fromdtSliderid">
+        <div>
+            <img src="~/Content/Resultsimages/white.png" alt="">
+            <div class="ns_slideContent">
+                <ul class="list-inline col-md-12">
+                    <li>
+                        <a href="javascript:movePrevSlide();">
+                            <span class="glyphicon glyphicon-arrow-left"></span>
+                        </a>
+                    </li>
+                    @for (int j = -3; j < 4; j++)
+                    {
+                        if (j == 0)
+                        {
+                            <li>
+                                <div class="slideclass-reservday" style="border-left-style: none; border-color: lightblue;">
+                                    <p style="text-align: center; color: #2091EB">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
+                                    <p style="text-align: center; color: #2091EB">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                </div>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li>
+                                <div class="slideclass" style="border-left-style: none; border-color: lightblue;">
+                                    <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
+                                    <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                </div>
+                            </li>
+                        }
+                    }
+                        <li>
+                        <a href="javascript:moveNextSlide();" id="movenext">
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @*<a href="http://www.builtbyevolve.com/" target="_blank"><img src="~/Content/Resultsimages/blue.png" data-slidecaption="You can put links on slides, too."  alt=""></a>*@
+        @*<img src="test.jpg" alt="">
+        <img src="test2.png" alt="">
+        <img src="test3.gif" alt="">*@
+    </div>
+
+
 
     //SUBMIT BUTTON
         <div class="row">
@@ -153,8 +204,11 @@
         </div>
         }
 
-        @section Scripts {
-            @Scripts.Render("~/Scripts/results.js")
-            @Styles.Render("~/Content/results.css")
-        }
+@section Scripts {
+    @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
+    @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
+    @Scripts.Render("~/Scripts/results.js")
+    @Styles.Render("~/Content/results.css")
+    @Scripts.Render("~/Scripts/moment/moment.js")
+}
 

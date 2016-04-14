@@ -12,3 +12,30 @@ th {
 td {
     width: 85%;
 }
+
+.slideclass {
+    border-width: 2px;
+    padding: 0px 10px 10px 0px;
+    text-align: center;
+}
+
+.slideclass-reservday {
+    border-width: 2px;
+    /*border-left-style: ridge;
+    border-color: lightblue;*/
+    background-color: orange;
+     padding: 0px 10px 10px 0px;
+     text-align: center;
+}
+
+.slideclass:hover {
+    background-color: lightblue;
+}
+
+/*.ns_nerveSlider.light .ns_nextButton div {
+    background: grey url(~/Content/NerveSlider/icons/next-light.png) 50% 50% no-repeat;
+}*/
+
+/*.ns_nerveSlider.light .ns_prevButton div {
+    background: grey url(~/Content/NerveSlider/icons/prev-light.png) 50% 50% no-repeat;
+}*/

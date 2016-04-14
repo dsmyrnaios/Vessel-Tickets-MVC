@@ -1,4 +1,27 @@
 ﻿$(document).ready(function () {
+
+    $(".yourSlider").nerveSlider({
+        sliderWidth: "1000px",
+        sliderHeight: "100px",
+        sliderResizable: true,
+        sliderAutoPlay: false
+    });
+
+   
+
+    $(".slideclass").click(function () {
+
+        var resdt = $('#fromdtSliderid').find('.slideclass-reservday');
+        resdt.removeClass('slideclass-reservday');
+        resdt.addClass('slideclass');
+        
+        $(this).removeClass('slideclass');
+        $(this).addClass('slideclass-reservday');
+    });
+
+    //$(".ns_nextButton").removeClass();
+    //$(".ns_prevButton").removeClass();
+
     /*var Model = JSON.parse($('.model').val());
     if (Model.Triptype != 2|| Model.MultDepList.length == 1)
     {
@@ -31,4 +54,12 @@
         }
     }*/
 });
+
+function movePrevSlide() { 
+    $(".yourSlider").prevSlide();      // Go to the previous slide.
+}
+
+function moveNextSlide() {
+    $(".yourSlider").nextSlide();      // Go to the next slide.
+}
 
