@@ -230,7 +230,7 @@
     var portturkeyvalues = ['[KUS] KUSADASI (Κουσάντασι), Τουρκία (Λιμάνι)', '[MAR] MARMARIS, Τουρκία (Λιμάνι)'];
     var arrayofports = [portattikhvalues, portkykladesvalues, portargosaronikosvalues, portkrhthvalues, portioniovalues, portsporadesvalues, portboreioaigaiovalues, porteuoiavalues, portpeloponnhsosvalues, portitalyvalues, portturkeyvalues];
     var allports = [];
-    var xmlstring = "<xml><combination><departureport>[AMN] AG.MARINA(EVOIA), Ελλάδα (Λιμάνι)</departureport><arriveport>[LAV] Λαύριο (Αθήνα), Ελλάδα (Λιμάνι)</arriveport><arriveport>[ANA] ANAFI, Ελλάδα (Λιμάνι)</arriveport><arriveport>[MET] METHANA, Ελλάδα (Λιμάνι)</arriveport></combination></xml>"
+    var xmlstring = "<xml><combination><departureport>[AMN] AG.MARINA(EVOIA), Ελλάδα (Λιμάνι)</departureport><arriveport>[LAV] Λαύριο (Αθήνα), Ελλάδα (Λιμάνι)</arriveport><arriveport>[ANA] ANAFI, Ελλάδα (Λιμάνι)</arriveport><arriveport>[MET] METHANA, Ελλάδα (Λιμάνι)</arriveport></combination><combination><departureport>[ANA] ANAFI, Ελλάδα (Λιμάνι)</departureport><arriveport>[AKT] ANTIKYTHIRA, Ελλάδα (Λιμάνι)</arriveport></combination><combination><departureport>[AKT] ANTIKYTHIRA, Ελλάδα (Λιμάνι)</departureport><arriveport>[AMN] AG.MARINA(EVOIA), Ελλάδα (Λιμάνι)</arriveport></combination></xml>"
     var xmltojson = $.xml2json(xmlstring, true);
 
     for (var i = 0; i < portallvalues.length; i++) {
@@ -349,24 +349,30 @@
             var specificobject = object.parent().attr('id').split('depallroute');
             var beforespecificobject = specificobject[1] - 1;
             for (var j = 0; j < xmltojson.combination.length; j++) {
+                var flag = 0;
                 for (var k = 0; k < xmltojson.combination[j].arriveport.length; k++) {
                     var arriveport = xmltojson.combination[j].arriveport[k].text;
                     for (var i = 0; i < allports.length; i++) {
-                        if (allports[i][1] == $('[id=arrallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == arriveport || (specificobject[1] > 0 && $('[id=depallroute' + beforespecificobject + ']').find('input').val() != '')) {
+                        if ((allports[i][1] == $('[id=arrallroute' + specificobject[1] + ']').find('input').val() && allports[i][1] == arriveport) || (specificobject[1] > 0 && $('[id=depallroute' + beforespecificobject + ']').find('input').val() != '')) {
                             var departureport = xmltojson.combination[j].departureport[0].text;
-                            for (var i = 0; i < allports.length; i++) {
-                                if (allports[i][1] == departureport && allports[i][1] != $('[id=depallroute' + beforespecificobject + ']').find('input').val()) {
-                                    currentports[count] = allports[i];
-                                    currentportslatlng[count] = portallvalueslatlng[i];
+                            for (var n = 0; n < allports.length; n++) {
+                                if (allports[n][1] == departureport && allports[n][1] == $('[id=arrallroute' + beforespecificobject + ']').find('input').val()) {
+                                    flag = 1;
+                                    currentports[count]= allports[n];
+                                    currentportslatlng[count] = portallvalueslatlng[n];
                                 }
                             }
-                            allports = currentports.slice();
-                            portallvalueslatlng = currentportslatlng.slice();
-                            currentcategorizedportslatlng = currentportslatlng.slice();
                         }
                     }
                 }
-                count++;
+                if (flag == 1) {
+                    count++;
+                }
+            }
+            if (j == xmltojson.combination.length && currentports.length > 0) {
+                allports = currentports.slice();
+                portallvalueslatlng = currentportslatlng.slice();
+                currentcategorizedportslatlng = currentportslatlng.slice();
             }
         }
         else {
@@ -386,12 +392,14 @@
                                 }
                             }
                         }
-                        allports = currentports.slice();
-                        portallvalueslatlng = currentportslatlng.slice();
-                        currentcategorizedportslatlng = currentportslatlng.slice();
                     }
                 }
             }
+        }
+        if (j == xmltojson.combination.length && currentports.length > 0) {
+            allports = currentports.slice();
+            portallvalueslatlng = currentportslatlng.slice();
+            currentcategorizedportslatlng = currentportslatlng.slice();
         }
     }
 
