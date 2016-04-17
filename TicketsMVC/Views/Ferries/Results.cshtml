@@ -106,7 +106,7 @@
                     <th>Ενδεικτική τιμή</th>
                 </tr>
             </table>
-            }
+        }
         }
         else
         {
@@ -190,18 +190,18 @@
                                 </div>
                             </li>
 
-                        }
-                        else
-                        {
+            }
+            else
+            {
                             <li>
                                 <div class="slideclass" style="border-left-style: none; border-color: lightblue;">
                                     <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
                                     <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
                                 </div>
                             </li>
-                        }
-                    }
-                    <li>
+            }
+        }
+                        <li>
                         <a href="javascript:moveNextSlide();" id="movenext">
                             <span class="glyphicon glyphicon-arrow-right"></span>
                         </a>
@@ -215,19 +215,21 @@
         <img src="test3.gif" alt="">*@
     </div>
 
+
+
     //SUBMIT BUTTON
         <div class="row">
             <div class="col-md-12">
                 <button value="Send" class="btn waves-effect waves-light #ff6f00 amber darken-3" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
             </div>
         </div>
-}
+        }
 
-@section Scripts {
+        @section Scripts {
     @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
     @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
-    @Scripts.Render("~/Scripts/results.js")
-    @Styles.Render("~/Content/results.css")
+            @Scripts.Render("~/Scripts/results.js")
+            @Styles.Render("~/Content/results.css")
     @Scripts.Render("~/Scripts/moment/moment.js")
-}
+        }
 
