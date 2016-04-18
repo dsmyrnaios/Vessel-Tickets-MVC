@@ -14,7 +14,7 @@ namespace TicketsMVC.Controllers
         [AllowAnonymous]
         public ActionResult Search()
         {
-            var mod = new SearchViewModel();
+            SearchViewModel mod = new SearchViewModel();
 
             Passengers passenger = new Passengers();
             passenger.NumOfPassengers = 1;
@@ -31,7 +31,6 @@ namespace TicketsMVC.Controllers
         [AllowAnonymous]
         public ActionResult Results(SearchViewModel model)
         {
-            ViewBag.Message = "Your application description page.";
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "correct";
@@ -40,9 +39,18 @@ namespace TicketsMVC.Controllers
             ResultsModel resmodel = new ResultsModel();
 
             resmodel.MultDepList = new List<MultipleDeparture>();
+            var count = 0;
             foreach (MultipleDeparture multdep in model.MultDepList)
             {
+                count++;
                 resmodel.MultDepList.Add(multdep);
+                Routeselection RouteList = new Routeselection();
+                resmodel.MultRouteList.Add(RouteList);
+            }
+            if(count==1)
+            {
+                Routeselection RouteList = new Routeselection();
+                resmodel.MultRouteList.Add(RouteList);
             }
 
             resmodel.TotPassengers = model.TotPassengers;

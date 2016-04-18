@@ -4,7 +4,7 @@
     var countcheckboxes = 0;
     var counttables = 1;
     var typeofboat;
-    $('.displayroutesinfo').each(function () {
+    $('.displayroutesinfo').find('table').each(function () {
         for (var i = 0; i < TTimetableAns.length; i++) {
             if (counttables == countcheckboxes) {
                 countcheckboxes++;
@@ -25,7 +25,7 @@
                 for (j = 0; j < MeanList.length; j++) {
                     if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '</td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
                         $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
@@ -35,7 +35,7 @@
                 for (j = 0; j < MeanList.length; j++) {
                     if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '</td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
                         $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
@@ -49,6 +49,16 @@
         selectedtable = selectedtable.split(selectedtable.charAt(selectedtable.length - 1));
         $('[id*=' + selectedtable[0] + ']').prop('checked', false);
         $(this).prop('checked', true);
+        var hiddenfield = $(this).parent().parent().parent().parent().parent().find('input[type=hidden]').toArray();
+        $(this).parent().parent().children(':not(:first-child)').each(function (i) {
+            if (i == 1) {
+                $(hiddenfield[i]).val($(this).text().split('-')[0]);
+                $(hiddenfield[hiddenfield.length - 1]).val($(this).text().split('-')[1]);
+            }
+            else {
+                $(hiddenfield[i]).val($(this).text());
+            }
+        });
     });
 
     $(".yourSlider").nerveSlider({

@@ -11,7 +11,7 @@
 @using (Html.BeginForm("Passengers", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
 {
 
-    <input class="form-control model" type="hidden" value='@Html.Raw(Json.Encode(Model))' />
+    /*<input class="form-control model" type="hidden" value='@Html.Raw(Json.Encode(Model))' />*/
     <div class="row">
         @for (var i = 0; i < @Model.MultDepList.Count; i++)
         {
@@ -74,54 +74,14 @@
     </div>
 
     <div class="row displayroutes">
-        @if (@Model.Triptype.ToString() == "Multiple" || @Model.MultDepList.Count == 1)
+        @if (@Model.Triptype.ToString() == "Simple" || @Model.Triptype.ToString() == "WithReturn")
         {
             <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
                 <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
                 <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Αναχώρηση</span><br />@Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
             </div>
-            <table class="table table-condensed displayroutesinfo">
-                <tr>
-                    <th>Επιλογή</th>
-                    <th>Εταιρία</th>
-                    <th>Πλοίο</th>
-                    <th>Αναχώρηση</th>
-                    <th>'Αφιξη</th>
-                    <th>Ενδεικτική τιμή</th>
-                </tr>
-            </table>
-            if (@Model.Triptype.ToString() == "WithReturn")
-            {
-            <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
-                <img src="../Content/Searchimages/portto.png" style="float:left;margin-top:5px;margin-right:5px" />
-                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Επιστροφή</span><br />@Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
-            </div>
-            <table class="table table-condensed displayroutesinfo">
-                <tr>
-                    <th>Επιλογή</th>
-                    <th>Εταιρία</th>
-                    <th>Πλοίο</th>
-                    <th>Αναχώρηση</th>
-                    <th>'Αφιξη</th>
-                    <th>Ενδεικτική τιμή</th>
-                </tr>
-            </table>
-        }
-        }
-        else
-        {
-            for (var i = 0; i < @Model.MultDepList.Count; i++)
-            {
-                int counter = i + 1;
-                <table class="table table-condensed displayroutesinfo">
-                    <thead>
-                        <tr>
-                            <td colspan="5">
-                                <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
-                                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">@(counter)ο σκέλος</span><br />@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
-                            </td>
-                        </tr>
-                    </thead>
+            <div class="displayroutesinfo">
+                <table class="table table-condensed">
                     <tr>
                         <th>Επιλογή</th>
                         <th>Εταιρία</th>
@@ -131,6 +91,66 @@
                         <th>Ενδεικτική τιμή</th>
                     </tr>
                 </table>
+                @Html.HiddenFor(x => x.MultRouteList[0].boatcompany, new { @id = "boatcompany", @style = "display: none;", tabindex = -1 })
+                @Html.HiddenFor(x => x.MultRouteList[0].boatname, new { @id = "boatname", @style = "display: none;", tabindex = -1 })
+                @Html.HiddenFor(x => x.MultRouteList[0].deptime, new { @id = "departuretime", @style = "display: none;", tabindex = -1 })
+                @Html.HiddenFor(x => x.MultRouteList[0].arrtime, new { @id = "arrivetime", @style = "display: none;", tabindex = -1 })
+                @Html.HiddenFor(x => x.MultRouteList[0].price, new { @id = "price", @style = "display: none;", tabindex = -1 })
+                @Html.HiddenFor(x => x.MultRouteList[0].vesselid, new { @id = "vesselid", @style = "display: none;", tabindex = -1 })
+            </div>
+            if (@Model.Triptype.ToString() == "WithReturn")
+            {
+                <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
+                    <img src="../Content/Searchimages/portto.png" style="float:left;margin-top:5px;margin-right:5px" />
+                    <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Επιστροφή</span><br />@Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                </div>
+                <div class="displayroutesinfo">
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>Επιλογή</th>
+                            <th>Εταιρία</th>
+                            <th>Πλοίο</th>
+                            <th>Αναχώρηση</th>
+                            <th>'Αφιξη</th>
+                            <th>Ενδεικτική τιμή</th>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(x => x.MultRouteList[1].boatcompany, new { @id = "boatcompany", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[1].boatname, new { @id = "boatname", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[1].deptime, new { @id = "departuretime", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[1].arrtime, new { @id = "arrivetime", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[1].price, new { @id = "price", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[1].vesselid, new { @id = "vesselid", @style = "display: none;", tabindex = -1 })
+                </div>
+            }
+        }
+        else
+        {
+            for (var i = 0; i < @Model.MultDepList.Count; i++)
+            {
+                int counter = i + 1;
+                <div class="displayroutesinfo">
+                    <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
+                        <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
+                        <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">@(counter)ο σκέλος</span><br />@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                    </div>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>Επιλογή</th>
+                            <th>Εταιρία</th>
+                            <th>Πλοίο</th>
+                            <th>Αναχώρηση</th>
+                            <th>'Αφιξη</th>
+                            <th>Ενδεικτική τιμή</th>
+                        </tr>
+                    </table>
+                    @Html.HiddenFor(x => x.MultRouteList[i].boatcompany, new { @id = "boatcompany", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].boatname, new { @id = "boatname", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].deptime, new { @id = "departuretime", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].arrtime, new { @id = "arrivetime", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].price, new { @id = "price", @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @id = "vesselid", @style = "display: none;", tabindex = -1 })
+                </div>
             }
         }
     </div>
@@ -190,18 +210,18 @@
                                 </div>
                             </li>
 
-            }
-            else
-            {
+                        }
+                        else
+                        {
                             <li>
                                 <div class="slideclass" style="border-left-style: none; border-color: lightblue;">
                                     <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
                                     <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
                                 </div>
                             </li>
-            }
-        }
-                        <li>
+                        }
+                    }
+                    <li>
                         <a href="javascript:moveNextSlide();" id="movenext">
                             <span class="glyphicon glyphicon-arrow-right"></span>
                         </a>
@@ -215,21 +235,19 @@
         <img src="test3.gif" alt="">*@
     </div>
 
-
-
     //SUBMIT BUTTON
-        <div class="row">
-            <div class="col-md-12">
-                <button value="Send" class="btn waves-effect waves-light #ff6f00 amber darken-3" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button value="Send" class="btn waves-effect waves-light #ff6f00 amber darken-3" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
         </div>
-        }
+    </div>
+}
 
-        @section Scripts {
+@section Scripts {
     @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
     @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
-            @Scripts.Render("~/Scripts/results.js")
-            @Styles.Render("~/Content/results.css")
+    @Scripts.Render("~/Scripts/results.js")
+    @Styles.Render("~/Content/results.css")
     @Scripts.Render("~/Scripts/moment/moment.js")
-        }
+}
 
