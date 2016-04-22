@@ -4,13 +4,7 @@ using System;
 
 namespace TicketsMVC.Models
 {
-    public class TicketstrnsactionModel
-    {
-        public SearchViewModel SearchModel { get; set; }
-
-    }
-
-    public class SearchViewModel
+    public class SearchModel
     {       
         [Required]
         [Display(Name = "Είδος ταξιδιού")]

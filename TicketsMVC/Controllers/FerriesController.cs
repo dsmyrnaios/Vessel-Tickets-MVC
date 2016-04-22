@@ -14,7 +14,7 @@ namespace TicketsMVC.Controllers
         [AllowAnonymous]
         public ActionResult Search()
         {
-            SearchViewModel mod = new SearchViewModel();
+            SearchModel mod = new SearchModel();
 
             Passengers passenger = new Passengers();
             passenger.NumOfPassengers = 1;
@@ -29,7 +29,7 @@ namespace TicketsMVC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Results(SearchViewModel model)
+        public ActionResult Results(SearchModel model)
         {
             if (ModelState.IsValid)
             {
@@ -60,11 +60,29 @@ namespace TicketsMVC.Controllers
             return View(resmodel);
         }
 
-        public ActionResult Passengers()
+        [HttpGet]
+        [AllowAnonymous] 
+        public ActionResult Passengers(ResultsModel model)
         {
-            ViewBag.Message = "Your contact page.";
+            PassengersModel passmodel = new PassengersModel();
 
-            return View();
+            passmodel.MultDepList = new List<MultipleDeparture>();
+            foreach (MultipleDeparture multdep in model.MultDepList)
+            {
+                passmodel.MultDepList.Add(multdep);
+            }
+
+            passmodel.MultRouteList = new List<Routeselection>();
+            foreach (Routeselection multroute in model.MultRouteList)
+            {
+                passmodel.MultRouteList.Add(multroute);
+            }
+
+            passmodel.TotPassengers = model.TotPassengers;
+            passmodel.TotVehicles = model.TotVehicles;
+            passmodel.Triptype = model.Triptype;
+
+            return View(passmodel);
         }
 
         public ActionResult Payment()

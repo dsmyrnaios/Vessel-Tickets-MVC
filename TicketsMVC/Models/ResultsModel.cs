@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace TicketsMVC.Models
 {
-    public class ResultsModel : SearchViewModel
+    public class ResultsModel : SearchModel
     {
         public List<Routeselection> MultRouteList
         {
@@ -18,11 +17,22 @@ namespace TicketsMVC.Models
 
     public class Routeselection
     {
+        [Required]
         public string boatcompany { get; set; }
+
+        [Required]
         public string boatname { get; set; }
+
+        [Required]
         public float deptime { get; set; }
+
+        [Required]
         public float arrtime { get; set; }
+
+        [Required]
         public float price { get; set; }
+
+        [Required]
         public int vesselid { get; set; }
     }
 }

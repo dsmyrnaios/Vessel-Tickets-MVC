@@ -1,5 +1,5 @@
 ﻿@using TicketsMVC.Models
-@model SearchViewModel
+@model SearchModel
 
 <script type="text/javascript">
     $(window).load(function () {
@@ -12,7 +12,7 @@
 {
 
     @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-    <div class="row" >
+    <div class="row">
         <ul class="list-inline col-md-12">
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple" />
@@ -30,7 +30,7 @@
                 <img src="../Content/Searchimages/multipledirections.png" style="position:relative;top:5px">
             </li>
         </ul>
-</div>
+    </div>
 
     <div class="row" id="fromto">
         <div class="input-field col s6" id="depallroute0">
