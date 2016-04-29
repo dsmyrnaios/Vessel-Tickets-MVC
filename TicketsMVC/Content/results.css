@@ -1,16 +1,47 @@
 ﻿body {
     line-height: 1.0;
 }
-thead {
-    border-bottom: 2px solid #1E7FB1;
-}
+
 th {
     color: #1E7FB1;
     text-align: center;
 }
 
 td {
-    width: 85%;
+    text-align: center;
+}
+
+tr {
+    cursor: default;
+}
+
+.popover-title {
+    color: white;
+    background-color: #1E7FB1;
+    font-size: medium;
+}
+
+.popover-content {
+    color: orange;
+}
+
+.slideclass {
+    border-width: 2px;
+    padding: 0px 10px 10px 0px;
+    text-align: center;
+}
+
+.slideclass-reservday {
+    border-width: 2px;
+    /*border-left-style: ridge;
+    border-color: lightblue;*/
+    background-color: orange;
+     padding: 0px 10px 10px 0px;
+     text-align: center;
+}
+
+.slideclass:hover {
+    background-color: lightblue;
 }
 
 .slideclass {

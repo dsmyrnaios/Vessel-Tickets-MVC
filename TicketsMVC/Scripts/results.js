@@ -1,4 +1,65 @@
 ﻿$(document).ready(function () {
+    var MeanList = [{ VesselID: '5036', Company: 'Blue Star', VesselName: 'BLUE STAR DELOS' }, { VesselID: '5037', Company: 'Blue Star', VesselName: 'BLUE STAR NAXOS' }];
+    var TTimetableAns = [{ Company: 'Blue Star', VesselID: '5036', VesselType: 'C', DepTime: '07:25', ArrTime: '11:40', Available: 'YES', ClassAvail: [{ ClassAdultBasicPrice: 10000 }] }, { Company: 'Blue Star', VesselID: '5037', VesselType: 'H', DepTime: '17:30', ArrTime: '21:45', Available: 'NO', ClassAvail: [{ ClassAdultBasicPrice: 5000 }] }];
+    var countcheckboxes = 0;
+    var counttables = 1;
+    var typeofboat;
+    $('.displayroutesinfo').find('table').each(function () {
+        for (var i = 0; i < TTimetableAns.length; i++) {
+            if (counttables == countcheckboxes) {
+                countcheckboxes++;
+            }
+            if (TTimetableAns[i].VesselType == 'C') {
+                typeofboat = 'Conventional';
+            }
+            else if (TTimetableAns[i].VesselType == 'A') {
+                typeofboat = 'Airplane';
+            }
+            else if (TTimetableAns[i].VesselType == 'D') {
+                typeofboat = 'Dolphin/Catamaran';
+            }
+            else if (TTimetableAns[i].VesselType == 'H') {
+                typeofboat = 'HighSpeed';
+            }
+            if (TTimetableAns[i].Available == 'YES') {
+                for (j = 0; j < MeanList.length; j++) {
+                    if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
+                        $(this).append('<tr>');
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
+                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
+                        countcheckboxes++;
+                    }
+                }
+            }
+            else if (TTimetableAns[i].Available == 'NO') {
+                for (j = 0; j < MeanList.length; j++) {
+                    if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
+                        $(this).append('<tr>');
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
+                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
+                        countcheckboxes++;
+                    }
+                }
+            }
+        }
+        counttables++;
+    });
+    $('body').on('click', '[id*=selectedroute]', function () {
+        var selectedtable = $(this).attr('id');
+        selectedtable = selectedtable.split(selectedtable.charAt(selectedtable.length - 1));
+        $('[id*=' + selectedtable[0] + ']').prop('checked', false);
+        $(this).prop('checked', true);
+        var hiddenfield = $(this).parent().parent().parent().parent().parent().find('input[type=hidden]').toArray();
+        $(this).parent().parent().children(':not(:first-child)').each(function (i) {
+            if (i == 1) {
+                $(hiddenfield[i]).val($(this).text().split('-')[0]);
+                $(hiddenfield[hiddenfield.length - 1]).val($(this).text().split('-')[1]);
+            }
+            else {
+                $(hiddenfield[i]).val($(this).text());
+            }
+        });
+    });
 
 
     $(".yourSlider").nerveSlider({

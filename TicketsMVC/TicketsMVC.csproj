@@ -203,9 +203,10 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomPortValidation.cs" />
-    <Compile Include="Models\FerriesViewModels.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PassengersModel.cs" />
     <Compile Include="Models\ResultsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -238,6 +239,7 @@
     <Content Include="Content\NerveSlider\icons\swatches\0,0,0,30.png" />
     <Content Include="Content\NerveSlider\icons\swatches\255,255,255,40.png" />
     <Content Include="Content\NerveSlider\nerveSlider.min.css" />
+    <Content Include="Content\passengers.css" />
     <Content Include="Content\results.css" />
     <Content Include="Content\Resultsimages\typeavailable.png" />
     <Content Include="Content\Resultsimages\typelimited.png" />
@@ -246,12 +248,22 @@
     <Content Include="Content\Resultsimages\white.png" />
     <Content Include="Content\Search.css" />
     <Content Include="Content\Searchimages\addroute.png" />
+    <Content Include="Content\Searchimages\categoryportimages\allports.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\argosaronikos.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\attikh.jpg" />
     <Content Include="Content\Searchimages\boatsearch.png" />
     <Content Include="Content\Searchimages\boatspinner.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\boreioaigaio.jpg" />
     <Content Include="Content\Searchimages\decrement.png" />
+    <Content Include="Content\Searchimages\categoryportimages\euboia.JPG" />
     <Content Include="Content\Searchimages\increment.png" />
+    <Content Include="Content\Searchimages\categoryportimages\ionio.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\italy.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\kriti.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\kuklades.jpg" />
     <Content Include="Content\Searchimages\multipledirections.png" />
     <Content Include="Content\Searchimages\oneway.png" />
+    <Content Include="Content\Searchimages\categoryportimages\peloponnhsos.jpg" />
     <Content Include="Content\Searchimages\port-image.png" />
     <Content Include="Content\Searchimages\portcluster-1.png" />
     <Content Include="Content\Searchimages\portcluster-2.png" />
@@ -261,6 +273,8 @@
     <Content Include="Content\Searchimages\removeroute.png" />
     <Content Include="Content\Searchimages\search.png" />
     <Content Include="Content\Searchimages\ship.png" />
+    <Content Include="Content\Searchimages\categoryportimages\sporades.jpg" />
+    <Content Include="Content\Searchimages\categoryportimages\turkey.jpg" />
     <Content Include="Content\Searchimages\typeadult.png" />
     <Content Include="Content\Searchimages\typecamper-trailer.png" />
     <Content Include="Content\Searchimages\typecar.png" />
@@ -363,6 +377,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\passengers.js" />
     <Content Include="Scripts\NerveSlider\jquery.nerveSlider.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -409,6 +424,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\NerveSlider\" />
+    <Folder Include="Views\PassengersModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

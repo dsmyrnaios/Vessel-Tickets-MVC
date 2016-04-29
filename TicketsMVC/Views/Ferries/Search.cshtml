@@ -1,5 +1,5 @@
 ﻿@using TicketsMVC.Models
-@model SearchViewModel
+@model SearchModel
 
 <script type="text/javascript">
     $(window).load(function () {
@@ -12,7 +12,7 @@
 {
 
     @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-    <div class="row" >
+    <div class="row">
         <ul class="list-inline col-md-12">
             <li>
                 <input class="with-gap" name="TripType" type="radio" id="TripTypeS" value="Simple" />
@@ -30,7 +30,7 @@
                 <img src="../Content/Searchimages/multipledirections.png" style="position:relative;top:5px">
             </li>
         </ul>
-</div>
+    </div>
 
     <div class="row" id="fromto">
         <div class="input-field col s6" id="depallroute0">
@@ -83,7 +83,7 @@
                         <input class="col-md-3 form-control" name="adults" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="adults"><span style="font-weight: bolder">Ενήλικες</span><br/>Από 16 εώς 65 ετών</label>
-                            <img src="~/Content/Searchimages/typeadult.png"/>
+                            <img src="../Content/Searchimages/typeadult.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -94,7 +94,7 @@
                         <input class="col-md-3 form-control" name="teens" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="teens"><span style="font-weight: bolder">Έφηβοι</span><br/>Από 12 εώς 16 ετών</label>
-                            <img src="~/Content/Searchimages/typeteen.png"/>
+                            <img src="../Content/Searchimages/typeteen.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -105,7 +105,7 @@
                         <input class="col-md-3 form-control" name="kids" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="kids"><span style="font-weight: bolder">Παιδιά</span><br/>Από 2 εώς 12 ετών</label>
-                            <img src="~/Content/Searchimages/typekid.png"/>
+                            <img src="../Content/Searchimages/typekid.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -116,7 +116,7 @@
                         <input class="col-md-3 form-control" name="infants" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="infants"><span style="font-weight: bolder">Βρέφη</span><br/>Kάτω των 2 ετών</label>
-                            <img src="~/Content/Searchimages/typeinfant.png"/>
+                            <img src="../Content/Searchimages/typeinfant.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -127,7 +127,7 @@
                         <input class="col-md-3 form-control" name="olders" data-val-required="Παρακαλώ εισάγετε αριθμό επιβατών" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="olders"><span style="font-weight: bolder">Ηλικιωμένοι</span><br/>Άνω των 65 ετών</label>
-                            <img src="~/Content/Searchimages/typeolder.png"/>
+                            <img src="../Content/Searchimages/typeolder.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -149,7 +149,7 @@
                         <input class="col-md-3 form-control" id="cars" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="cars" style="margin-top: 10px">Αυτοκίνητα</label>
-                            <img src="~/Content/Searchimages/typecar.png"/>
+                            <img src="../Content/Searchimages/typecar.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -160,7 +160,7 @@
                         <input class="col-md-3 form-control" id="motos" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="motos" style="margin-top: 10px">Μηχανές</label>
-                            <img src="~/Content/Searchimages/typemoto.png"/>
+                            <img src="../Content/Searchimages/typemoto.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -171,7 +171,7 @@
                         <input class="col-md-3 form-control" id="trailers" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="trailers">Τρεϊλερ<br/>τροχόσπιτα</label>
-                            <img src="~/Content/Searchimages/typecamper-trailer.png"/>
+                            <img src="../Content/Searchimages/typecamper-trailer.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -181,7 +181,7 @@
                         <input class="col-md-3 form-control" id="minibuses" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
                             <label for="minibuses">Οικογενειακά<br/>λεωφορεία</label>
-                            <img src="~/Content/Searchimages/typeminibus.png"/>
+                            <img src="../Content/Searchimages/typeminibus.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -190,8 +190,8 @@
                     <div class="row bottom-border-class" id="vehicletrucks" style="margin-bottom: 5px">
                         <input class="col-md-3 form-control" id="trucks" data-val="true" tabindex=-1 required>
                         <div class="col-md-7">
-                            <label for="trucks" style="margin-top: 10px">Φορτηγά</label>
-                            <img src="~/Content/Searchimages/typetruck.png"/>
+                            <label for="minibuses" style="margin-top: 10px">Φορτηγά</label>
+                            <img src="../Content/Searchimages/typetruck.png"/>
                         </div>
                         <div class="col-md-1 waves-effect waves-light increment"></div>
                         <div class="col-md-1 waves-effect waves-light decrement"></div>
@@ -219,19 +219,19 @@
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light #ef6c00 orange darken-2" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/Content/Searchimages/boatsearch.png" /></button>
+            <button value="Send" class="btn waves-effect waves-light #ff6f00 amber darken-3" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
         </div>
     </div>
 
 }
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/fancybox")
-        @Styles.Render("~/Content/fancybox")
-        @Scripts.Render("~/bundles/map")
-        @Scripts.Render("~/Scripts/search.js")
-        @Scripts.Render("~/Scripts/moment/moment.js")
-        @Styles.Render("~/Content/Search.css")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/fancybox")
+    @Styles.Render("~/Content/fancybox")
+    @Scripts.Render("~/bundles/map")
+    @Scripts.Render("~/Scripts/search.js")
+    @Scripts.Render("~/Scripts/moment/moment.js")
+    @Styles.Render("~/Content/Search.css")
+}
 
 

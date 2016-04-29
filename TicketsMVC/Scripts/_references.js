@@ -17,6 +17,7 @@
 /// <reference path="modernizr-2.6.2.js" />
 /// <reference path="moment/moment.min.js" />
 /// <reference path="moment/moment-with-locales.min.js" />
+/// <reference path="passengers.js" />
 /// <reference path="nerveslider/jquery.nerveslider.min.js" />
 /// <reference path="respond.js" />
 /// <reference path="results.js" />

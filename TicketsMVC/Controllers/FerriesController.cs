@@ -14,7 +14,7 @@ namespace TicketsMVC.Controllers
         [AllowAnonymous]
         public ActionResult Search()
         {
-            var mod = new SearchViewModel();
+            SearchModel mod = new SearchModel();
 
             Passengers passenger = new Passengers();
             passenger.NumOfPassengers = 1;
@@ -29,9 +29,8 @@ namespace TicketsMVC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Results(SearchViewModel model)
+        public ActionResult Results(SearchModel model)
         {
-            ViewBag.Message = "Your application description page.";
             if (ModelState.IsValid)
             {
                 ViewBag.Message = "correct";
@@ -40,9 +39,18 @@ namespace TicketsMVC.Controllers
             ResultsModel resmodel = new ResultsModel();
 
             resmodel.MultDepList = new List<MultipleDeparture>();
+            var count = 0;
             foreach (MultipleDeparture multdep in model.MultDepList)
             {
+                count++;
                 resmodel.MultDepList.Add(multdep);
+                Routeselection RouteList = new Routeselection();
+                resmodel.MultRouteList.Add(RouteList);
+            }
+            if(count==1)
+            {
+                Routeselection RouteList = new Routeselection();
+                resmodel.MultRouteList.Add(RouteList);
             }
 
             resmodel.TotPassengers = model.TotPassengers;
@@ -52,11 +60,29 @@ namespace TicketsMVC.Controllers
             return View(resmodel);
         }
 
-        public ActionResult Passengers()
+        [HttpGet]
+        [AllowAnonymous] 
+        public ActionResult Passengers(ResultsModel model)
         {
-            ViewBag.Message = "Your contact page.";
+            PassengersModel passmodel = new PassengersModel();
 
-            return View();
+            passmodel.MultDepList = new List<MultipleDeparture>();
+            foreach (MultipleDeparture multdep in model.MultDepList)
+            {
+                passmodel.MultDepList.Add(multdep);
+            }
+
+            passmodel.MultRouteList = new List<Routeselection>();
+            foreach (Routeselection multroute in model.MultRouteList)
+            {
+                passmodel.MultRouteList.Add(multroute);
+            }
+
+            passmodel.TotPassengers = model.TotPassengers;
+            passmodel.TotVehicles = model.TotVehicles;
+            passmodel.Triptype = model.Triptype;
+
+            return View(passmodel);
         }
 
         public ActionResult Payment()
