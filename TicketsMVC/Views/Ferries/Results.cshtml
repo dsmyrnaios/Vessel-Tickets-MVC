@@ -1,4 +1,5 @@
-﻿@using TicketsMVC.Models
+﻿@using System.Globalization
+@using TicketsMVC.Models
 @model ResultsModel
 
 <script type="text/javascript">
@@ -75,34 +76,123 @@
     <div class="row displayroutes">
         @if (@Model.Triptype.ToString() != "Multiple" || @Model.MultDepList.Count == 1)
         {
-            <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
-                <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
-                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Αναχώρηση</span><br />@Model.MultDepList[0].DateFrom.ToLongDateString() <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
+            <div class="col-md-11" style="border-bottom: 2px solid #1E7FB1; left: 20px">
+                <img src="../Content/Searchimages/portfrom.png" style="float: left; margin-top: 5px; margin-right: 5px"/>
+                <label><span style="font-weight: bolder; color: #1E7FB1; font-size: small">Αναχώρηση</span><br/>@Model.MultDepList[0].DateFrom.ToLongDateString() <span style="font-size: larger">-</span> από <span style="color: orange; font-size: 15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color: orange; font-size: 15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
             </div>
-            <table class="table table-condensed displayroutesinfo">
-                <tr>
-                    <th>Επιλογή</th>
-                    <th>Εταιρία</th>
-                    <th>Πλοίο</th>
-                    <th>Αναχώρηση</th>
-                    <th>'Αφιξη</th>
-                    <th>Ενδεικτική τιμή</th>
-                </tr>
-            </table>
-            <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
-                <img src="../Content/Searchimages/portto.png" style="float:left;margin-top:5px;margin-right:5px" />
-                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Επιστροφή</span><br />@Model.MultDepList[0].DateTo.ToLongDateString() <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
+
+            <div class="yourSlider col-md-12" id="fromdtSliderid" style="padding-top: 6px;">
+                <div class="slide_member">
+                    <img src="~/Content/Resultsimages/white.png" alt="">
+                    <div class="ns_slideContent">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="javascript:movePrevSlide();">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                </a>
+                            </li>
+                            @for (int j = -2; j < 3; j++)
+                            {
+                                if (j == 0)
+                                {
+                                    <li>
+                                        <div class="slideclass-reservday">
+                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
+                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                        </div>
+                                    </li>
+
+                                }
+                                else
+                                {
+                                    <li>
+                                        <div class="slideclass">
+                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
+                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                            <li>
+                                <a href="javascript:moveNextSlide();" id="movenext">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                @*/////////////////////////////////////*@
+                @*<div><img src="../Content/Resultsimages/white.png" alt="">
+                    <div class="ns_slideContent"><ul class="list-inline">
+                            <li><a href="javascript:movePrevSlide();"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
+                            <li>
+                                <div class="slideclass">
+                                    <p>Κυριακή</p>
+                                    <p>1 Μαΐου</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slideclass">
+                                    <p>Δευτέρα</p>
+                                    <p>2 Μαΐου</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slideclass">
+                                    <p>Τρίτη</p>
+                                    <p>3 Μαΐου</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slideclass">
+                                    <p>Τετάρτη</p>
+                                    <p>4 Μαΐου</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="slideclass">
+                                    <p>Πέμπτη</p>
+                                    <p>5 Μαΐου</p>
+                                </div>
+                            </li>
+                            <li><a href="javascript:moveNextSlide();" id="movenext"><span class="glyphicon glyphicon-arrow-right"></span></a></li>
+                        </ul>
+                    </div>
+                </div>*@
+
+
+                @*/////////////////////////////////////*@
+
             </div>
-            <table class="table table-condensed displayroutesinfo">
-                <tr>
-                    <th>Επιλογή</th>
-                    <th>Εταιρία</th>
-                    <th>Πλοίο</th>
-                    <th>Αναχώρηση</th>
-                    <th>'Αφιξη</th>
-                    <th>Ενδεικτική τιμή</th>
-                </tr>
-            </table>
+
+
+                <table class="table table-condensed displayroutesinfo">
+                    <tr>
+                        <th>Επιλογή</th>
+                        <th>Εταιρία</th>
+                        <th>Πλοίο</th>
+                        <th>Αναχώρηση</th>
+                        <th>'Αφιξη</th>
+                        <th>Ενδεικτική τιμή</th>
+                    </tr>
+                </table>
+                <div class="col-md-11" style="border-bottom: 2px solid #1E7FB1; left: 20px">
+                    <img src="../Content/Searchimages/portto.png" style="float: left; margin-top: 5px; margin-right: 5px"/>
+                    <label><span style="font-weight: bolder; color: #1E7FB1; font-size: small">Επιστροφή</span><br/>@Model.MultDepList[0].DateTo.ToLongDateString() <span style="font-size: larger">-</span> από <span style="color: orange; font-size: 15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color: orange; font-size: 15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                </div>
+                <table class="table table-condensed displayroutesinfo">
+                    <tr>
+                        <th>Επιλογή</th>
+                        <th>Εταιρία</th>
+                        <th>Πλοίο</th>
+                        <th>Αναχώρηση</th>
+                        <th>'Αφιξη</th>
+                        <th>Ενδεικτική τιμή</th>
+                    </tr>
+                </table>
+            
         }
         else
         {
@@ -111,12 +201,12 @@
                 int counter = i + 1;
                 <table class="table table-condensed displayroutesinfo">
                     <thead>
-                        <tr>
-                            <td colspan="5">
-                                <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
-                                <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">@(counter)ο σκέλος</span><br />@Model.MultDepList[i].DateFrom.ToLongDateString() <span style="font-size:larger">-</span> από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td colspan="5">
+                            <img src="../Content/Searchimages/portfrom.png" style="float: left; margin-top: 5px; margin-right: 5px"/>
+                            <label><span style="font-weight: bolder; color: #1E7FB1; font-size: small">@(counter)ο σκέλος</span><br/>@Model.MultDepList[i].DateFrom.ToLongDateString() <span style="font-size: larger">-</span> από <span style="color: orange; font-size: 15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color: orange; font-size: 15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
+                        </td>
+                    </tr>
                     </thead>
                     <tr>
                         <th>Επιλογή</th>
@@ -129,32 +219,22 @@
                 </table>
             }
         }
-    </div>
-
-    <div class="row col-md-12" style="border: 1px; display: inline">
-        @for (int j = -3; j < 4; j++)
-        {
-            if (j == 0)
-            {
-                <a class="waves-effect waves-light btn orange " style="width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM")</a>
-            }
-            else
-            {
-                <a class="waves-effect waves-light btn grey lighten-2" style="color: #858585; width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM")</a>
-            }
-        }
-    </div>
-
-    //SUBMIT BUTTON
-        <div class="row">
-            <div class="col-md-12">
-                <button value="Send" class="btn waves-effect waves-light #ef6c00 orange darken-2" type="submit" style="float:right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/Content/Searchimages/boatsearch.png" /></button>
             </div>
-        </div>
+            
+
+            //SUBMIT BUTTON
+            <div class="row">
+                <div class="col-md-12">
+                    <button value="Send" class="btn waves-effect waves-light #ef6c00 orange darken-2" type="submit" style="float: right">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="~/Content/Searchimages/boatsearch.png"/></button>
+                </div>
+            </div>
         }
 
-        @section Scripts {
-            @Scripts.Render("~/Scripts/results.js")
-            @Styles.Render("~/Content/results.css")
-        }
-
+@section Scripts {
+    @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
+    @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
+    @Scripts.Render("~/Scripts/results.js")
+    @Styles.Render("~/Content/results.css")
+    @Scripts.Render("~/Scripts/moment/moment.js")
+    @Scripts.Render("~/Scripts/moment/moment-with-locales.js")
+}
