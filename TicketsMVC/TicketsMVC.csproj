@@ -351,7 +351,6 @@
     <Content Include="Content\Passengerimages\seatclass\nodeck.png" />
     <Content Include="Content\passengers.css" />
     <Content Include="Content\results.css" />
-    <Content Include="Content\Resultsimages\blue.png" />
     <Content Include="Content\Resultsimages\typeavailable.png" />
     <Content Include="Content\Resultsimages\typelimited.png" />
     <Content Include="Content\Resultsimages\typeno.png" />
@@ -499,6 +498,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\NerveSlider\jquery.nerveSlider.min.js" />
     <Content Include="Scripts\passengers.js" />
+    <Content Include="Scripts\NerveSlider\jquery.nerveSlider.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\results.js" />

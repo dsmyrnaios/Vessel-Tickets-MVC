@@ -643,23 +643,23 @@ function keepnumvehicles(selector) {
     }
     var input = parseInt(selectorinput.val());
     selectorinput.val(input);
-    if (selectorinput.attr('name') === 'cars') {
+    if (selectorinput.attr('id') === 'cars') {
         numvehiclesarray[0] = input;
         $('#NumOfCars').val(input);
     }
-    else if (selectorinput.attr('name') === 'motos') {
+    else if (selectorinput.attr('id') === 'motos') {
         numvehiclesarray[1] = input;
         $('#NumOfMotos').val(input);
     }
-    else if (selectorinput.attr('name') === 'trailers') {
+    else if (selectorinput.attr('id') === 'trailers') {
         numvehiclesarray[2] = input;
         $('#NumOfTrailers').val(input);
     }
-    else if (selectorinput.attr('name') === 'minibuses') {
+    else if (selectorinput.attr('id') === 'minibuses') {
         numvehiclesarray[3] = input;
         $('#NumOfMiniBuses').val(input);
     }
-    else if (selectorinput.attr('name') === 'trucks') {
+    else if (selectorinput.attr('id') === 'trucks') {
         numvehiclesarray[4] = input;
         $('#NumOfTrucks').val(input);
     }

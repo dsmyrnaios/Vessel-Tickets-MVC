@@ -19,6 +19,7 @@
 /// <reference path="moment/moment-with-locales.min.js" />
 /// <reference path="nerveslider/jquery.nerveslider.min.js" />
 /// <reference path="passengers.js" />
+/// <reference path="nerveslider/jquery.nerveslider.min.js" />
 /// <reference path="respond.js" />
 /// <reference path="results.js" />
 /// <reference path="search.js" />

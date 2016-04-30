@@ -45,23 +45,65 @@ tr {
 }
 
 .slideclass {
-    border-width: 2px;
-    padding: 0px 10px 10px 0px;
+    border-width: 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px; 
+    text-align: center;
+    /*border: 1px solid;*/
+    border-radius: 5px;
+    cursor:pointer;
+    color: #2091EB;
+}
+
+.yourSlider {
+    border: 1px solid;
+    border-radius: 10px;
+    color: #2091EB;
+    margin: 6px 0 6px 0;
+}
+
+.slideclass > p {
+    color: #2091EB;
     text-align: center;
 }
 
+
+
 .slideclass-reservday {
-    border-width: 2px;
+    border-width: 1px;
     /*border-left-style: ridge;
     border-color: lightblue;*/
     background-color: orange;
-     padding: 0px 10px 10px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px; 
      text-align: center;
+    color: #2091EB;
+    /*border: 1px solid;*/
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+.slideclass-reservday > p {
+    color: white;
+    text-align: center;
 }
 
 .slideclass:hover {
-    background-color: lightblue;
+    background-color: #f5f5f5;
 }
+
+.slideclass:hover > p{
+    text-decoration: underline;
+}
+
+.slideclass-reservday:hover > p{
+    text-decoration: underline;
+}
+
 
 /*.ns_nerveSlider.light .ns_nextButton div {
     background: grey url(~/Content/NerveSlider/icons/next-light.png) 50% 50% no-repeat;
@@ -70,3 +112,4 @@ tr {
 /*.ns_nerveSlider.light .ns_prevButton div {
     background: grey url(~/Content/NerveSlider/icons/prev-light.png) 50% 50% no-repeat;
 }*/
+
