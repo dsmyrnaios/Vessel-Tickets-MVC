@@ -47,7 +47,7 @@ namespace TicketsMVC.Controllers
                 Routeselection RouteList = new Routeselection();
                 resmodel.MultRouteList.Add(RouteList);
             }
-            if(count==1)
+            if (count == 1)
             {
                 Routeselection RouteList = new Routeselection();
                 resmodel.MultRouteList.Add(RouteList);
