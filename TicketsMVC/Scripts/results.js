@@ -26,7 +26,7 @@
                     if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
                         $(this).append('<tr>');
                         $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
-                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
+                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
                 }
@@ -36,7 +36,7 @@
                     if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
                         $(this).append('<tr>');
                         $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
-                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
+                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
                 }

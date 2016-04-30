@@ -57,6 +57,11 @@ namespace TicketsMVC.Controllers
             resmodel.TotVehicles = model.TotVehicles;
             resmodel.Triptype = model.Triptype;
 
+            TempData["MultDepList"] = resmodel.MultDepList;
+            TempData["TotPassengers"] = resmodel.TotPassengers;
+            TempData["TotVehicles"] = resmodel.TotVehicles;
+            TempData["Triptype"] = resmodel.Triptype;
+
             return View(resmodel);
         }
 
@@ -67,7 +72,7 @@ namespace TicketsMVC.Controllers
             PassengersModel passmodel = new PassengersModel();
 
             passmodel.MultDepList = new List<MultipleDeparture>();
-            foreach (MultipleDeparture multdep in model.MultDepList)
+            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
             {
                 passmodel.MultDepList.Add(multdep);
             }
@@ -78,9 +83,9 @@ namespace TicketsMVC.Controllers
                 passmodel.MultRouteList.Add(multroute);
             }
 
-            passmodel.TotPassengers = model.TotPassengers;
-            passmodel.TotVehicles = model.TotVehicles;
-            passmodel.Triptype = model.Triptype;
+            passmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
+            passmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
+            passmodel.Triptype = (Triptype)TempData.Peek("Triptype");
 
             return View(passmodel);
         }

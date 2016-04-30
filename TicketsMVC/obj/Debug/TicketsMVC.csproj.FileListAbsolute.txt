@@ -241,7 +241,6 @@ C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owi
 C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.csprojResolveAssemblyReference.cache
 C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.dll
 C:\Users\Petros\Documents\GitHub\Vessel-Tickets-Mvc\TicketsMVC\obj\Debug\TicketsMVC.pdb
 D:\Dropbox\Projects\GitHub\TicketsMVC\Vessel-Tickets-Mvc\TicketsMVC\bin\ApplicationInsights.config

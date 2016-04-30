@@ -1,3 +1,97 @@
 ﻿body {
     line-height: 1.0;
 }
+
+td > label {
+    font-weight: bolder;
+    color:#67676B;
+}
+
+td {
+    text-align: center;
+}
+
+tr:first-child > td:first-child {
+    color: #fff;
+    background-color: orange;
+}
+
+.arrow-right {
+    float:right;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #FBDA97;
+}
+
+.arrow-left {
+    float:right;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #FBDA97;
+}
+
+.select-dropdown > li > span {
+    color: #1E7FB1;
+    font-weight:bolder;
+}
+
+.selectbox {
+    width: 100%;
+    text-align: left;
+}
+
+.selected {
+    float: left;
+    cursor: pointer;
+}
+
+.selectoptions {
+    position: absolute;
+    background: #fff;
+    display: none;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.selectoption {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    line-height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+    .selectoption:hover {
+        color: #f6f6f6;
+        background: #4096ee;
+    }
+
+.bedlabels > li:nth-child(1), .airseatlabels > li:nth-child(1), .decklabels > li:nth-child(1) {
+    width: 8%;
+}
+
+.bedlabels > li:nth-child(2), .airseatlabels > li:nth-child(2), .decklabels > li:nth-child(2)
+{
+    width:15%;
+}
+
+.bedlabels > li:nth-child(3), .airseatlabels > li:nth-child(3), .decklabels > li:nth-child(3)
+{
+    width:20%;
+}
+
+.bedlabels > li:nth-child(4), .airseatlabels > li:nth-child(4), .decklabels > li:nth-child(4)
+{
+    width:25%;
+}
+
+.bedlabels > li:nth-child(5), .airseatlabels > li:nth-child(5), .decklabels > li:nth-child(5)
+{
+    width:15%;
+}

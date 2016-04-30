@@ -24,10 +24,10 @@ namespace TicketsMVC.Models
         public string boatname { get; set; }
 
         [Required]
-        public float deptime { get; set; }
+        public string deptime { get; set; }
 
         [Required]
-        public float arrtime { get; set; }
+        public string arrtime { get; set; }
 
         [Required]
         public float price { get; set; }
