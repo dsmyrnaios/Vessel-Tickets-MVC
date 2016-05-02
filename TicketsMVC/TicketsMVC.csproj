@@ -351,6 +351,7 @@
     <Content Include="Content\Passengerimages\seatclass\nodeck.png" />
     <Content Include="Content\passengers.css" />
     <Content Include="Content\results.css" />
+    <Content Include="Content\Resultsimages\shipborder.png" />
     <Content Include="Content\Resultsimages\typeavailable.png" />
     <Content Include="Content\Resultsimages\typelimited.png" />
     <Content Include="Content\Resultsimages\typeno.png" />
