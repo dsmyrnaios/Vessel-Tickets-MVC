@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    var model = JSON.parse($('.model').text());
     var MeanList = [{ VesselID: '5036', Company: 'Blue Star', VesselName: 'BLUE STAR DELOS' }, { VesselID: '5037', Company: 'Blue Star', VesselName: 'BLUE STAR NAXOS' }];
     var TTimetableAns = [{ Company: 'Blue Star', VesselID: '5036', VesselType: 'C', DepTime: '07:25', ArrTime: '11:40', Available: 'YES', ClassAvail: [{ ClassAdultBasicPrice: 10000 }] }, { Company: 'Blue Star', VesselID: '5037', VesselType: 'H', DepTime: '17:30', ArrTime: '21:45', Available: 'NO', ClassAvail: [{ ClassAdultBasicPrice: 5000 }] }];
     var countcheckboxes = 0;
@@ -24,9 +25,13 @@
             if (TTimetableAns[i].Available == 'YES') {
                 for (j = 0; j < MeanList.length; j++) {
                     if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
+                        var date = new Date(parseInt(model.MultDepList[0].DateFrom.substr(6))).toDateString();
+                        var starttime = new Date(date + ' ' + TTimetableAns[i].DepTime).getTime();
+                        var endtime = new Date(date + ' ' + TTimetableAns[i].ArrTime).getTime();
+                        var difference = (endtime - starttime) / 1000 / 60;
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
-                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" /><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="routetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="routetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
+                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
                 }
@@ -34,9 +39,13 @@
             else if (TTimetableAns[i].Available == 'NO') {
                 for (j = 0; j < MeanList.length; j++) {
                     if (MeanList[j].VesselID == TTimetableAns[i].VesselID && MeanList[j].Company == TTimetableAns[i].Company) {
+                        var date = new Date(parseInt(model.MultDepList[0].DateFrom.substr(6))).toDateString();
+                        var starttime = new Date(date + ' ' + TTimetableAns[i].DepTime).getTime();
+                        var endtime = new Date(date + ' ' + TTimetableAns[i].ArrTime).getTime();
+                        var difference = (endtime - starttime) / 1000 / 60;
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td>' + MeanList[j].Company + '</td><td>' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></td><td>' + TTimetableAns[i].DepTime + '</td><td>' + TTimetableAns[i].ArrTime + '</td><td>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + ' €</td>');
-                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Type', 'content': typeofboat });
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="routetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="routetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
+                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
                 }
@@ -48,6 +57,8 @@
         var selectedtable = $(this).attr('id');
         selectedtable = selectedtable.split(selectedtable.charAt(selectedtable.length - 1));
         $('[id*=' + selectedtable[0] + ']').prop('checked', false);
+        $('[id*=' + selectedtable[0] + ']').find('.leftbordered,.rightbordered').removeClass('active');
+        $(this).parent().parent().find('.routeimage > img,.leftbordered,.rightbordered').addClass('active');
         $(this).prop('checked', true);
         var hiddenfield = $(this).parent().parent().parent().parent().parent().find('input[type=hidden]').toArray();
         $(this).parent().parent().children(':not(:first-child)').each(function (i) {

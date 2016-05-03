@@ -511,7 +511,7 @@
                     }
                 },
                 options: {
-                    icon: new google.maps.MarkerImage("../Content/Searchimages/port-image.png")
+                    icon: new google.maps.MarkerImage("../Content/Searchimages/mapimages/port-image.png")
                 },
                 events: {
                     mouseover: function (marker, event, context) {

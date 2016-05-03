@@ -27,6 +27,34 @@ namespace TicketsMVC.Controllers
             return View(mod);
         }
 
+        [AllowAnonymous] 
+        public ActionResult Results()
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = "correct";
+            }
+
+            ResultsModel resmodel = new ResultsModel();
+
+            resmodel.MultDepList = new List<MultipleDeparture>();
+            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
+            {
+                resmodel.MultDepList.Add(multdep);
+            }
+
+            foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
+            {
+                resmodel.MultRouteList.Add(multroute);
+            }
+
+            resmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
+            resmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
+            resmodel.Triptype = (Triptype)TempData.Peek("Triptype");
+
+            return View(resmodel);
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Results(SearchModel model)
@@ -47,7 +75,7 @@ namespace TicketsMVC.Controllers
                 Routeselection RouteList = new Routeselection();
                 resmodel.MultRouteList.Add(RouteList);
             }
-            if(count==1)
+            if (count == 1)
             {
                 Routeselection RouteList = new Routeselection();
                 resmodel.MultRouteList.Add(RouteList);
@@ -57,7 +85,36 @@ namespace TicketsMVC.Controllers
             resmodel.TotVehicles = model.TotVehicles;
             resmodel.Triptype = model.Triptype;
 
+            TempData["MultDepList"] = resmodel.MultDepList;
+            TempData["TotPassengers"] = resmodel.TotPassengers;
+            TempData["TotVehicles"] = resmodel.TotVehicles;
+            TempData["Triptype"] = resmodel.Triptype;
+
             return View(resmodel);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Passengers()
+        {
+            PassengersModel passmodel = new PassengersModel();
+
+            passmodel.MultDepList = new List<MultipleDeparture>();
+            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
+            {
+                passmodel.MultDepList.Add(multdep);
+            }
+
+            passmodel.MultRouteList = new List<Routeselection>();
+            foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
+            {
+                passmodel.MultRouteList.Add(multroute);
+            }
+
+            passmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
+            passmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
+            passmodel.Triptype = (Triptype)TempData.Peek("Triptype");
+
+            return View(passmodel);
         }
 
         [HttpGet]
@@ -67,7 +124,7 @@ namespace TicketsMVC.Controllers
             PassengersModel passmodel = new PassengersModel();
 
             passmodel.MultDepList = new List<MultipleDeparture>();
-            foreach (MultipleDeparture multdep in model.MultDepList)
+            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
             {
                 passmodel.MultDepList.Add(multdep);
             }
@@ -78,9 +135,11 @@ namespace TicketsMVC.Controllers
                 passmodel.MultRouteList.Add(multroute);
             }
 
-            passmodel.TotPassengers = model.TotPassengers;
-            passmodel.TotVehicles = model.TotVehicles;
-            passmodel.Triptype = model.Triptype;
+
+            TempData["MultRouteList"] = passmodel.MultRouteList;
+            passmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
+            passmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
+            passmodel.Triptype = (Triptype)TempData.Peek("Triptype");
 
             return View(passmodel);
         }

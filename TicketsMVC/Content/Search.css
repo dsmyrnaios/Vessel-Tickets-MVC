@@ -6,6 +6,52 @@ fieldset {
     overflow: hidden;
 }
 
+[type="radio"].with-gap:checked + label:before {
+    border: 2px solid #1e7fb1;
+}
+
+[type="radio"].with-gap:checked + label:after {
+    border: 2px solid #1e7fb1;
+    background-color: #1e7fb1;
+}
+
+.picker__weekday-display {
+    background-color: #1e7fb1;
+}
+
+.picker__date-display {
+    background-color: #003580;
+}
+
+.picker__nav--next:hover, .picker__nav--prev:hover {
+    background-color: #1e7fb1;
+}
+
+.picker__day.picker__day--today {
+    background-color: #1e7fb1;
+}
+
+    .picker__day.picker__day--today.picker__day--selected, .picker__day.picker__day--today.picker__day--selected:hover {
+        background-color: #003580;
+    }
+
+.picker__day--infocus:hover {
+    background-color: #1e7fb1;
+}
+
+.picker__day--selected, .picker__day--selected:hover {
+    background-color: #003580;
+}
+
+.picker__close, .picker__today {
+    color: #1e7fb1;
+}
+
+    .picker__close:hover, .picker__clear:hover, .picker__today:hover {
+        color: #fff;
+        background-color: #1e7fb1;
+    }
+
 .infobulle {
     overflow: hidden;
     cursor: default;
@@ -148,22 +194,26 @@ div[id*=passenger] > input, div[id*=vehicle] > input {
 }
 
 .cluster-1 {
-    background: url(Searchimages/portcluster-1.png) no-repeat;
+    background: url(Searchimages/mapimages/portcluster-1.png) no-repeat;
     line-height: 50px;
     width: 50px;
     height: 40px;
 }
 
 .cluster-2 {
-    background: url(Searchimages/portcluster-2.png) no-repeat;
+    background: url(Searchimages/mapimages/portcluster-2.png) no-repeat;
     line-height: 53px;
     width: 60px;
     height: 48px;
 }
 
 .cluster-3 {
-    background: url(Searchimages/portcluster-3.png) no-repeat;
+    background: url(Searchimages/mapimages/portcluster-3.png) no-repeat;
     line-height: 66px;
     width: 70px;
     height: 56px;
+}
+
+a {
+    color: #1E7FB1;
 }

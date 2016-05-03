@@ -1,7 +1,12 @@
-﻿
-@using System.Globalization
+﻿@using System.Globalization
 @using TicketsMVC.Models
 @model PassengersModel
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $(".cssload-loader").fadeOut("slow");
+    });
+</script>
 
 @using (Html.BeginForm("Passengers", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
 {
@@ -10,75 +15,339 @@
     <div class="row">
         @for (var i = 0; i < @Model.MultDepList.Count; i++)
         {
-            <label class="col-md-12" style="font-weight:bolder;font-size:18px;color:#1E7FB1">
-                Δρομολόγια από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>  <span style="font-size:larger">-</span>  (@Model.Triptype)
+            <label class="col-md-12" style="font-weight:bolder;font-size:24px;color:#1E7FB1">
+                Δρομολόγια από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>  <span style="font-size:larger">-</span>  (@Model.Triptype)
             </label>
             if (@Model.Triptype.ToString() == "Multiple" || @Model.Triptype.ToString() == "WithReturn")
             {
                 <label class="col-md-12">
-                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR"))</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:orange">@Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR"))</span>
+                    Αναχώρηση: <span style="color:#003580">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR"))</span> <span style="font-size:larger">-</span> Επιστροφή: <span style="color:#003580">@Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR"))</span>
                 </label>
             }
             else
             {
                 <label class="col-md-12">
-                    Αναχώρηση: <span style="color:orange">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR"))</span>
+                    Αναχώρηση: <span style="color:#005DA2">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR"))</span>
                 </label>
             }
         }
     </div>
 
-    <div class="row" style="border-bottom:5px solid #1E7FB1">
+    <div class="row">
+        <ul class="list-inline bedlabels">
+            <li>
+                <label style="position: relative; top: 8px;font-size:medium;color:#1E7FB1">Berth:</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/nobed.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 8px">Μη διαθέσιμο</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/noavailablebed.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 8px">Χωρίς διαθεσιμότητα</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/limitedbed.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 8px">Περιορισμένη διαθεσιμότητα</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/availablebed.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 8px">Διαθέσιμο</label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row airseatlabels">
+        <ul class="list-inline airseatlabels">
+            <li>
+                <label style="position: relative; top: 8px;font-size:medium;color:#1E7FB1">Airseat:</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/noairseat.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Μη διαθέσιμο</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/noavailableairseat.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Χωρίς διαθεσιμότητα</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/limitedairseat.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Περιορισμένη διαθεσιμότητα</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/availableairseat.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Διαθέσιμο</label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <ul class="list-inline decklabels">
+            <li>
+                <label style="position: relative; top: 8px;font-size:medium;color:#1E7FB1">Deck:</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/nodeck.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Μη διαθέσιμο</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/noavailabledeck.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Χωρίς διαθεσιμότητα</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/limiteddeck.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Περιορισμένη διαθεσιμότητα</label>
+            </li>
+            <li>
+                <img src="../Content/Passengerimages/seatclass/availabledeck.png" style="float: left" />
+                <label style="padding-left: 5px; position: relative; top: 5px">Διαθέσιμο</label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row" style="border-bottom:8px solid #82CBFF">
         <img class="col-md-1" src="../Content/Searchimages/ship.png" style="float:left;margin-bottom:5px" />
-        <label class="col-md-11" style="font-weight:bolder;font-size:15px;color:#1E7FB1;padding-left:0px;margin-top:10px;">Στοιχεία Επιβατών</label>
+        <label class="col-md-11" style="font-weight:bolder;font-size:20px;color:#1E7FB1;padding-left:0px;margin-top:10px;">Στοιχεία Επιβατών</label>
     </div>
     if (@Model.Triptype.ToString() == "Simple" || @Model.Triptype.ToString() == "WithReturn")
     {
+        var count = 0;
         <table class="table table-condensed askpassengersinfo">
             <tr>
                 <td>
-                    @Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")) @Model.MultRouteList[0].deptime
+                    @Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[0].deptime<div class="arrow-right"></div>
                 </td>
-                <td>
-                    @Model.MultRouteList[0].boatcompany @Model.MultRouteList[0].boatname από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span>
+                <td colspan="2">
+                    @Model.MultRouteList[0].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[0].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span>
                 </td>
             </tr>
+            @for (var i = count; i < Model.TotPassengers.NumOfPassengers + count; i++)
+            {
+                <tr>
+                    <td>
+                        <label for=Passengerinfo[@i].gender class="control-label">Φύλο</label>
+                        <select name=Passengerinfo[@i].gender class=icons>
+                            <option value="" disabled selected>Not Set</option>
+                            <option value=Male data-icon="../Content/Passengerimages/gender/male.png"  class="left">Ανδρας</option>
+                            <option value=Female data-icon="../Content/Passengerimages/gender/female.png"  class="left">Γυναίκα</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label for=Passengerinfo[1].firstname class="control-label">Ονομα</label>
+                        <input class="form-control" type=text name=Passengerinfo[@i].firstname data-val-required="Εισάγετε όνομα" placeholder="Εισάγετε όνομα" data-val="true" tabindex=1 required />
+                    </td>
+                    <td>
+                        <label for=Passengerinfo[2].lastname class="control-label">Επίθετο</label>
+                        <input class="form-control" type=text name=Passengerinfo[@i].lastname data-val-required="Εισάγετε επίθετο" placeholder="Εισάγετε επίθετο" data-val="true" tabindex=1 required />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:0px">
+                        <label for=Passengerinfo[@i].typepassenger class="control-label">Τύπος Επιβάτη</label>
+                        <select name=Passengerinfo[@i].typepassenger class="icons">
+                            <option value="" disabled selected>Not Set</option>
+                            @if (@Model.TotPassengers.NumOfAdults != 0)
+                            {
+                                <option value="Ενήλικας" data-icon="../Content/Searchimages/typepeople/typeadult.png" class="left">Ενήλικας</option>
+                            }
+                            @if (@Model.TotPassengers.NumOfTeens != 0)
+                            {
+                                <option value=Έφηβος data-icon="../Content/Searchimages/typepeople/typeteen.png" class="left">Έφηος</option>
+                            }
+                            @if (@Model.TotPassengers.NumOfKids != 0)
+                            {
+                                <option value=Παιδι data-icon="../Content/Searchimages/typepeople/typekid.png" class="left">Παιδι</option>
+                            }
+                            @if (@Model.TotPassengers.NumOfInfants != 0)
+                            {
+                                <option value=Βρέφος data-icon="../Content/Searchimages/typepeople/typeinfant.png" class="left">Βρέφος</option>
+                            }
+                            @if (@Model.TotPassengers.NumOfOlders != 0)
+                            {
+                                <option value=Ηλικιωμένος data-icon="../Content/Searchimages/typepeople/typeolder.png" class="left">Ηλικιωμένος</option>
+                            }
+                        </select>
+                    </td>
+                    <td style="border:0px">
+                        <label for=Passengerinfo[@i].seatclass class="control-label">Θέση</label>
+                        <div class="selectbox">
+                            <input class="form-control selected" name=Passengerinfo[@i].seatclass placeholder="Not Set"/>
+                            <div class="selectoptions"></div>
+                        </div>
+                    </td>
+                    <td style="border:0px">
+                        <label for=Passengerinfo[@i].typeseat class="control-label">Τύπος θέσης</label>
+                        <select name=Passengerinfo[@i].typeseat class="icons">
+                            <option value="" disabled selected>Not Set</option>
+                        </select>
+                    </td>
+                </tr>
+                count = @i;
+            }
         </table>
         if (@Model.Triptype.ToString() == "WithReturn")
         {
+            count = count + 1;
             <table class="table table-condensed askpassengersinfo">
                 <tr>
                     <td>
-                        @Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")) @Model.MultRouteList[0].arrtime
+                        @Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[1].deptime<div class="arrow-left"></div>
                     </td>
-                    <td>
-                        @Model.MultRouteList[1].boatcompany @Model.MultRouteList[1].boatname από <span style="color:orange;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span>
+                    <td colspan="2">
+                        @Model.MultRouteList[1].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[1].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span>
                     </td>
                 </tr>
+                @for (var i = count; i < Model.TotPassengers.NumOfPassengers + count; i++)
+                {
+                    <tr>
+                        <td>
+                            <label for=Passengerinfo[@i].gender class="control-label">Φύλο</label>
+                            <select name=Passengerinfo[@i].gender class=icons>
+                                <option value="" disabled selected>Not Set</option>
+                                <option value=Male data-icon="../Content/Passengerimages/gender/male.png"  class="left">Ανδρας</option>
+                                <option value=Female data-icon="../Content/Passengerimages/gender/female.png"  class="left">Γυναίκα</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for=Passengerinfo[1].firstname class="control-label">Ονομα</label>
+                            <input class="form-control" type=text name=Passengerinfo[@i].firstname data-val-required="Εισάγετε όνομα" placeholder="Εισάγετε όνομα" data-val="true" tabindex=1 required />
+                        </td>
+                        <td>
+                            <label for=Passengerinfo[2].lastname class="control-label">Επίθετο</label>
+                            <input class="form-control" type=text name=Passengerinfo[@i].lastname data-val-required="Εισάγετε επίθετο" placeholder="Εισάγετε επίθετο" data-val="true" tabindex=1 required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:0px">
+                            <label for=Passengerinfo[@i].typepassenger class="control-label">Τύπος Επιβάτη</label>
+                            <select name=Passengerinfo[@i].typepassenger class="icons">
+                                <option value="" disabled selected>Not Set</option>
+                                @if (@Model.TotPassengers.NumOfAdults != 0)
+        {
+                                    <option value="Ενήλικας" data-icon="../Content/Searchimages/typepeople/typeadult.png" class="left">Ενήλικας</option>
+    }
+                                @if (@Model.TotPassengers.NumOfTeens != 0)
+    {
+                                    <option value=Έφηβος data-icon="../Content/Searchimages/typepeople/typeteen.png" class="left">Έφηος</option>
+}
+                                @if (@Model.TotPassengers.NumOfKids != 0)
+{
+                                    <option value=Παιδι data-icon="../Content/Searchimages/typepeople/typekid.png" class="left">Παιδι</option>
+                                }
+                                @if (@Model.TotPassengers.NumOfInfants != 0)
+{
+                                    <option value=Βρέφος data-icon="../Content/Searchimages/typepeople/typeinfant.png" class="left">Βρέφος</option>
+                                }
+                                @if (@Model.TotPassengers.NumOfOlders != 0)
+{
+                                    <option value=Ηλικιωμένος data-icon="../Content/Searchimages/typepeople/typeolder.png" class="left">Ηλικιωμένος</option>
+                                }
+                            </select>
+                        </td>
+                        <td style="border:0px">
+                            <label for=Passengerinfo[@i].seatclass class="control-label">Θέση</label>
+                            <div class="selectbox">
+                                <input class="form-control selected" name=Passengerinfo[@i].seatclass placeholder="Not Set" />
+                                <div class="selectoptions"></div>
+                            </div>
+                        </td>
+                        <td style="border:0px">
+                            <label for=Passengerinfo[@i].typeseat class="control-label">Τύπος θέσης</label>
+                            <select name=Passengerinfo[@i].typeseat class="icons">
+                                <option value="" disabled selected>Not Set</option>
+                            </select>
+                        </td>
+                    </tr>
+                }
             </table>
         }
     }
     else
     {
+        var count = 0;
         for (var i = 0; i < @Model.MultRouteList.Count; i++)
         {
             <table class="table table-condensed askpassengersinfo">
                 <tr>
-                    <td>
-                        @Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR")) @Model.MultRouteList[i].arrtime
+                    <td colspan="2">
+                        @Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[i].deptime<div class="arrow-right"></div>
                     </td>
-                    <td>
-                        @Model.MultRouteList[i].boatcompany @Model.MultRouteList[i].boatname από <span style="color:orange;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:orange;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>
+                    <td colspan="4">
+                        @Model.MultRouteList[i].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[i].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>
                     </td>
                 </tr>
+                @for (var j = count; j < Model.TotPassengers.NumOfPassengers + count; j++)
+                {
+                    <tr>
+                        <td>
+                            <label for=Passengerinfo[@j].gender class="control-label">Φύλο</label>
+                            <select name=Passengerinfo[@j].gender class=icons>
+                                <option value="" disabled selected>Not Set</option>
+                                <option value=Male data-icon="../Content/Passengerimages/gender/male.png"  class="left">Ανδρας</option>
+                                <option value=Female data-icon="../Content/Passengerimages/gender/female.png"  class="left">Γυναίκα</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for=Passengerinfo[1].firstname class="control-label">Ονομα</label>
+                            <input class="form-control" type=text name=Passengerinfo[@j].firstname data-val-required="Εισάγετε όνομα" placeholder="Εισάγετε όνομα" data-val="true" tabindex=1 required />
+                        </td>
+                        <td>
+                            <label for=Passengerinfo[2].lastname class="control-label">Επίθετο</label>
+                            <input class="form-control" type=text name=Passengerinfo[@j].lastname data-val-required="Εισάγετε επίθετο" placeholder="Εισάγετε επίθετο" data-val="true" tabindex=1 required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:0px">
+                            <label for=Passengerinfo[@j].typepassenger class="control-label">Τύπος Επιβάτη</label>
+                            <select name=Passengerinfo[@j].typepassenger class="icons">
+                                <option value="" disabled selected>Not Set</option>
+                                @if (@Model.TotPassengers.NumOfAdults != 0)
+                                {
+                                    <option value="Ενήλικας" data-icon="../Content/Searchimages/typepeople/typeadult.png" class="left">Ενήλικας</option>
+                                }
+                                @if (@Model.TotPassengers.NumOfTeens != 0)
+                                {
+                                    <option value=Έφηβος data-icon="../Content/Searchimages/typepeople/typeteen.png" class="left">Έφηος</option>
+                                }
+                                @if (@Model.TotPassengers.NumOfKids != 0)
+                                {
+                                    <option value=Παιδι data-icon="../Content/Searchimages/typepeople/typekid.png" class="left">Παιδι</option>
+                                }
+                                @if (@Model.TotPassengers.NumOfInfants != 0)
+                                {
+                                    <option value=Βρέφος data-icon="../Content/Searchimages/typepeople/typeinfant.png" class="left">Βρέφος</option>
+                                }
+                                @if (@Model.TotPassengers.NumOfOlders != 0)
+                                {
+                                    <option value=Ηλικιωμένος data-icon="../Content/Searchimages/typepeople/typeolder.png" class="left">Ηλικιωμένος</option>
+                                }
+                            </select>
+                        </td>
+                        <td style="border:0px">
+                            <label for=Passengerinfo[@i].seatclass class="control-label">Θέση</label>
+                            <div class="selectbox">
+                                <input class="form-control selected" name=Passengerinfo[@i].seatclass placeholder="Not Set" />
+                                <div class="selectoptions"></div>
+                            </div>
+                        </td>
+                        <td style="border:0px">
+                            <label for=Passengerinfo[@i].typeseat class="control-label">Τύπος θέσης</label>
+                            <select name=Passengerinfo[@i].typeseat class="icons">
+                                <option value="" disabled selected>Not Set</option>
+                            </select>
+                        </td>
+                    </tr>
+                    count = @j;
+                }
             </table>
+            count = count + 1;
         }
     }
 
     //SUBMIT BUTTON
     <div class="row">
-        <div class="col-md-10">
-            <button value="Send" class="btn waves-effect waves-light #ff6f00 amber darken-3" type="submit" style="float:right">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
+        <div class="col-md-12">
+            <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">Αναζήτηση&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" /></button>
         </div>
     </div>
 
