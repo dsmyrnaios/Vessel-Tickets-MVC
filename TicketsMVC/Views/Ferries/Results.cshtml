@@ -196,23 +196,7 @@
             }
         </label>
     </div>
-
-    <div class="row col-md-12" style="border: 1px; display: inline">
-        @for (int j = -3; j < 4; j++)
-        {
-            if (j == 0)
-            {
-                <a class="waves-effect waves-light btn orange " style="width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM", new CultureInfo("el-GR"))</a>
-            }
-            else
-            {
-                <a class="waves-effect waves-light btn grey lighten-2" style="color: #858585; width: 13%; padding: 0 0rem;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd dd/MM", new CultureInfo("el-GR"))</a>
-            }
-        }
-    </div>
-
-
-
+    
     <div class="yourSlider col-md-12" id="fromdtSliderid">
         <div>
             <img src="../Content/Resultsimages/white.png" alt="">
