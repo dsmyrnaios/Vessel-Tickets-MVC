@@ -386,6 +386,7 @@
     <Content Include="Content\Searchimages\categoryportimages\sporades.jpg" />
     <Content Include="Content\Searchimages\categoryportimages\turkey.jpg" />
     <Content Include="Content\Searchimages\typepeople\typeadult.png" />
+    <Content Include="Content\Searchimages\typepeople\typestudent.png" />
     <Content Include="Content\Searchimages\typevehicle\typecamper-trailer.png" />
     <Content Include="Content\Searchimages\typevehicle\typecar.png" />
     <Content Include="Content\Searchimages\typepeople\typeinfant.png" />

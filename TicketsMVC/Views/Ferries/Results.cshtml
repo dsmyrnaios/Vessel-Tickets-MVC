@@ -125,59 +125,16 @@
                         </ul>
                     </div>
                 </div>
-
-
-                @*/////////////////////////////////////*@
-                @*<div><img src="../Content/Resultsimages/white.png" alt="">
-                    <div class="ns_slideContent"><ul class="list-inline">
-                            <li><a href="javascript:movePrevSlide();"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
-                            <li>
-                                <div class="slideclass">
-                                    <p>Κυριακή</p>
-                                    <p>1 Μαΐου</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slideclass">
-                                    <p>Δευτέρα</p>
-                                    <p>2 Μαΐου</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slideclass">
-                                    <p>Τρίτη</p>
-                                    <p>3 Μαΐου</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slideclass">
-                                    <p>Τετάρτη</p>
-                                    <p>4 Μαΐου</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slideclass">
-                                    <p>Πέμπτη</p>
-                                    <p>5 Μαΐου</p>
-                                </div>
-                            </li>
-                            <li><a href="javascript:moveNextSlide();" id="movenext"><span class="glyphicon glyphicon-arrow-right"></span></a></li>
-                        </ul>
-                    </div>
-                </div>*@
-
-
-                @*/////////////////////////////////////*@
-
             </div>
+
             <div class="displayroutesinfo">
                 <table class="table table-condensed"></table>
                 @Html.HiddenFor(x => x.MultRouteList[0].boatcompany, new { @style = "display: none;", tabindex = -1 })
                 @Html.HiddenFor(x => x.MultRouteList[0].boatname, new { @style = "display: none;", tabindex = -1 })
+                @Html.HiddenFor(x => x.MultRouteList[0].vesselid, new { @style = "display: none;", tabindex = -1 })
                 @Html.HiddenFor(x => x.MultRouteList[0].deptime, new { @style = "display: none;", tabindex = -1 })
                 @Html.HiddenFor(x => x.MultRouteList[0].arrtime, new { @style = "display: none;", tabindex = -1 })
                 @Html.HiddenFor(x => x.MultRouteList[0].price, new { @style = "display: none;", tabindex = -1 })
-                @Html.HiddenFor(x => x.MultRouteList[0].vesselid, new { @style = "display: none;", tabindex = -1 })
             </div>
             if (@Model.Triptype.ToString() == "WithReturn")
             {
@@ -189,10 +146,10 @@
                     <table class="table table-condensed"></table>
                     @Html.HiddenFor(x => x.MultRouteList[1].boatcompany, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[1].boatname, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[1].vesselid, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[1].deptime, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[1].arrtime, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[1].price, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[1].vesselid, new { @style = "display: none;", tabindex = -1 })
                 </div>
             }
         }
@@ -209,16 +166,16 @@
                     <table class="table table-condensed"></table>
                     @Html.HiddenFor(x => x.MultRouteList[i].boatcompany, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[i].boatname, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[i].deptime, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[i].arrtime, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[i].price, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @style = "display: none;", tabindex = -1 })
                 </div>
             }
         }
     </div>
 
-    <div class="row" style="border-bottom:5px solid #1E7FB1">
+    <div class="row" style="border-bottom:5px solid #5B9E5B">
         <img class="col-md-1" src="../Content/Searchimages/ship.png" style="float:left;margin-bottom:5px" />
         <label class="col-md-11" style="font-weight:bolder;font-size:15px;color:#1E7FB1;padding-left:0px;margin-top:10px;">
             Εναλλακτικά δρομολόγια
@@ -296,10 +253,6 @@
                 </ul>
             </div>
         </div>
-        @*<a href="http://www.builtbyevolve.com/" target="_blank"><img src="~/Content/Resultsimages/blue.png" data-slidecaption="You can put links on slides, too."  alt=""></a>*@
-        @*<img src="test.jpg" alt="">
-        <img src="test2.png" alt="">
-        <img src="test3.gif" alt="">*@
     </div>
 
     //SUBMIT BUTTON
