@@ -2,9 +2,20 @@
     line-height: 1.0;
 }
 
-td > label {
+.askpassengersinfo > tbody > tr:not(:nth-child(1)):not(:nth-child(2)) > td {
+    border: 0px;
+}
+
+td > div {
+    display: table-cell;
+    float: left;
+    width: 30%;
+    margin: 10px;
+}
+
+div > label {
     font-weight: bolder;
-    color:#67676B;
+    color: #67676B;
 }
 
 td {

@@ -21,9 +21,10 @@
 
 .routecompany-routename {
     text-align: center;
+    cursor: help;
 }
 
-.routetime {
+.deproutetime, .arrroutetime {
     width: 20%;
     font-weight: bolder;
 }

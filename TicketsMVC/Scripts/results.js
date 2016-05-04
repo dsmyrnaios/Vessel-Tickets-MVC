@@ -30,8 +30,8 @@
                         var endtime = new Date(date + ' ' + TTimetableAns[i].ArrTime).getTime();
                         var difference = (endtime - starttime) / 1000 / 60;
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" /><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="routetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="routetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
-                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" /><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="deproutetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="arrroutetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
+                        $(this).find('.routecompany-routename').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
                 }
@@ -44,8 +44,8 @@
                         var endtime = new Date(date + ' ' + TTimetableAns[i].ArrTime).getTime();
                         var difference = (endtime - starttime) / 1000 / 60;
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="routetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="routetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
-                        $(this).find('tr:last').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="deproutetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="arrroutetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
+                        $(this).find('.routecompany-routename').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
                 }
@@ -61,15 +61,14 @@
         $(this).parent().parent().find('.routeimage > img,.leftbordered,.rightbordered').addClass('active');
         $(this).prop('checked', true);
         var hiddenfield = $(this).parent().parent().parent().parent().parent().find('input[type=hidden]').toArray();
-        $(this).parent().parent().children(':not(:first-child)').each(function (i) {
-            if (i == 1) {
-                $(hiddenfield[i]).val($(this).text().split('-')[0]);
-                $(hiddenfield[hiddenfield.length - 1]).val($(this).text().split('-')[1]);
-            }
-            else {
-                $(hiddenfield[i]).val($(this).text());
-            }
-        });
+        var routetable = $(this).parent().parent();
+        var routecompanyname = routetable.find('.routecompany-routename').text().split('-');
+        $(hiddenfield[0]).val(routecompanyname[0]);
+        $(hiddenfield[1]).val(routecompanyname[1]);
+        $(hiddenfield[2]).val(routecompanyname[2]);
+        $(hiddenfield[3]).val(routetable.find('.deproutetime').text());
+        $(hiddenfield[4]).val(routetable.find('.arrroutetime > span:first-child').text());
+        $(hiddenfield[5]).val(routetable.find('.boatprice').text());
     });
 
 
