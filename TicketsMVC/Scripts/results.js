@@ -90,26 +90,8 @@
         var resdt = $('#fromdtSliderid').find('.slideclass-reservday');
         moment.lang("el");
 
-        //var allp = resdt.find('p');
-        //var tst = '';
-        //for (i = 0; i < allp.length; i++) {
-        //    $(allp[i]).css("color", "#2091EB");
-        //    tst += $(allp[i]).text() + " ";
-        //}
-        //tst = tst.slice(0, -1);
-        //var dtold = moment(tst, 'DDDD DD MMMM', 'el');
-        var dtold = moment($(resdt[0]).text(), 'DDDD DD MMMM', 'el');
-        
-
-        //tst = '';
-        //var allotherp = $(this).find('p');
-        //for (i = 0; i < allotherp.length; i++) {
-        //    $(allotherp[i]).css("color", "white");
-        //    tst += $(allotherp[i]).text() + " ";
-        //}
-
-        
-        var dtnew = moment($(this).text(), 'DDDD DD MMMM', 'el');
+        var dtold = moment($(resdt[0]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+        var dtnew = moment($(this).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
         var now = moment();
         
         if (dtnew.diff(now, 'days') < 0) {
@@ -156,7 +138,6 @@
                     ' <p>' + dttemp.format('DD MMMM') + '</p> </div></li>';
                 $(childitems[$(childitems).length - 1]).before(divappend);
             }
-
         }
 
 

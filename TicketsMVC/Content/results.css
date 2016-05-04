@@ -183,6 +183,72 @@ tr {
     text-decoration: underline;
 }
 
+.feries_previous {
+    background: #f5f5f5;
+    color: #2091EB;
+    border-color: #2091EB;
+    border-radius: 5px;
+        float: left;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    text-decoration: underline;
+    width: 15%;
+     margin: 2px;
+    cursor: pointer;
+}
+
+.feries_active {
+    background: orange;
+    color: white;
+    border-color: orange;
+    border-radius: 5px;
+        float: left;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    width: 15%;
+     margin: 2px;
+}
+
+.feries_disabled {
+    background: #f5f5f5;
+    border-radius: 5px;
+    float: left;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    width: 15%;
+    margin: 2px 4px 2px 4px;
+}
+
+.splitter {
+    background: transparent;
+        float: left;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    vertical-align: middle;
+    width: 4%;
+    align-content: center;
+}
+
+#right_arrow {
+  border-top: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 14px solid #B4CDCD;
+  margin: 5px 2px 5px 2px;
+}​
+
+
 
 /*.ns_nerveSlider.light .ns_nextButton div {
     background: grey url(~/Content/NerveSlider/icons/next-light.png) 50% 50% no-repeat;

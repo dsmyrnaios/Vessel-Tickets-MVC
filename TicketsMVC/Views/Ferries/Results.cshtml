@@ -9,8 +9,34 @@
 </script>
 
 <div class="model hidden">@Html.Raw(Json.Encode(Model))</div>
+
+
 @using (Html.BeginForm("Passengers", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
 {
+
+    <div class="row">
+        <ul class="list-inline">
+            <li class="feries_previous">
+                <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i><a>Αναζήτηση</a>
+            </li>
+            <li class="splitter"><div id="right_arrow" style="width:5%"></div></li>
+            <li class="feries_active">
+                <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i>Αποτελέσματα
+            </li>
+            <li class="splitter"><div id="right_arrow" style="width:5%"></div></li>
+            <li class="feries_disabled">
+                <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i>Επιβάτες
+            </li>
+            <li class="splitter"><div id="right_arrow" style="width:5%"></div></li>
+            <li class="feries_disabled">
+                <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i>Πληρωμή
+            </li>
+            <li class="splitter"><div id="right_arrow" style="width:5%"></div></li>
+            <li class="feries_disabled">
+                <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i>Επιβεβαίωση
+            </li>
+        </ul>
+    </div>
 
     <div class="row">
         @for (var i = 0; i < @Model.MultDepList.Count; i++)
@@ -250,14 +276,14 @@
                             <span class="glyphicon glyphicon-arrow-left"></span>
                         </a>
                     </li>
-                    @for (int j = -3; j < 4; j++)
+                    @for (int j = -2; j < 3; j++)
                     {
                         if (j == 0)
                         {
                             <li>
-                                <div class="slideclass-reservday" style="border-left-style: none; border-color: lightblue;">
-                                    <p style="text-align: center; color: #2091EB">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
-                                    <p style="text-align: center; color: #2091EB">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                <div class="slideclass-reservday">
+                                    <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
+                                    <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
                                 </div>
                             </li>
 
@@ -265,9 +291,9 @@
                         else
                         {
                             <li>
-                                <div class="slideclass" style="border-left-style: none; border-color: lightblue;">
-                                    <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
-                                    <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                <div class="slideclass">
+                                    <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
+                                    <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
                                 </div>
                             </li>
                         }
@@ -280,10 +306,7 @@
                 </ul>
             </div>
         </div>
-        @*<a href="http://www.builtbyevolve.com/" target="_blank"><img src="~/Content/Resultsimages/blue.png" data-slidecaption="You can put links on slides, too."  alt=""></a>*@
-        @*<img src="test.jpg" alt="">
-        <img src="test2.png" alt="">
-        <img src="test3.gif" alt="">*@
+       
     </div>
 
     //SUBMIT BUTTON
@@ -300,6 +323,7 @@
     @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
     @Scripts.Render("~/Scripts/results.js")
     @Styles.Render("~/Content/results.css")
+    @Styles.Render("~/Content/font-awesome.min.css")
     @Scripts.Render("~/Scripts/moment/moment.js")
     @Scripts.Render("~/Scripts/moment/moment-with-locales.js")
 }
