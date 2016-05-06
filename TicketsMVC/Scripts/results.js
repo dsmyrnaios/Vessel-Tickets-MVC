@@ -17,7 +17,7 @@
                 typeofboat = 'Airplane';
             }
             else if (TTimetableAns[i].VesselType == 'D') {
-                typeofboat = 'Dolphin/Catamaran';
+                typeofboat = 'Dolphin-Catamaran';
             }
             else if (TTimetableAns[i].VesselType == 'H') {
                 typeofboat = 'HighSpeed';
@@ -30,7 +30,7 @@
                         var endtime = new Date(date + ' ' + TTimetableAns[i].ArrTime).getTime();
                         var difference = (endtime - starttime) / 1000 / 60;
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" /><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="deproutetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="arrroutetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" /><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeavailable.png"/></label></td><td><div class="routecompany-routename row"><span class=company-name-label>Company name:</span> ' + MeanList[j].Company + ' - <span class=company-name-label>Vessel name:</span> ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="deproutetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="arrroutetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></span></div><div class=row><div class="routeprice routeprice' + typeofboat + ' center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
                         $(this).find('.routecompany-routename').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
@@ -44,7 +44,7 @@
                         var endtime = new Date(date + ' ' + TTimetableAns[i].ArrTime).getTime();
                         var difference = (endtime - starttime) / 1000 / 60;
                         $(this).append('<tr>');
-                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td><div class="routecompany-routename row">' + MeanList[j].Company + ' - ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="deproutetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="arrroutetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></div><div class=row><div class="routeprice center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
+                        $(this).find('tr:last').append('<td><input id="selectedroute' + counttables + countcheckboxes + '" type="checkbox" disabled="disabled"/><label for="selectedroute' + counttables + countcheckboxes + '"><img src="../Content/resultsimages/typeno.png"/></label></td><td><div class="routecompany-routename row"><span class=company-name-label>Company name:</span> ' + MeanList[j].Company + ' - <span class=company-name-label>Vessel name:</span> ' + MeanList[j].VesselName + '<span style=visibility:hidden>-' + MeanList[j].VesselID + '</span></div><div class="valign-wrapper row"><span class="deproutetime left center-align valign">' + TTimetableAns[i].DepTime + '</span><span class="routeimage center"><span class=leftbordered></span><img src="../Content/resultsimages/shipborder.png" /><span class=rightbordered></span></span><span class="arrroutetime right center-align valign"><span class=row>' + TTimetableAns[i].ArrTime + '</span><span class=timedifference>' + Math.floor((difference / 60)) + ' hr ' + (difference % 60) + ' mins</span></div><div class=row><div class="routeprice routeprice' + typeofboat + ' center-block"><span class=boatprice>' + parseFloat(TTimetableAns[i].ClassAvail[0].ClassAdultBasicPrice) / 100 + '</span> <span class=moneycoin>€</span></div></div></td>');
                         $(this).find('.routecompany-routename').popover({ trigger: 'hover', placement: 'bottom', 'title': 'Vessel Type', 'content': typeofboat });
                         countcheckboxes++;
                     }
@@ -72,105 +72,33 @@
     });
 
 
-    $(".yourSlider").nerveSlider({
-        sliderWidth: "1000px",
+    $(".dateslider").nerveSlider({
         sliderHeight: "100px",
         sliderResizable: true,
         sliderAutoPlay: false,
         slidesDraggable: false,
         showArrows: false,
-        showDots: false
+        showPause: false,
+        showDots: false,
+        showTimer: false
     });
 
-   
-
-    $("div").on("click", ".slideclass", function () {
-
-        var resdt = $('#fromdtSliderid').find('.slideclass-reservday');
-        moment.lang("el");
-
-        //var allp = resdt.find('p');
-        //var tst = '';
-        //for (i = 0; i < allp.length; i++) {
-        //    $(allp[i]).css("color", "#2091EB");
-        //    tst += $(allp[i]).text() + " ";
-        //}
-        //tst = tst.slice(0, -1);
-        //var dtold = moment(tst, 'DDDD DD MMMM', 'el');
-        var dtold = moment($(resdt[0]).text(), 'DDDD DD MMMM', 'el');
-        
-
-        //tst = '';
-        //var allotherp = $(this).find('p');
-        //for (i = 0; i < allotherp.length; i++) {
-        //    $(allotherp[i]).css("color", "white");
-        //    tst += $(allotherp[i]).text() + " ";
-        //}
-
-        
-        var dtnew = moment($(this).text(), 'DDDD DD MMMM', 'el');
-        var now = moment();
-        
-        if (dtnew.diff(now, 'days') < 0) {
-            return;
-        }
-
-        var childitems = $(this).parent().parent().find('li');
-        var dttemp;
-        var diffdays = Math.abs(dtnew.diff(dtold, 'days'));
-
-        if (dtnew.isBefore(dtold)) {
-            console.log('prepend');
-
-            for (var j = 0; j < diffdays; j++) {
-                $(childitems[$(childitems).length - 2 - j]).show("slide", { direction: "left" }, 500);
-                $(childitems[$(childitems).length - 2 - j]).remove();
-            }
-
-           
-            dttemp = dtold;
-            dttemp.subtract(2, 'days');
-            for (var j = 1; j <= diffdays ; j++) {
-                dttemp.subtract( 1, 'days');
-                var divappend = '<li> <div class="slideclass">' +
-                    ' <p>' + dttemp.format('dddd') + '</p>' +
-                    ' <p>' + dttemp.format('DD MMMM') + '</p> </div></li>';
-                $(childitems[0]).after(divappend);
-            }
-
-        } else {
-            console.log('append');
-            
-            for (var j = 0; j < diffdays; j++) {
-                $(childitems[$(childitems).length - 2 - j]).show("slide", { direction: "right" }, 500);
-                $(childitems[1 + j]).remove();
-            }
-
-            dttemp = dtold;
-            dttemp.add(2, 'days');
-            for (var i = 1; i <= diffdays; i++) {
-                dttemp.add(1, 'days');
-                var divappend = '<li> <div class="slideclass">' +
-                    ' <p>' + dttemp.format('dddd') + '</p>' +
-                    ' <p>' + dttemp.format('DD MMMM') + '</p> </div></li>';
-                $(childitems[$(childitems).length - 1]).before(divappend);
-            }
-
-        }
+    $('.ns_timer').css('display', 'none');
 
 
-        resdt.removeClass('slideclass-reservday');
-        resdt.addClass('slideclass');
 
-        $(this).removeClass('slideclass');
-        $(this).addClass('slideclass-reservday');
-
-        //alert(moment(tst, 'DDDD DD MMMM', 'el').isValid());
-        
+    $('body').on('click', '.day', function () {
+        $(this).parent().find('.day').removeClass('reserved');
+        $(this).addClass('reserved');
     });
 
-    //$(".ns_nextButton").removeClass();
-    //$(".ns_prevButton").removeClass();
+    $('body').on('click', '.prevarrow', function () {
+        $(this).parent().find('.day')
+    });
+
+    $('body').on('click', '.nextarrow', function () {
+
+    });
 
     /*var Model = JSON.parse($('.model').val());
     if (Model.Triptype != 2|| Model.MultDepList.length == 1)
@@ -204,33 +132,5 @@
         }
     }*/
 });
-
-function movePrevSlide() {
-        $(".yourSlider").prevSlide();      // Go to the previous slide.
-    }
-
-function moveNextSlide() {
-    var resdt = $(".slideclass-reservday");
-    var dtold = moment($(resdt[0]).text(), 'DDDD DD MMMM', 'el');
-
-    var appdiv = '<div class="ns_slideContainer ns_lastSlide ns_selected"><img src="../Content/Resultsimages/white.png" alt="">' +
-        '<div class="ns_slideContent">' +
-        '<ul class="list-inline"><li><a href="javascript:movePrevSlide();"><span class="glyphicon glyphicon-arrow-left"></span></a></li>';
-        
-        
-
-    dtold.add(2, 'days');
-    for (var i = 0; i < 5; i++) {
-        dtold.add(1, 'days');
-        appdiv += '<li><div class="slideclass"><p>' + dtold.format("dddd", "el").toString() + '</p>' +
-            '<p>' + dtold.format("DD MMMM", "el").toString() + '</p></div></li>';
-    }
-
-    appdiv += '<li><a href="javascript:moveNextSlide();" id="movenext"><span class="glyphicon glyphicon-arrow-right"></span>' +
-        '</a></li></ul></div></div>';
-    $(".ns_selected").after(appdiv);
-    
-    $(".yourSlider").nextSlide(); // Go to the next slide.
-}
 
 

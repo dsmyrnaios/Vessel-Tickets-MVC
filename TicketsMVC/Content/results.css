@@ -1,27 +1,30 @@
 ﻿body {
     line-height: 1.0;
 }
-
 .displayroutesinfo > table {
-    background-color: #F0F0F0;
+    background-color: #F4F4F4;
 }
 
     .displayroutesinfo > table > tbody > tr > td {
         border-bottom: 1px solid #C0C0C0;
     }
 
-        .displayroutesinfo > table > tbody > tr:last-child > td {
-            border-bottom: 0px;
-        }
+    .displayroutesinfo > table > tbody > tr:last-child > td {
+        border-bottom: 0px;
+    }
 
-        .displayroutesinfo > table > tbody > tr > td:first-child {
-            vertical-align: middle;
-            width: 5%;
-        }
+    .displayroutesinfo > table > tbody > tr > td:first-child {
+        vertical-align: middle;
+        width: 5%;
+    }
 
 .routecompany-routename {
     text-align: center;
-    cursor: help;
+}
+
+.company-name-label {
+    font-weight: bolder;
+    color: #B8B8B8;
 }
 
 .deproutetime, .arrroutetime {
@@ -72,16 +75,24 @@
 
 .routeprice {
     text-align: center;
+    font-size: large;
     font-weight: bolder;
-    color: #000;
     width: 20%;
-    border: 1px solid #C3C3C3;
     border-radius: 10px;
     padding: 10px;
 }
 
+.routepriceConventional {
+    color: #fbbc05;
+    background-color: #003580;
+}
+
+.routepriceAirplane, .routepriceDolphin-Catamaran, .routepriceHighSpeed {
+    color: red;
+    background-color: #D0D0D0;
+}
+
 .moneycoin {
-    color: #000;
     font-weight: normal;
 }
 
@@ -105,91 +116,59 @@ tr {
     background-color: #6594C1;
 }
 
-.slideclass {
-    border-width: 2px;
-    padding: 0px 10px 10px 0px;
+.dateslider {
+    background-color: #F4F4F4;
+    border-top: 1px solid #B9B9B9;
+    border-bottom: 1px solid #B9B9B9;
+    left: 20px;
+    padding: 7px;
+}
+
+.day {
     text-align: center;
-}
-
-.slideclass-reservday {
-    border-width: 2px;
-    /*border-left-style: ridge;
-    border-color: lightblue;*/
-    background-color: orange;
-     padding: 0px 10px 10px 0px;
-     text-align: center;
-}
-
-.slideclass:hover {
-    background-color: lightblue;
-}
-
-.slideclass {
-    border-width: 1px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 25px;
-    padding-right: 25px; 
-    text-align: center;
-    /*border: 1px solid;*/
-    border-radius: 5px;
-    cursor:pointer;
     color: #2091EB;
-}
-
-.yourSlider {
-    border: 1px solid;
+    width: 11.6%;
     border-radius: 10px;
-    color: #2091EB;
-    margin: 6px 0 6px 0;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: large;
 }
 
-.slideclass > p {
-    color: #2091EB;
+.dayborder {
+    border-right: 2px solid #B9B9B9;
+    margin-right: 3px;
+    margin-left: 3px;
+    height: 73%;
     text-align: center;
 }
 
+    .day:hover {
+        background-color: #DCDCDC;
+    }
 
-
-.slideclass-reservday {
-    border-width: 1px;
-    /*border-left-style: ridge;
-    border-color: lightblue;*/
+.reserved {
     background-color: orange;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 25px;
-    padding-right: 25px; 
-     text-align: center;
-    color: #2091EB;
-    /*border: 1px solid;*/
-    border-radius: 5px;
-    cursor:pointer;
+    color: #fff;
 }
 
-.slideclass-reservday > p {
-    color: white;
-    text-align: center;
+    .reserved:hover {
+        background-color: orange;
+    }
+
+.prevarrow {
+    margin-right: 5px;
 }
 
-.slideclass:hover {
-    background-color: #f5f5f5;
+.nextarrow {
+    margin-left: 5px;
 }
 
-.slideclass:hover > p{
-    text-decoration: underline;
+.btn-floating {
+    background-color: #fff;
 }
 
-.slideclass-reservday:hover > p{
-    text-decoration: underline;
-}
-
-
-/*.ns_nerveSlider.light .ns_nextButton div {
-    background: grey url(~/Content/NerveSlider/icons/next-light.png) 50% 50% no-repeat;
-}*/
-
-/*.ns_nerveSlider.light .ns_prevButton div {
-    background: grey url(~/Content/NerveSlider/icons/prev-light.png) 50% 50% no-repeat;
-}*/
+    .btn-floating:hover {
+        background-color: #DCDCDC;
+    }
+    
 

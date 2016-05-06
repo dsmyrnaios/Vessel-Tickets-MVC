@@ -77,57 +77,44 @@
         </label>
     </div>
 
-    <div class="row displayroutes">
+    <div class="displayroutes">
         @if (@Model.Triptype.ToString() == "Simple" || @Model.Triptype.ToString() == "WithReturn")
         {
-            <div class="col-md-11" style="border-bottom: 2px solid #1E7FB1; left: 20px">
-                <img src="../Content/Searchimages/portfrom.png" style="float: left; margin-top: 5px; margin-right: 5px"/>
+            <div class="col-md-12 row" style="border-bottom: 2px solid #1E7FB1; left: 20px">
+                <img src="../Content/Searchimages/portfrom.png" style="float: left; margin-top: 5px; margin-right: 5px" />
                 <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Αναχώρηση</span><br />@Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></label>
             </div>
 
-            <div class="yourSlider col-md-12" id="fromdtSliderid" style="padding-top: 6px;">
-                <div class="slide_member">
-                    <img src="~/Content/Resultsimages/white.png" alt="">
+            <div class="dateslider col-md-12 row">
+                <div>
                     <div class="ns_slideContent">
-                        <ul class="list-inline">
-                            <li>
-                                <a href="javascript:movePrevSlide();">
-                                    <span class="glyphicon glyphicon-arrow-left"></span>
-                                </a>
-                            </li>
-                            @for (int j = -2; j < 3; j++)
+                        <p class="prevarrow btn-floating waves-effect waves-light left">
+                            <img src="../Content/NerveSlider/icons/prev-dark.png" />
+                        </p>
+                        @for (int j = -3; j < 4; j++)
+                        {
+                            if (j == 0)
                             {
-                                if (j == 0)
+                                <p value =@j class="reserved day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                <p class="dayborder left"></p>
+                            }
+                            else
+                            {
+                                <p value =@j class="day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                if (j < 3)
                                 {
-                                    <li>
-                                        <div class="slideclass-reservday">
-                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
-                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
-                                        </div>
-                                    </li>
-
-                                }
-                                else
-                                {
-                                    <li>
-                                        <div class="slideclass">
-                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
-                                            <p>@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
-                                        </div>
-                                    </li>
+                                    <p class="dayborder left"></p>
                                 }
                             }
-                            <li>
-                                <a href="javascript:moveNextSlide();" id="movenext">
-                                    <span class="glyphicon glyphicon-arrow-right"></span>
-                                </a>
-                            </li>
-                        </ul>
+                        }
+                        <p class="nextarrow btn-floating waves-effect waves-light left">
+                            <img src="../Content/NerveSlider/icons/next-dark.png" />
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="displayroutesinfo">
+            <div class="displayroutesinfo col-md-12">
                 <table class="table table-condensed"></table>
                 @Html.HiddenFor(x => x.MultRouteList[0].boatcompany, new { @style = "display: none;", tabindex = -1 })
                 @Html.HiddenFor(x => x.MultRouteList[0].boatname, new { @style = "display: none;", tabindex = -1 })
@@ -138,11 +125,41 @@
             </div>
             if (@Model.Triptype.ToString() == "WithReturn")
             {
-                <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
+                <div class="col-md-11 row" style="border-bottom:2px solid #1E7FB1;left:20px">
                     <img src="../Content/Searchimages/portto.png" style="float:left;margin-top:5px;margin-right:5px" />
                     <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">Επιστροφή</span><br />@Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span></label>
                 </div>
-                <div class="displayroutesinfo">
+
+                <div class="dateslider row">
+                    <div>
+                        <div class="ns_slideContent">
+                            <p class="prevarrow btn-floating waves-effect waves-light left">
+                                <img src="../Content/NerveSlider/icons/prev-dark.png" />
+                            </p>
+                            @for (int j = -3; j < 4; j++)
+                            {
+                                if (j == 0)
+                                {
+                                    <p value=@j class="reserved day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                    <p class="dayborder left"></p>
+                                }
+                                else
+                                {
+                                    <p value=@j class="day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                    if (j < 3)
+                                    {
+                                        <p class="dayborder left"></p>
+                                    }
+                                }
+                            }
+                            <p class="nextarrow btn-floating waves-effect waves-light left">
+                                <img src="../Content/NerveSlider/icons/next-dark.png" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="displayroutesinfo col-md-12">
                     <table class="table table-condensed"></table>
                     @Html.HiddenFor(x => x.MultRouteList[1].boatcompany, new { @style = "display: none;", tabindex = -1 })
                     @Html.HiddenFor(x => x.MultRouteList[1].boatname, new { @style = "display: none;", tabindex = -1 })
@@ -158,19 +175,49 @@
             for (var i = 0; i < @Model.MultDepList.Count; i++)
             {
                 int counter = i + 1;
-                <div class="displayroutesinfo">
-                    <div class="col-md-11" style="border-bottom:2px solid #1E7FB1;left:20px">
+                    <div class="col-md-11 row" style="border-bottom:2px solid #1E7FB1;left:20px">
                         <img src="../Content/Searchimages/portfrom.png" style="float:left;margin-top:5px;margin-right:5px" />
                         <label><span style="font-weight:bolder;color:#1E7FB1;font-size:small">@(counter)ο σκέλος</span><br />@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR")) <span style="font-size:larger">-</span> από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></label>
                     </div>
-                    <table class="table table-condensed"></table>
-                    @Html.HiddenFor(x => x.MultRouteList[i].boatcompany, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[i].boatname, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[i].deptime, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[i].arrtime, new { @style = "display: none;", tabindex = -1 })
-                    @Html.HiddenFor(x => x.MultRouteList[i].price, new { @style = "display: none;", tabindex = -1 })
-                </div>
+
+                    <div class="dateslider row">
+                        <div>
+                            <div class="ns_slideContent">
+                                <p class="prevarrow btn-floating waves-effect waves-light left">
+                                    <img src="../Content/NerveSlider/icons/prev-dark.png" />
+                                </p>
+                                @for (int j = -3; j < 4; j++)
+                                {
+                                    if (j == 0)
+                                    {
+                                        <p value=@j class="reserved day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                        <p class="dayborder left"></p>
+                                    }
+                                    else
+                                    {
+                                        <p value=@j class="day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                        if (j < 3)
+                                        {
+                                            <p class="dayborder left"></p>
+                                        }
+                                    }
+                                }
+                                <p class="nextarrow btn-floating waves-effect waves-light left">
+                                    <img src="../Content/NerveSlider/icons/next-dark.png" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="displayroutesinfo col-md-12">
+                        <table class="table table-condensed"></table>
+                        @Html.HiddenFor(x => x.MultRouteList[i].boatcompany, new { @style = "display: none;", tabindex = -1 })
+                        @Html.HiddenFor(x => x.MultRouteList[i].boatname, new { @style = "display: none;", tabindex = -1 })
+                        @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @style = "display: none;", tabindex = -1 })
+                        @Html.HiddenFor(x => x.MultRouteList[i].deptime, new { @style = "display: none;", tabindex = -1 })
+                        @Html.HiddenFor(x => x.MultRouteList[i].arrtime, new { @style = "display: none;", tabindex = -1 })
+                        @Html.HiddenFor(x => x.MultRouteList[i].price, new { @style = "display: none;", tabindex = -1 })
+                    </div>
             }
         }
     </div>
@@ -196,63 +243,51 @@
             }
         </label>
     </div>
-    
-    <div class="yourSlider col-md-12" id="fromdtSliderid">
-        <div>
-            <img src="../Content/Resultsimages/white.png" alt="">
-            <div class="ns_slideContent">
-                <ul class="list-inline col-md-12">
-                    <li>
-                        <a href="javascript:movePrevSlide();">
-                            <span class="glyphicon glyphicon-arrow-left"></span>
-                        </a>
-                    </li>
-                    @for (int j = -3; j < 4; j++)
-                    {
-                        if (j == 0)
-                        {
-                            <li>
-                                <div class="slideclass-reservday" style="border-left-style: none; border-color: lightblue;">
-                                    <p style="text-align: center; color: #2091EB">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
-                                    <p style="text-align: center; color: #2091EB">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
-                                </div>
-                            </li>
 
-                        }
-                        else
+    <div class="dateslider row">
+        <div>
+            <div class="ns_slideContent">
+                <p class="prevarrow btn-floating waves-effect waves-light left">
+                    <img src="../Content/NerveSlider/icons/prev-dark.png" />
+                </p>
+                @for (int j = -3; j < 4; j++)
+                {
+                    if (j == 0)
+                    {
+                        <p value=@j class="reserved day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                                <p class="dayborder left"></p>
+                    }
+                    else
+                    {
+                        <p value=@j class="day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
+                        if (j < 3)
                         {
-                            <li>
-                                <div class="slideclass" style="border-left-style: none; border-color: lightblue;">
-                                    <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))</p>
-                                    <p style="text-align: center; color: #2091EB;">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
-                                </div>
-                            </li>
+                            <p class="dayborder left"></p>
                         }
                     }
-                    <li>
-                        <a href="javascript:moveNextSlide();" id="movenext">
-                            <span class="glyphicon glyphicon-arrow-right"></span>
-                        </a>
-                    </li>
-                </ul>
+                }
+                <p class="nextarrow btn-floating waves-effect waves-light left">
+                    <img src="../Content/NerveSlider/icons/next-dark.png" />
+                </p>
             </div>
         </div>
     </div>
 
     //SUBMIT BUTTON
-    <div class="row">
-        <div class="col-md-12">
-            <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" />
-            </button>
+        <div class="row">
+            <div class="col-md-12">
+                <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">
+                    Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" />
+                </button>
+            </div>
         </div>
-    </div>
-}
+        }
 
-@section Scripts {
-    @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
-    @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
-    @Scripts.Render("~/Scripts/results.js")
-    @Styles.Render("~/Content/results.css")
-    @Scripts.Render("~/Scripts/moment/moment.js")
-    @Scripts.Render("~/Scripts/moment/moment-with-locales.js")
-}
+        @section Scripts {
+            @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
+            @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
+            @Scripts.Render("~/Scripts/results.js")
+            @Styles.Render("~/Content/results.css")
+            @Scripts.Render("~/Scripts/moment/moment.js")
+            @Scripts.Render("~/Scripts/moment/moment-with-locales.js")
+        }
