@@ -14,45 +14,20 @@ namespace TicketsMVC.Controllers
         [AllowAnonymous]
         public ActionResult Search()
         {
-            SearchModel mod = new SearchModel();
+            SearchModel sermodel = new SearchModel();
 
             Passengers passenger = new Passengers();
             passenger.NumOfPassengers = 1;
             passenger.NumOfAdults = 1;
-            mod.TotPassengers = passenger;
+            sermodel.TotPassengers = passenger;
 
             Vehicles vehicles = new Vehicles();
-            mod.TotVehicles = vehicles;
+            sermodel.TotVehicles = vehicles;
 
-            return View(mod);
-        }
+            TempData["TotPassengers"] = sermodel.TotPassengers;
+            TempData["TotVehicles"] = sermodel.TotVehicles;
 
-        [AllowAnonymous] 
-        public ActionResult Results()
-        {
-            if (ModelState.IsValid)
-            {
-                ViewBag.Message = "correct";
-            }
-
-            ResultsModel resmodel = new ResultsModel();
-
-            resmodel.MultDepList = new List<MultipleDeparture>();
-            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
-            {
-                resmodel.MultDepList.Add(multdep);
-            }
-
-            foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
-            {
-                resmodel.MultRouteList.Add(multroute);
-            }
-
-            resmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
-            resmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
-            resmodel.Triptype = (Triptype)TempData.Peek("Triptype");
-
-            return View(resmodel);
+            return View(sermodel);
         }
 
         [HttpGet]
@@ -65,81 +40,85 @@ namespace TicketsMVC.Controllers
             }
 
             ResultsModel resmodel = new ResultsModel();
-
             resmodel.MultDepList = new List<MultipleDeparture>();
-            var count = 0;
-            foreach (MultipleDeparture multdep in model.MultDepList)
-            {
-                count++;
-                resmodel.MultDepList.Add(multdep);
-                Routeselection RouteList = new Routeselection();
-                resmodel.MultRouteList.Add(RouteList);
-            }
-            if (count == 1)
-            {
-                Routeselection RouteList = new Routeselection();
-                resmodel.MultRouteList.Add(RouteList);
-            }
-
-            resmodel.TotPassengers = model.TotPassengers;
-            resmodel.TotVehicles = model.TotVehicles;
+            Routeselection RouteList = new Routeselection();
             resmodel.Triptype = model.Triptype;
+            resmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
+            resmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
 
-            TempData["MultDepList"] = resmodel.MultDepList;
-            TempData["TotPassengers"] = resmodel.TotPassengers;
-            TempData["TotVehicles"] = resmodel.TotVehicles;
-            TempData["Triptype"] = resmodel.Triptype;
+            if (model.MultDepList.Count > 0)
+            {
+                var count = 0;
+                foreach (MultipleDeparture multdep in model.MultDepList)
+                {
+                    count++;
+                    resmodel.MultDepList.Add(multdep);
+                    resmodel.MultRouteList.Add(RouteList);
+                }
+                if (count == 1)
+                {
+                    resmodel.MultRouteList.Add(RouteList);
+                }
+
+                TempData["Triptype"] = model.Triptype;
+                TempData["MultDepList"] = model.MultDepList;
+            }
+            else
+            {
+                foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
+                {
+                    resmodel.MultDepList.Add(multdep);
+                }
+
+                foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
+                {
+                    resmodel.MultRouteList.Add(multroute);
+                }
+
+                resmodel.Triptype = (Triptype)TempData.Peek("Triptype");
+            }
 
             return View(resmodel);
         }
 
-        [AllowAnonymous]
-        public ActionResult Passengers()
-        {
-            PassengersModel passmodel = new PassengersModel();
-
-            passmodel.MultDepList = new List<MultipleDeparture>();
-            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
-            {
-                passmodel.MultDepList.Add(multdep);
-            }
-
-            passmodel.MultRouteList = new List<Routeselection>();
-            foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
-            {
-                passmodel.MultRouteList.Add(multroute);
-            }
-
-            passmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
-            passmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
-            passmodel.Triptype = (Triptype)TempData.Peek("Triptype");
-
-            return View(passmodel);
-        }
-
         [HttpGet]
-        [AllowAnonymous] 
+        [AllowAnonymous]
         public ActionResult Passengers(ResultsModel model)
         {
             PassengersModel passmodel = new PassengersModel();
-
             passmodel.MultDepList = new List<MultipleDeparture>();
-            foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
-            {
-                passmodel.MultDepList.Add(multdep);
-            }
-
             passmodel.MultRouteList = new List<Routeselection>();
-            foreach (Routeselection multroute in model.MultRouteList)
-            {
-                passmodel.MultRouteList.Add(multroute);
-            }
-
-
-            TempData["MultRouteList"] = passmodel.MultRouteList;
             passmodel.TotPassengers = (Passengers)TempData.Peek("TotPassengers");
             passmodel.TotVehicles = (Vehicles)TempData.Peek("TotVehicles");
             passmodel.Triptype = (Triptype)TempData.Peek("Triptype");
+
+            if (model.MultRouteList.Count > 0)
+            {
+
+                foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
+                {
+                    passmodel.MultDepList.Add(multdep);
+                }
+
+                foreach (Routeselection multroute in model.MultRouteList)
+                {
+                    passmodel.MultRouteList.Add(multroute);
+                }
+
+                TempData["MultRouteList"] = model.MultRouteList;
+            }
+            else
+            {
+                foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
+                {
+                    passmodel.MultDepList.Add(multdep);
+                }
+
+                foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
+                {
+                    passmodel.MultRouteList.Add(multroute);
+                }
+            }
 
             return View(passmodel);
         }

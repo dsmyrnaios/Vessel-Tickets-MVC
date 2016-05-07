@@ -9,6 +9,8 @@
 </script>
 
 <div class="model hidden">@Html.Raw(Json.Encode(Model))</div>
+
+
 @using (Html.BeginForm("Passengers", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
 {
 
@@ -210,14 +212,14 @@
                     </div>
 
                     <div class="displayroutesinfo col-md-12">
-                        <table class="table table-condensed"></table>
-                        @Html.HiddenFor(x => x.MultRouteList[i].boatcompany, new { @style = "display: none;", tabindex = -1 })
-                        @Html.HiddenFor(x => x.MultRouteList[i].boatname, new { @style = "display: none;", tabindex = -1 })
-                        @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @style = "display: none;", tabindex = -1 })
-                        @Html.HiddenFor(x => x.MultRouteList[i].deptime, new { @style = "display: none;", tabindex = -1 })
-                        @Html.HiddenFor(x => x.MultRouteList[i].arrtime, new { @style = "display: none;", tabindex = -1 })
-                        @Html.HiddenFor(x => x.MultRouteList[i].price, new { @style = "display: none;", tabindex = -1 })
-                    </div>
+                    <table class="table table-condensed"></table>
+                    @Html.HiddenFor(x => x.MultRouteList[i].boatcompany, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].boatname, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].vesselid, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].deptime, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].arrtime, new { @style = "display: none;", tabindex = -1 })
+                    @Html.HiddenFor(x => x.MultRouteList[i].price, new { @style = "display: none;", tabindex = -1 })
+                </div>
             }
         }
     </div>
@@ -243,7 +245,7 @@
             }
         </label>
     </div>
-
+    
     <div class="dateslider row">
         <div>
             <div class="ns_slideContent">
@@ -274,20 +276,20 @@
     </div>
 
     //SUBMIT BUTTON
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
                 <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">
                     Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" />
-                </button>
-            </div>
+            </button>
         </div>
-        }
+    </div>
+}
 
-        @section Scripts {
-            @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
-            @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
-            @Scripts.Render("~/Scripts/results.js")
-            @Styles.Render("~/Content/results.css")
-            @Scripts.Render("~/Scripts/moment/moment.js")
-            @Scripts.Render("~/Scripts/moment/moment-with-locales.js")
-        }
+@section Scripts {
+    @Scripts.Render("~/Scripts/NerveSlider/jquery.nerveSlider.min.js")
+    @Styles.Render("~/Content/NerveSlider/nerveSlider.min.css")
+    @Scripts.Render("~/Scripts/results.js")
+    @Styles.Render("~/Content/results.css")
+    @Scripts.Render("~/Scripts/moment/moment.js")
+    @Scripts.Render("~/Scripts/moment/moment-with-locales.js")
+}

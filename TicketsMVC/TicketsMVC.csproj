@@ -301,8 +301,6 @@
     <Content Include="Content\fancybox\fancyboximages\fancybox_overlay.png" />
     <Content Include="Content\fancybox\fancyboximages\fancybox_sprite%402x.png" />
     <Content Include="Content\fancybox\fancyboximages\fancybox_sprite.png" />
-    <Content Include="Content\font-awesome.min.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
     <Content Include="Content\materialize\materialize.min.css" />
     <Content Include="Content\NerveSlider\icons\caption-gradient.png" />
@@ -494,11 +492,6 @@
     <Content Include="bin\TicketsMVC.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\TicketsMVC.csprojResolveAssemblyReference.cache" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -512,6 +505,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\results.js" />
     <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\xml2json\xml2json.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

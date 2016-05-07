@@ -1,22 +1,27 @@
 ﻿body {
     line-height: 1.0;
 }
-.displayroutesinfo > table {
-    background-color: #F4F4F4;
+
+.displayroutesinfo {
+    left: 9.7px;
 }
 
-    .displayroutesinfo > table > tbody > tr > td {
-        border-bottom: 1px solid #C0C0C0;
+    .displayroutesinfo > table {
+        background-color: #F4F4F4;
     }
 
-    .displayroutesinfo > table > tbody > tr:last-child > td {
-        border-bottom: 0px;
-    }
+        .displayroutesinfo > table > tbody > tr > td {
+            border-bottom: 1px solid #C0C0C0;
+        }
 
-    .displayroutesinfo > table > tbody > tr > td:first-child {
-        vertical-align: middle;
-        width: 5%;
-    }
+        .displayroutesinfo > table > tbody > tr:last-child > td {
+            border-bottom: 0px;
+        }
+
+        .displayroutesinfo > table > tbody > tr > td:first-child {
+            vertical-align: middle;
+            width: 5%;
+        }
 
 .routecompany-routename {
     text-align: center;
@@ -121,7 +126,7 @@ tr {
     border-top: 1px solid #B9B9B9;
     border-bottom: 1px solid #B9B9B9;
     left: 20px;
-    padding: 7px;
+    padding: 6.7px;
 }
 
 .day {
@@ -131,7 +136,8 @@ tr {
     border-radius: 10px;
     cursor: pointer;
     font-weight: bolder;
-    font-size: large;
+    font-size: 17px;
+    padding: 2px;
 }
 
 .dayborder {
@@ -144,7 +150,7 @@ tr {
 
     .day:hover {
         background-color: #DCDCDC;
-    }
+}
 
 .reserved {
     background-color: orange;
@@ -152,8 +158,8 @@ tr {
 }
 
     .reserved:hover {
-        background-color: orange;
-    }
+    background-color: orange;
+}
 
 .prevarrow {
     margin-right: 5px;
@@ -169,6 +175,4 @@ tr {
 
     .btn-floating:hover {
         background-color: #DCDCDC;
-    }
-    
-
+}

@@ -26,6 +26,9 @@ namespace TicketsMVC
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/respond*"));
 
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                      "~/Content/bootstrap.min.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/fancybox").Include(
                       "~/Scripts/fancybox/fancybox.js",
                       "~/Scripts/fancybox/fancybox-*"));
@@ -45,10 +48,6 @@ namespace TicketsMVC
 
             bundles.Add(new StyleBundle("~/Content/materialize").Include(
                       "~/Content/materialize/materialize.min.css"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.min.css",
-                      "~/Content/site.css"));
 
         }
     }

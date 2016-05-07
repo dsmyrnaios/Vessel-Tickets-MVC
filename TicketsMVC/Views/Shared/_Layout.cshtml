@@ -10,10 +10,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/jquery")
     @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/bootstrap")
     @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/Content/materialize")
     @Scripts.Render("~/bundles/materialize")
     @Scripts.Render("~/bundles/xml2json")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/font-awesome.min.css")
+    @Scripts.Render("~/Scripts/Site.js")
 </head>
 <body>
 <div class="container">
@@ -38,6 +42,38 @@
 
 
 <div class="container body-content">
+    <div class="row">
+        <ul class="list-inline">
+            <li value="http://localhost:5064/Ferries/Search" class="tab tab_previous">
+                <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i> Αναζήτηση
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow cener-block"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Results" class="tab tab_active">
+                <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i> Αποτελέσματα
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Passengers" class="tab tab_disabled">
+                <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Επιβάτες
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow cener-block"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Payment" class="tab tab_disabled">
+                <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i> Πληρωμή
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Confirmation" class="tab tab_disabled">
+                <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i> Επιβεβαίωση
+            </li>
+        </ul>
+    </div>
+
     <div id="body" class="row">
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
@@ -56,6 +92,6 @@
         </footer>
     </div> 
 
-@RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

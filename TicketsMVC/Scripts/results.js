@@ -19,7 +19,7 @@
             else if (TTimetableAns[i].VesselType == 'D') {
                 typeofboat = 'Dolphin-Catamaran';
             }
-            else if (TTimetableAns[i].VesselType == 'H') {
+            else {
                 typeofboat = 'HighSpeed';
             }
             if (TTimetableAns[i].Available == 'YES') {
@@ -53,6 +53,7 @@
         }
         counttables++;
     });
+
     $('body').on('click', '[id*=selectedroute]', function () {
         var selectedtable = $(this).attr('id');
         selectedtable = selectedtable.split(selectedtable.charAt(selectedtable.length - 1));
@@ -63,8 +64,8 @@
         var hiddenfield = $(this).parent().parent().parent().parent().parent().find('input[type=hidden]').toArray();
         var routetable = $(this).parent().parent();
         var routecompanyname = routetable.find('.routecompany-routename').text().split('-');
-        $(hiddenfield[0]).val(routecompanyname[0]);
-        $(hiddenfield[1]).val(routecompanyname[1]);
+        $(hiddenfield[0]).val(routecompanyname[0].split(':')[1]);
+        $(hiddenfield[1]).val(routecompanyname[1].split(':')[1]);
         $(hiddenfield[2]).val(routecompanyname[2]);
         $(hiddenfield[3]).val(routetable.find('.deproutetime').text());
         $(hiddenfield[4]).val(routetable.find('.arrroutetime > span:first-child').text());
@@ -85,19 +86,9 @@
 
     $('.ns_timer').css('display', 'none');
 
-
-
     $('body').on('click', '.day', function () {
         $(this).parent().find('.day').removeClass('reserved');
         $(this).addClass('reserved');
-    });
-
-    $('body').on('click', '.prevarrow', function () {
-        $(this).parent().find('.day')
-    });
-
-    $('body').on('click', '.nextarrow', function () {
-
     });
 
     /*var Model = JSON.parse($('.model').val());
@@ -132,5 +123,4 @@
         }
     }*/
 });
-
 
