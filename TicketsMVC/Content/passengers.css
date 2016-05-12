@@ -6,6 +6,10 @@
     border: 0px;
 }
 
+.datefrom, .boat-routedetails {
+    width: auto;
+}
+
 td > div {
     display: table-cell;
     float: left;

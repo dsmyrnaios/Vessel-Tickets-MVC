@@ -62,6 +62,7 @@ namespace TicketsMVC.Controllers
 
                 TempData["Triptype"] = model.Triptype;
                 TempData["MultDepList"] = model.MultDepList;
+                TempData["MultRouteList"] = resmodel.MultRouteList;
             }
             else
             {
@@ -94,18 +95,15 @@ namespace TicketsMVC.Controllers
 
             if (model.MultRouteList.Count > 0)
             {
-
                 foreach (MultipleDeparture multdep in (List<MultipleDeparture>)TempData.Peek("MultDepList"))
                 {
                     passmodel.MultDepList.Add(multdep);
                 }
 
-                foreach (Routeselection multroute in model.MultRouteList)
+                foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
                 {
                     passmodel.MultRouteList.Add(multroute);
                 }
-
-                TempData["MultRouteList"] = model.MultRouteList;
             }
             else
             {

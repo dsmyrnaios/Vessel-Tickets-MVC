@@ -116,10 +116,10 @@
         <table class="table table-condensed askpassengersinfo">
             <tr>
                 <td>
-                    @Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[0].deptime<div class="arrow-right"></div>
+                    <div class="datefrom">@Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[0].deptime</div><div class="arrow-right"></div>
                 </td>
                 <td>
-                    @Model.MultRouteList[0].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[0].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span>
+                    <div class="boat-routedetails">@Model.MultRouteList[0].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[0].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span></div>
                 </td>
             </tr>
             @for (var i = count; i < Model.TotPassengers.NumOfPassengers + count; i++)
@@ -206,10 +206,10 @@
             <table class="table table-condensed askpassengersinfo">
                 <tr>
                     <td>
-                        @Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[1].deptime<div class="arrow-left"></div>
+                        <div class="datefrom">@Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[1].deptime</div><div class="arrow-left"></div>
                     </td>
                     <td colspan="2">
-                        @Model.MultRouteList[1].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[1].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span>
+                        <div class="boat-routedetails">@Model.MultRouteList[1].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[1].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span></div>
                     </td>
                 </tr>
                 @for (var i = count; i < Model.TotPassengers.NumOfPassengers + count; i++)
@@ -299,10 +299,10 @@
             <table class="table table-condensed askpassengersinfo">
                 <tr>
                     <td>
-                        @Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[i].deptime<div class="arrow-right"></div>
+                        <div class="datefrom">@Model.MultDepList[i].DateFrom.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[i].deptime</div><div class="arrow-right"></div>
                     </td>
                     <td>
-                        @Model.MultRouteList[i].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[i].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>
+                        <div class="boat-routedetails">@Model.MultRouteList[i].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[i].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span></div>
                     </td>
                 </tr>
                 @for (var j = count; j < Model.TotPassengers.NumOfPassengers + count; j++)

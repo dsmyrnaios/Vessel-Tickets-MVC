@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HostelbayTickets</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/jquery")
@@ -28,12 +27,6 @@
         <div class="cssload-inner cssload-three"></div>
     </div>
     <div class="row">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Results", "Results", "Ferries")</li>
-                <li>@Html.ActionLink("Passengers", "Passengers", "Ferries")</li>
-                <li>@Html.ActionLink("Payment", "Payment", "Ferries")</li>
-                <li>@Html.ActionLink("Confirmation", "Confirmation", "Ferries")</li>
-            </ul>
             @Html.Partial("_LoginPartial")
      </div>
 </div>
@@ -41,46 +34,46 @@
 
 
 
-<div class="container body-content">
-    <div class="row">
-        <ul class="list-inline">
-            <li value="http://localhost:5064/Ferries/Search" class="tab tab_previous">
-                <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i> Αναζήτηση
-            </li>
-            <li class="tab_splitter">
-                <div class="tab_right_arrow cener-block"></div>
-            </li>
-            <li value="http://localhost:5064/Ferries/Results" class="tab tab_active">
-                <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i> Αποτελέσματα
-            </li>
-            <li class="tab_splitter">
-                <div class="tab_right_arrow"></div>
-            </li>
-            <li value="http://localhost:5064/Ferries/Passengers" class="tab tab_disabled">
-                <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Επιβάτες
-            </li>
-            <li class="tab_splitter">
-                <div class="tab_right_arrow cener-block"></div>
-            </li>
-            <li value="http://localhost:5064/Ferries/Payment" class="tab tab_disabled">
-                <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i> Πληρωμή
-            </li>
-            <li class="tab_splitter">
-                <div class="tab_right_arrow"></div>
-            </li>
-            <li value="http://localhost:5064/Ferries/Confirmation" class="tab tab_disabled">
-                <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i> Επιβεβαίωση
-            </li>
-        </ul>
-    </div>
+    <div class="container body-content">
+        <div class="row">
+            <ul class="list-inline">
+                <li value="http://localhost:5064/Ferries/Search" class="tab tab_disabled">
+                    <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i> Αναζήτηση
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow cener-block"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Results" class="tab tab_disabled">
+                    <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i> Αποτελέσματα
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Passengers" class="tab tab_disabled">
+                    <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Επιβάτες
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow cener-block"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Payment" class="tab tab_disabled">
+                    <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i> Πληρωμή
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Confirmation" class="tab tab_disabled">
+                    <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i> Επιβεβαίωση
+                </li>
+            </ul>
+        </div>
 
-    <div id="body" class="row">
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix">
-            @RenderBody()
-        </section>
+        <div id="body" class="row">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
     </div>
-</div>
 
     <div class="row">
         <footer style="margin-top: 30px">
