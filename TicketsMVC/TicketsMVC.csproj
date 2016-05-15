@@ -289,6 +289,7 @@
     <Content Include="bin\TicketsMVC.dll" />
     <Content Include="bin\TicketsMVC.pdb" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="combinations.xml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fancybox\fancybox-buttons.css" />

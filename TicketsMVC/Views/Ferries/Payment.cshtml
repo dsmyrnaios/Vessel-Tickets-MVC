@@ -7,39 +7,3 @@
 }
 
 <h2>Payment</h2>
-
-<div class="row">
-    <ul class="list-inline">
-        <li class="tab tab_previous">
-            <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
-            @Html.ActionLink("Αναζήτηση", "Search", "Ferries", Model)
-        </li>
-        <li class="tab_splitter">
-            <div class="tab_right_arrow cener-block"></div>
-        </li>
-        <li value="http://localhost:5064/Ferries/Results" class="tab tab_previous">
-            <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i>
-            @Html.ActionLink("Αποτελέσματα", "Results", "Ferries", Model)
-        </li>
-        <li class="tab_splitter">
-            <div class="tab_right_arrow"></div>
-        </li>
-        <li value="http://localhost:5064/Ferries/Passengers" class="tab tab_previous">
-            <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i>
-            @Html.ActionLink("Αποτελέσματα", "Results", "Ferries", Model)
-        </li>
-        <li class="tab_splitter">
-            <div class="tab_right_arrow cener-block"></div>
-        </li>
-        <li value="http://localhost:5064/Ferries/Payment" class="tab tab_active">
-            <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i> Πληρωμή
-        </li>
-        <li class="tab_splitter">
-            <div class="tab_right_arrow"></div>
-        </li>
-        <li value="http://localhost:5064/Ferries/Confirmation" class="tab tab_disabled">
-            <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i> Επιβεβαίωση
-        </li>
-    </ul>
-</div>
-

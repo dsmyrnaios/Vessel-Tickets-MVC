@@ -127,24 +127,6 @@ input.radio {
     cursor: pointer;
 }
 
-form, .form-horizontal {
-    /*float: left;*/
-    font-size: 11px;
-    min-height: 243px;
-    padding-bottom: 3px;
-    /*padding-left: 20px;*/
-    padding-top: 30px;
-    width: 80%;
-}
-
-.form-control {
-    font-size: 12px;
-    height: 25px;
-    line-height: 1.0;
-    padding: 2px 6px;
-    transition: border-color 0.3s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-}
-
 .popover-markup > .popover {
     width: 350px;
     text-align: center;

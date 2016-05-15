@@ -1,0 +1,1867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<departures>
+   <from code="AIG" name="AEGIALI">
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="JSY" name="SYROS" />
+   </from>
+   <from code="AEG" name="AEGINA">
+      <to code="AGS" name="AGISTRI" />
+      <to code="AGG" name="AGISTRI-MYLI" />
+      <to code="MET" name="METHANA" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="POR" name="POROS" />
+   </from>
+   <from code="AGA" name="AGATHONISI">
+      <to code="ARK" name="ARKYI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+   </from>
+   <from code="AGC" name="AG.CONSTANTINOS">
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKO" name="SKOPELOS" />
+      <to code="SKG" name="THESSALONIKI" />
+   </from>
+   <from code="AES" name="AG.EYSTRATIOS">
+      <to code="KAV" name="KAVALA" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="LMN" name="LIMNOS" />
+   </from>
+   <from code="AKA" name="AGIOKAMPOS">
+      <to code="GLY" name="GLYFA" />
+   </from>
+   <from code="AGS" name="AGISTRI">
+      <to code="AEG" name="AEGINA" />
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="AGG" name="AGISTRI-MYLI">
+      <to code="AEG" name="AEGINA" />
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="AGK" name="AG.KIRIKOS">
+      <to code="CHI" name="CHIOS" />
+      <to code="CHR" name="CHRISOMHLEA(FOURNOI)" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="JSY" name="SYROS" />
+      <to code="THY" name="THIMAINA(FOURNOI)" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="AMN" name="AG.MARINA(EVOIA)">
+      <to code="NST" name="NEA STIRA" />
+   </from>
+   <from code="ROU" name="AG.ROUMELI">
+      <to code="GVD" name="GAVDOS" />
+      <to code="LTR" name="LOUTRO CHANION" />
+      <to code="PSF" name="PALEOHORA" />
+      <to code="CSF" name="SFAKIA" />
+      <to code="SOG" name="SOUGIA" />
+   </from>
+   <from code="SAR" name="AG. SARANTA">
+      <to code="BRI" name="BRINDISI" />
+      <to code="CFU" name="CORFU" />
+   </from>
+   <from code="AXL" name="ALEX/POLI">
+      <to code="SAM" name="SAMOTHRAKI" />
+   </from>
+   <from code="ALI" name="ALICUDI">
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="ALO" name="ALONISSOS">
+      <to code="AGC" name="AG.CONSTANTINOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="MTI" name="MANTOUDI" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKO" name="SKOPELOS" />
+      <to code="SKG" name="THESSALONIKI" />
+      <to code="VOL" name="VOLOS" />
+   </from>
+   <from code="AMA" name="AMALFI">
+      <to code="PRJ" name="CAPRI" />
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+      <to code="POS" name="POSITANO" />
+      <to code="SAL" name="SALERNO" />
+      <to code="RRO" name="SORRENTO" />
+   </from>
+   <from code="ANA" name="ANAFI">
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+   </from>
+   <from code="ANC" name="ANCONA">
+      <to code="CFU" name="CORFU" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="GRA" name="PATRA" />
+      <to code="TRE" name="TRIESTE" />
+      <to code="VEN" name="VENICE" />
+   </from>
+   <from code="AND" name="ANDROS">
+      <to code="ANA" name="ANAFI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="AKT" name="ANTIKYTHIRA">
+      <to code="GYT" name="GYTHIO" />
+      <to code="KIS" name="KISSAMOS" />
+      <to code="KTH" name="KYTHIRA" />
+      <to code="NEA" name="NEAPOLIS" />
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="ARK" name="ARKYI">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PYT" name="PYTHAGORIO" />
+   </from>
+   <from code="JTY" name="ASTYPALEA">
+      <to code="AIG" name="AEGIALI" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="KGS" name="KOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="AYV" name="AYVALIK">
+      <to code="LES" name="LESVOS(MITILINI)" />
+   </from>
+   <from code="BRA" name="Bari,Μπάρι">
+      <to code="BAR" name="BARI" />
+   </from>
+   <from code="BRC" name="BARCELONA">
+      <to code="CIV" name="CIVITAVECCHIA" />
+      <to code="GOA" name="GENOA" />
+      <to code="LIV" name="LIVORNO" />
+      <to code="PTO" name="PORTO TORRES" />
+      <to code="SET" name="SETE" />
+      <to code="TNG" name="TANGER" />
+   </from>
+   <from code="BAR" name="BARI">
+      <to code="BRA" name="Bari,Μπάρι" />
+      <to code="CFU" name="CORFU" />
+      <to code="DRZ" name="DURRES" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="GRA" name="PATRA" />
+      <to code="SMI" name="SAMI" />
+      <to code="ZTH" name="ZAKYNTHOS" />
+   </from>
+   <from code="BXN" name="BODRUM">
+      <to code="KGS" name="KOS" />
+   </from>
+   <from code="BRI" name="BRINDISI">
+      <to code="SAR" name="AG. SARANTA" />
+      <to code="CFU" name="CORFU" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="GRA" name="PATRA" />
+      <to code="PAX" name="PAXI" />
+      <to code="SMI" name="SAMI" />
+      <to code="VOA" name="VLORA" />
+      <to code="ZTH" name="ZAKYNTHOS" />
+   </from>
+   <from code="PRJ" name="CAPRI">
+      <to code="AMA" name="AMALFI" />
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="CAM" name="CASTELAMMARE" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+      <to code="BEV" name="NAPOLI(BEVERELLO)" />
+      <to code="POS" name="POSITANO" />
+      <to code="SAL" name="SALERNO" />
+      <to code="RRO" name="SORRENTO" />
+   </from>
+   <from code="CAS" name="CASAMICCIOLA">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+      <to code="POS" name="POSITANO" />
+      <to code="PRO" name="PROCIDA" />
+      <to code="SAG" name="SAN ANGELO" />
+   </from>
+   <from code="CAM" name="CASTELAMMARE">
+      <to code="PRJ" name="CAPRI" />
+      <to code="RRO" name="SORRENTO" />
+   </from>
+   <from code="CES" name="CESME">
+      <to code="CHI" name="CHIOS" />
+   </from>
+   <from code="CHL" name="CHALKI">
+      <to code="ANA" name="ANAFI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="KGS" name="KOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="CHA" name="CHANIA">
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="CHI" name="CHIOS">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CES" name="CESME" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="INO" name="INOUSSES" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PHA" name="PSARA" />
+      <to code="JSY" name="SYROS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="CHR" name="CHRISOMHLEA(FOURNOI)">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="THY" name="THIMAINA(FOURNOI)" />
+   </from>
+   <from code="CIV" name="CIVITAVECCHIA">
+      <to code="BRC" name="BARCELONA" />
+      <to code="OLB" name="OLBIA" />
+      <to code="PLE" name="PALERMO" />
+      <to code="PTO" name="PORTO TORRES" />
+      <to code="TIM" name="TERMINI IMERESE" />
+      <to code="TUN" name="TUNIS" />
+   </from>
+   <from code="CFU" name="CORFU">
+      <to code="SAR" name="AG. SARANTA" />
+      <to code="ANC" name="ANCONA" />
+      <to code="BAR" name="BARI" />
+      <to code="BRI" name="BRINDISI" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="GRA" name="PATRA" />
+      <to code="PAX" name="PAXI" />
+      <to code="SMI" name="SAMI" />
+      <to code="VOA" name="VLORA" />
+      <to code="ZTH" name="ZAKYNTHOS" />
+   </from>
+   <from code="DFN" name="DIAFANI">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="DON" name="DONOUSSA">
+      <to code="AIG" name="AEGIALI" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="JSY" name="SYROS" />
+   </from>
+   <from code="DRZ" name="DURRES">
+      <to code="BAR" name="BARI" />
+   </from>
+   <from code="EYD" name="EVDILOS">
+      <to code="CHI" name="CHIOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="JSY" name="SYROS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="FAV" name="FAVIGNANA">
+      <to code="LVZ" name="LEVANZO" />
+      <to code="MMO" name="MARETTIMO" />
+      <to code="TPS" name="TRAPANI" />
+   </from>
+   <from code="FET" name="FETHIYE">
+      <to code="RHO" name="RODOS" />
+   </from>
+   <from code="FPO" name="FILICUDI PORTO">
+      <to code="ALI" name="ALICUDI" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="FL1" name="FLOISVOS 1">
+      <to code="AEG" name="AEGINA" />
+      <to code="HYD" name="HYDRA" />
+      <to code="POR" name="POROS" />
+   </from>
+   <from code="FOL" name="FOLEGANDROS">
+      <to code="ANA" name="ANAFI" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+   </from>
+   <from code="FRD" name="FORIO">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+      <to code="BEV" name="NAPOLI(BEVERELLO)" />
+      <to code="POS" name="POSITANO" />
+      <to code="PRO" name="PROCIDA" />
+      <to code="SAG" name="SAN ANGELO" />
+   </from>
+   <from code="FOU" name="FOURNI">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CHI" name="CHIOS" />
+      <to code="CHR" name="CHRISOMHLEA(FOURNOI)" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="JSY" name="SYROS" />
+      <to code="THY" name="THIMAINA(FOURNOI)" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="GVD" name="GAVDOS">
+      <to code="ROU" name="AG.ROUMELI" />
+      <to code="LTR" name="LOUTRO CHANION" />
+      <to code="PSF" name="PALEOHORA" />
+      <to code="CSF" name="SFAKIA" />
+      <to code="SOG" name="SOUGIA" />
+   </from>
+   <from code="GOA" name="GENOA">
+      <to code="BRC" name="BARCELONA" />
+      <to code="PLE" name="PALERMO" />
+      <to code="PTO" name="PORTO TORRES" />
+      <to code="TNG" name="TANGER" />
+      <to code="TUN" name="TUNIS" />
+   </from>
+   <from code="GOS" name="GINOSTRA">
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="GLO" name="GLOSSA">
+      <to code="AGC" name="AG.CONSTANTINOS" />
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLY" name="GLYFA" />
+      <to code="MTI" name="MANTOUDI" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKO" name="SKOPELOS" />
+      <to code="SKG" name="THESSALONIKI" />
+      <to code="VOL" name="VOLOS" />
+   </from>
+   <from code="GLY" name="GLYFA">
+      <to code="AKA" name="AGIOKAMPOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="JSI" name="SKIATHOS" />
+   </from>
+   <from code="GYT" name="GYTHIO">
+      <to code="AKT" name="ANTIKYTHIRA" />
+      <to code="KIS" name="KISSAMOS" />
+      <to code="KTH" name="KYTHIRA" />
+   </from>
+   <from code="HER" name="HERAKLIO">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="ERM" name="HERMIONI">
+      <to code="HYD" name="HYDRA" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="POR" name="POROS" />
+      <to code="PHE" name="PORTO HELI" />
+      <to code="SPE" name="SPETSES" />
+   </from>
+   <from code="HYD" name="HYDRA">
+      <to code="AEG" name="AEGINA" />
+      <to code="ERM" name="HERMIONI" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="POR" name="POROS" />
+      <to code="PHE" name="PORTO HELI" />
+      <to code="SPE" name="SPETSES" />
+   </from>
+   <from code="IGO" name="IGOUMENITSA">
+      <to code="ANC" name="ANCONA" />
+      <to code="BAR" name="BARI" />
+      <to code="BRI" name="BRINDISI" />
+      <to code="CFU" name="CORFU" />
+      <to code="GRA" name="PATRA" />
+      <to code="PAX" name="PAXI" />
+      <to code="SMI" name="SAMI" />
+      <to code="TRE" name="TRIESTE" />
+      <to code="VEN" name="VENICE" />
+      <to code="ZTH" name="ZAKYNTHOS" />
+   </from>
+   <from code="INO" name="INOUSSES">
+      <to code="CHI" name="CHIOS" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PHA" name="PSARA" />
+   </from>
+   <from code="IOS" name="Ios,Ίος">
+      <to code="ANA" name="ANAFI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="IRK" name="IRAKLIA">
+      <to code="AIG" name="AEGIALI" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="JSY" name="SYROS" />
+   </from>
+   <from code="ISH" name="ISCHIA">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="FRD" name="FORIO" />
+      <to code="LAE" name="LACCO" />
+      <to code="BEV" name="NAPOLI(BEVERELLO)" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="POS" name="POSITANO" />
+      <to code="PRO" name="PROCIDA" />
+      <to code="SAG" name="SAN ANGELO" />
+      <to code="RRO" name="SORRENTO" />
+   </from>
+   <from code="PSA" name="ITHAKI(PISAETOS)">
+      <to code="GRA" name="PATRA" />
+      <to code="SMI" name="SAMI" />
+   </from>
+   <from code="KLX" name="KALAMATA">
+      <to code="KIS" name="KISSAMOS" />
+      <to code="KTH" name="KYTHIRA" />
+   </from>
+   <from code="KAL" name="KALYMNOS">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ARK" name="ARKYI" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHL" name="CHALKI" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="MAS" name="MASTIHARI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="KAR" name="KARLOVASSI">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CHI" name="CHIOS" />
+      <to code="CHR" name="CHRISOMHLEA(FOURNOI)" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="JSY" name="SYROS" />
+      <to code="THY" name="THIMAINA(FOURNOI)" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="AOK" name="KARPATHOS">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="KSJ" name="KASOS" />
+      <to code="KGS" name="KOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="KSJ" name="KASOS">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="KAZ" name="KASTELLORIZO">
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KGS" name="KOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="AMO" name="KATAPOLA">
+      <to code="AIG" name="AEGIALI" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="KGS" name="KOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="LER" name="LEROS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="KAV" name="KAVALA">
+      <to code="AES" name="AG.EYSTRATIOS" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CHI" name="CHIOS" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="JSY" name="SYROS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="KEA" name="Kea,Κέα">
+      <to code="AND" name="ANDROS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="KIL" name="KILINI">
+      <to code="PKE" name="POROS(KEFALONIA)" />
+      <to code="ZTH" name="ZAKYNTHOS" />
+   </from>
+   <from code="KMS" name="KIMOLOS">
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="KIS" name="KISSAMOS">
+      <to code="AKT" name="ANTIKYTHIRA" />
+      <to code="GYT" name="GYTHIO" />
+      <to code="KLX" name="KALAMATA" />
+      <to code="KTH" name="KYTHIRA" />
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="KGS" name="KOS">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ARK" name="ARKYI" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="BXN" name="BODRUM" />
+      <to code="CHL" name="CHALKI" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="KOU" name="KOUFONISSI">
+      <to code="AIG" name="AEGIALI" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="KUS" name="KUSADASI">
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="KTH" name="KYTHIRA">
+      <to code="AKT" name="ANTIKYTHIRA" />
+      <to code="GYT" name="GYTHIO" />
+      <to code="KLX" name="KALAMATA" />
+      <to code="KIS" name="KISSAMOS" />
+      <to code="NEA" name="NEAPOLIS" />
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="KYT" name="KYTHNOS">
+      <to code="AND" name="ANDROS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="LAE" name="LACCO">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="POS" name="POSITANO" />
+      <to code="PRO" name="PROCIDA" />
+      <to code="SAG" name="SAN ANGELO" />
+   </from>
+   <from code="LMP" name="LAMPEDUSA">
+      <to code="LIU" name="LINOSA" />
+      <to code="PEM" name="PORTO EMPEDOCLE" />
+   </from>
+   <from code="LAV" name="LAVRIO">
+      <to code="AES" name="AG.EYSTRATIOS" />
+      <to code="AND" name="ANDROS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="LER" name="LEROS">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ARK" name="ARKYI" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KGS" name="KOS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+      <to code="JSY" name="SYROS" />
+   </from>
+   <from code="LES" name="LESVOS(MITILINI)">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="AYV" name="AYVALIK" />
+      <to code="CHI" name="CHIOS" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="INO" name="INOUSSES" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PHA" name="PSARA" />
+      <to code="JSY" name="SYROS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="LVZ" name="LEVANZO">
+      <to code="FAV" name="FAVIGNANA" />
+      <to code="MMO" name="MARETTIMO" />
+      <to code="TPS" name="TRAPANI" />
+   </from>
+   <from code="LMN" name="LIMNOS">
+      <to code="AES" name="AG.EYSTRATIOS" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CHI" name="CHIOS" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="JSY" name="SYROS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="LIU" name="LINOSA">
+      <to code="LMP" name="LAMPEDUSA" />
+      <to code="PEM" name="PORTO EMPEDOCLE" />
+   </from>
+   <from code="LAP" name="LIPARI">
+      <to code="ALI" name="ALICUDI" />
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="LIP" name="LIPSI">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ARK" name="ARKYI" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+   </from>
+   <from code="LIV" name="LIVORNO">
+      <to code="BRC" name="BARCELONA" />
+      <to code="OLB" name="OLBIA" />
+      <to code="PLE" name="PALERMO" />
+      <to code="TNG" name="TANGER" />
+   </from>
+   <from code="LTR" name="LOUTRO CHANION">
+      <to code="ROU" name="AG.ROUMELI" />
+      <to code="GVD" name="GAVDOS" />
+      <to code="PSF" name="PALEOHORA" />
+      <to code="CSF" name="SFAKIA" />
+      <to code="SOG" name="SOUGIA" />
+   </from>
+   <from code="MTI" name="MANTOUDI">
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKO" name="SKOPELOS" />
+      <to code="VOL" name="VOLOS" />
+   </from>
+   <from code="MMO" name="MARETTIMO">
+      <to code="FAV" name="FAVIGNANA" />
+      <to code="LVZ" name="LEVANZO" />
+      <to code="TPS" name="TRAPANI" />
+   </from>
+   <from code="MAR" name="MARMARIS">
+      <to code="RHO" name="RODOS" />
+   </from>
+   <from code="MAS" name="MASTIHARI">
+      <to code="KAL" name="KALYMNOS" />
+   </from>
+   <from code="MET" name="METHANA">
+      <to code="AEG" name="AEGINA" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="POR" name="POROS" />
+   </from>
+   <from code="MLZ" name="MILAZZO">
+      <to code="ALI" name="ALICUDI" />
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="MLO" name="MILOS">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="JMK" name="MYKONOS">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="AND" name="ANDROS" />
+      <to code="CHI" name="CHIOS" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TIN" name="TINOS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="NDR" name="NADOR">
+      <to code="SET" name="SETE" />
+      <to code="TNG" name="TANGER" />
+   </from>
+   <from code="NAP" name="NAPOLI">
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="PLE" name="PALERMO" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="ROM" name="ROMA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="BEV" name="NAPOLI(BEVERELLO)">
+      <to code="PRJ" name="CAPRI" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="RRO" name="SORRENTO" />
+   </from>
+   <from code="MER" name="NAPOLI(MERGELLINA)">
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="BEV" name="NAPOLI(BEVERELLO)" />
+      <to code="PNA" name="PANAREA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="JNX" name="NAXOS">
+      <to code="AIG" name="AEGIALI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ANA" name="ANAFI" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHI" name="CHIOS" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KGS" name="KOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="RHO" name="RODOS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+      <to code="THL" name="TILOS" />
+      <to code="TIN" name="TINOS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="NEA" name="NEAPOLIS">
+      <to code="AKT" name="ANTIKYTHIRA" />
+      <to code="KTH" name="KYTHIRA" />
+   </from>
+   <from code="NST" name="NEA STIRA">
+      <to code="AMN" name="AG.MARINA(EVOIA)" />
+   </from>
+   <from code="NIS" name="NISYROS">
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHL" name="CHALKI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="KGS" name="KOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="OLB" name="OLBIA">
+      <to code="CIV" name="CIVITAVECCHIA" />
+      <to code="LIV" name="LIVORNO" />
+   </from>
+   <from code="PSF" name="PALEOHORA">
+      <to code="ROU" name="AG.ROUMELI" />
+      <to code="GVD" name="GAVDOS" />
+      <to code="LTR" name="LOUTRO CHANION" />
+      <to code="CSF" name="SFAKIA" />
+      <to code="SOG" name="SOUGIA" />
+   </from>
+   <from code="PLE" name="PALERMO">
+      <to code="CIV" name="CIVITAVECCHIA" />
+      <to code="GOA" name="GENOA" />
+      <to code="LIV" name="LIVORNO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="SAL" name="SALERNO" />
+      <to code="TUN" name="TUNIS" />
+      <to code="UST" name="USTICA" />
+   </from>
+   <from code="PNA" name="PANAREA">
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="PAN" name="PANORMITIS">
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+   </from>
+   <from code="PNL" name="PANTELLERIA">
+      <to code="TPS" name="TRAPANI" />
+   </from>
+   <from code="PAS" name="PAROS">
+      <to code="AIG" name="AEGIALI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ANA" name="ANAFI" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHI" name="CHIOS" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KGS" name="KOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="RHO" name="RODOS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+      <to code="THL" name="TILOS" />
+      <to code="TIN" name="TINOS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="PMS" name="PATMOS">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ARK" name="ARKYI" />
+      <to code="CHI" name="CHIOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+      <to code="JSY" name="SYROS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="GRA" name="PATRA">
+      <to code="ANC" name="ANCONA" />
+      <to code="BAR" name="BARI" />
+      <to code="BRI" name="BRINDISI" />
+      <to code="CFU" name="CORFU" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="PSA" name="ITHAKI(PISAETOS)" />
+      <to code="SMI" name="SAMI" />
+      <to code="TRE" name="TRIESTE" />
+      <to code="VEN" name="VENICE" />
+   </from>
+   <from code="PAX" name="PAXI">
+      <to code="BRI" name="BRINDISI" />
+      <to code="CFU" name="CORFU" />
+      <to code="IGO" name="IGOUMENITSA" />
+   </from>
+   <from code="PIR" name="PIRAEUS">
+      <to code="AIG" name="AEGIALI" />
+      <to code="AEG" name="AEGINA" />
+      <to code="AGS" name="AGISTRI" />
+      <to code="AGG" name="AGISTRI-MYLI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ANA" name="ANAFI" />
+      <to code="AKT" name="ANTIKYTHIRA" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHL" name="CHALKI" />
+      <to code="CHA" name="CHANIA" />
+      <to code="CHI" name="CHIOS" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="ERM" name="HERMIONI" />
+      <to code="HYD" name="HYDRA" />
+      <to code="INO" name="INOUSSES" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KIS" name="KISSAMOS" />
+      <to code="KGS" name="KOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KTH" name="KYTHIRA" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="MET" name="METHANA" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="POR" name="POROS" />
+      <to code="PHE" name="PORTO HELI" />
+      <to code="PHA" name="PSARA" />
+      <to code="RHO" name="RODOS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="SVA" name="SOUVALA" />
+      <to code="SPE" name="SPETSES" />
+      <to code="SYM" name="SYMI" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="THL" name="TILOS" />
+      <to code="TIN" name="TINOS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="PON" name="PONZA">
+      <to code="TRC" name="TERRACINA" />
+   </from>
+   <from code="POR" name="POROS">
+      <to code="AEG" name="AEGINA" />
+      <to code="ERM" name="HERMIONI" />
+      <to code="HYD" name="HYDRA" />
+      <to code="MET" name="METHANA" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PHE" name="PORTO HELI" />
+      <to code="SPE" name="SPETSES" />
+   </from>
+   <from code="PKE" name="POROS(KEFALONIA)">
+      <to code="KIL" name="KILINI" />
+   </from>
+   <from code="PEM" name="PORTO EMPEDOCLE">
+      <to code="LMP" name="LAMPEDUSA" />
+      <to code="LIU" name="LINOSA" />
+   </from>
+   <from code="PHE" name="PORTO HELI">
+      <to code="ERM" name="HERMIONI" />
+      <to code="HYD" name="HYDRA" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="POR" name="POROS" />
+      <to code="SPE" name="SPETSES" />
+   </from>
+   <from code="PTO" name="PORTO TORRES">
+      <to code="BRC" name="BARCELONA" />
+      <to code="CIV" name="CIVITAVECCHIA" />
+      <to code="GOA" name="GENOA" />
+   </from>
+   <from code="POS" name="POSITANO">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+      <to code="SAL" name="SALERNO" />
+      <to code="RRO" name="SORRENTO" />
+   </from>
+   <from code="PRO" name="PROCIDA">
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+   </from>
+   <from code="PHA" name="PSARA">
+      <to code="CHI" name="CHIOS" />
+      <to code="INO" name="INOUSSES" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="PYT" name="PYTHAGORIO">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ARK" name="ARKYI" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KGS" name="KOS" />
+      <to code="KUS" name="KUSADASI" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="PMS" name="PATMOS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+   </from>
+   <from code="RAF" name="RAFINA">
+      <to code="AND" name="ANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="RIN" name="RINELLA">
+      <to code="ALI" name="ALICUDI" />
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="PNA" name="PANAREA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="RHO" name="RODOS">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="ANA" name="ANAFI" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="FET" name="FETHIYE" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="MAR" name="MARMARIS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAN" name="PANORMITIS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="SYM" name="SYMI" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="ROM" name="ROMA">
+      <to code="NAP" name="NAPOLI" />
+   </from>
+   <from code="SAL" name="SALERNO">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="PLE" name="PALERMO" />
+      <to code="POS" name="POSITANO" />
+      <to code="TUN" name="TUNIS" />
+   </from>
+   <from code="SLA" name="SALINA">
+      <to code="ALI" name="ALICUDI" />
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="STR" name="STROMBOLI" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="SMI" name="SAMI">
+      <to code="BAR" name="BARI" />
+      <to code="BRI" name="BRINDISI" />
+      <to code="CFU" name="CORFU" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="PSA" name="ITHAKI(PISAETOS)" />
+      <to code="GRA" name="PATRA" />
+      <to code="ZTH" name="ZAKYNTHOS" />
+   </from>
+   <from code="SAM" name="SAMOTHRAKI">
+      <to code="AXL" name="ALEX/POLI" />
+   </from>
+   <from code="SAG" name="SAN ANGELO">
+      <to code="CAS" name="CASAMICCIOLA" />
+      <to code="FRD" name="FORIO" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="LAE" name="LACCO" />
+   </from>
+   <from code="SXI" name="SCHINOUSSA">
+      <to code="AIG" name="AEGIALI" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="JSY" name="SYROS" />
+   </from>
+   <from code="SER" name="SERIFOS">
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="SET" name="SETE">
+      <to code="BRC" name="BARCELONA" />
+      <to code="NDR" name="NADOR" />
+      <to code="TNG" name="TANGER" />
+   </from>
+   <from code="CSF" name="SFAKIA">
+      <to code="ROU" name="AG.ROUMELI" />
+      <to code="GVD" name="GAVDOS" />
+      <to code="LTR" name="LOUTRO CHANION" />
+      <to code="PSF" name="PALEOHORA" />
+      <to code="SOG" name="SOUGIA" />
+   </from>
+   <from code="SIF" name="SIFNOS">
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="SIK" name="SIKINOS">
+      <to code="ANA" name="ANAFI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+   </from>
+   <from code="JSH" name="SITIA">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="JSI" name="SKIATHOS">
+      <to code="AGC" name="AG.CONSTANTINOS" />
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="GLY" name="GLYFA" />
+      <to code="MTI" name="MANTOUDI" />
+      <to code="SKO" name="SKOPELOS" />
+      <to code="SKG" name="THESSALONIKI" />
+      <to code="VOL" name="VOLOS" />
+   </from>
+   <from code="SKO" name="SKOPELOS">
+      <to code="AGC" name="AG.CONSTANTINOS" />
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="MTI" name="MANTOUDI" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKG" name="THESSALONIKI" />
+      <to code="VOL" name="VOLOS" />
+   </from>
+   <from code="RRO" name="SORRENTO">
+      <to code="AMA" name="AMALFI" />
+      <to code="PRJ" name="CAPRI" />
+      <to code="CAM" name="CASTELAMMARE" />
+      <to code="ISH" name="ISCHIA" />
+      <to code="BEV" name="NAPOLI(BEVERELLO)" />
+      <to code="POS" name="POSITANO" />
+   </from>
+   <from code="SOG" name="SOUGIA">
+      <to code="ROU" name="AG.ROUMELI" />
+      <to code="GVD" name="GAVDOS" />
+      <to code="LTR" name="LOUTRO CHANION" />
+      <to code="PSF" name="PALEOHORA" />
+      <to code="CSF" name="SFAKIA" />
+   </from>
+   <from code="SVA" name="SOUVALA">
+      <to code="PIR" name="PIRAEUS" />
+   </from>
+   <from code="SPE" name="SPETSES">
+      <to code="ERM" name="HERMIONI" />
+      <to code="HYD" name="HYDRA" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="POR" name="POROS" />
+      <to code="PHE" name="PORTO HELI" />
+   </from>
+   <from code="STR" name="STROMBOLI">
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="VUL" name="VULCANO" />
+   </from>
+   <from code="SYM" name="SYMI">
+      <to code="AGA" name="AGATHONISI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="KGS" name="KOS" />
+      <to code="LER" name="LEROS" />
+      <to code="LIP" name="LIPSI" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAN" name="PANORMITIS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="PYT" name="PYTHAGORIO" />
+      <to code="RHO" name="RODOS" />
+      <to code="THL" name="TILOS" />
+   </from>
+   <from code="JSY" name="SYROS">
+      <to code="AIG" name="AEGIALI" />
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="ANA" name="ANAFI" />
+      <to code="AND" name="ANDROS" />
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHI" name="CHIOS" />
+      <to code="DON" name="DONOUSSA" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="IRK" name="IRAKLIA" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KGS" name="KOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="LER" name="LEROS" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SXI" name="SCHINOUSSA" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+      <to code="TIN" name="TINOS" />
+      <to code="BTH" name="VATHI (SAMOS)" />
+   </from>
+   <from code="TNG" name="TANGER">
+      <to code="BRC" name="BARCELONA" />
+      <to code="GOA" name="GENOA" />
+      <to code="LIV" name="LIVORNO" />
+      <to code="SET" name="SETE" />
+   </from>
+   <from code="TIM" name="TERMINI IMERESE">
+      <to code="CIV" name="CIVITAVECCHIA" />
+   </from>
+   <from code="TMI" name="TERMOLI">
+      <to code="TMT" name="TREMITI" />
+   </from>
+   <from code="TRC" name="TERRACINA">
+      <to code="PON" name="PONZA" />
+   </from>
+   <from code="SKG" name="THESSALONIKI">
+      <to code="AGC" name="AG.CONSTANTINOS" />
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKO" name="SKOPELOS" />
+   </from>
+   <from code="THY" name="THIMAINA(FOURNOI)">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CHR" name="CHRISOMHLEA(FOURNOI)" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAR" name="KARLOVASSI" />
+   </from>
+   <from code="JTR" name="THIRA(SANTORINI)">
+      <to code="ANA" name="ANAFI" />
+      <to code="CHL" name="CHALKI" />
+      <to code="DFN" name="DIAFANI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="HER" name="HERAKLIO" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="AOK" name="KARPATHOS" />
+      <to code="KSJ" name="KASOS" />
+      <to code="AMO" name="KATAPOLA" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KMS" name="KIMOLOS" />
+      <to code="KGS" name="KOS" />
+      <to code="KOU" name="KOUFONISSI" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="MLO" name="MILOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="RHO" name="RODOS" />
+      <to code="SER" name="SERIFOS" />
+      <to code="SIF" name="SIFNOS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSH" name="SITIA" />
+      <to code="JSY" name="SYROS" />
+      <to code="TRS" name="THIRASSIA" />
+      <to code="TIN" name="TINOS" />
+   </from>
+   <from code="TRS" name="THIRASSIA">
+      <to code="ANA" name="ANAFI" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="KEA" name="Kea,Κέα" />
+      <to code="KYT" name="KYTHNOS" />
+      <to code="LAV" name="LAVRIO" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+   </from>
+   <from code="THL" name="TILOS">
+      <to code="JTY" name="ASTYPALEA" />
+      <to code="CHL" name="CHALKI" />
+      <to code="KAL" name="KALYMNOS" />
+      <to code="KAZ" name="KASTELLORIZO" />
+      <to code="KGS" name="KOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="NIS" name="NISYROS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RHO" name="RODOS" />
+      <to code="SYM" name="SYMI" />
+   </from>
+   <from code="TIN" name="TINOS">
+      <to code="ANA" name="ANAFI" />
+      <to code="AND" name="ANDROS" />
+      <to code="FOL" name="FOLEGANDROS" />
+      <to code="IOS" name="Ios,Ίος" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="RAF" name="RAFINA" />
+      <to code="SIK" name="SIKINOS" />
+      <to code="JSY" name="SYROS" />
+      <to code="JTR" name="THIRA(SANTORINI)" />
+      <to code="TRS" name="THIRASSIA" />
+   </from>
+   <from code="TPS" name="TRAPANI">
+      <to code="FAV" name="FAVIGNANA" />
+      <to code="LVZ" name="LEVANZO" />
+      <to code="MMO" name="MARETTIMO" />
+      <to code="PNL" name="PANTELLERIA" />
+   </from>
+   <from code="TMT" name="TREMITI">
+      <to code="TMI" name="TERMOLI" />
+   </from>
+   <from code="TRE" name="TRIESTE">
+      <to code="ANC" name="ANCONA" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="GRA" name="PATRA" />
+   </from>
+   <from code="TUN" name="TUNIS">
+      <to code="CIV" name="CIVITAVECCHIA" />
+      <to code="GOA" name="GENOA" />
+      <to code="PLE" name="PALERMO" />
+      <to code="SAL" name="SALERNO" />
+   </from>
+   <from code="UST" name="USTICA">
+      <to code="PLE" name="PALERMO" />
+   </from>
+   <from code="BTH" name="VATHI (SAMOS)">
+      <to code="AGK" name="AG.KIRIKOS" />
+      <to code="CHI" name="CHIOS" />
+      <to code="EYD" name="EVDILOS" />
+      <to code="FOU" name="FOURNI" />
+      <to code="KAR" name="KARLOVASSI" />
+      <to code="KAV" name="KAVALA" />
+      <to code="KUS" name="KUSADASI" />
+      <to code="LES" name="LESVOS(MITILINI)" />
+      <to code="LMN" name="LIMNOS" />
+      <to code="JMK" name="MYKONOS" />
+      <to code="JNX" name="NAXOS" />
+      <to code="PAS" name="PAROS" />
+      <to code="PMS" name="PATMOS" />
+      <to code="PIR" name="PIRAEUS" />
+      <to code="JSY" name="SYROS" />
+   </from>
+   <from code="VEN" name="VENICE">
+      <to code="ANC" name="ANCONA" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="GRA" name="PATRA" />
+   </from>
+   <from code="VOA" name="VLORA">
+      <to code="BRI" name="BRINDISI" />
+   </from>
+   <from code="VOL" name="VOLOS">
+      <to code="ALO" name="ALONISSOS" />
+      <to code="GLO" name="GLOSSA" />
+      <to code="MTI" name="MANTOUDI" />
+      <to code="JSI" name="SKIATHOS" />
+      <to code="SKO" name="SKOPELOS" />
+   </from>
+   <from code="VOI" name="VOU.ISCHIA">
+      <to code="VON" name="VOU.NAPOLI" />
+   </from>
+   <from code="VON" name="VOU.NAPOLI">
+      <to code="VOI" name="VOU.ISCHIA" />
+   </from>
+   <from code="VUL" name="VULCANO">
+      <to code="ALI" name="ALICUDI" />
+      <to code="FPO" name="FILICUDI PORTO" />
+      <to code="GOS" name="GINOSTRA" />
+      <to code="LAP" name="LIPARI" />
+      <to code="MLZ" name="MILAZZO" />
+      <to code="NAP" name="NAPOLI" />
+      <to code="MER" name="NAPOLI(MERGELLINA)" />
+      <to code="PNA" name="PANAREA" />
+      <to code="RIN" name="RINELLA" />
+      <to code="SLA" name="SALINA" />
+      <to code="STR" name="STROMBOLI" />
+   </from>
+   <from code="ZTH" name="ZAKYNTHOS">
+      <to code="BAR" name="BARI" />
+      <to code="BRI" name="BRINDISI" />
+      <to code="CFU" name="CORFU" />
+      <to code="IGO" name="IGOUMENITSA" />
+      <to code="KIL" name="KILINI" />
+      <to code="SMI" name="SAMI" />
+   </from>
+</departures>

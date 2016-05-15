@@ -157,9 +157,9 @@ tr {
     color: #fff;
 }
 
-.reserved:hover {
-    background-color: orange;
-}
+    .reserved:hover {
+        background-color: orange;
+    }
 
 .prevarrow {
     margin-right: 5px;

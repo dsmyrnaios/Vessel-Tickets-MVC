@@ -19,23 +19,51 @@
     @Scripts.Render("~/Scripts/Site.js")
 </head>
 <body>
-<div class="container">
-    <div class="cssload-loader">
-        <img src="~/Content/Searchimages/boatspinner.jpg" />
-        <div class="cssload-inner cssload-one"></div>
-        <div class="cssload-inner cssload-two"></div>
-        <div class="cssload-inner cssload-three"></div>
-    </div>
-    <div class="row">
+    <div class="container">
+        <div class="cssload-loader">
+            <img src="~/Content/Searchimages/boatspinner.jpg" />
+            <div class="cssload-inner cssload-one"></div>
+            <div class="cssload-inner cssload-two"></div>
+            <div class="cssload-inner cssload-three"></div>
+        </div>
+        <div class="row">
             @Html.Partial("_LoginPartial")
-     </div>
-</div>
+        </div>
+    </div>
 
+    <div class="container body-content">
 
-
-
-<div class="container body-content">
-   
+        <div class="row">
+            <ul class="list-inline">
+                <li value="http://localhost:5064/Ferries/Search" class="tab">
+                    <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i> Αναζήτηση
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow cener-block"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Results" class="tab">
+                    <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i> Αποτελέσματα
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Passengers" class="tab">
+                    <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i> Επιβάτες
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow cener-block"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Payment" class="tab">
+                    <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i> Πληρωμή
+                </li>
+                <li class="tab_splitter">
+                    <div class="tab_right_arrow"></div>
+                </li>
+                <li value="http://localhost:5064/Ferries/Confirmation" class="tab">
+                    <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i> Επιβεβαίωση
+                </li>
+            </ul>
+        </div>
 
         <div id="body" class="row">
             @RenderSection("featured", required: false)

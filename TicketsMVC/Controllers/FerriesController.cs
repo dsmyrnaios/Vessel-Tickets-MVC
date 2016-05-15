@@ -31,17 +31,6 @@ namespace TicketsMVC.Controllers
             return View(sermodel);
         }
 
-        [AllowAnonymous]
-        [ActionName("Search")]
-        [HttpPost]
-        public ActionResult SearchWithModel(SearchModel sermodel)
-        {
-            TempData["TotPassengers"] = sermodel.TotPassengers;
-            TempData["TotVehicles"] = sermodel.TotVehicles;
-
-            return View(sermodel);
-        }
-
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Results(SearchModel model)
@@ -112,10 +101,11 @@ namespace TicketsMVC.Controllers
                     passmodel.MultDepList.Add(multdep);
                 }
 
-                foreach (Routeselection multroute in (List<Routeselection>)TempData.Peek("MultRouteList"))
+                foreach (Routeselection multroute in model.MultRouteList)
                 {
                     passmodel.MultRouteList.Add(multroute);
                 }
+                TempData["MultRouteList"] = passmodel.MultRouteList;
             }
             else
             {

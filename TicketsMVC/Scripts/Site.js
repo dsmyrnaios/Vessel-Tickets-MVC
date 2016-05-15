@@ -10,7 +10,7 @@
         }
     });
     $('body').on('click', '.tab', function () {
-        if ($(this).hasClass('tab_previous')) {
+        if ($(this).hasClass('tab_previous') || $(this).hasClass('tab_active')) {
             window.location.href = $(this).attr('value');
         }
     });

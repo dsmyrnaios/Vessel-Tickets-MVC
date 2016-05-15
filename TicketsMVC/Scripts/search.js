@@ -76,8 +76,7 @@
                 return;
             }
         }
-        
-        
+               
         $(this).pickadate({
             format: "yyyy/mm/dd",
             selectMonths: true,
@@ -100,13 +99,9 @@
                     }
                 }
             }
-        });
-
-
-       
+        });      
     });
-
-    
+   
     $('body').on('click', '[id*=departuredate],[id*=arrivedate]', function () {
         var specificobject = $(this).attr('id');
 
@@ -144,7 +139,6 @@
             picker.open();
             return;
         }
-
 
         $(this).pickadate({
             format: "yyyy/mm/dd",
@@ -514,6 +508,9 @@
                     else {
                         inpt.val(firstelementtext.substring(0, firstelementtext.length));
                     }
+                    $(this).focusout(function () {
+                        inpt.val(firstelementtext.substring(0, firstelementtext.length));
+                    });
                     var originallength = original.length;
                     inpt[0].selectionStart = originallength;
                     inpt[0].selectionEnd = firstelementtext.length;
