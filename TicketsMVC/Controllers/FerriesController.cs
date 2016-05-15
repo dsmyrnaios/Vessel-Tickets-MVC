@@ -12,6 +12,7 @@ namespace TicketsMVC.Controllers
     public class FerriesController : Controller
     {
         [AllowAnonymous]
+        [HttpGet]
         public ActionResult Search()
         {
             SearchModel sermodel = new SearchModel();
@@ -24,6 +25,17 @@ namespace TicketsMVC.Controllers
             Vehicles vehicles = new Vehicles();
             sermodel.TotVehicles = vehicles;
 
+            TempData["TotPassengers"] = sermodel.TotPassengers;
+            TempData["TotVehicles"] = sermodel.TotVehicles;
+
+            return View(sermodel);
+        }
+
+        [AllowAnonymous]
+        [ActionName("Search")]
+        [HttpPost]
+        public ActionResult SearchWithModel(SearchModel sermodel)
+        {
             TempData["TotPassengers"] = sermodel.TotPassengers;
             TempData["TotVehicles"] = sermodel.TotVehicles;
 

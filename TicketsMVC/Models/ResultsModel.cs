@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System;
+using Newtonsoft.Json.Serialization;
 
 namespace TicketsMVC.Models
 {
@@ -18,21 +19,26 @@ namespace TicketsMVC.Models
     public class Routeselection
     {
         [Required]
-        public string boatcompany { get; set; }
+        public string Boatcompany { get; set; }
 
         [Required]
-        public string boatname { get; set; }
+        public string Boatname { get; set; }
+
+        
+        [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Αναχώρησης")]
+        [Display(Name = "Ημ/νια αναχώρησης")]
+        [DataType(DataType.Date)]
+        public string Deptime { get; set; }
+
+        [Required(ErrorMessage = @"Συμπληρώστε ώρα Αναχώρησης")]
+        [Display(Name = "Ώρα αναχώρησης")]
+        [DataType(DataType.Time)]
+        public string Arrtime { get; set; }
 
         [Required]
-        public string deptime { get; set; }
+        public float Price { get; set; }
 
         [Required]
-        public string arrtime { get; set; }
-
-        [Required]
-        public float price { get; set; }
-
-        [Required]
-        public int vesselid { get; set; }
+        public int Vesselid { get; set; }
     }
 }

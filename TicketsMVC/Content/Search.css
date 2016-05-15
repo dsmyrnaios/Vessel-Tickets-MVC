@@ -128,11 +128,11 @@ input.radio {
 }
 
 form, .form-horizontal {
-    float: left;
+    /*float: left;*/
     font-size: 11px;
     min-height: 243px;
     padding-bottom: 3px;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     padding-top: 30px;
     width: 80%;
 }

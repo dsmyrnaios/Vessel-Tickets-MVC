@@ -14,6 +14,41 @@
 
     /*<input class="form-control model" type="hidden" value='@Html.Raw(Json.Encode(Model))' />*/
     <div class="row">
+        <ul class="list-inline">
+            <li class="tab tab_previous">
+                <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+                @Html.ActionLink("Αναζήτηση", "Search", "Ferries", Model)
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow cener-block"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Results" class="tab tab_previous">
+                <i class="fa fa-ship fa-lg fa-fw" aria-hidden="true"></i>
+                @Html.ActionLink("Αποτελέσματα", "Results", "Ferries", Model)
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Passengers" class="tab tab_active">
+                <i class="fa fa-users fa-lg fa-fw" aria-hidden="true"></i>
+                @Html.ActionLink("Επιβάτες", "Passengers", "Ferries", Model)
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow cener-block"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Payment" class="tab tab_disabled">
+                <i class="fa fa-credit-card fa-lg fa-fw" aria-hidden="true"></i> Πληρωμή
+            </li>
+            <li class="tab_splitter">
+                <div class="tab_right_arrow"></div>
+            </li>
+            <li value="http://localhost:5064/Ferries/Confirmation" class="tab tab_disabled">
+                <i class="fa fa-check-square-o fa-lg fa-fw" aria-hidden="true"></i> Επιβεβαίωση
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
         @for (var i = 0; i < @Model.MultDepList.Count; i++)
         {
             <label class="col-md-12" style="font-weight:bolder;font-size:24px;color:#1E7FB1">
@@ -116,10 +151,10 @@
         <table class="table table-condensed askpassengersinfo">
             <tr>
                 <td>
-                    @Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[0].deptime<div class="arrow-right"></div>
+                    @Model.MultDepList[0].DateFrom.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[0].Deptime<div class="arrow-right"></div>
                 </td>
                 <td>
-                    @Model.MultRouteList[0].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[0].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span>
+                    @Model.MultRouteList[0].Boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[0].Boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span>
                 </td>
             </tr>
             @for (var i = count; i < Model.TotPassengers.NumOfPassengers + count; i++)
@@ -127,24 +162,24 @@
                 <tr>
                     <td colspan="2">
                         <div class="gender">
-                            <label for=Passengerinfo[@i].gender class="control-label">Φύλο</label>
-                            <select name=Passengerinfo[@i].gender class=icons>
+                            <label for=Passengerinfo[i].gender class="control-label">Φύλο</label>
+                            <select name=Passengerinfo[i].gender class=icons>
                                 <option value="" disabled selected>Not Set</option>
                                 <option value=Male data-icon="../Content/Passengerimages/gender/male.png" class="left">Ανδρας</option>
                                 <option value=Female data-icon="../Content/Passengerimages/gender/female.png" class="left">Γυναίκα</option>
                             </select>
                         </div>
                         <div class="firstname">
-                            <label for=Passengerinfo[@i].firstname class="control-label">Ονομα</label>
-                            <input class="form-control" type=text name=Passengerinfo[@i].firstname data-val-required="Εισάγετε όνομα" placeholder="Εισάγετε όνομα" data-val="true" tabindex=1 required />
+                            <label for=Passengerinfo[i].firstname class="control-label">Ονομα</label>
+                            <input class="form-control" type=text name=Passengerinfo[i].firstname data-val-required="Εισάγετε όνομα" placeholder="Εισάγετε όνομα" data-val="true" tabindex=1 required />
                         </div>
                         <div class="lastname">
-                            <label for=Passengerinfo[@i].lastname class="control-label">Επίθετο</label>
-                            <input class="form-control" type=text name=Passengerinfo[@i].lastname data-val-required="Εισάγετε επίθετο" placeholder="Εισάγετε επίθετο" data-val="true" tabindex=1 required />
+                            <label for=Passengerinfo[i].lastname class="control-label">Επίθετο</label>
+                            <input class="form-control" type=text name=Passengerinfo[i].lastname data-val-required="Εισάγετε επίθετο" placeholder="Εισάγετε επίθετο" data-val="true" tabindex=1 required />
                         </div>
                         <div class="typepassenger">
-                            <label for=Passengerinfo[@i].typepassenger class="control-label">Τύπος Επιβάτη</label>
-                            <select name=Passengerinfo[@i].typepassenger class="icons">
+                            <label for=Passengerinfo[i].typepassenger class="control-label">Τύπος Επιβάτη</label>
+                            <select name=Passengerinfo[i].typepassenger class="icons">
                                 <option value="" disabled selected>Not Set</option>
                                 @if (@Model.TotPassengers.NumOfAdults != 0)
                                 {
@@ -206,10 +241,10 @@
             <table class="table table-condensed askpassengersinfo">
                 <tr>
                     <td>
-                        @Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[1].deptime<div class="arrow-left"></div>
+                        @Model.MultDepList[0].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[1].Deptime<div class="arrow-left"></div>
                     </td>
                     <td colspan="2">
-                        @Model.MultRouteList[1].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[1].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span>
+                        @Model.MultRouteList[1].Boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[1].Boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].ToPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[0].FromPort.Split(',')[0].Split(']')[1]</span>
                     </td>
                 </tr>
                 @for (var i = count; i < Model.TotPassengers.NumOfPassengers + count; i++)
@@ -299,10 +334,10 @@
             <table class="table table-condensed askpassengersinfo">
                 <tr>
                     <td>
-                        @Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[i].deptime<div class="arrow-right"></div>
+                        @Model.MultDepList[i].DateTo.ToString("D", new CultureInfo("el-GR")), @Model.MultRouteList[i].Deptime<div class="arrow-right"></div>
                     </td>
                     <td>
-                        @Model.MultRouteList[i].boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[i].boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>
+                        @Model.MultRouteList[i].Boatcompany <span style="font-size:larger">-</span> @Model.MultRouteList[i].Boatname από <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].FromPort.Split(',')[0].Split(']')[1]</span> προς <span style="color:#009FE2;font-size:15px">@Model.MultDepList[i].ToPort.Split(',')[0].Split(']')[1]</span>
                     </td>
                 </tr>
                 @for (var j = count; j < Model.TotPassengers.NumOfPassengers + count; j++)

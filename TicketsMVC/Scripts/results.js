@@ -5,6 +5,7 @@
     var countcheckboxes = 0;
     var counttables = 1;
     var typeofboat;
+
     $('.displayroutesinfo').find('table').each(function () {
         for (var i = 0; i < TTimetableAns.length; i++) {
             if (counttables == countcheckboxes) {
@@ -86,10 +87,160 @@
 
     $('.ns_timer').css('display', 'none');
 
-    $('body').on('click', '.day', function () {
+    
+    $('body').on("click", ".day", function () {
+        moment.lang("el");
+        var $parentContent = $(this).parent();
+        var resdt = $parentContent.find('.reserved');
+        var dtold = moment($(resdt).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+        var dtnew = moment($(this).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+        var now = moment();
+
+        var sliderid = $(this).closest('div[class^="dateslider"]');
+        
+
+        var $reservedDt;
+        if (sliderid.attr("id").indexOf("FromDate") > -1) {
+            $reservedDt = $("#" + sliderid.attr("id").replace("FromDate", "ToDate")).find('.reserved');
+            var comdt = moment($reservedDt.text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+            if (dtnew.diff(comdt, 'days') > 0) {
+                return; //do nothing
+            }
+        } else if (sliderid.attr("id").indexOf("ToDate") > -1) {
+            $reservedDt = $("#" + sliderid.attr("id").replace("ToDate", "FromDate")).find('.reserved');
+            var comdt = moment($reservedDt.text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+            if (dtnew.diff(comdt, 'days') < 0) {
+                return; //do nothing
+            }
+        }
+
+
+        if (dtnew.diff(now, 'days') < 0) {
+            return; //do nothing
+        }
+
+        var diffdays = Math.abs(dtnew.diff(dtold, 'days'));
+        var childitems = $parentContent.find('.day');
+        var childborderitems = $parentContent.find('.dayborder');
+
+        var dttemp;
+        var divappend;
+
+        if (dtnew.isBefore(dtold)) { //prepend
+            for (var j = 0; j < diffdays; j++) {
+                //$(childitems[$(childitems).length - 3 - j]).hide("slide", { direction: "right" }, 500);
+                $(childitems[$(childitems).length - 1 - j]).remove();
+                $(childborderitems[$(childborderitems).length - 1 - j]).remove();
+            }
+
+            dttemp = dtold;
+            dttemp.subtract(3, 'days');
+            for (var j = 1; j <= diffdays ; j++) {
+                dttemp.subtract(1, 'days');
+                divappend = '<p class="day left">' + dttemp.format('dddd') + ' <br />' +
+                    dttemp.format('DD MMMM') + '</p> <p class="dayborder left"></p>';
+                $parentContent.find('.prevarrow').after(divappend);
+            }
+
+        } else { //append
+            for (var j = 0; j < diffdays; j++) {
+                //$(childitems[$(childitems).length - 2 - j]).show("slide", { direction: "right" }, 500);
+                $(childitems[j]).remove();
+                $(childborderitems[j]).remove();
+            }
+
+            dttemp = dtold;
+            dttemp.add(3, 'days');
+            for (var i = 1; i <= diffdays; i++) {
+                dttemp.add(1, 'days');
+                divappend = '<p class="dayborder left"></p>' +
+                    '<p class="day left">' + dttemp.format('dddd') + ' <br />' +
+                    dttemp.format('DD MMMM') + '</p>';
+                $parentContent.find('.nextarrow').before(divappend);
+            }
+        }
+
         $(this).parent().find('.day').removeClass('reserved');
         $(this).addClass('reserved');
+        
     });
+    //var $div = $('#divid').closest('div[class^="div-a"]');
+    function movePrevSlide(sliderid) {
+        $("#" + sliderid).prevSlide();      // Go to the previous slide.
+    }
+
+    $(".prevarrow").click(function () {
+        var $div = $(this).closest('div[class^="dateslider"]');
+        var id = $div.attr("id");
+
+        var $parentContent = $(this).parent();
+        var now = moment();
+        var childitems = $parentContent.find('.day');
+
+        for (var i =0; i < childitems.length; i++) {
+            var dt = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+
+            if (dt.diff(now, 'days') <= 0) {
+                return; //do nothing
+            }
+
+        }
+
+        movePrevSlide(id);
+        
+    });
+
+    $(".nextarrow").click(function () {
+        var $div = $(this).closest('div[class^="dateslider"]');
+        var id = $div.attr("id");
+
+        var $slidecontainerdiv = $(this).closest('div[class^="ns_slideContainer"]');
+        if ($slidecontainerdiv.attr('class').indexOf("ns_lastSlide") > -1) {
+            alert($slidecontainerdiv.attr('class'));
+            $slidecontainerdiv.removeClass('ns_lastSlide');
+
+            var appendtxt = '<div class="ns_slideContainer ns_lastSlide">' +
+                '<div class="ns_slideContent">' +
+                ' <p class="prevarrow btn-floating waves-effect waves-light left">' +
+                '<img src="../Content/NerveSlider/icons/prev-dark.png"></p>' +
+                '<p value="11" class="day left">Τρίτη<br> 31 Μαΐου</p> <p class="dayborder left"></p> <p value="12" class="day left">Τετάρτη<br> 01 Ιουνίου</p><p class="dayborder left"></p> <p class="nextarrow btn-floating waves-effect waves-light left"> <img src="../Content/NerveSlider/icons/next-dark.png"> </p> </div> </div>';
+
+            $slidecontainerdiv.after(appendtxt);
+            
+        }
+
+        moveNextSlide(id);
+    });
+    
+    function moveNextSlide(sliderid) {
+        /*<div class="ns_slideContainer ns_lastSlide">
+                    <div class="ns_slideContent">
+                        <p class="prevarrow btn-floating waves-effect waves-light left">
+                            <img src="../Content/NerveSlider/icons/prev-dark.png">
+                        </p>
+                                <p value="11" class="day left">Τρίτη<br> 31 Μαΐου</p>
+                                    <p class="dayborder left"></p>
+                                <p value="12" class="day left">Τετάρτη<br> 01 Ιουνίου</p>
+                                    <p class="dayborder left"></p>
+                                <p value="13" class="day left">Πέμπτη<br> 02 Ιουνίου</p>
+                                    <p class="dayborder left"></p>
+                                <p value="14" class="reserved day left">Παρασκευή<br> 03 Ιουνίου</p>
+                                <p class="dayborder left"></p>
+                                <p value="15" class="day left">Σάββατο<br> 04 Ιουνίου</p>
+                                    <p class="dayborder left"></p>
+                                <p value="16" class="day left">Κυριακή<br> 05 Ιουνίου</p>
+                                    <p class="dayborder left"></p>
+                                <p value="17" class="day left">Δευτέρα<br> 06 Ιουνίου</p>
+                        <p class="nextarrow btn-floating waves-effect waves-light left">
+                            <img src="../Content/NerveSlider/icons/next-dark.png">
+                        </p>
+                    </div>
+                </div>
+        */
+
+
+        $("#" + sliderid).nextSlide();      // Go to the next slide.
+    }
 
     /*var Model = JSON.parse($('.model').val());
     if (Model.Triptype != 2|| Model.MultDepList.length == 1)
