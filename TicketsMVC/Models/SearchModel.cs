@@ -20,8 +20,6 @@ namespace TicketsMVC.Models
         
         public Passengers TotPassengers { get; set; }
         public Vehicles TotVehicles { get; set; }
-        
-
     }
 
     public enum Triptype : int { Simple = 0, WithReturn = 1, Multiple = 2 };

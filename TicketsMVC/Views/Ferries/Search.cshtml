@@ -203,7 +203,7 @@
 
     </div>
 
-    @Html.HiddenFor(x => x.TotPassengers.NumOfAdults, new { @id = "NumOfAdults", @value = Model.TotPassengers.NumOfAdults, @class = "form-control", @style = "display: none;", tabindex = -1 })
+    @Html.HiddenFor(x => x.TotPassengers.NumOfAdults, new { @id = "NumOfAdults", @value = Model.TotPassengers.NumOfAdults, tabindex = -1 })
     @Html.HiddenFor(x => x.TotPassengers.NumOfTeens, new { @id = "NumOfTeens", @style = "display: none;", tabindex = -1 })
     @Html.HiddenFor(x => x.TotPassengers.NumOfKids, new { @id = "NumOfKids", @style = "display: none;", tabindex = -1 })
     @Html.HiddenFor(x => x.TotPassengers.NumOfInfants, new { @id = "NumOfInfants", @style = "display: none;", tabindex = -1 })

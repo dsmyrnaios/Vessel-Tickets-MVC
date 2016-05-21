@@ -83,6 +83,15 @@ namespace TicketsMVC.Controllers
             return View(resmodel);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Updatemodeldates(MultipleDeparture model)
+        {
+            TempData["MultDepList"] = model;
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public ActionResult Passengers(ResultsModel model)

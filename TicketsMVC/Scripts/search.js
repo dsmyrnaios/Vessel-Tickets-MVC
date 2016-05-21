@@ -61,7 +61,7 @@
         
         var idcount = parseInt(specificobject[specificobject.length - 1]);
         if (idcount > 0) {
-            var dt = moment($('#departuredatemulti' + (idcount - 1)).val(), 'YYYY-MM-DD');
+            var dt = moment($('#departuredatemulti' + (idcount - 1)).val(), 'MM-DD-YYYY');
             beginningdate = new Date(dt.year(), dt.month(), dt.date());
         }
 
@@ -78,18 +78,18 @@
         }
                
         $(this).pickadate({
-            format: "yyyy/mm/dd",
+            format: "mm/dd/yyyy",
             selectMonths: true,
             monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
             min:  beginningdate,
             max: new Date(beginningdate.getFullYear() + 1, beginningdate.getMonth(), beginningdate.getDate()),
             closeOnClear: true,
             selectYears: 2,            
-            formatSubmit: "yyyy/mm/dd",
+            formatSubmit: "mm/dd/yyyy",
             onClose: function () {
                 for (var j = idcount + 1; j <= counter; j++) {
                     if ($('#departuredatemulti' + j).val() != '' && $('#departuredatemulti' + j).val() != 'undefined') {
-                        var dtj = moment($('#departuredatemulti' + j).val(), 'YYYY-MM-DD');
+                        var dtj = moment($('#departuredatemulti' + j).val(), 'MM-DD-YYYY');
                          
                         if (dtj.isBefore(dt)) {
                             $('#departuredatemulti' + j).val('');
@@ -121,7 +121,7 @@
             if ($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val() == '') {
                 startdate = new Date();
             } else {
-                var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'YYYY-MM-DD');
+                var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'MM-DD-YYYY');
                 startdate = new Date(dt.year(), dt.month(), dt.date());
             }
         }
@@ -130,7 +130,7 @@
         if (picker != null) {
             if (picker.get('open') == false) {
                 if (specificobject.search('arrivedate') != -1 && $('[id=departuredate' + dspecificarrivedateobject[1] + ']').val() != '') {
-                    var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'YYYY-MM-DD');
+                    var dt = moment($('[id=departuredate' + dspecificarrivedateobject[1] + ']').val(), 'MM-DD-YYYY');
                     picker.set('min', [dt.year(), dt.month(), dt.date()]);
                     picker.set('max', [dt.year()+1, dt.month(), dt.date()]);
                 }
@@ -141,7 +141,7 @@
         }
 
         $(this).pickadate({
-            format: "yyyy/mm/dd",
+            format: "mm/dd/yyyy",
             selectMonths: true,
             monthsFull: ["Ιανουάριος", "Φεβρουάριος", "Μάρτιος", "Απρίλιος", "Μάιος", "Ιούνιος", "Ιούλιος", "Αύγουστος", "Σεπτέμβρης", "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"],
             min: startdate,
@@ -149,12 +149,12 @@
             closeOnSelect: true,
             closeOnClear: true,
             selectYears: 2,
-            formatSubmit: "yyyy/mm/dd",
+            formatSubmit: "mm/dd/yyyy",
             onClose: function () {
                 if (specificobject === 'departuredate0') {
                     if ($('#arrivedate0').val() != '' && $('#arrivedate0' + j).val() != 'undefined') {
-                        var dtj = moment($('#arrivedate0').val(), 'YYYY-MM-DD');
-                        var dt = moment($('[id=departuredate0').val(), 'YYYY-MM-DD');
+                        var dtj = moment($('#arrivedate0').val(), 'MM-DD-YYYY');
+                        var dt = moment($('[id=departuredate0').val(), 'MM-DD-YYYY');
 
                         if (dtj.isBefore(dt)) {
                             $('#arrivedate0').val('');
@@ -237,7 +237,7 @@
     var portkykladesvalues = ['[ANA] ANAFI', '[AIG] AEGIALI', '[AND] ANDROS', '[JTY] ASTYPALEA', '[DON] DONOUSSA', '[IRK] IRAKLIA', '[JTR] THIRA(SANTORINI)', '[TRS] THIRASSIA', '[IOS] Ios,Ίος', '[AMO] KATAPOLA', '[KEA] Kea,Κέα', '[KMS] KIMOLOS', '[KOU] KOUFONISSI', '[KYT] KYTHNOS', '[MLO] MILOS', '[JMK] MYKONOS', '[JNX] NAXOS', '[PAS] PAROS', '[PMS] PATMOS', '[SER] SERIFOS', '[SIK] SIKINOS', '[SIF] SIFNOS', '[JSY] SYROS', '[SXI] SCHINOUSSA', '[TIN] TINOS', '[FOL] FOLEGANDROS'];
     var portargosaronikosvalues = ['[MET] METHANA', '[POR] POROS', '[AGS] AGISTRI', '[AGG] AGISTRI-MYLI', '[AEG] AEGINA', '[ERM] HERMIONI', '[PHE] PORTO HELI', '[SPE] SPETSES', '[HYD] HYDRA'];
     var portkrhthvalues = ['[ROU] AG.ROUMELI','[GVD] GAVDOS','[KIS] KISSAMOS','[LTR] LOUTRO CHANION','[RNO] RETHIMNO','[CSF] SFAKIA','[JSH] SITIA','[SOG] SOUGIA','[HER] HERAKLIO','[CHA] CHANIA'];
-    var portioniovalues = ['[AKT] ANTIKYTHIRA','[PSA] ITHAKI(PISAETOS)','[KTH] KYTHIRA','[PAX] PAXI','[ZTH] ZAKYNTHOS','[IGO] IGOUMENITSA','[CFU] CORFU','[KIL] KILINI','[GRA] PATRA','[SMI] SAMI'];
+    var portioniovalues = ['[AKT] ANTIKYTHIRA', '[PSA] ITHAKI(PISAETOS)', '[KTH] KYTHIRA', '[PAX] PAXI', '[ZTH] ZAKYNTHOS', '[IGO] IGOUMENITSA', '[CFU] CORFU', '[KIL] KILINI', '[GRA] PATRA', '[SMI] SAMI'];
     var portsporadesvalues = ['[AGC] AG.CONSTANTINOS', '[ALO] ALONISSOS', '[VOL] VOLOS', '[GLO] GLOSSA', '[JSI] SKIATHOS', '[SKO] SKOPELOS'];
     var portboreioaigaiovalues = ['[AGA] AGATHONISI', '[AXL] ALEX/POLI', '[CHR] CHRISOMHLEA(FOURNOI)', '[INO] INOUSSES', '[KAV] KAVALA', '[MAS] MASTIHARI', '[SAM] SAMOTHRAKI', '[THY] THIMAINA(FOURNOI)', '[AES] AG.EYSTRATIOS', '[AGK] AG.KIRIKOS', '[BTH] VATHI (SAMOS)', '[EYD] EVDILOS', '[SKG] THESSALONIKI', '[KAR] KARLOVASSI', '[LES] LESVOS(MITILINI)', '[LMN] LIMNOS', '[PYT] PYTHAGORIO', '[FOU] FOURNI', '[CHI] CHIOS', '[PHA] PSARA'];
     var porteuoiavalues = ['[NST] NEA STIRA'];
@@ -349,6 +349,11 @@
                 }
             }
         }
+        portlist.find('tr').each(function () {
+            if ($(this).find('td').length == 1) {
+                $(this).find('td').attr('colspan', 2);
+            }
+        });
         portallvalueslatlng = currentportslatlng.slice();
     }
 
@@ -364,7 +369,7 @@
             var beforespecificobject = parseInt(specificobject[1]) - 1;
             var afterspecificobject = parseInt(specificobject[1]) + 1;
             var countelements = $('[id*=arrallroute]').length;
-            if (($('[id=arrallroute' + specificobject[1] + ']').find('input').val() == '' && countelements == 1) || ($('[id=arrallroute' + beforespecificobject + ']').find('input').val() == '' && $('[id=arrallroute' + specificobject[1] + ']').find('input').val() == '' && countelements > 0)) {
+            if (($('[id=arrallroute' + specificobject[1] + ']').find('input').val() == '' && (countelements == 1 || beforespecificobject < 0)) || ($('[id=arrallroute' + beforespecificobject + ']').find('input').val() == '' && $('[id=arrallroute' + specificobject[1] + ']').find('input').val() == '' && countelements > 0)) {
                 for (var i = 0; i < xmltojson.from.length; i++) {
                     for (var j = 0; j < allports.length; j++) {
                         if (portallvaluesabbr[j] == xmltojson.from[i].code) {
@@ -384,7 +389,7 @@
                     }
                 }
                 for (var i = 0; i < allports.length; i++) {
-                    if (allports[i][0] == portarea) {
+                    if (allports[i][0] == portarea && allports[i][1] != $('[id=depallroute' + beforespecificobject + ']').find('input').val() && allports[i][1] != $('[id=depallroute' + afterspecificobject + ']').find('input').val()) {
                         currentports[count] = allports[i];
                         currentportslatlng[count] = portallvalueslatlng[i];
                         count++;
@@ -398,11 +403,11 @@
                         var arriveport = xmltojson.from[i].to[j].name;
                         if ($('[id=arrallroute' + specificobject[1] + ']').find('input').val().search(arriveport) != -1) {
                             for (var k = 0; k < allports.length; k++) {
-                                if (allports[k][1].search(departureport) != -1 && allports[k][1].search(arriveport) == -1) {
+                                if (allports[k][1].search(departureport) != -1 && allports[k][1].search(arriveport) == -1 && $.inArray(portallvaluesabbr[k], currentportsabbr) == -1) {
                                     currentports[count] = allports[k];
+                                    currentportsabbr[count] = portallvaluesabbr[k];
                                     currentportslatlng[count] = portallvalueslatlng[k];
                                     count++;
-                                    break;
                                 }
                             }
                         }
@@ -420,7 +425,7 @@
             var afterspecificobject = parseInt(specificobject[1]) + 1;
             var count = 0;
             var countelements = $('[id*=depallroute]').length;
-            if (($('[id=depallroute' + specificobject[1] + ']').find('input').val() == '' && countelements == 1) || ($('[id=depallroute' + specificobject[1] + ']').find('input').val() == '' && $('[id=depallroute' + afterspecificobject + ']').find('input').val() == '' && countelements > 0)) {
+            if (($('[id=depallroute' + specificobject[1] + ']').find('input').val() == '' && (countelements == 1 || afterspecificobject == countelements)) || ($('[id=depallroute' + specificobject[1] + ']').find('input').val() == '' && $('[id=depallroute' + afterspecificobject + ']').find('input').val() == '' && countelements > 0)) {
                 for (var i = 0; i < xmltojson.from.length; i++) {
                     for (var j = 0; j < xmltojson.from[i].to.length; j++) {
                         for (var k = 0; k < allports.length; k++) {
@@ -429,7 +434,6 @@
                                 currentportsabbr[count] = portallvaluesabbr[k];
                                 currentportslatlng[count] = portallvalueslatlng[k];
                                 count++;
-                                break;
                             }
                         }
                     }
@@ -443,7 +447,7 @@
                     }
                 }
                 for (var i = 0; i < allports.length; i++) {
-                    if (allports[i][0] == portarea) {
+                    if (allports[i][0] == portarea && allports[i][1] != $('[id=arrallroute' + beforespecificobject + ']').find('input').val() && allports[i][1] != $('[id=arrallroute' + afterspecificobject + ']').find('input').val()) {
                         currentports[count] = allports[i];
                         currentportslatlng[count] = portallvalueslatlng[i];
                         count++;
@@ -457,11 +461,11 @@
                         for (var j = 0; j < xmltojson.from[i].to.length; j++) {
                             var arriveport = xmltojson.from[i].to[j].name;
                             for (var k = 0; k < allports.length; k++) {
-                                if (allports[k][1].search(arriveport) != -1 && allports[k][1].search(departureport) == -1) {
+                                if (allports[k][1].search(arriveport) != -1 && allports[k][1].search(departureport) == -1 && $.inArray(portallvaluesabbr[k], currentportsabbr) == -1) {
                                     currentports[count] = allports[k];
+                                    currentportsabbr[count] = portallvaluesabbr[k];
                                     currentportslatlng[count] = portallvalueslatlng[k];
                                     count++;
-                                    break;
                                 }
                             }
                         }
@@ -509,7 +513,15 @@
                         inpt.val(firstelementtext.substring(0, firstelementtext.length));
                     }
                     $(this).focusout(function () {
-                        inpt.val(firstelementtext.substring(0, firstelementtext.length));
+                        var flag = 0;
+                        for (var i = 0; i < allports.length; i++) {
+                            if (inpt.val() == allports[i][1]) {
+                                flag = 1;
+                            }
+                        }
+                        if (flag == 0) {
+                            inpt.val(firstelementtext.substring(0, firstelementtext.length));
+                        }
                     });
                     var originallength = original.length;
                     inpt[0].selectionStart = originallength;
@@ -523,6 +535,7 @@
                             $($(this).data("uiAutocomplete").menu.element[0].children[i]).html('<span style=color:orange>' + elementtext.substring(0, originallength) + '</span>' + elementtext.substring(originallength, elementtext.length));
                         }
                     }
+                    $('.ui-autocomplete').css({ 'max-height': '200px', 'overflow-y': 'auto', 'overflow-x': 'hidden' });
                 }
             }
         });

@@ -1,5 +1,5 @@
-﻿$(document).ready(function () {
-    var model = JSON.parse($('.model').text());
+﻿var model = JSON.parse($('.model').text());
+$(document).ready(function () {
     var MeanList = [{ VesselID: '5036', Company: 'Blue Star', VesselName: 'BLUE STAR DELOS' }, { VesselID: '5037', Company: 'Blue Star', VesselName: 'BLUE STAR NAXOS' }];
     var TTimetableAns = [{ Company: 'Blue Star', VesselID: '5036', VesselType: 'C', DepTime: '07:25', ArrTime: '11:40', Available: 'YES', ClassAvail: [{ ClassAdultBasicPrice: 10000 }] }, { Company: 'Blue Star', VesselID: '5037', VesselType: 'H', DepTime: '17:30', ArrTime: '21:45', Available: 'NO', ClassAvail: [{ ClassAdultBasicPrice: 5000 }] }];
     var countcheckboxes = 0;
@@ -74,8 +74,8 @@
     });
 
 
-    $(".dateslider").nerveSlider({
-        sliderHeight: "100px",
+    $('.dateslider').nerveSlider({
+        sliderHeight: '100px',
         sliderResizable: true,
         sliderAutoPlay: false,
         slidesDraggable: false,
@@ -87,160 +87,228 @@
 
     $('.ns_timer').css('display', 'none');
 
-    
-    $('body').on("click", ".day", function () {
-        moment.lang("el");
-        var $parentContent = $(this).parent();
-        var resdt = $parentContent.find('.reserved');
-        var dtold = moment($(resdt).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
-        var dtnew = moment($(this).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
-        var now = moment();
-
-        var sliderid = $(this).closest('div[class^="dateslider"]');
-        
-
-        var $reservedDt;
-        if (sliderid.attr("id").indexOf("FromDate") > -1) {
-            $reservedDt = $("#" + sliderid.attr("id").replace("FromDate", "ToDate")).find('.reserved');
-            var comdt = moment($reservedDt.text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
-            if (dtnew.diff(comdt, 'days') > 0) {
-                return; //do nothing
+    function Updatemultideplist(currentmodel, currentslider) {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            data: currentmodel,
+            url: 'Updatemodeldates',
+            success: function (responsemodel) {
+                model.MultDepList[currentslider] = responsemodel;
             }
-        } else if (sliderid.attr("id").indexOf("ToDate") > -1) {
-            $reservedDt = $("#" + sliderid.attr("id").replace("ToDate", "FromDate")).find('.reserved');
-            var comdt = moment($reservedDt.text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
-            if (dtnew.diff(comdt, 'days') < 0) {
-                return; //do nothing
-            }
-        }
-
-
-        if (dtnew.diff(now, 'days') < 0) {
-            return; //do nothing
-        }
-
-        var diffdays = Math.abs(dtnew.diff(dtold, 'days'));
-        var childitems = $parentContent.find('.day');
-        var childborderitems = $parentContent.find('.dayborder');
-
-        var dttemp;
-        var divappend;
-
-        if (dtnew.isBefore(dtold)) { //prepend
-            for (var j = 0; j < diffdays; j++) {
-                //$(childitems[$(childitems).length - 3 - j]).hide("slide", { direction: "right" }, 500);
-                $(childitems[$(childitems).length - 1 - j]).remove();
-                $(childborderitems[$(childborderitems).length - 1 - j]).remove();
-            }
-
-            dttemp = dtold;
-            dttemp.subtract(3, 'days');
-            for (var j = 1; j <= diffdays ; j++) {
-                dttemp.subtract(1, 'days');
-                divappend = '<p class="day left">' + dttemp.format('dddd') + ' <br />' +
-                    dttemp.format('DD MMMM') + '</p> <p class="dayborder left"></p>';
-                $parentContent.find('.prevarrow').after(divappend);
-            }
-
-        } else { //append
-            for (var j = 0; j < diffdays; j++) {
-                //$(childitems[$(childitems).length - 2 - j]).show("slide", { direction: "right" }, 500);
-                $(childitems[j]).remove();
-                $(childborderitems[j]).remove();
-            }
-
-            dttemp = dtold;
-            dttemp.add(3, 'days');
-            for (var i = 1; i <= diffdays; i++) {
-                dttemp.add(1, 'days');
-                divappend = '<p class="dayborder left"></p>' +
-                    '<p class="day left">' + dttemp.format('dddd') + ' <br />' +
-                    dttemp.format('DD MMMM') + '</p>';
-                $parentContent.find('.nextarrow').before(divappend);
-            }
-        }
-
-        $(this).parent().find('.day').removeClass('reserved');
-        $(this).addClass('reserved');
-        
-    });
-    //var $div = $('#divid').closest('div[class^="div-a"]');
-    function movePrevSlide(sliderid) {
-        $("#" + sliderid).prevSlide();      // Go to the previous slide.
+        });
     }
 
-    $(".prevarrow").click(function () {
-        var $div = $(this).closest('div[class^="dateslider"]');
-        var id = $div.attr("id");
-
-        var $parentContent = $(this).parent();
-        var now = moment();
-        var childitems = $parentContent.find('.day');
-
-        for (var i =0; i < childitems.length; i++) {
-            var dt = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
-
-            if (dt.diff(now, 'days') <= 0) {
-                return; //do nothing
+    function Stylesliderdate(id, childitems, reservedday, datethreshold, flag) {
+        if (flag == 0) {
+            $(childitems).removeClass('disabled');
+        }
+        else {
+            $(childitems).removeClass('disabled reserved');
+        }
+        if (id.search('sliderdatefrom') != -1) {
+            for (var i = 0; i < childitems.length; i++) {
+                day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+                if (day.diff(datethreshold, 'days') > 0) {
+                    $(childitems[i]).addClass('disabled');
+                }
+                else if (day.diff(reservedday, 'days') == 0 && flag == 1) {
+                    $(childitems[i]).addClass('reserved');
+                }
             }
-
         }
-
-        movePrevSlide(id);
-        
-    });
-
-    $(".nextarrow").click(function () {
-        var $div = $(this).closest('div[class^="dateslider"]');
-        var id = $div.attr("id");
-
-        var $slidecontainerdiv = $(this).closest('div[class^="ns_slideContainer"]');
-        if ($slidecontainerdiv.attr('class').indexOf("ns_lastSlide") > -1) {
-            alert($slidecontainerdiv.attr('class'));
-            $slidecontainerdiv.removeClass('ns_lastSlide');
-
-            var appendtxt = '<div class="ns_slideContainer ns_lastSlide">' +
-                '<div class="ns_slideContent">' +
-                ' <p class="prevarrow btn-floating waves-effect waves-light left">' +
-                '<img src="../Content/NerveSlider/icons/prev-dark.png"></p>' +
-                '<p value="11" class="day left">Τρίτη<br> 31 Μαΐου</p> <p class="dayborder left"></p> <p value="12" class="day left">Τετάρτη<br> 01 Ιουνίου</p><p class="dayborder left"></p> <p class="nextarrow btn-floating waves-effect waves-light left"> <img src="../Content/NerveSlider/icons/next-dark.png"> </p> </div> </div>';
-
-            $slidecontainerdiv.after(appendtxt);
-            
+        else {
+            for (var i = 0; i < childitems.length; i++) {
+                day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+                if (day.diff(datethreshold, 'days') < 0) {
+                    $(childitems[i]).addClass('disabled');
+                }
+                else if (day.diff(reservedday, 'days') == 0 && flag == 1) {
+                    $(childitems[i]).addClass('reserved');
+                }
+            }
         }
-
-        moveNextSlide(id);
-    });
-    
-    function moveNextSlide(sliderid) {
-        /*<div class="ns_slideContainer ns_lastSlide">
-                    <div class="ns_slideContent">
-                        <p class="prevarrow btn-floating waves-effect waves-light left">
-                            <img src="../Content/NerveSlider/icons/prev-dark.png">
-                        </p>
-                                <p value="11" class="day left">Τρίτη<br> 31 Μαΐου</p>
-                                    <p class="dayborder left"></p>
-                                <p value="12" class="day left">Τετάρτη<br> 01 Ιουνίου</p>
-                                    <p class="dayborder left"></p>
-                                <p value="13" class="day left">Πέμπτη<br> 02 Ιουνίου</p>
-                                    <p class="dayborder left"></p>
-                                <p value="14" class="reserved day left">Παρασκευή<br> 03 Ιουνίου</p>
-                                <p class="dayborder left"></p>
-                                <p value="15" class="day left">Σάββατο<br> 04 Ιουνίου</p>
-                                    <p class="dayborder left"></p>
-                                <p value="16" class="day left">Κυριακή<br> 05 Ιουνίου</p>
-                                    <p class="dayborder left"></p>
-                                <p value="17" class="day left">Δευτέρα<br> 06 Ιουνίου</p>
-                        <p class="nextarrow btn-floating waves-effect waves-light left">
-                            <img src="../Content/NerveSlider/icons/next-dark.png">
-                        </p>
-                    </div>
-                </div>
-        */
-
-
-        $("#" + sliderid).nextSlide();      // Go to the next slide.
     }
+
+    function Styleslidermultidate(id, childitems, reservedday, datethresholdup, datethresholddown, currentslider) {
+        $(childitems).removeClass('disabled reserved');
+        for (var i = 0; i < childitems.length; i++) {
+            day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+            if ((day.diff(datethresholdup, 'days') > 0 && currentslider == 0) || ((day.diff(datethresholdup, 'days') > 0 || day.diff(datethresholddown, 'days') < 0) && currentslider > 0) || (day.diff(datethresholddown, 'days') < 0 && currentslider == model.MultDepList.length - 1)) {
+                $(childitems[i]).addClass('disabled');
+            }
+            else if (day.diff(reservedday, 'days') == 0) {
+                $(childitems[i]).addClass('reserved');
+            }
+        }
+    }
+
+    function Sliderdatefrom(id, newday, childitems, countdays, dateto) {
+        var datefrom = moment(model.MultDepList[0].DateFrom);
+        var daytext = newday.format('dddd' + ', ') + newday.format('DD MMMM YYYY')
+        for (var i = 0; i < childitems.length; i++) {
+            var day;
+            if (countdays < 0) {
+                day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').subtract(Math.abs(countdays), 'days');
+            }
+            else {
+                day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').add(Math.abs(countdays), 'days');
+            }
+            $(childitems[i]).html(day.format('dddd') + ' <br/>' + day.format('DD MMMM'));
+            if (day.diff(newday, 'days') == 0) {
+                if (model.Triptype == 0) {
+                    $(childitems[i]).addClass('reserved');
+                }
+                if (model.Triptype == 2) {
+                    var currentsliderdate = parseInt(id.split('sliderdatefrom')[1]);
+                    $('.showdatefrom' + currentsliderdate).text(daytext);
+                    model.MultDepList[currentsliderdate].DateFrom = newday.toISOString();
+                    Updatemultideplist(model.MultDepList[currentsliderdate], currentsliderdate);
+                }
+                else {
+                    $('.showdatefrom0').text(daytext);
+                    model.MultDepList[0].DateFrom = newday.toISOString();
+                    model.MultDepList[0].DateTo = moment(model.MultDepList[0].DateTo).toISOString();
+                    Updatemultideplist(model.MultDepList[0], 0);
+                }
+            }
+        }
+        if (model.Triptype == 1) {
+            Stylesliderdate(id, childitems, newday, model.MultDepList[0].DateTo, 1);
+            id = '#sliderdateto' + id.split('sliderdatefrom')[1];
+            var childitems = $(id).find('.day');
+            Stylesliderdate(id, childitems, newday, newday, 0);
+        }
+        else if (model.Triptype == 2) {
+            for (var i = 0; i < model.MultDepList.length; i++) {
+                id = '#sliderdatefrom' + i;
+                var childitems = $(id).find('.day');
+                if (i == 0) {
+                    Styleslidermultidate(id, childitems, model.MultDepList[i].DateFrom, model.MultDepList[i + 1].DateFrom, null, i);
+                }
+                else if (i == model.MultDepList.length - 1) {
+                    Styleslidermultidate(id, childitems, model.MultDepList[i].DateFrom, null, model.MultDepList[i - 1].DateFrom, i);
+                }
+                else {
+                    Styleslidermultidate(id, childitems, model.MultDepList[i].DateFrom, model.MultDepList[i + 1].DateFrom, model.MultDepList[i - 1].DateFrom, i);
+                }
+            }
+        }
+    }
+
+    function Sliderdateto(id, newday, childitems, countdays, datefrom) {
+        var dateto = moment(model.MultDepList[0].DateTo);
+        for (var i = 0; i < childitems.length; i++) {
+            var day;
+            if (countdays < 0) {
+                day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').subtract(Math.abs(countdays), 'days');
+            }
+            else {
+                day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').add(Math.abs(countdays), 'days');
+            }
+            $(childitems[i]).html(day.format('dddd') + ' <br/>' + day.format('DD MMMM'));
+            if (day.diff(newday, 'days') == 0) {
+                $('.showdateto0').text(newday.format('dddd' + ', ') + newday.format('DD MMMM YYYY'));
+                model.MultDepList[0].DateFrom = moment(model.MultDepList[0].DateFrom).toISOString();
+                model.MultDepList[0].DateTo = newday.toISOString();
+                Updatemultideplist(model.MultDepList[0], 0);
+            }
+        }
+        Stylesliderdate(id, childitems, newday, model.MultDepList[0].DateFrom, 1);
+        id = '#sliderdatefrom' + id.split('sliderdateto')[1];
+        var childitems = $(id).find('.day');
+        Stylesliderdate(id, childitems, newday, newday, 0);
+    }
+
+    $('body').on('click', '.day', function () {
+        if (!$(this).hasClass('disabled')) {
+            $parent = $(this).closest('.dateslider');
+            $id = $parent.attr('id');
+            var newday = moment($(this).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el');
+            var childitems = $(this).parent().find('.day');
+            if ($id.search('sliderdatefrom') != -1) {
+                var currentsliderdate = parseInt($id.split('sliderdatefrom')[1]);
+                var datefrom = moment(model.MultDepList[currentsliderdate].DateFrom);
+                var dateto = moment(model.MultDepList[currentsliderdate].DateTo);
+                var countdays = newday.diff(datefrom, 'days');
+                Sliderdatefrom($id, newday, childitems, countdays, dateto);
+            }
+            else {
+                var datefrom = moment(model.MultDepList[0].DateFrom);
+                var dateto = moment(model.MultDepList[0].DateTo);
+                var countdays = newday.diff(dateto, 'days');
+                Sliderdateto($id, newday, childitems, countdays, datefrom);
+            }
+        }
+    });
+
+    $('.prevarrow').click(function () {
+        $parent = $(this).closest('.dateslider');
+        $id = $parent.attr('id');
+        var datefrom = moment(model.MultDepList[0].DateFrom);
+        var dateto = moment(model.MultDepList[0].DateTo);
+        var childitems = $(this).parent().find('.day');
+        $(childitems).removeClass('disabled reserved');
+        if ($id.search('sliderdatefrom') != -1) {
+            for (var i = 0; i < childitems.length; i++) {
+                var day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').subtract(7, 'days');
+                $(childitems[i]).html(day.format('dddd') + ' <br/>' + day.format('DD MMMM'));
+                if (day.diff(dateto, 'days') > 0) {
+                    $(childitems[i]).addClass('disabled');
+                }
+                else if (day.diff(datefrom, 'days') == 0) {
+                    $(childitems[i]).addClass('reserved');
+                }
+            }
+        }
+        else {
+            for (var i = 0; i < childitems.length; i++) {
+                var day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').subtract(7, 'days');
+                $(childitems[i]).html(day.format('dddd') + ' <br/>' + day.format('DD MMMM'));
+                if (day.diff(datefrom, 'days') < 0) {
+                    $(childitems[i]).addClass('disabled');
+                }
+                else if (day.diff(dateto, 'days') == 0) {
+                    $(childitems[i]).addClass('reserved');
+                }
+            }
+        }
+        $parent.prevSlide();
+    });
+
+    $('.nextarrow').click(function () {
+        $parent = $(this).closest('.dateslider');
+        $id = $parent.attr('id');
+        var datefrom = moment(model.MultDepList[0].DateFrom);
+        var dateto = moment(model.MultDepList[0].DateTo);
+        var childitems = $(this).parent().find('.day');
+        $(childitems).removeClass('disabled reserved');
+        if ($id.search('sliderdatefrom') != -1) {
+            for (var i = 0; i < childitems.length; i++) {
+                var day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').add(7, 'days');
+                $(childitems[i]).html(day.format('dddd') + ' <br/>' + day.format('DD MMMM'));
+                if (day.diff(dateto, 'days') > 0) {
+                    $(childitems[i]).addClass('disabled');
+                }
+                else if (day.diff(datefrom, 'days') == 0) {
+                    $(childitems[i]).addClass('reserved');
+                }
+            }
+        }
+        else {
+            for (var i = 0; i < childitems.length; i++) {
+                var day = moment($(childitems[i]).text().replace("ΐ", "ϊ"), 'DDDD DD MMMM', 'el').add(7, 'days');
+                $(childitems[i]).html(day.format('dddd') + ' <br/>' + day.format('DD MMMM'));
+                if (day.diff(dateto, 'days') < 0) {
+                    $(childitems[i]).addClass('disabled');
+                }
+                else if (day.diff(dateto, 'days') == 0) {
+                    $(childitems[i]).addClass('reserved');
+                }
+            }
+        }
+        $parent.nextSlide();
+    });
 
     /*var Model = JSON.parse($('.model').val());
     if (Model.Triptype != 2|| Model.MultDepList.length == 1)

@@ -161,6 +161,10 @@ tr {
         background-color: orange;
     }
 
+.disabled {
+    text-decoration: line-through;
+}
+
 .prevarrow {
     margin-right: 5px;
 }
