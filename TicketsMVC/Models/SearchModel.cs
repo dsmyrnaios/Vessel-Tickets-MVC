@@ -41,6 +41,8 @@ namespace TicketsMVC.Models
         [Required(ErrorMessage = @"Συμπληρώστε Ημ/νια Επιστροφής")]
         [Display(Name = "Επιστροφή")]
         public DateTime DateTo { get; set; }
+
+        public string[] AlternativePorts { get; set; }
     }
 
     public class Passengers

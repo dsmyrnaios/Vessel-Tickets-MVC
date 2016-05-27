@@ -248,10 +248,22 @@
         }
     </div>
 
+    //SUBMIT BUTTON
+    <div class="row">
+        <div class="col-md-12">
+                <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">
+                    Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" />
+            </button>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("Passengers", "Ferries", FormMethod.Get, new { enctype = "multipart/form-data", @class = "form-horizontal container", role = "form" }))
+{
     <div class="row" style="border-bottom:5px solid #5B9E5B">
         <img class="col-md-1" src="../Content/Searchimages/ship.png" style="float:left;margin-bottom:5px" />
         <label class="col-md-11" style="font-weight:bolder;font-size:15px;color:#1E7FB1;padding-left:0px;margin-top:10px;">
-            Εναλλακτικά δρομολόγια
+            Εναλλακτικό δρομολόγιο
             @for (var i = 0; i < @Model.MultDepList.Count; i++)
             {
                 if (i > 0 && @Model.MultDepList[i].FromPort.ToString() == @Model.MultDepList[i - 1].ToPort.ToString())
@@ -269,41 +281,11 @@
             }
         </label>
     </div>
-    
-    <div class="dateslider row">
-        <div>
-            <div class="ns_slideContent">
-                <p class="prevarrow btn-floating waves-effect waves-light left">
-                    <img src="../Content/NerveSlider/icons/prev-dark.png" />
-                </p>
-                @for (int j = -3; j < 4; j++)
-                {
-                    if (j == 0)
-                    {
-                        <p value=@j class="reserved day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
-                                <p class="dayborder left"></p>
-                    }
-                    else
-                    {
-                        <p value=@j class="day left">@Model.MultDepList[0].DateFrom.AddDays(j).ToString("dddd", new CultureInfo("el-GR"))<br /> @Model.MultDepList[0].DateFrom.AddDays(j).ToString("dd MMMM", new CultureInfo("el-GR"))</p>
-                        if (j < 3)
-                        {
-                            <p class="dayborder left"></p>
-                        }
-                    }
-                }
-                <p class="nextarrow btn-floating waves-effect waves-light left">
-                    <img src="../Content/NerveSlider/icons/next-dark.png" />
-                </p>
-            </div>
-        </div>
-    </div>
-
     //SUBMIT BUTTON
     <div class="row">
         <div class="col-md-12">
-                <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">
-                    Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" />
+            <button value="Send" class="btn waves-effect waves-light right" type="submit" style="background-color:#FF6600">
+                Συνέχεια&nbsp;&nbsp;&nbsp;&nbsp;<img src="../Content/Searchimages/boatsearch.png" />
             </button>
         </div>
     </div>

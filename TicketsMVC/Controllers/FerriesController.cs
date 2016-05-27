@@ -61,8 +61,8 @@ namespace TicketsMVC.Controllers
                     resmodel.MultRouteList.Add(RouteList);
                 }
 
-                TempData["Triptype"] = model.Triptype;
-                TempData["MultDepList"] = model.MultDepList;
+                TempData["Triptype"] = resmodel.Triptype;
+                TempData["MultDepList"] = resmodel.MultDepList;
                 TempData["MultRouteList"] = resmodel.MultRouteList;
             }
             else
@@ -85,9 +85,20 @@ namespace TicketsMVC.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Updatemodeldates(MultipleDeparture model)
+        public ActionResult UpdateMultiDepList(MultipleDeparture model,String view)
         {
-            TempData["MultDepList"] = model;
+            if (view == "Search")
+            {
+                SearchModel sermodel = new SearchModel();
+                sermodel.MultDepList.Add(model);
+                TempData["MultDepList"] = sermodel.MultDepList;
+            }
+            else if (view == "Result")
+            {
+                ResultsModel resmodel = new ResultsModel();
+                resmodel.MultDepList.Add(model);
+                TempData["MultDepList"] = resmodel.MultDepList;
+            }
 
             return Json(model, JsonRequestBehavior.AllowGet);
         }

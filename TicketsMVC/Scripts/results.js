@@ -91,8 +91,8 @@ $(document).ready(function () {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            data: currentmodel,
-            url: 'Updatemodeldates',
+            data: { model: currentmodel, view: 'Result' },
+            url: 'UpdateMultiDepList',
             success: function (responsemodel) {
                 model.MultDepList[currentslider] = responsemodel;
             }
